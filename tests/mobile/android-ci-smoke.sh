@@ -29,5 +29,6 @@ if ! timeout 300 bash -c '
 fi
 adb shell wm size 1080x1920
 adb shell wm density 480
-adb shell input keyevent 82
+# Not `input keyevent 82`: on slow runners the MENU key times out in the still-busy launcher and opens an ANR dialog.
+adb shell wm dismiss-keyguard
 node tests/mobile/android-offline-smoke.mjs "$apk" --required

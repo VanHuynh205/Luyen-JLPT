@@ -77,17 +77,37 @@ function evaluate(script, args = []) {
   return request(`${sessionPath}/execute/sync`, "POST", { script, args });
 }
 
-async function startSession(alwaysMatch) {
+async function startSession(alwaysMatch, timeout = 60_000) {
   const session = await request(
     "/session",
     "POST",
     {
       capabilities: { alwaysMatch },
     },
-    60_000,
+    timeout,
   );
   assert.ok(session.sessionId, "WebDriver must return a session ID");
   sessionPath = `/session/${session.sessionId}`;
+}
+
+// The runner never exposed a WebView2 debugger; print what msedgedriver had to work with.
+async function printWebViewDiagnostics() {
+  const script = `
+Get-CimInstance Win32_Process -Filter "Name='msedgewebview2.exe' OR Name='msedgedriver.exe' OR Name='luyen-jlpt-desktop.exe'" |
+  ForEach-Object { "process $($_.ProcessId) parent $($_.ParentProcessId): $($_.CommandLine)" }
+Get-ChildItem -Path $env:DESKTOP_SMOKE_PROFILE, $env:LOCALAPPDATA -Recurse -Depth 4 -Filter DevToolsActivePort -ErrorAction SilentlyContinue |
+  ForEach-Object { "port file $($_.FullName): $((Get-Content -LiteralPath $_.FullName -TotalCount 1))" }
+foreach ($key in 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge', 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge\\WebView2', 'HKCU:\\SOFTWARE\\Policies\\Microsoft\\Edge') {
+  if (Test-Path $key) { "policy $key"; Get-ItemProperty $key | Out-String }
+}
+"elevated $(([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole('Administrators')) session $((Get-Process -Id $PID).SessionId)"`;
+  const probe = spawn("powershell.exe", ["-NoProfile", "-NonInteractive", "-Command", script], {
+    env: { ...process.env, DESKTOP_SMOKE_PROFILE: profile },
+    stdio: ["ignore", "inherit", "inherit"],
+    timeout: 60_000,
+    windowsHide: true,
+  });
+  await once(probe, "close");
 }
 
 async function testColdLaunch() {
@@ -219,7 +239,12 @@ try {
     }
   });
 
-  await startSession({ "tauri:options": { application: app } });
+  try {
+    await startSession({ "tauri:options": { application: app } }, 120_000);
+  } catch (error) {
+    await printWebViewDiagnostics();
+    throw new Error("WebDriver could not attach to the installed app", { cause: error });
+  }
   const startLearning = '[data-ocid="home.hero.primary_button"]';
   await until("home navigation", () =>
     evaluate("return !!document.querySelector(arguments[0]);", [startLearning]),

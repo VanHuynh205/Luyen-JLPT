@@ -74,9 +74,12 @@ function tapNode(xml, predicate) {
 
 async function waitForUi(predicate, description) {
   let snapshot = "";
-  for (let attempt = 0; attempt < 12; attempt++) {
+  for (let attempt = 0; attempt < 30; attempt++) {
     snapshot = uiDump();
-    if (predicate(snapshot)) return;
+    if (/isn(?:'|&apos;)t responding/.test(snapshot)) {
+      // A system ANR dialog for another app covers ours; let that app keep running.
+      tapNode(snapshot, (node) => /resource-id="android:id\/aerr_wait"|text="Wait"/.test(node));
+    } else if (predicate(snapshot)) return;
     await delay(500);
   }
   const labels = [...snapshot.matchAll(/(?:text|content-desc)="([^"]+)"/g)]
