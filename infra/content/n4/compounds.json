@@ -1,0 +1,9461 @@
+[
+ {
+  "id": "compound-KC001",
+  "word": "悪口",
+  "reading": "わるぐち",
+  "hanViet": "ÁC KHẨU",
+  "meaning": "nói xấu",
+  "components": [
+   {
+    "kanji": "悪",
+    "hanViet": "ÁC",
+    "meaning": "xấu, ác"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-60AA"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC002",
+  "word": "悪い",
+  "reading": "わるい",
+  "hanViet": "ÁC",
+  "meaning": "xấu, tệ",
+  "components": [
+   {
+    "kanji": "悪",
+    "hanViet": "ÁC",
+    "meaning": "xấu, ác"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-60AA"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC003",
+  "word": "悪天",
+  "reading": "あくてん",
+  "hanViet": "ÁC THIÊN",
+  "meaning": "thời tiết xấu",
+  "components": [
+   {
+    "kanji": "悪",
+    "hanViet": "ÁC",
+    "meaning": "xấu, ác"
+   },
+   {
+    "kanji": "天",
+    "hanViet": "THIÊN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-60AA"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC004",
+  "word": "急ぎます",
+  "reading": "いそぎます",
+  "hanViet": "CẤP",
+  "meaning": "vội, làm gấp",
+  "components": [
+   {
+    "kanji": "急",
+    "hanViet": "CẤP",
+    "meaning": "gấp, nhanh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6025"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC005",
+  "word": "特急",
+  "reading": "とっきゅう",
+  "hanViet": "ĐẶC CẤP",
+  "meaning": "chuyến tàu tốc hành đặc biệt",
+  "components": [
+   {
+    "kanji": "特",
+    "hanViet": "ĐẶC",
+    "meaning": ""
+   },
+   {
+    "kanji": "急",
+    "hanViet": "CẤP",
+    "meaning": "gấp, nhanh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6025"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC006",
+  "word": "急行",
+  "reading": "きゅうこう",
+  "hanViet": "CẤP HÀNH",
+  "meaning": "chuyến tàu tốc hành",
+  "components": [
+   {
+    "kanji": "急",
+    "hanViet": "CẤP",
+    "meaning": "gấp, nhanh"
+   },
+   {
+    "kanji": "行",
+    "hanViet": "HÀNH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6025"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC007",
+  "word": "去年",
+  "reading": "きょねん",
+  "hanViet": "KHỨ NIÊN",
+  "meaning": "năm ngoái",
+  "components": [
+   {
+    "kanji": "去",
+    "hanViet": "KHỨ",
+    "meaning": "rời đi, qua"
+   },
+   {
+    "kanji": "年",
+    "hanViet": "NIÊN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53BB"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC008",
+  "word": "去ります",
+  "reading": "さります",
+  "hanViet": "KHỨ",
+  "meaning": "rời đi",
+  "components": [
+   {
+    "kanji": "去",
+    "hanViet": "KHỨ",
+    "meaning": "rời đi, qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53BB"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC009",
+  "word": "過去",
+  "reading": "かこ",
+  "hanViet": "QUÁ KHỨ",
+  "meaning": "quá khứ",
+  "components": [
+   {
+    "kanji": "過",
+    "hanViet": "QUÁ",
+    "meaning": ""
+   },
+   {
+    "kanji": "去",
+    "hanViet": "KHỨ",
+    "meaning": "rời đi, qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53BB"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC010",
+  "word": "紙",
+  "reading": "かみ",
+  "hanViet": "CHỈ",
+  "meaning": "giấy",
+  "components": [
+   {
+    "kanji": "紙",
+    "hanViet": "CHỈ",
+    "meaning": "giấy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D19"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC011",
+  "word": "手紙",
+  "reading": "てがみ",
+  "hanViet": "THỦ CHỈ",
+  "meaning": "bức thư",
+  "components": [
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   },
+   {
+    "kanji": "紙",
+    "hanViet": "CHỈ",
+    "meaning": "giấy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D19"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC012",
+  "word": "表紙",
+  "reading": "ひょうし",
+  "hanViet": "BIỂU CHỈ",
+  "meaning": "bìa sách",
+  "components": [
+   {
+    "kanji": "表",
+    "hanViet": "BIỂU",
+    "meaning": ""
+   },
+   {
+    "kanji": "紙",
+    "hanViet": "CHỈ",
+    "meaning": "giấy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D19"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC013",
+  "word": "紙コップ",
+  "reading": "かみこっぷ",
+  "hanViet": "CHỈ",
+  "meaning": "cốc giấy",
+  "components": [
+   {
+    "kanji": "紙",
+    "hanViet": "CHỈ",
+    "meaning": "giấy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D19"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC014",
+  "word": "長野県",
+  "reading": "ながのけん",
+  "hanViet": "TRƯỜNG DÃ HUYỆN",
+  "meaning": "tỉnh Nagano",
+  "components": [
+   {
+    "kanji": "長",
+    "hanViet": "TRƯỜNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "野",
+    "hanViet": "DÃ",
+    "meaning": "đồng, hoang dã, lĩnh vực"
+   },
+   {
+    "kanji": "県",
+    "hanViet": "HUYỆN",
+    "meaning": "đơn vị hành chính cấp tỉnh ở Nhật"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-770C",
+   "kanji-K-91CE"
+  ],
+  "lessons": [
+   "26",
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC015",
+  "word": "県知事",
+  "reading": "けんちじ",
+  "hanViet": "HUYỆN TRI SỰ",
+  "meaning": "thống đốc tỉnh",
+  "components": [
+   {
+    "kanji": "県",
+    "hanViet": "HUYỆN",
+    "meaning": "đơn vị hành chính cấp tỉnh ở Nhật"
+   },
+   {
+    "kanji": "知",
+    "hanViet": "TRI",
+    "meaning": ""
+   },
+   {
+    "kanji": "事",
+    "hanViet": "SỰ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-770C"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC016",
+  "word": "直します",
+  "reading": "なおします",
+  "hanViet": "TRỰC",
+  "meaning": "sửa",
+  "components": [
+   {
+    "kanji": "直",
+    "hanViet": "TRỰC",
+    "meaning": "thẳng, trực tiếp, sửa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-76F4"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC017",
+  "word": "見直します",
+  "reading": "みなおします",
+  "hanViet": "KIẾN TRỰC",
+  "meaning": "xem lại",
+  "components": [
+   {
+    "kanji": "見",
+    "hanViet": "KIẾN",
+    "meaning": ""
+   },
+   {
+    "kanji": "直",
+    "hanViet": "TRỰC",
+    "meaning": "thẳng, trực tiếp, sửa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-76F4"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC018",
+  "word": "直接",
+  "reading": "ちょくせつ",
+  "hanViet": "TRỰC TIẾP",
+  "meaning": "trực tiếp",
+  "components": [
+   {
+    "kanji": "直",
+    "hanViet": "TRỰC",
+    "meaning": "thẳng, trực tiếp, sửa"
+   },
+   {
+    "kanji": "接",
+    "hanViet": "TIẾP",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-76F4"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC019",
+  "word": "東京都",
+  "reading": "とうきょうと",
+  "hanViet": "ĐÔNG KINH ĐÔ",
+  "meaning": "đô Tokyo",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "京",
+    "hanViet": "KINH",
+    "meaning": "kinh đô"
+   },
+   {
+    "kanji": "都",
+    "hanViet": "ĐÔ",
+    "meaning": "kinh đô, đô thị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-90FD"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC020",
+  "word": "首都",
+  "reading": "しゅと",
+  "hanViet": "THỦ ĐÔ",
+  "meaning": "thủ đô",
+  "components": [
+   {
+    "kanji": "首",
+    "hanViet": "THỦ",
+    "meaning": "cổ, đầu, người đứng đầu"
+   },
+   {
+    "kanji": "都",
+    "hanViet": "ĐÔ",
+    "meaning": "kinh đô, đô thị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-90FD",
+   "kanji-K-9996"
+  ],
+  "lessons": [
+   "26",
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC021",
+  "word": "都合",
+  "reading": "つごう",
+  "hanViet": "ĐÔ HỢP",
+  "meaning": "hoàn cảnh, sự thuận tiện",
+  "components": [
+   {
+    "kanji": "都",
+    "hanViet": "ĐÔ",
+    "meaning": "kinh đô, đô thị"
+   },
+   {
+    "kanji": "合",
+    "hanViet": "HỢP",
+    "meaning": "hợp, khớp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-90FD"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC022",
+  "word": "京都",
+  "reading": "きょうと",
+  "hanViet": "KINH ĐÔ",
+  "meaning": "Kyoto",
+  "components": [
+   {
+    "kanji": "京",
+    "hanViet": "KINH",
+    "meaning": "kinh đô"
+   },
+   {
+    "kanji": "都",
+    "hanViet": "ĐÔ",
+    "meaning": "kinh đô, đô thị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-90FD",
+   "kanji-K-4EAC"
+  ],
+  "lessons": [
+   "26",
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC023",
+  "word": "合います",
+  "reading": "あいます",
+  "hanViet": "HỢP",
+  "meaning": "vừa, khớp",
+  "components": [
+   {
+    "kanji": "合",
+    "hanViet": "HỢP",
+    "meaning": "hợp, khớp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5408"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC024",
+  "word": "試合",
+  "reading": "しあい",
+  "hanViet": "THÍ HỢP",
+  "meaning": "trận đấu",
+  "components": [
+   {
+    "kanji": "試",
+    "hanViet": "THÍ",
+    "meaning": ""
+   },
+   {
+    "kanji": "合",
+    "hanViet": "HỢP",
+    "meaning": "hợp, khớp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5408"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC025",
+  "word": "合格",
+  "reading": "ごうかく",
+  "hanViet": "HỢP CÁCH",
+  "meaning": "đỗ, đạt",
+  "components": [
+   {
+    "kanji": "合",
+    "hanViet": "HỢP",
+    "meaning": "hợp, khớp"
+   },
+   {
+    "kanji": "格",
+    "hanViet": "CÁCH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5408"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC026",
+  "word": "速い",
+  "reading": "はやい",
+  "hanViet": "TỐC",
+  "meaning": "nhanh",
+  "components": [
+   {
+    "kanji": "速",
+    "hanViet": "TỐC",
+    "meaning": "nhanh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901F"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC027",
+  "word": "速度",
+  "reading": "そくど",
+  "hanViet": "TỐC ĐỘ",
+  "meaning": "tốc độ",
+  "components": [
+   {
+    "kanji": "速",
+    "hanViet": "TỐC",
+    "meaning": "nhanh"
+   },
+   {
+    "kanji": "度",
+    "hanViet": "ĐỘ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901F"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "compound-KC028",
+  "word": "東",
+  "reading": "ひがし",
+  "hanViet": "ĐÔNG",
+  "meaning": "phía đông",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6771"
+  ],
+  "lessons": [
+   "26",
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC029",
+  "word": "味",
+  "reading": "あじ",
+  "hanViet": "VỊ",
+  "meaning": "vị",
+  "components": [
+   {
+    "kanji": "味",
+    "hanViet": "VỊ",
+    "meaning": "vị, mùi vị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5473"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC030",
+  "word": "味わいます",
+  "reading": "あじわいます",
+  "hanViet": "VỊ",
+  "meaning": "nếm, thưởng thức",
+  "components": [
+   {
+    "kanji": "味",
+    "hanViet": "VỊ",
+    "meaning": "vị, mùi vị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5473"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC031",
+  "word": "意味",
+  "reading": "いみ",
+  "hanViet": "Ý VỊ",
+  "meaning": "ý nghĩa",
+  "components": [
+   {
+    "kanji": "意",
+    "hanViet": "Ý",
+    "meaning": ""
+   },
+   {
+    "kanji": "味",
+    "hanViet": "VỊ",
+    "meaning": "vị, mùi vị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5473"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC032",
+  "word": "趣味",
+  "reading": "しゅみ",
+  "hanViet": "THÚ VỊ",
+  "meaning": "sở thích",
+  "components": [
+   {
+    "kanji": "趣",
+    "hanViet": "THÚ",
+    "meaning": ""
+   },
+   {
+    "kanji": "味",
+    "hanViet": "VỊ",
+    "meaning": "vị, mùi vị"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5473"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC033",
+  "word": "卒業",
+  "reading": "そつぎょう",
+  "hanViet": "TỐT NGHIỆP",
+  "meaning": "tốt nghiệp",
+  "components": [
+   {
+    "kanji": "卒",
+    "hanViet": "TỐT",
+    "meaning": "hoàn tất, tốt nghiệp"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-696D"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC034",
+  "word": "工業",
+  "reading": "こうぎょう",
+  "hanViet": "CÔNG NGHIỆP",
+  "meaning": "công nghiệp",
+  "components": [
+   {
+    "kanji": "工",
+    "hanViet": "CÔNG",
+    "meaning": "chế tác, công nghiệp"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-696D",
+   "kanji-K-5DE5"
+  ],
+  "lessons": [
+   "27-28",
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC035",
+  "word": "授業",
+  "reading": "じゅぎょう",
+  "hanViet": "THỤ NGHIỆP",
+  "meaning": "buổi học",
+  "components": [
+   {
+    "kanji": "授",
+    "hanViet": "THỤ",
+    "meaning": ""
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-696D"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC036",
+  "word": "鳥",
+  "reading": "とり",
+  "hanViet": "ĐIỂU",
+  "meaning": "chim",
+  "components": [
+   {
+    "kanji": "鳥",
+    "hanViet": "ĐIỂU",
+    "meaning": "chim"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9CE5"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC037",
+  "word": "鳥肉",
+  "reading": "とりにく",
+  "hanViet": "ĐIỂU NHỤC",
+  "meaning": "thịt gia cầm, thường là thịt gà",
+  "components": [
+   {
+    "kanji": "鳥",
+    "hanViet": "ĐIỂU",
+    "meaning": "chim"
+   },
+   {
+    "kanji": "肉",
+    "hanViet": "NHỤC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9CE5"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC038",
+  "word": "白鳥",
+  "reading": "はくちょう",
+  "hanViet": "BẠCH ĐIỂU",
+  "meaning": "thiên nga",
+  "components": [
+   {
+    "kanji": "白",
+    "hanViet": "BẠCH",
+    "meaning": ""
+   },
+   {
+    "kanji": "鳥",
+    "hanViet": "ĐIỂU",
+    "meaning": "chim"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9CE5"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC039",
+  "word": "通います",
+  "reading": "かよいます",
+  "hanViet": "THÔNG",
+  "meaning": "thường xuyên đến",
+  "components": [
+   {
+    "kanji": "通",
+    "hanViet": "THÔNG",
+    "meaning": "đi qua, qua lại"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901A"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC040",
+  "word": "通ります",
+  "reading": "とおります",
+  "hanViet": "THÔNG",
+  "meaning": "đi qua",
+  "components": [
+   {
+    "kanji": "通",
+    "hanViet": "THÔNG",
+    "meaning": "đi qua, qua lại"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901A"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC041",
+  "word": "交通",
+  "reading": "こうつう",
+  "hanViet": "GIAO THÔNG",
+  "meaning": "giao thông",
+  "components": [
+   {
+    "kanji": "交",
+    "hanViet": "GIAO",
+    "meaning": "giao nhau, qua lại"
+   },
+   {
+    "kanji": "通",
+    "hanViet": "THÔNG",
+    "meaning": "đi qua, qua lại"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901A",
+   "kanji-K-4EA4"
+  ],
+  "lessons": [
+   "27-28",
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC042",
+  "word": "通勤",
+  "reading": "つうきん",
+  "hanViet": "THÔNG CẦN",
+  "meaning": "đi làm hằng ngày",
+  "components": [
+   {
+    "kanji": "通",
+    "hanViet": "THÔNG",
+    "meaning": "đi qua, qua lại"
+   },
+   {
+    "kanji": "勤",
+    "hanViet": "CẦN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-901A"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC043",
+  "word": "運びます",
+  "reading": "はこびます",
+  "hanViet": "VẬN",
+  "meaning": "vận chuyển",
+  "components": [
+   {
+    "kanji": "運",
+    "hanViet": "VẬN",
+    "meaning": "vận chuyển, vận may"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-904B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC044",
+  "word": "運転します",
+  "reading": "うんてんします",
+  "hanViet": "VẬN CHUYỂN",
+  "meaning": "lái xe",
+  "components": [
+   {
+    "kanji": "運",
+    "hanViet": "VẬN",
+    "meaning": "vận chuyển, vận may"
+   },
+   {
+    "kanji": "転",
+    "hanViet": "CHUYỂN",
+    "meaning": "xoay, chuyển, ngã"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-904B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC045",
+  "word": "運命",
+  "reading": "うんめい",
+  "hanViet": "VẬN MỆNH",
+  "meaning": "vận mệnh",
+  "components": [
+   {
+    "kanji": "運",
+    "hanViet": "VẬN",
+    "meaning": "vận chuyển, vận may"
+   },
+   {
+    "kanji": "命",
+    "hanViet": "MỆNH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-904B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC046",
+  "word": "転びます",
+  "reading": "ころびます",
+  "hanViet": "CHUYỂN",
+  "meaning": "vấp ngã",
+  "components": [
+   {
+    "kanji": "転",
+    "hanViet": "CHUYỂN",
+    "meaning": "xoay, chuyển, ngã"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EE2"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC047",
+  "word": "自転車",
+  "reading": "じてんしゃ",
+  "hanViet": "TỰ CHUYỂN XA",
+  "meaning": "xe đạp",
+  "components": [
+   {
+    "kanji": "自",
+    "hanViet": "TỰ",
+    "meaning": ""
+   },
+   {
+    "kanji": "転",
+    "hanViet": "CHUYỂN",
+    "meaning": "xoay, chuyển, ngã"
+   },
+   {
+    "kanji": "車",
+    "hanViet": "XA",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EE2"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC048",
+  "word": "転校",
+  "reading": "てんこう",
+  "hanViet": "CHUYỂN GIÁO",
+  "meaning": "chuyển trường",
+  "components": [
+   {
+    "kanji": "転",
+    "hanViet": "CHUYỂN",
+    "meaning": "xoay, chuyển, ngã"
+   },
+   {
+    "kanji": "校",
+    "hanViet": "GIÁO",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EE2"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC049",
+  "word": "回転寿司",
+  "reading": "かいてんずし",
+  "hanViet": "HỒI CHUYỂN THỌ TI",
+  "meaning": "sushi băng chuyền",
+  "components": [
+   {
+    "kanji": "回",
+    "hanViet": "HỒI",
+    "meaning": "quay, vòng, lần"
+   },
+   {
+    "kanji": "転",
+    "hanViet": "CHUYỂN",
+    "meaning": "xoay, chuyển, ngã"
+   },
+   {
+    "kanji": "寿",
+    "hanViet": "THỌ",
+    "meaning": ""
+   },
+   {
+    "kanji": "司",
+    "hanViet": "TI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EE2"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC050",
+  "word": "力",
+  "reading": "ちから",
+  "hanViet": "LỰC",
+  "meaning": "sức lực",
+  "components": [
+   {
+    "kanji": "力",
+    "hanViet": "LỰC",
+    "meaning": "sức, sức mạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-529B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC051",
+  "word": "学力",
+  "reading": "がくりょく",
+  "hanViet": "HỌC LỰC",
+  "meaning": "học lực",
+  "components": [
+   {
+    "kanji": "学",
+    "hanViet": "HỌC",
+    "meaning": ""
+   },
+   {
+    "kanji": "力",
+    "hanViet": "LỰC",
+    "meaning": "sức, sức mạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-529B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC052",
+  "word": "努力",
+  "reading": "どりょく",
+  "hanViet": "NỖ LỰC",
+  "meaning": "nỗ lực",
+  "components": [
+   {
+    "kanji": "努",
+    "hanViet": "NỖ",
+    "meaning": ""
+   },
+   {
+    "kanji": "力",
+    "hanViet": "LỰC",
+    "meaning": "sức, sức mạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-529B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC053",
+  "word": "電力",
+  "reading": "でんりょく",
+  "hanViet": "ĐIỆN LỰC",
+  "meaning": "điện lực",
+  "components": [
+   {
+    "kanji": "電",
+    "hanViet": "ĐIỆN",
+    "meaning": ""
+   },
+   {
+    "kanji": "力",
+    "hanViet": "LỰC",
+    "meaning": "sức, sức mạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-529B"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC054",
+  "word": "色",
+  "reading": "いろ",
+  "hanViet": "SẮC",
+  "meaning": "màu sắc",
+  "components": [
+   {
+    "kanji": "色",
+    "hanViet": "SẮC",
+    "meaning": "màu sắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8272"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC055",
+  "word": "水色",
+  "reading": "みずいろ",
+  "hanViet": "THỦY SẮC",
+  "meaning": "xanh lam nhạt",
+  "components": [
+   {
+    "kanji": "水",
+    "hanViet": "THỦY",
+    "meaning": ""
+   },
+   {
+    "kanji": "色",
+    "hanViet": "SẮC",
+    "meaning": "màu sắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8272"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC056",
+  "word": "景色",
+  "reading": "けしき",
+  "hanViet": "CẢNH SẮC",
+  "meaning": "phong cảnh",
+  "components": [
+   {
+    "kanji": "景",
+    "hanViet": "CẢNH",
+    "meaning": ""
+   },
+   {
+    "kanji": "色",
+    "hanViet": "SẮC",
+    "meaning": "màu sắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8272"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC057",
+  "word": "特色",
+  "reading": "とくしょく",
+  "hanViet": "ĐẶC SẮC",
+  "meaning": "nét đặc trưng",
+  "components": [
+   {
+    "kanji": "特",
+    "hanViet": "ĐẶC",
+    "meaning": ""
+   },
+   {
+    "kanji": "色",
+    "hanViet": "SẮC",
+    "meaning": "màu sắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8272"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC058",
+  "word": "家具",
+  "reading": "かぐ",
+  "hanViet": "GIA CỤ",
+  "meaning": "đồ nội thất",
+  "components": [
+   {
+    "kanji": "家",
+    "hanViet": "GIA",
+    "meaning": ""
+   },
+   {
+    "kanji": "具",
+    "hanViet": "CỤ",
+    "meaning": "dụng cụ, vật dụng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5177"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC059",
+  "word": "道具",
+  "reading": "どうぐ",
+  "hanViet": "ĐẠO CỤ",
+  "meaning": "dụng cụ",
+  "components": [
+   {
+    "kanji": "道",
+    "hanViet": "ĐẠO",
+    "meaning": ""
+   },
+   {
+    "kanji": "具",
+    "hanViet": "CỤ",
+    "meaning": "dụng cụ, vật dụng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5177"
+  ],
+  "lessons": [
+   "27-28"
+  ]
+ },
+ {
+  "id": "compound-KC060",
+  "word": "地図",
+  "reading": "ちず",
+  "hanViet": "ĐỊA ĐỒ",
+  "meaning": "bản đồ",
+  "components": [
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   },
+   {
+    "kanji": "図",
+    "hanViet": "ĐỒ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5730"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC061",
+  "word": "地理",
+  "reading": "ちり",
+  "hanViet": "ĐỊA LÝ",
+  "meaning": "địa lý",
+  "components": [
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   },
+   {
+    "kanji": "理",
+    "hanViet": "LÝ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5730"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC062",
+  "word": "地震",
+  "reading": "じしん",
+  "hanViet": "ĐỊA CHẤN",
+  "meaning": "động đất",
+  "components": [
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   },
+   {
+    "kanji": "震",
+    "hanViet": "CHẤN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5730"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC063",
+  "word": "地球",
+  "reading": "ちきゅう",
+  "hanViet": "ĐỊA CẦU",
+  "meaning": "Trái Đất",
+  "components": [
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   },
+   {
+    "kanji": "球",
+    "hanViet": "CẦU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5730"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC064",
+  "word": "走ります",
+  "reading": "はしります",
+  "hanViet": "TẨU",
+  "meaning": "chạy",
+  "components": [
+   {
+    "kanji": "走",
+    "hanViet": "TẨU",
+    "meaning": "chạy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D70"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC065",
+  "word": "口走る",
+  "reading": "くちばしる",
+  "hanViet": "KHẨU TẨU",
+  "meaning": "lỡ miệng nói",
+  "components": [
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   },
+   {
+    "kanji": "走",
+    "hanViet": "TẨU",
+    "meaning": "chạy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D70"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC066",
+  "word": "集めます",
+  "reading": "あつめます",
+  "hanViet": "TẬP",
+  "meaning": "thu thập",
+  "components": [
+   {
+    "kanji": "集",
+    "hanViet": "TẬP",
+    "meaning": "gom, tập hợp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96C6"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC067",
+  "word": "集まります",
+  "reading": "あつまります",
+  "hanViet": "TẬP",
+  "meaning": "tập hợp lại",
+  "components": [
+   {
+    "kanji": "集",
+    "hanViet": "TẬP",
+    "meaning": "gom, tập hợp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96C6"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC068",
+  "word": "集会",
+  "reading": "しゅうかい",
+  "hanViet": "TẬP HỘI",
+  "meaning": "cuộc tụ họp",
+  "components": [
+   {
+    "kanji": "集",
+    "hanViet": "TẬP",
+    "meaning": "gom, tập hợp"
+   },
+   {
+    "kanji": "会",
+    "hanViet": "HỘI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96C6"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC069",
+  "word": "集中する",
+  "reading": "しゅうちゅうする",
+  "hanViet": "TẬP TRUNG",
+  "meaning": "tập trung",
+  "components": [
+   {
+    "kanji": "集",
+    "hanViet": "TẬP",
+    "meaning": "gom, tập hợp"
+   },
+   {
+    "kanji": "中",
+    "hanViet": "TRUNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96C6"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC070",
+  "word": "研究",
+  "reading": "けんきゅう",
+  "hanViet": "NGHIÊN CỨU",
+  "meaning": "nghiên cứu",
+  "components": [
+   {
+    "kanji": "研",
+    "hanViet": "NGHIÊN",
+    "meaning": "mài, nghiên cứu"
+   },
+   {
+    "kanji": "究",
+    "hanViet": "CỨU",
+    "meaning": "tìm hiểu đến cùng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7814"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC071",
+  "word": "研究者",
+  "reading": "けんきゅうしゃ",
+  "hanViet": "NGHIÊN CỨU GIẢ",
+  "meaning": "nhà nghiên cứu",
+  "components": [
+   {
+    "kanji": "研",
+    "hanViet": "NGHIÊN",
+    "meaning": "mài, nghiên cứu"
+   },
+   {
+    "kanji": "究",
+    "hanViet": "CỨU",
+    "meaning": "tìm hiểu đến cùng"
+   },
+   {
+    "kanji": "者",
+    "hanViet": "GIẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7814"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC072",
+  "word": "研ぎます",
+  "reading": "とぎます",
+  "hanViet": "NGHIÊN",
+  "meaning": "mài, giũa",
+  "components": [
+   {
+    "kanji": "研",
+    "hanViet": "NGHIÊN",
+    "meaning": "mài, nghiên cứu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7814"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC073",
+  "word": "研究室",
+  "reading": "けんきゅうしつ",
+  "hanViet": "NGHIÊN CỨU THẤT",
+  "meaning": "phòng nghiên cứu",
+  "components": [
+   {
+    "kanji": "研",
+    "hanViet": "NGHIÊN",
+    "meaning": "mài, nghiên cứu"
+   },
+   {
+    "kanji": "究",
+    "hanViet": "CỨU",
+    "meaning": "tìm hiểu đến cùng"
+   },
+   {
+    "kanji": "室",
+    "hanViet": "THẤT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A76"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC074",
+  "word": "究明",
+  "reading": "きゅうめい",
+  "hanViet": "CỨU MINH",
+  "meaning": "điều tra làm sáng tỏ",
+  "components": [
+   {
+    "kanji": "究",
+    "hanViet": "CỨU",
+    "meaning": "tìm hiểu đến cùng"
+   },
+   {
+    "kanji": "明",
+    "hanViet": "MINH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A76"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC075",
+  "word": "日曜日",
+  "reading": "にちようび",
+  "hanViet": "NHẬT DIỆU NHẬT",
+  "meaning": "Chủ nhật",
+  "components": [
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   },
+   {
+    "kanji": "曜",
+    "hanViet": "DIỆU",
+    "meaning": "chữ dùng để chỉ thứ trong tuần"
+   },
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-66DC"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC076",
+  "word": "土曜日",
+  "reading": "どようび",
+  "hanViet": "THỔ DIỆU NHẬT",
+  "meaning": "thứ Bảy",
+  "components": [
+   {
+    "kanji": "土",
+    "hanViet": "THỔ",
+    "meaning": ""
+   },
+   {
+    "kanji": "曜",
+    "hanViet": "DIỆU",
+    "meaning": "chữ dùng để chỉ thứ trong tuần"
+   },
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-66DC"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC077",
+  "word": "何曜日",
+  "reading": "なんようび",
+  "hanViet": "HÀ DIỆU NHẬT",
+  "meaning": "thứ mấy",
+  "components": [
+   {
+    "kanji": "何",
+    "hanViet": "HÀ",
+    "meaning": ""
+   },
+   {
+    "kanji": "曜",
+    "hanViet": "DIỆU",
+    "meaning": "chữ dùng để chỉ thứ trong tuần"
+   },
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-66DC"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC078",
+  "word": "重い",
+  "reading": "おもい",
+  "hanViet": "TRỌNG",
+  "meaning": "nặng",
+  "components": [
+   {
+    "kanji": "重",
+    "hanViet": "TRỌNG",
+    "meaning": "nặng, quan trọng, chồng lên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CD"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC079",
+  "word": "体重",
+  "reading": "たいじゅう",
+  "hanViet": "THỂ TRỌNG",
+  "meaning": "cân nặng",
+  "components": [
+   {
+    "kanji": "体",
+    "hanViet": "THỂ",
+    "meaning": ""
+   },
+   {
+    "kanji": "重",
+    "hanViet": "TRỌNG",
+    "meaning": "nặng, quan trọng, chồng lên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CD"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC080",
+  "word": "貴重品",
+  "reading": "きちょうひん",
+  "hanViet": "QUÝ TRỌNG PHẨM",
+  "meaning": "đồ quý giá",
+  "components": [
+   {
+    "kanji": "貴",
+    "hanViet": "QUÝ",
+    "meaning": ""
+   },
+   {
+    "kanji": "重",
+    "hanViet": "TRỌNG",
+    "meaning": "nặng, quan trọng, chồng lên"
+   },
+   {
+    "kanji": "品",
+    "hanViet": "PHẨM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CD"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC081",
+  "word": "池",
+  "reading": "いけ",
+  "hanViet": "TRÌ",
+  "meaning": "ao",
+  "components": [
+   {
+    "kanji": "池",
+    "hanViet": "TRÌ",
+    "meaning": "ao, hồ nhỏ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6C60"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC082",
+  "word": "電池",
+  "reading": "でんち",
+  "hanViet": "ĐIỆN TRÌ",
+  "meaning": "pin",
+  "components": [
+   {
+    "kanji": "電",
+    "hanViet": "ĐIỆN",
+    "meaning": ""
+   },
+   {
+    "kanji": "池",
+    "hanViet": "TRÌ",
+    "meaning": "ao, hồ nhỏ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6C60"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC083",
+  "word": "ため池",
+  "reading": "ためいけ",
+  "hanViet": "TRÌ",
+  "meaning": "ao hoặc hồ chứa nước",
+  "components": [
+   {
+    "kanji": "池",
+    "hanViet": "TRÌ",
+    "meaning": "ao, hồ nhỏ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6C60"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC084",
+  "word": "形",
+  "reading": "かたち",
+  "hanViet": "HÌNH",
+  "meaning": "hình dáng",
+  "components": [
+   {
+    "kanji": "形",
+    "hanViet": "HÌNH",
+    "meaning": "hình dáng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F62"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC085",
+  "word": "人形",
+  "reading": "にんぎょう",
+  "hanViet": "NHÂN HÌNH",
+  "meaning": "búp bê",
+  "components": [
+   {
+    "kanji": "人",
+    "hanViet": "NHÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "形",
+    "hanViet": "HÌNH",
+    "meaning": "hình dáng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F62"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC086",
+  "word": "形見",
+  "reading": "かたみ",
+  "hanViet": "HÌNH KIẾN",
+  "meaning": "kỷ vật",
+  "components": [
+   {
+    "kanji": "形",
+    "hanViet": "HÌNH",
+    "meaning": "hình dáng"
+   },
+   {
+    "kanji": "見",
+    "hanViet": "KIẾN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F62"
+  ],
+  "lessons": [
+   "29-30"
+  ]
+ },
+ {
+  "id": "compound-KC088",
+  "word": "東口",
+  "reading": "ひがしぐち",
+  "hanViet": "ĐÔNG KHẨU",
+  "meaning": "cửa phía đông",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6771"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC089",
+  "word": "東京",
+  "reading": "とうきょう",
+  "hanViet": "ĐÔNG KINH",
+  "meaning": "Tokyo",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "京",
+    "hanViet": "KINH",
+    "meaning": "kinh đô"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6771",
+   "kanji-K-4EAC"
+  ],
+  "lessons": [
+   "31-32",
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC090",
+  "word": "関東",
+  "reading": "かんとう",
+  "hanViet": "QUAN ĐÔNG",
+  "meaning": "vùng Kantō",
+  "components": [
+   {
+    "kanji": "関",
+    "hanViet": "QUAN",
+    "meaning": ""
+   },
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6771"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC091",
+  "word": "西",
+  "reading": "にし",
+  "hanViet": "TÂY",
+  "meaning": "phía tây",
+  "components": [
+   {
+    "kanji": "西",
+    "hanViet": "TÂY",
+    "meaning": "phía tây"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-897F"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC092",
+  "word": "西口",
+  "reading": "にしぐち",
+  "hanViet": "TÂY KHẨU",
+  "meaning": "cửa phía tây",
+  "components": [
+   {
+    "kanji": "西",
+    "hanViet": "TÂY",
+    "meaning": "phía tây"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-897F"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC093",
+  "word": "西洋",
+  "reading": "せいよう",
+  "hanViet": "TÂY DƯƠNG",
+  "meaning": "phương Tây",
+  "components": [
+   {
+    "kanji": "西",
+    "hanViet": "TÂY",
+    "meaning": "phía tây"
+   },
+   {
+    "kanji": "洋",
+    "hanViet": "DƯƠNG",
+    "meaning": "đại dương, phương Tây"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-897F",
+   "kanji-K-6D0B"
+  ],
+  "lessons": [
+   "31-32",
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC094",
+  "word": "関西",
+  "reading": "かんさい",
+  "hanViet": "QUAN TÂY",
+  "meaning": "vùng Kansai",
+  "components": [
+   {
+    "kanji": "関",
+    "hanViet": "QUAN",
+    "meaning": ""
+   },
+   {
+    "kanji": "西",
+    "hanViet": "TÂY",
+    "meaning": "phía tây"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-897F"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC095",
+  "word": "南",
+  "reading": "みなみ",
+  "hanViet": "NAM",
+  "meaning": "phía nam",
+  "components": [
+   {
+    "kanji": "南",
+    "hanViet": "NAM",
+    "meaning": "phía nam"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5357"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC096",
+  "word": "南口",
+  "reading": "みなみぐち",
+  "hanViet": "NAM KHẨU",
+  "meaning": "cửa phía nam",
+  "components": [
+   {
+    "kanji": "南",
+    "hanViet": "NAM",
+    "meaning": "phía nam"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5357"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC097",
+  "word": "東南アジア",
+  "reading": "とうなんあじあ",
+  "hanViet": "ĐÔNG NAM",
+  "meaning": "Đông Nam Á",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "南",
+    "hanViet": "NAM",
+    "meaning": "phía nam"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5357"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC098",
+  "word": "南米",
+  "reading": "なんべい",
+  "hanViet": "NAM MỄ",
+  "meaning": "Nam Mỹ",
+  "components": [
+   {
+    "kanji": "南",
+    "hanViet": "NAM",
+    "meaning": "phía nam"
+   },
+   {
+    "kanji": "米",
+    "hanViet": "MỄ",
+    "meaning": "gạo, chữ viết tắt chỉ Mỹ trong từ ghép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5357"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC099",
+  "word": "北",
+  "reading": "きた",
+  "hanViet": "BẮC",
+  "meaning": "phía bắc",
+  "components": [
+   {
+    "kanji": "北",
+    "hanViet": "BẮC",
+    "meaning": "phía bắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5317"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC100",
+  "word": "北口",
+  "reading": "きたぐち",
+  "hanViet": "BẮC KHẨU",
+  "meaning": "cửa phía bắc",
+  "components": [
+   {
+    "kanji": "北",
+    "hanViet": "BẮC",
+    "meaning": "phía bắc"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5317"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC101",
+  "word": "北海道",
+  "reading": "ほっかいどう",
+  "hanViet": "BẮC HẢI ĐẠO",
+  "meaning": "Hokkaidō",
+  "components": [
+   {
+    "kanji": "北",
+    "hanViet": "BẮC",
+    "meaning": "phía bắc"
+   },
+   {
+    "kanji": "海",
+    "hanViet": "HẢI",
+    "meaning": ""
+   },
+   {
+    "kanji": "道",
+    "hanViet": "ĐẠO",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5317"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC102",
+  "word": "東北",
+  "reading": "とうほく",
+  "hanViet": "ĐÔNG BẮC",
+  "meaning": "đông bắc, vùng Tōhoku",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "北",
+    "hanViet": "BẮC",
+    "meaning": "phía bắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5317"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC103",
+  "word": "都市",
+  "reading": "とし",
+  "hanViet": "ĐÔ THỊ",
+  "meaning": "đô thị",
+  "components": [
+   {
+    "kanji": "都",
+    "hanViet": "ĐÔ",
+    "meaning": "kinh đô, đô thị"
+   },
+   {
+    "kanji": "市",
+    "hanViet": "THỊ",
+    "meaning": "thành phố, chợ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5E02"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC104",
+  "word": "市長",
+  "reading": "しちょう",
+  "hanViet": "THỊ TRƯỜNG",
+  "meaning": "thị trưởng",
+  "components": [
+   {
+    "kanji": "市",
+    "hanViet": "THỊ",
+    "meaning": "thành phố, chợ"
+   },
+   {
+    "kanji": "長",
+    "hanViet": "TRƯỜNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5E02"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC105",
+  "word": "市役所",
+  "reading": "しやくしょ",
+  "hanViet": "THỊ DỊCH SỞ",
+  "meaning": "tòa thị chính",
+  "components": [
+   {
+    "kanji": "市",
+    "hanViet": "THỊ",
+    "meaning": "thành phố, chợ"
+   },
+   {
+    "kanji": "役",
+    "hanViet": "DỊCH",
+    "meaning": ""
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5E02"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC106",
+  "word": "市場",
+  "reading": "いちば",
+  "hanViet": "THỊ TRÀNG",
+  "meaning": "chợ",
+  "components": [
+   {
+    "kanji": "市",
+    "hanViet": "THỊ",
+    "meaning": "thành phố, chợ"
+   },
+   {
+    "kanji": "場",
+    "hanViet": "TRÀNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5E02"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC107",
+  "word": "風",
+  "reading": "かぜ",
+  "hanViet": "PHONG",
+  "meaning": "gió",
+  "components": [
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98A8"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC108",
+  "word": "台風",
+  "reading": "たいふう",
+  "hanViet": "ĐÀI PHONG",
+  "meaning": "bão",
+  "components": [
+   {
+    "kanji": "台",
+    "hanViet": "ĐÀI",
+    "meaning": "bục, đơn vị đếm máy và xe"
+   },
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98A8",
+   "kanji-K-53F0"
+  ],
+  "lessons": [
+   "31-32",
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC109",
+  "word": "風邪",
+  "reading": "かぜ",
+  "hanViet": "PHONG TÀ",
+  "meaning": "cảm lạnh",
+  "components": [
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   },
+   {
+    "kanji": "邪",
+    "hanViet": "TÀ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98A8"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC110",
+  "word": "お風呂",
+  "reading": "おふろ",
+  "hanViet": "PHONG LỮ",
+  "meaning": "bồn tắm, việc tắm",
+  "components": [
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   },
+   {
+    "kanji": "呂",
+    "hanViet": "LỮ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98A8"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC111",
+  "word": "夕日",
+  "reading": "ゆうひ",
+  "hanViet": "TỊCH NHẬT",
+  "meaning": "mặt trời lúc chiều tà",
+  "components": [
+   {
+    "kanji": "夕",
+    "hanViet": "TỊCH",
+    "meaning": "chiều tối"
+   },
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5915"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC112",
+  "word": "夕方",
+  "reading": "ゆうがた",
+  "hanViet": "TỊCH PHƯƠNG",
+  "meaning": "chiều muộn",
+  "components": [
+   {
+    "kanji": "夕",
+    "hanViet": "TỊCH",
+    "meaning": "chiều tối"
+   },
+   {
+    "kanji": "方",
+    "hanViet": "PHƯƠNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5915"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC113",
+  "word": "夕食",
+  "reading": "ゆうしょく",
+  "hanViet": "TỊCH THỰC",
+  "meaning": "bữa tối",
+  "components": [
+   {
+    "kanji": "夕",
+    "hanViet": "TỊCH",
+    "meaning": "chiều tối"
+   },
+   {
+    "kanji": "食",
+    "hanViet": "THỰC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5915"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC114",
+  "word": "空",
+  "reading": "そら",
+  "hanViet": "KHÔNG",
+  "meaning": "bầu trời",
+  "components": [
+   {
+    "kanji": "空",
+    "hanViet": "KHÔNG",
+    "meaning": "trời, trống"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A7A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC115",
+  "word": "空気",
+  "reading": "くうき",
+  "hanViet": "KHÔNG KHÍ",
+  "meaning": "không khí",
+  "components": [
+   {
+    "kanji": "空",
+    "hanViet": "KHÔNG",
+    "meaning": "trời, trống"
+   },
+   {
+    "kanji": "気",
+    "hanViet": "KHÍ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A7A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC116",
+  "word": "空く",
+  "reading": "あく",
+  "hanViet": "KHÔNG",
+  "meaning": "trống, có chỗ",
+  "components": [
+   {
+    "kanji": "空",
+    "hanViet": "KHÔNG",
+    "meaning": "trời, trống"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A7A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC117",
+  "word": "空手",
+  "reading": "からて",
+  "hanViet": "KHÔNG THỦ",
+  "meaning": "karate",
+  "components": [
+   {
+    "kanji": "空",
+    "hanViet": "KHÔNG",
+    "meaning": "trời, trống"
+   },
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7A7A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC118",
+  "word": "地区",
+  "reading": "ちく",
+  "hanViet": "ĐỊA KHU",
+  "meaning": "khu vực",
+  "components": [
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   },
+   {
+    "kanji": "区",
+    "hanViet": "KHU",
+    "meaning": "khu, quận"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-533A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC119",
+  "word": "区役所",
+  "reading": "くやくしょ",
+  "hanViet": "KHU DỊCH SỞ",
+  "meaning": "văn phòng hành chính quận",
+  "components": [
+   {
+    "kanji": "区",
+    "hanViet": "KHU",
+    "meaning": "khu, quận"
+   },
+   {
+    "kanji": "役",
+    "hanViet": "DỊCH",
+    "meaning": ""
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-533A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC120",
+  "word": "区別",
+  "reading": "くべつ",
+  "hanViet": "KHU BIỆT",
+  "meaning": "phân biệt",
+  "components": [
+   {
+    "kanji": "区",
+    "hanViet": "KHU",
+    "meaning": "khu, quận"
+   },
+   {
+    "kanji": "別",
+    "hanViet": "BIỆT",
+    "meaning": "tách, riêng, khác"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-533A"
+  ],
+  "lessons": [
+   "31-32"
+  ]
+ },
+ {
+  "id": "compound-KC121",
+  "word": "薬",
+  "reading": "くすり",
+  "hanViet": "DƯỢC",
+  "meaning": "thuốc",
+  "components": [
+   {
+    "kanji": "薬",
+    "hanViet": "DƯỢC",
+    "meaning": "thuốc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-85AC"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC122",
+  "word": "薬局",
+  "reading": "やっきょく",
+  "hanViet": "DƯỢC CỤC",
+  "meaning": "hiệu thuốc",
+  "components": [
+   {
+    "kanji": "薬",
+    "hanViet": "DƯỢC",
+    "meaning": "thuốc"
+   },
+   {
+    "kanji": "局",
+    "hanViet": "CỤC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-85AC"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC123",
+  "word": "風邪薬",
+  "reading": "かぜぐすり",
+  "hanViet": "PHONG TÀ DƯỢC",
+  "meaning": "thuốc cảm",
+  "components": [
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   },
+   {
+    "kanji": "邪",
+    "hanViet": "TÀ",
+    "meaning": ""
+   },
+   {
+    "kanji": "薬",
+    "hanViet": "DƯỢC",
+    "meaning": "thuốc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-85AC"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC124",
+  "word": "服",
+  "reading": "ふく",
+  "hanViet": "PHỤC",
+  "meaning": "quần áo",
+  "components": [
+   {
+    "kanji": "服",
+    "hanViet": "PHỤC",
+    "meaning": "quần áo"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-670D"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC125",
+  "word": "洋服",
+  "reading": "ようふく",
+  "hanViet": "DƯƠNG PHỤC",
+  "meaning": "quần áo kiểu Tây",
+  "components": [
+   {
+    "kanji": "洋",
+    "hanViet": "DƯƠNG",
+    "meaning": "đại dương, phương Tây"
+   },
+   {
+    "kanji": "服",
+    "hanViet": "PHỤC",
+    "meaning": "quần áo"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-670D",
+   "kanji-K-6D0B"
+  ],
+  "lessons": [
+   "33-34",
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC126",
+  "word": "制服",
+  "reading": "せいふく",
+  "hanViet": "CHẾ PHỤC",
+  "meaning": "đồng phục",
+  "components": [
+   {
+    "kanji": "制",
+    "hanViet": "CHẾ",
+    "meaning": ""
+   },
+   {
+    "kanji": "服",
+    "hanViet": "PHỤC",
+    "meaning": "quần áo"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-670D"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC127",
+  "word": "品質",
+  "reading": "ひんしつ",
+  "hanViet": "PHẨM CHẤT",
+  "meaning": "chất lượng sản phẩm",
+  "components": [
+   {
+    "kanji": "品",
+    "hanViet": "PHẨM",
+    "meaning": ""
+   },
+   {
+    "kanji": "質",
+    "hanViet": "CHẤT",
+    "meaning": "chất, tính chất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8CEA"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC128",
+  "word": "質問",
+  "reading": "しつもん",
+  "hanViet": "CHẤT VẤN",
+  "meaning": "câu hỏi",
+  "components": [
+   {
+    "kanji": "質",
+    "hanViet": "CHẤT",
+    "meaning": "chất, tính chất"
+   },
+   {
+    "kanji": "問",
+    "hanViet": "VẤN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8CEA"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC129",
+  "word": "性質",
+  "reading": "せいしつ",
+  "hanViet": "TÍNH CHẤT",
+  "meaning": "tính chất",
+  "components": [
+   {
+    "kanji": "性",
+    "hanViet": "TÍNH",
+    "meaning": ""
+   },
+   {
+    "kanji": "質",
+    "hanViet": "CHẤT",
+    "meaning": "chất, tính chất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8CEA"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC130",
+  "word": "生活の質",
+  "reading": "せいかつのしつ",
+  "hanViet": "SANH HOẠT CHẤT",
+  "meaning": "chất lượng cuộc sống",
+  "components": [
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   },
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   },
+   {
+    "kanji": "質",
+    "hanViet": "CHẤT",
+    "meaning": "chất, tính chất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8CEA"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC131",
+  "word": "光",
+  "reading": "ひかり",
+  "hanViet": "QUANG",
+  "meaning": "ánh sáng",
+  "components": [
+   {
+    "kanji": "光",
+    "hanViet": "QUANG",
+    "meaning": "ánh sáng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5149"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC132",
+  "word": "日光",
+  "reading": "にっこう",
+  "hanViet": "NHẬT QUANG",
+  "meaning": "ánh nắng",
+  "components": [
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   },
+   {
+    "kanji": "光",
+    "hanViet": "QUANG",
+    "meaning": "ánh sáng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5149"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC133",
+  "word": "光景",
+  "reading": "こうけい",
+  "hanViet": "QUANG CẢNH",
+  "meaning": "quang cảnh",
+  "components": [
+   {
+    "kanji": "光",
+    "hanViet": "QUANG",
+    "meaning": "ánh sáng"
+   },
+   {
+    "kanji": "景",
+    "hanViet": "CẢNH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5149"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC134",
+  "word": "閉まります",
+  "reading": "しまります",
+  "hanViet": "BẾ",
+  "meaning": "đóng lại",
+  "components": [
+   {
+    "kanji": "閉",
+    "hanViet": "BẾ",
+    "meaning": "đóng, khép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9589"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC135",
+  "word": "閉めます",
+  "reading": "しめます",
+  "hanViet": "BẾ",
+  "meaning": "đóng",
+  "components": [
+   {
+    "kanji": "閉",
+    "hanViet": "BẾ",
+    "meaning": "đóng, khép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9589"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC136",
+  "word": "閉じる",
+  "reading": "とじる",
+  "hanViet": "BẾ",
+  "meaning": "khép, đóng",
+  "components": [
+   {
+    "kanji": "閉",
+    "hanViet": "BẾ",
+    "meaning": "đóng, khép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9589"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC137",
+  "word": "閉店",
+  "reading": "へいてん",
+  "hanViet": "BẾ ĐIẾM",
+  "meaning": "đóng cửa hàng",
+  "components": [
+   {
+    "kanji": "閉",
+    "hanViet": "BẾ",
+    "meaning": "đóng, khép"
+   },
+   {
+    "kanji": "店",
+    "hanViet": "ĐIẾM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9589"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC138",
+  "word": "一番",
+  "reading": "いちばん",
+  "hanViet": "NHẤT PHIÊN",
+  "meaning": "số một, nhất",
+  "components": [
+   {
+    "kanji": "一",
+    "hanViet": "NHẤT",
+    "meaning": ""
+   },
+   {
+    "kanji": "番",
+    "hanViet": "PHIÊN",
+    "meaning": "lượt, thứ tự"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-756A"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC139",
+  "word": "番号",
+  "reading": "ばんごう",
+  "hanViet": "PHIÊN HIỆU",
+  "meaning": "số hiệu",
+  "components": [
+   {
+    "kanji": "番",
+    "hanViet": "PHIÊN",
+    "meaning": "lượt, thứ tự"
+   },
+   {
+    "kanji": "号",
+    "hanViet": "HIỆU",
+    "meaning": "số hiệu, dấu hiệu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-756A",
+   "kanji-K-53F7"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC140",
+  "word": "交番",
+  "reading": "こうばん",
+  "hanViet": "GIAO PHIÊN",
+  "meaning": "đồn cảnh sát khu vực",
+  "components": [
+   {
+    "kanji": "交",
+    "hanViet": "GIAO",
+    "meaning": "giao nhau, qua lại"
+   },
+   {
+    "kanji": "番",
+    "hanViet": "PHIÊN",
+    "meaning": "lượt, thứ tự"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-756A",
+   "kanji-K-4EA4"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC141",
+  "word": "番組",
+  "reading": "ばんぐみ",
+  "hanViet": "PHIÊN TỔ",
+  "meaning": "chương trình phát sóng",
+  "components": [
+   {
+    "kanji": "番",
+    "hanViet": "PHIÊN",
+    "meaning": "lượt, thứ tự"
+   },
+   {
+    "kanji": "組",
+    "hanViet": "TỔ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-756A"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC142",
+  "word": "記号",
+  "reading": "きごう",
+  "hanViet": "KÝ HIỆU",
+  "meaning": "ký hiệu",
+  "components": [
+   {
+    "kanji": "記",
+    "hanViet": "KÝ",
+    "meaning": "ghi chép"
+   },
+   {
+    "kanji": "号",
+    "hanViet": "HIỆU",
+    "meaning": "số hiệu, dấu hiệu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F7"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC144",
+  "word": "信号",
+  "reading": "しんごう",
+  "hanViet": "TÍN HIỆU",
+  "meaning": "tín hiệu, đèn giao thông",
+  "components": [
+   {
+    "kanji": "信",
+    "hanViet": "TÍN",
+    "meaning": ""
+   },
+   {
+    "kanji": "号",
+    "hanViet": "HIỆU",
+    "meaning": "số hiệu, dấu hiệu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F7"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC145",
+  "word": "暗号",
+  "reading": "あんごう",
+  "hanViet": "ÁM HIỆU",
+  "meaning": "mật mã",
+  "components": [
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   },
+   {
+    "kanji": "号",
+    "hanViet": "HIỆU",
+    "meaning": "số hiệu, dấu hiệu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F7"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC146",
+  "word": "暗い",
+  "reading": "くらい",
+  "hanViet": "ÁM",
+  "meaning": "tối",
+  "components": [
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6697"
+  ],
+  "lessons": [
+   "33-34",
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC148",
+  "word": "交差点",
+  "reading": "こうさてん",
+  "hanViet": "GIAO SOA ĐIỂM",
+  "meaning": "giao lộ",
+  "components": [
+   {
+    "kanji": "交",
+    "hanViet": "GIAO",
+    "meaning": "giao nhau, qua lại"
+   },
+   {
+    "kanji": "差",
+    "hanViet": "SOA",
+    "meaning": ""
+   },
+   {
+    "kanji": "点",
+    "hanViet": "ĐIỂM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EA4"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC150",
+  "word": "危ない",
+  "reading": "あぶない",
+  "hanViet": "NGUY",
+  "meaning": "nguy hiểm",
+  "components": [
+   {
+    "kanji": "危",
+    "hanViet": "NGUY",
+    "meaning": "nguy hiểm"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5371"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC151",
+  "word": "危険",
+  "reading": "きけん",
+  "hanViet": "NGUY HIỂM",
+  "meaning": "sự nguy hiểm",
+  "components": [
+   {
+    "kanji": "危",
+    "hanViet": "NGUY",
+    "meaning": "nguy hiểm"
+   },
+   {
+    "kanji": "険",
+    "hanViet": "HIỂM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5371"
+  ],
+  "lessons": [
+   "33-34"
+  ]
+ },
+ {
+  "id": "compound-KC152",
+  "word": "同じ",
+  "reading": "おなじ",
+  "hanViet": "ĐỒNG",
+  "meaning": "giống nhau",
+  "components": [
+   {
+    "kanji": "同",
+    "hanViet": "ĐỒNG",
+    "meaning": "giống nhau, cùng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-540C"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC153",
+  "word": "同時",
+  "reading": "どうじ",
+  "hanViet": "ĐỒNG THÌ",
+  "meaning": "đồng thời",
+  "components": [
+   {
+    "kanji": "同",
+    "hanViet": "ĐỒNG",
+    "meaning": "giống nhau, cùng"
+   },
+   {
+    "kanji": "時",
+    "hanViet": "THÌ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-540C"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC154",
+  "word": "共同",
+  "reading": "きょうどう",
+  "hanViet": "CỘNG ĐỒNG",
+  "meaning": "cùng nhau, chung",
+  "components": [
+   {
+    "kanji": "共",
+    "hanViet": "CỘNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "同",
+    "hanViet": "ĐỒNG",
+    "meaning": "giống nhau, cùng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-540C"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC155",
+  "word": "同級生",
+  "reading": "どうきゅうせい",
+  "hanViet": "ĐỒNG CẤP SANH",
+  "meaning": "bạn cùng lớp hoặc cùng khối",
+  "components": [
+   {
+    "kanji": "同",
+    "hanViet": "ĐỒNG",
+    "meaning": "giống nhau, cùng"
+   },
+   {
+    "kanji": "級",
+    "hanViet": "CẤP",
+    "meaning": ""
+   },
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-540C"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC156",
+  "word": "治る",
+  "reading": "なおる",
+  "hanViet": "TRỊ",
+  "meaning": "khỏi bệnh",
+  "components": [
+   {
+    "kanji": "治",
+    "hanViet": "TRỊ",
+    "meaning": "trị, chữa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CBB"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC157",
+  "word": "治す",
+  "reading": "なおす",
+  "hanViet": "TRỊ",
+  "meaning": "chữa bệnh",
+  "components": [
+   {
+    "kanji": "治",
+    "hanViet": "TRỊ",
+    "meaning": "trị, chữa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CBB"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC158",
+  "word": "政治",
+  "reading": "せいじ",
+  "hanViet": "CHÁNH TRỊ",
+  "meaning": "chính trị",
+  "components": [
+   {
+    "kanji": "政",
+    "hanViet": "CHÁNH",
+    "meaning": ""
+   },
+   {
+    "kanji": "治",
+    "hanViet": "TRỊ",
+    "meaning": "trị, chữa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CBB"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC159",
+  "word": "治療",
+  "reading": "ちりょう",
+  "hanViet": "TRỊ LIỆU",
+  "meaning": "điều trị",
+  "components": [
+   {
+    "kanji": "治",
+    "hanViet": "TRỊ",
+    "meaning": "trị, chữa"
+   },
+   {
+    "kanji": "療",
+    "hanViet": "LIỆU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CBB"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC160",
+  "word": "所",
+  "reading": "ところ",
+  "hanViet": "SỞ",
+  "meaning": "nơi",
+  "components": [
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6240"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC161",
+  "word": "台所",
+  "reading": "だいどころ",
+  "hanViet": "ĐÀI SỞ",
+  "meaning": "bếp",
+  "components": [
+   {
+    "kanji": "台",
+    "hanViet": "ĐÀI",
+    "meaning": "bục, đơn vị đếm máy và xe"
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6240"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC162",
+  "word": "住所",
+  "reading": "じゅうしょ",
+  "hanViet": "TRỤ SỞ",
+  "meaning": "địa chỉ",
+  "components": [
+   {
+    "kanji": "住",
+    "hanViet": "TRỤ",
+    "meaning": ""
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6240"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC163",
+  "word": "近所",
+  "reading": "きんじょ",
+  "hanViet": "CẬN SỞ",
+  "meaning": "khu lân cận",
+  "components": [
+   {
+    "kanji": "近",
+    "hanViet": "CẬN",
+    "meaning": ""
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6240"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC164",
+  "word": "暑い",
+  "reading": "あつい",
+  "hanViet": "THỬ",
+  "meaning": "nóng",
+  "components": [
+   {
+    "kanji": "暑",
+    "hanViet": "THỬ",
+    "meaning": "nóng, nói về thời tiết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6691"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC165",
+  "word": "蒸し暑い",
+  "reading": "むしあつい",
+  "hanViet": "CHƯNG THỬ",
+  "meaning": "nóng ẩm, oi bức",
+  "components": [
+   {
+    "kanji": "蒸",
+    "hanViet": "CHƯNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "暑",
+    "hanViet": "THỬ",
+    "meaning": "nóng, nói về thời tiết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6691"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC166",
+  "word": "避暑地",
+  "reading": "ひしょち",
+  "hanViet": "TỊ THỬ ĐỊA",
+  "meaning": "nơi nghỉ mát",
+  "components": [
+   {
+    "kanji": "避",
+    "hanViet": "TỊ",
+    "meaning": ""
+   },
+   {
+    "kanji": "暑",
+    "hanViet": "THỬ",
+    "meaning": "nóng, nói về thời tiết"
+   },
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6691"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC167",
+  "word": "寒い",
+  "reading": "さむい",
+  "hanViet": "HÀN",
+  "meaning": "lạnh",
+  "components": [
+   {
+    "kanji": "寒",
+    "hanViet": "HÀN",
+    "meaning": "lạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5BD2"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC168",
+  "word": "寒気",
+  "reading": "さむけ",
+  "hanViet": "HÀN KHÍ",
+  "meaning": "cảm giác ớn lạnh",
+  "components": [
+   {
+    "kanji": "寒",
+    "hanViet": "HÀN",
+    "meaning": "lạnh"
+   },
+   {
+    "kanji": "気",
+    "hanViet": "KHÍ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5BD2"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC169",
+  "word": "寒風",
+  "reading": "かんぷう",
+  "hanViet": "HÀN PHONG",
+  "meaning": "gió lạnh",
+  "components": [
+   {
+    "kanji": "寒",
+    "hanViet": "HÀN",
+    "meaning": "lạnh"
+   },
+   {
+    "kanji": "風",
+    "hanViet": "PHONG",
+    "meaning": "gió, kiểu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5BD2"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC170",
+  "word": "寒帯",
+  "reading": "かんたい",
+  "hanViet": "HÀN ĐÁI",
+  "meaning": "đới lạnh",
+  "components": [
+   {
+    "kanji": "寒",
+    "hanViet": "HÀN",
+    "meaning": "lạnh"
+   },
+   {
+    "kanji": "帯",
+    "hanViet": "ĐÁI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5BD2"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC171",
+  "word": "不便",
+  "reading": "ふべん",
+  "hanViet": "BẤT TIỆN",
+  "meaning": "bất tiện",
+  "components": [
+   {
+    "kanji": "不",
+    "hanViet": "BẤT",
+    "meaning": ""
+   },
+   {
+    "kanji": "便",
+    "hanViet": "TIỆN",
+    "meaning": "thuận tiện, chuyến hoặc dịch vụ gửi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4FBF"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC172",
+  "word": "郵便局",
+  "reading": "ゆうびんきょく",
+  "hanViet": "BƯU TIỆN CỤC",
+  "meaning": "bưu điện",
+  "components": [
+   {
+    "kanji": "郵",
+    "hanViet": "BƯU",
+    "meaning": ""
+   },
+   {
+    "kanji": "便",
+    "hanViet": "TIỆN",
+    "meaning": "thuận tiện, chuyến hoặc dịch vụ gửi"
+   },
+   {
+    "kanji": "局",
+    "hanViet": "CỤC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4FBF"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC173",
+  "word": "船便",
+  "reading": "ふなびん",
+  "hanViet": "THUYỀN TIỆN",
+  "meaning": "gửi bằng đường biển",
+  "components": [
+   {
+    "kanji": "船",
+    "hanViet": "THUYỀN",
+    "meaning": ""
+   },
+   {
+    "kanji": "便",
+    "hanViet": "TIỆN",
+    "meaning": "thuận tiện, chuyến hoặc dịch vụ gửi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4FBF"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC174",
+  "word": "航空便",
+  "reading": "こうくうびん",
+  "hanViet": "HÀNG KHÔNG TIỆN",
+  "meaning": "chuyến bay, thư hàng gửi đường hàng không",
+  "components": [
+   {
+    "kanji": "航",
+    "hanViet": "HÀNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "空",
+    "hanViet": "KHÔNG",
+    "meaning": "trời, trống"
+   },
+   {
+    "kanji": "便",
+    "hanViet": "TIỆN",
+    "meaning": "thuận tiện, chuyến hoặc dịch vụ gửi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4FBF"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC175",
+  "word": "左利き",
+  "reading": "ひだりきき",
+  "hanViet": "TẢ LỢI",
+  "meaning": "thuận tay trái",
+  "components": [
+   {
+    "kanji": "左",
+    "hanViet": "TẢ",
+    "meaning": ""
+   },
+   {
+    "kanji": "利",
+    "hanViet": "LỢI",
+    "meaning": "lợi ích, công dụng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5229"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC176",
+  "word": "便利",
+  "reading": "べんり",
+  "hanViet": "TIỆN LỢI",
+  "meaning": "tiện lợi",
+  "components": [
+   {
+    "kanji": "便",
+    "hanViet": "TIỆN",
+    "meaning": "thuận tiện, chuyến hoặc dịch vụ gửi"
+   },
+   {
+    "kanji": "利",
+    "hanViet": "LỢI",
+    "meaning": "lợi ích, công dụng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5229"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC177",
+  "word": "利用します",
+  "reading": "りようします",
+  "hanViet": "LỢI DỤNG",
+  "meaning": "sử dụng",
+  "components": [
+   {
+    "kanji": "利",
+    "hanViet": "LỢI",
+    "meaning": "lợi ích, công dụng"
+   },
+   {
+    "kanji": "用",
+    "hanViet": "DỤNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5229"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC178",
+  "word": "利口",
+  "reading": "りこう",
+  "hanViet": "LỢI KHẨU",
+  "meaning": "lanh lợi",
+  "components": [
+   {
+    "kanji": "利",
+    "hanViet": "LỢI",
+    "meaning": "lợi ích, công dụng"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5229"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC179",
+  "word": "泳ぎます",
+  "reading": "およぎます",
+  "hanViet": "VỊNH",
+  "meaning": "bơi",
+  "components": [
+   {
+    "kanji": "泳",
+    "hanViet": "VỊNH",
+    "meaning": "bơi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CF3"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC180",
+  "word": "水泳",
+  "reading": "すいえい",
+  "hanViet": "THỦY VỊNH",
+  "meaning": "môn bơi",
+  "components": [
+   {
+    "kanji": "水",
+    "hanViet": "THỦY",
+    "meaning": ""
+   },
+   {
+    "kanji": "泳",
+    "hanViet": "VỊNH",
+    "meaning": "bơi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CF3"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC181",
+  "word": "生活",
+  "reading": "せいかつ",
+  "hanViet": "SANH HOẠT",
+  "meaning": "sinh hoạt, cuộc sống",
+  "components": [
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   },
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D3B"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC182",
+  "word": "活動",
+  "reading": "かつどう",
+  "hanViet": "HOẠT ĐỘNG",
+  "meaning": "hoạt động",
+  "components": [
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   },
+   {
+    "kanji": "動",
+    "hanViet": "ĐỘNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D3B"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC183",
+  "word": "活発",
+  "reading": "かっぱつ",
+  "hanViet": "HOẠT PHÁT",
+  "meaning": "năng động, sôi nổi",
+  "components": [
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   },
+   {
+    "kanji": "発",
+    "hanViet": "PHÁT",
+    "meaning": "phát ra, khởi phát"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D3B"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC184",
+  "word": "食生活",
+  "reading": "しょくせいかつ",
+  "hanViet": "THỰC SANH HOẠT",
+  "meaning": "chế độ hoặc thói quen ăn uống",
+  "components": [
+   {
+    "kanji": "食",
+    "hanViet": "THỰC",
+    "meaning": ""
+   },
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   },
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D3B"
+  ],
+  "lessons": [
+   "35-36"
+  ]
+ },
+ {
+  "id": "compound-KC185",
+  "word": "発音",
+  "reading": "はつおん",
+  "hanViet": "PHÁT ÂM",
+  "meaning": "phát âm",
+  "components": [
+   {
+    "kanji": "発",
+    "hanViet": "PHÁT",
+    "meaning": "phát ra, khởi phát"
+   },
+   {
+    "kanji": "音",
+    "hanViet": "ÂM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-767A"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC186",
+  "word": "出発する",
+  "reading": "しゅっぱつする",
+  "hanViet": "XUẤT PHÁT",
+  "meaning": "xuất phát",
+  "components": [
+   {
+    "kanji": "出",
+    "hanViet": "XUẤT",
+    "meaning": ""
+   },
+   {
+    "kanji": "発",
+    "hanViet": "PHÁT",
+    "meaning": "phát ra, khởi phát"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-767A"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC187",
+  "word": "発明",
+  "reading": "はつめい",
+  "hanViet": "PHÁT MINH",
+  "meaning": "phát minh",
+  "components": [
+   {
+    "kanji": "発",
+    "hanViet": "PHÁT",
+    "meaning": "phát ra, khởi phát"
+   },
+   {
+    "kanji": "明",
+    "hanViet": "MINH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-767A"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC188",
+  "word": "発表",
+  "reading": "はっぴょう",
+  "hanViet": "PHÁT BIỂU",
+  "meaning": "trình bày, công bố",
+  "components": [
+   {
+    "kanji": "発",
+    "hanViet": "PHÁT",
+    "meaning": "phát ra, khởi phát"
+   },
+   {
+    "kanji": "表",
+    "hanViet": "BIỂU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-767A"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC189",
+  "word": "工場",
+  "reading": "こうじょう",
+  "hanViet": "CÔNG TRÀNG",
+  "meaning": "nhà máy",
+  "components": [
+   {
+    "kanji": "工",
+    "hanViet": "CÔNG",
+    "meaning": "chế tác, công nghiệp"
+   },
+   {
+    "kanji": "場",
+    "hanViet": "TRÀNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5DE5"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC191",
+  "word": "大工",
+  "reading": "だいく",
+  "hanViet": "ĐẠI CÔNG",
+  "meaning": "thợ mộc",
+  "components": [
+   {
+    "kanji": "大",
+    "hanViet": "ĐẠI",
+    "meaning": ""
+   },
+   {
+    "kanji": "工",
+    "hanViet": "CÔNG",
+    "meaning": "chế tác, công nghiệp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5DE5"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC192",
+  "word": "人工",
+  "reading": "じんこう",
+  "hanViet": "NHÂN CÔNG",
+  "meaning": "nhân tạo",
+  "components": [
+   {
+    "kanji": "人",
+    "hanViet": "NHÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "工",
+    "hanViet": "CÔNG",
+    "meaning": "chế tác, công nghiệp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5DE5"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC193",
+  "word": "飯",
+  "reading": "めし",
+  "hanViet": "PHẠN",
+  "meaning": "cơm, bữa ăn, cách nói thân mật",
+  "components": [
+   {
+    "kanji": "飯",
+    "hanViet": "PHẠN",
+    "meaning": "cơm, bữa ăn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98EF"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC194",
+  "word": "ご飯",
+  "reading": "ごはん",
+  "hanViet": "PHẠN",
+  "meaning": "cơm, bữa ăn",
+  "components": [
+   {
+    "kanji": "飯",
+    "hanViet": "PHẠN",
+    "meaning": "cơm, bữa ăn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98EF"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC195",
+  "word": "炊飯器",
+  "reading": "すいはんき",
+  "hanViet": "XUY PHẠN KHÍ",
+  "meaning": "nồi cơm điện",
+  "components": [
+   {
+    "kanji": "炊",
+    "hanViet": "XUY",
+    "meaning": ""
+   },
+   {
+    "kanji": "飯",
+    "hanViet": "PHẠN",
+    "meaning": "cơm, bữa ăn"
+   },
+   {
+    "kanji": "器",
+    "hanViet": "KHÍ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98EF"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC196",
+  "word": "昼ご飯",
+  "reading": "ひるごはん",
+  "hanViet": "TRÚ PHẠN",
+  "meaning": "bữa trưa",
+  "components": [
+   {
+    "kanji": "昼",
+    "hanViet": "TRÚ",
+    "meaning": ""
+   },
+   {
+    "kanji": "飯",
+    "hanViet": "PHẠN",
+    "meaning": "cơm, bữa ăn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-98EF"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC197",
+  "word": "二台",
+  "reading": "にだい",
+  "hanViet": "NHỊ ĐÀI",
+  "meaning": "hai chiếc, dùng cho máy hoặc xe",
+  "components": [
+   {
+    "kanji": "二",
+    "hanViet": "NHỊ",
+    "meaning": ""
+   },
+   {
+    "kanji": "台",
+    "hanViet": "ĐÀI",
+    "meaning": "bục, đơn vị đếm máy và xe"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F0"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC199",
+  "word": "台",
+  "reading": "だい",
+  "hanViet": "ĐÀI",
+  "meaning": "bục, đế",
+  "components": [
+   {
+    "kanji": "台",
+    "hanViet": "ĐÀI",
+    "meaning": "bục, đơn vị đếm máy và xe"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F0"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC200",
+  "word": "台湾",
+  "reading": "たいわん",
+  "hanViet": "ĐÀI LOAN",
+  "meaning": "Đài Loan",
+  "components": [
+   {
+    "kanji": "台",
+    "hanViet": "ĐÀI",
+    "meaning": "bục, đơn vị đếm máy và xe"
+   },
+   {
+    "kanji": "湾",
+    "hanViet": "LOAN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53F0"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC201",
+  "word": "宿題",
+  "reading": "しゅくだい",
+  "hanViet": "TÚC ĐỀ",
+  "meaning": "bài tập về nhà",
+  "components": [
+   {
+    "kanji": "宿",
+    "hanViet": "TÚC",
+    "meaning": ""
+   },
+   {
+    "kanji": "題",
+    "hanViet": "ĐỀ",
+    "meaning": "đề, chủ đề"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-984C"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC202",
+  "word": "問題",
+  "reading": "もんだい",
+  "hanViet": "VẤN ĐỀ",
+  "meaning": "vấn đề, câu hỏi",
+  "components": [
+   {
+    "kanji": "問",
+    "hanViet": "VẤN",
+    "meaning": ""
+   },
+   {
+    "kanji": "題",
+    "hanViet": "ĐỀ",
+    "meaning": "đề, chủ đề"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-984C"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC203",
+  "word": "話題",
+  "reading": "わだい",
+  "hanViet": "THOẠI ĐỀ",
+  "meaning": "chủ đề trò chuyện",
+  "components": [
+   {
+    "kanji": "話",
+    "hanViet": "THOẠI",
+    "meaning": ""
+   },
+   {
+    "kanji": "題",
+    "hanViet": "ĐỀ",
+    "meaning": "đề, chủ đề"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-984C"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC204",
+  "word": "題名",
+  "reading": "だいめい",
+  "hanViet": "ĐỀ DANH",
+  "meaning": "nhan đề",
+  "components": [
+   {
+    "kanji": "題",
+    "hanViet": "ĐỀ",
+    "meaning": "đề, chủ đề"
+   },
+   {
+    "kanji": "名",
+    "hanViet": "DANH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-984C"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC205",
+  "word": "待ちます",
+  "reading": "まちます",
+  "hanViet": "ĐÃI",
+  "meaning": "chờ",
+  "components": [
+   {
+    "kanji": "待",
+    "hanViet": "ĐÃI",
+    "meaning": "chờ, tiếp đón"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F85"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC206",
+  "word": "招待する",
+  "reading": "しょうたいする",
+  "hanViet": "CHIÊU ĐÃI",
+  "meaning": "mời",
+  "components": [
+   {
+    "kanji": "招",
+    "hanViet": "CHIÊU",
+    "meaning": ""
+   },
+   {
+    "kanji": "待",
+    "hanViet": "ĐÃI",
+    "meaning": "chờ, tiếp đón"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F85"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC207",
+  "word": "待合室",
+  "reading": "まちあいしつ",
+  "hanViet": "ĐÃI HỢP THẤT",
+  "meaning": "phòng chờ",
+  "components": [
+   {
+    "kanji": "待",
+    "hanViet": "ĐÃI",
+    "meaning": "chờ, tiếp đón"
+   },
+   {
+    "kanji": "合",
+    "hanViet": "HỢP",
+    "meaning": "hợp, khớp"
+   },
+   {
+    "kanji": "室",
+    "hanViet": "THẤT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F85"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC208",
+  "word": "お米",
+  "reading": "おこめ",
+  "hanViet": "MỄ",
+  "meaning": "gạo",
+  "components": [
+   {
+    "kanji": "米",
+    "hanViet": "MỄ",
+    "meaning": "gạo, chữ viết tắt chỉ Mỹ trong từ ghép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7C73"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC209",
+  "word": "米屋",
+  "reading": "こめや",
+  "hanViet": "MỄ ỐC",
+  "meaning": "cửa hàng gạo",
+  "components": [
+   {
+    "kanji": "米",
+    "hanViet": "MỄ",
+    "meaning": "gạo, chữ viết tắt chỉ Mỹ trong từ ghép"
+   },
+   {
+    "kanji": "屋",
+    "hanViet": "ỐC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7C73"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC210",
+  "word": "米国",
+  "reading": "べいこく",
+  "hanViet": "MỄ QUỐC",
+  "meaning": "nước Mỹ",
+  "components": [
+   {
+    "kanji": "米",
+    "hanViet": "MỄ",
+    "meaning": "gạo, chữ viết tắt chỉ Mỹ trong từ ghép"
+   },
+   {
+    "kanji": "国",
+    "hanViet": "QUỐC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7C73"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC211",
+  "word": "村",
+  "reading": "むら",
+  "hanViet": "THÔN",
+  "meaning": "làng",
+  "components": [
+   {
+    "kanji": "村",
+    "hanViet": "THÔN",
+    "meaning": "làng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6751"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC212",
+  "word": "村長",
+  "reading": "そんちょう",
+  "hanViet": "THÔN TRƯỜNG",
+  "meaning": "trưởng làng",
+  "components": [
+   {
+    "kanji": "村",
+    "hanViet": "THÔN",
+    "meaning": "làng"
+   },
+   {
+    "kanji": "長",
+    "hanViet": "TRƯỜNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6751"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC213",
+  "word": "村民",
+  "reading": "そんみん",
+  "hanViet": "THÔN DÂN",
+  "meaning": "dân làng",
+  "components": [
+   {
+    "kanji": "村",
+    "hanViet": "THÔN",
+    "meaning": "làng"
+   },
+   {
+    "kanji": "民",
+    "hanViet": "DÂN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6751"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC214",
+  "word": "注意",
+  "reading": "ちゅうい",
+  "hanViet": "CHÚ Ý",
+  "meaning": "chú ý, cẩn thận",
+  "components": [
+   {
+    "kanji": "注",
+    "hanViet": "CHÚ",
+    "meaning": "rót, chú ý"
+   },
+   {
+    "kanji": "意",
+    "hanViet": "Ý",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CE8"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC215",
+  "word": "注文",
+  "reading": "ちゅうもん",
+  "hanViet": "CHÚ VĂN",
+  "meaning": "gọi món, đặt hàng",
+  "components": [
+   {
+    "kanji": "注",
+    "hanViet": "CHÚ",
+    "meaning": "rót, chú ý"
+   },
+   {
+    "kanji": "文",
+    "hanViet": "VĂN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CE8"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC216",
+  "word": "不注意",
+  "reading": "ふちゅうい",
+  "hanViet": "BẤT CHÚ Ý",
+  "meaning": "sự bất cẩn",
+  "components": [
+   {
+    "kanji": "不",
+    "hanViet": "BẤT",
+    "meaning": ""
+   },
+   {
+    "kanji": "注",
+    "hanViet": "CHÚ",
+    "meaning": "rót, chú ý"
+   },
+   {
+    "kanji": "意",
+    "hanViet": "Ý",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CE8"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC217",
+  "word": "注目",
+  "reading": "ちゅうもく",
+  "hanViet": "CHÚ MỤC",
+  "meaning": "sự chú ý",
+  "components": [
+   {
+    "kanji": "注",
+    "hanViet": "CHÚ",
+    "meaning": "rót, chú ý"
+   },
+   {
+    "kanji": "目",
+    "hanViet": "MỤC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CE8"
+  ],
+  "lessons": [
+   "37-38"
+  ]
+ },
+ {
+  "id": "compound-KC218",
+  "word": "時代",
+  "reading": "じだい",
+  "hanViet": "THÌ ĐẠI",
+  "meaning": "thời đại",
+  "components": [
+   {
+    "kanji": "時",
+    "hanViet": "THÌ",
+    "meaning": ""
+   },
+   {
+    "kanji": "代",
+    "hanViet": "ĐẠI",
+    "meaning": "thế hệ, thời đại, thay, phí"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE3"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC219",
+  "word": "電気代",
+  "reading": "でんきだい",
+  "hanViet": "ĐIỆN KHÍ ĐẠI",
+  "meaning": "tiền điện",
+  "components": [
+   {
+    "kanji": "電",
+    "hanViet": "ĐIỆN",
+    "meaning": ""
+   },
+   {
+    "kanji": "気",
+    "hanViet": "KHÍ",
+    "meaning": ""
+   },
+   {
+    "kanji": "代",
+    "hanViet": "ĐẠI",
+    "meaning": "thế hệ, thời đại, thay, phí"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE3"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC220",
+  "word": "現代",
+  "reading": "げんだい",
+  "hanViet": "HIỆN ĐẠI",
+  "meaning": "hiện đại",
+  "components": [
+   {
+    "kanji": "現",
+    "hanViet": "HIỆN",
+    "meaning": ""
+   },
+   {
+    "kanji": "代",
+    "hanViet": "ĐẠI",
+    "meaning": "thế hệ, thời đại, thay, phí"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE3"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC221",
+  "word": "代わりに",
+  "reading": "かわりに",
+  "hanViet": "ĐẠI",
+  "meaning": "thay cho",
+  "components": [
+   {
+    "kanji": "代",
+    "hanViet": "ĐẠI",
+    "meaning": "thế hệ, thời đại, thay, phí"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE3"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC222",
+  "word": "死にます",
+  "reading": "しにます",
+  "hanViet": "TỬ",
+  "meaning": "chết",
+  "components": [
+   {
+    "kanji": "死",
+    "hanViet": "TỬ",
+    "meaning": "chết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B7B"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC223",
+  "word": "死者",
+  "reading": "ししゃ",
+  "hanViet": "TỬ GIẢ",
+  "meaning": "người chết",
+  "components": [
+   {
+    "kanji": "死",
+    "hanViet": "TỬ",
+    "meaning": "chết"
+   },
+   {
+    "kanji": "者",
+    "hanViet": "GIẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B7B"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC224",
+  "word": "必死",
+  "reading": "ひっし",
+  "hanViet": "TẤT TỬ",
+  "meaning": "dốc hết sức, liều mạng",
+  "components": [
+   {
+    "kanji": "必",
+    "hanViet": "TẤT",
+    "meaning": ""
+   },
+   {
+    "kanji": "死",
+    "hanViet": "TỬ",
+    "meaning": "chết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B7B"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC225",
+  "word": "死亡",
+  "reading": "しぼう",
+  "hanViet": "TỬ VONG",
+  "meaning": "tử vong",
+  "components": [
+   {
+    "kanji": "死",
+    "hanViet": "TỬ",
+    "meaning": "chết"
+   },
+   {
+    "kanji": "亡",
+    "hanViet": "VONG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B7B"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC226",
+  "word": "首",
+  "reading": "くび",
+  "hanViet": "THỦ",
+  "meaning": "cổ",
+  "components": [
+   {
+    "kanji": "首",
+    "hanViet": "THỦ",
+    "meaning": "cổ, đầu, người đứng đầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9996"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC227",
+  "word": "首になる",
+  "reading": "くびになる",
+  "hanViet": "THỦ",
+  "meaning": "bị đuổi việc",
+  "components": [
+   {
+    "kanji": "首",
+    "hanViet": "THỦ",
+    "meaning": "cổ, đầu, người đứng đầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9996"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC229",
+  "word": "首相",
+  "reading": "しゅしょう",
+  "hanViet": "THỦ TƯƠNG",
+  "meaning": "thủ tướng",
+  "components": [
+   {
+    "kanji": "首",
+    "hanViet": "THỦ",
+    "meaning": "cổ, đầu, người đứng đầu"
+   },
+   {
+    "kanji": "相",
+    "hanViet": "TƯƠNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9996"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC230",
+  "word": "結ぶ",
+  "reading": "むすぶ",
+  "hanViet": "KẾT",
+  "meaning": "buộc, nối",
+  "components": [
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D50"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC231",
+  "word": "結果",
+  "reading": "けっか",
+  "hanViet": "KẾT QUẢ",
+  "meaning": "kết quả",
+  "components": [
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   },
+   {
+    "kanji": "果",
+    "hanViet": "QUẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D50"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC232",
+  "word": "団結",
+  "reading": "だんけつ",
+  "hanViet": "ĐOÀN KẾT",
+  "meaning": "đoàn kết",
+  "components": [
+   {
+    "kanji": "団",
+    "hanViet": "ĐOÀN",
+    "meaning": ""
+   },
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D50"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC233",
+  "word": "結局",
+  "reading": "けっきょく",
+  "hanViet": "KẾT CỤC",
+  "meaning": "rốt cuộc",
+  "components": [
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   },
+   {
+    "kanji": "局",
+    "hanViet": "CỤC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D50"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC234",
+  "word": "結婚する",
+  "reading": "けっこんする",
+  "hanViet": "KẾT HÔN",
+  "meaning": "kết hôn",
+  "components": [
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   },
+   {
+    "kanji": "婚",
+    "hanViet": "HÔN",
+    "meaning": "hôn nhân"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5A5A"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC235",
+  "word": "離婚",
+  "reading": "りこん",
+  "hanViet": "LY HÔN",
+  "meaning": "ly hôn",
+  "components": [
+   {
+    "kanji": "離",
+    "hanViet": "LY",
+    "meaning": ""
+   },
+   {
+    "kanji": "婚",
+    "hanViet": "HÔN",
+    "meaning": "hôn nhân"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5A5A"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC236",
+  "word": "婚約",
+  "reading": "こんやく",
+  "hanViet": "HÔN ƯỚC",
+  "meaning": "đính hôn",
+  "components": [
+   {
+    "kanji": "婚",
+    "hanViet": "HÔN",
+    "meaning": "hôn nhân"
+   },
+   {
+    "kanji": "約",
+    "hanViet": "ƯỚC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5A5A"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC237",
+  "word": "求婚する",
+  "reading": "きゅうこんする",
+  "hanViet": "CẦU HÔN",
+  "meaning": "cầu hôn",
+  "components": [
+   {
+    "kanji": "求",
+    "hanViet": "CẦU",
+    "meaning": ""
+   },
+   {
+    "kanji": "婚",
+    "hanViet": "HÔN",
+    "meaning": "hôn nhân"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5A5A"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC238",
+  "word": "入学式",
+  "reading": "にゅうがくしき",
+  "hanViet": "NHẬP HỌC THỨC",
+  "meaning": "lễ nhập học",
+  "components": [
+   {
+    "kanji": "入",
+    "hanViet": "NHẬP",
+    "meaning": ""
+   },
+   {
+    "kanji": "学",
+    "hanViet": "HỌC",
+    "meaning": ""
+   },
+   {
+    "kanji": "式",
+    "hanViet": "THỨC",
+    "meaning": "nghi lễ, kiểu, công thức"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F0F"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC239",
+  "word": "式",
+  "reading": "しき",
+  "hanViet": "THỨC",
+  "meaning": "buổi lễ, nghi thức",
+  "components": [
+   {
+    "kanji": "式",
+    "hanViet": "THỨC",
+    "meaning": "nghi lễ, kiểu, công thức"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F0F"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC240",
+  "word": "結婚式",
+  "reading": "けっこんしき",
+  "hanViet": "KẾT HÔN THỨC",
+  "meaning": "lễ cưới",
+  "components": [
+   {
+    "kanji": "結",
+    "hanViet": "KẾT",
+    "meaning": "buộc, kết lại"
+   },
+   {
+    "kanji": "婚",
+    "hanViet": "HÔN",
+    "meaning": "hôn nhân"
+   },
+   {
+    "kanji": "式",
+    "hanViet": "THỨC",
+    "meaning": "nghi lễ, kiểu, công thức"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F0F"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC241",
+  "word": "和式",
+  "reading": "わしき",
+  "hanViet": "HÒA THỨC",
+  "meaning": "kiểu Nhật",
+  "components": [
+   {
+    "kanji": "和",
+    "hanViet": "HÒA",
+    "meaning": ""
+   },
+   {
+    "kanji": "式",
+    "hanViet": "THỨC",
+    "meaning": "nghi lễ, kiểu, công thức"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F0F"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC242",
+  "word": "全部",
+  "reading": "ぜんぶ",
+  "hanViet": "TOÀN BỘ",
+  "meaning": "toàn bộ",
+  "components": [
+   {
+    "kanji": "全",
+    "hanViet": "TOÀN",
+    "meaning": "toàn bộ, hoàn toàn"
+   },
+   {
+    "kanji": "部",
+    "hanViet": "BỘ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5168"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC243",
+  "word": "安全",
+  "reading": "あんぜん",
+  "hanViet": "AN TOÀN",
+  "meaning": "an toàn",
+  "components": [
+   {
+    "kanji": "安",
+    "hanViet": "AN",
+    "meaning": ""
+   },
+   {
+    "kanji": "全",
+    "hanViet": "TOÀN",
+    "meaning": "toàn bộ, hoàn toàn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5168"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC244",
+  "word": "全員",
+  "reading": "ぜんいん",
+  "hanViet": "TOÀN VIÊN",
+  "meaning": "tất cả mọi người",
+  "components": [
+   {
+    "kanji": "全",
+    "hanViet": "TOÀN",
+    "meaning": "toàn bộ, hoàn toàn"
+   },
+   {
+    "kanji": "員",
+    "hanViet": "VIÊN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5168"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC245",
+  "word": "全力",
+  "reading": "ぜんりょく",
+  "hanViet": "TOÀN LỰC",
+  "meaning": "toàn lực",
+  "components": [
+   {
+    "kanji": "全",
+    "hanViet": "TOÀN",
+    "meaning": "toàn bộ, hoàn toàn"
+   },
+   {
+    "kanji": "力",
+    "hanViet": "LỰC",
+    "meaning": "sức, sức mạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5168"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC246",
+  "word": "次",
+  "reading": "つぎ",
+  "hanViet": "THỨ",
+  "meaning": "tiếp theo",
+  "components": [
+   {
+    "kanji": "次",
+    "hanViet": "THỨ",
+    "meaning": "tiếp theo, thứ tự"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B21"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC247",
+  "word": "目次",
+  "reading": "もくじ",
+  "hanViet": "MỤC THỨ",
+  "meaning": "mục lục",
+  "components": [
+   {
+    "kanji": "目",
+    "hanViet": "MỤC",
+    "meaning": ""
+   },
+   {
+    "kanji": "次",
+    "hanViet": "THỨ",
+    "meaning": "tiếp theo, thứ tự"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B21"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC248",
+  "word": "次女",
+  "reading": "じじょ",
+  "hanViet": "THỨ NỮ",
+  "meaning": "con gái thứ hai",
+  "components": [
+   {
+    "kanji": "次",
+    "hanViet": "THỨ",
+    "meaning": "tiếp theo, thứ tự"
+   },
+   {
+    "kanji": "女",
+    "hanViet": "NỮ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B21"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC249",
+  "word": "次男",
+  "reading": "じなん",
+  "hanViet": "THỨ NAM",
+  "meaning": "con trai thứ hai",
+  "components": [
+   {
+    "kanji": "次",
+    "hanViet": "THỨ",
+    "meaning": "tiếp theo, thứ tự"
+   },
+   {
+    "kanji": "男",
+    "hanViet": "NAM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6B21"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC250",
+  "word": "以上",
+  "reading": "いじょう",
+  "hanViet": "DĨ THƯỢNG",
+  "meaning": "trở lên, gồm mốc",
+  "components": [
+   {
+    "kanji": "以",
+    "hanViet": "DĨ",
+    "meaning": "lấy mốc làm căn cứ"
+   },
+   {
+    "kanji": "上",
+    "hanViet": "THƯỢNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE5"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC251",
+  "word": "以下",
+  "reading": "いか",
+  "hanViet": "DĨ HẠ",
+  "meaning": "trở xuống, gồm mốc",
+  "components": [
+   {
+    "kanji": "以",
+    "hanViet": "DĨ",
+    "meaning": "lấy mốc làm căn cứ"
+   },
+   {
+    "kanji": "下",
+    "hanViet": "HẠ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE5"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC252",
+  "word": "以外",
+  "reading": "いがい",
+  "hanViet": "DĨ NGOẠI",
+  "meaning": "ngoài ra, ngoại trừ",
+  "components": [
+   {
+    "kanji": "以",
+    "hanViet": "DĨ",
+    "meaning": "lấy mốc làm căn cứ"
+   },
+   {
+    "kanji": "外",
+    "hanViet": "NGOẠI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE5"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC253",
+  "word": "以来",
+  "reading": "いらい",
+  "hanViet": "DĨ LAI",
+  "meaning": "kể từ",
+  "components": [
+   {
+    "kanji": "以",
+    "hanViet": "DĨ",
+    "meaning": "lấy mốc làm căn cứ"
+   },
+   {
+    "kanji": "来",
+    "hanViet": "LAI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EE5"
+  ],
+  "lessons": [
+   "39-40"
+  ]
+ },
+ {
+  "id": "compound-KC254",
+  "word": "説明",
+  "reading": "せつめい",
+  "hanViet": "THUYẾT MINH",
+  "meaning": "giải thích",
+  "components": [
+   {
+    "kanji": "説",
+    "hanViet": "THUYẾT",
+    "meaning": "giải thích, học thuyết"
+   },
+   {
+    "kanji": "明",
+    "hanViet": "MINH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8AAC"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC255",
+  "word": "小説",
+  "reading": "しょうせつ",
+  "hanViet": "TIỂU THUYẾT",
+  "meaning": "tiểu thuyết",
+  "components": [
+   {
+    "kanji": "小",
+    "hanViet": "TIỂU",
+    "meaning": ""
+   },
+   {
+    "kanji": "説",
+    "hanViet": "THUYẾT",
+    "meaning": "giải thích, học thuyết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8AAC"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC256",
+  "word": "進学",
+  "reading": "しんがく",
+  "hanViet": "TIẾN HỌC",
+  "meaning": "học lên",
+  "components": [
+   {
+    "kanji": "進",
+    "hanViet": "TIẾN",
+    "meaning": "tiến lên"
+   },
+   {
+    "kanji": "学",
+    "hanViet": "HỌC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9032"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC257",
+  "word": "進みます",
+  "reading": "すすみます",
+  "hanViet": "TIẾN",
+  "meaning": "tiến lên",
+  "components": [
+   {
+    "kanji": "進",
+    "hanViet": "TIẾN",
+    "meaning": "tiến lên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9032"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC258",
+  "word": "進歩",
+  "reading": "しんぽ",
+  "hanViet": "TIẾN BỘ",
+  "meaning": "tiến bộ",
+  "components": [
+   {
+    "kanji": "進",
+    "hanViet": "TIẾN",
+    "meaning": "tiến lên"
+   },
+   {
+    "kanji": "歩",
+    "hanViet": "BỘ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9032"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC259",
+  "word": "産業",
+  "reading": "さんぎょう",
+  "hanViet": "SẢN NGHIỆP",
+  "meaning": "ngành sản xuất, công nghiệp",
+  "components": [
+   {
+    "kanji": "産",
+    "hanViet": "SẢN",
+    "meaning": "sinh ra, sản xuất"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7523"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC260",
+  "word": "生産",
+  "reading": "せいさん",
+  "hanViet": "SANH SẢN",
+  "meaning": "sản xuất",
+  "components": [
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   },
+   {
+    "kanji": "産",
+    "hanViet": "SẢN",
+    "meaning": "sinh ra, sản xuất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7523"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC261",
+  "word": "お土産",
+  "reading": "おみやげ",
+  "hanViet": "THỔ SẢN",
+  "meaning": "quà mang về",
+  "components": [
+   {
+    "kanji": "土",
+    "hanViet": "THỔ",
+    "meaning": ""
+   },
+   {
+    "kanji": "産",
+    "hanViet": "SẢN",
+    "meaning": "sinh ra, sản xuất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7523"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC262",
+  "word": "動物園",
+  "reading": "どうぶつえん",
+  "hanViet": "ĐỘNG VẬT VIÊN",
+  "meaning": "sở thú",
+  "components": [
+   {
+    "kanji": "動",
+    "hanViet": "ĐỘNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "物",
+    "hanViet": "VẬT",
+    "meaning": ""
+   },
+   {
+    "kanji": "園",
+    "hanViet": "VIÊN",
+    "meaning": "vườn, khuôn viên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5712"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC263",
+  "word": "遊園地",
+  "reading": "ゆうえんち",
+  "hanViet": "DU VIÊN ĐỊA",
+  "meaning": "khu vui chơi",
+  "components": [
+   {
+    "kanji": "遊",
+    "hanViet": "DU",
+    "meaning": "chơi"
+   },
+   {
+    "kanji": "園",
+    "hanViet": "VIÊN",
+    "meaning": "vườn, khuôn viên"
+   },
+   {
+    "kanji": "地",
+    "hanViet": "ĐỊA",
+    "meaning": "đất, vùng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5712"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC264",
+  "word": "遊びます",
+  "reading": "あそびます",
+  "hanViet": "DU",
+  "meaning": "chơi",
+  "components": [
+   {
+    "kanji": "遊",
+    "hanViet": "DU",
+    "meaning": "chơi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-904A"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC265",
+  "word": "公園",
+  "reading": "こうえん",
+  "hanViet": "CÔNG VIÊN",
+  "meaning": "công viên",
+  "components": [
+   {
+    "kanji": "公",
+    "hanViet": "CÔNG",
+    "meaning": "công cộng, công khai"
+   },
+   {
+    "kanji": "園",
+    "hanViet": "VIÊN",
+    "meaning": "vườn, khuôn viên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-516C"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC266",
+  "word": "公平",
+  "reading": "こうへい",
+  "hanViet": "CÔNG BÌNH",
+  "meaning": "công bằng",
+  "components": [
+   {
+    "kanji": "公",
+    "hanViet": "CÔNG",
+    "meaning": "công cộng, công khai"
+   },
+   {
+    "kanji": "平",
+    "hanViet": "BÌNH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-516C"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC267",
+  "word": "公務員",
+  "reading": "こうむいん",
+  "hanViet": "CÔNG VỤ VIÊN",
+  "meaning": "công chức",
+  "components": [
+   {
+    "kanji": "公",
+    "hanViet": "CÔNG",
+    "meaning": "công cộng, công khai"
+   },
+   {
+    "kanji": "務",
+    "hanViet": "VỤ",
+    "meaning": ""
+   },
+   {
+    "kanji": "員",
+    "hanViet": "VIÊN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-516C"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC268",
+  "word": "公開",
+  "reading": "こうかい",
+  "hanViet": "CÔNG KHAI",
+  "meaning": "công khai",
+  "components": [
+   {
+    "kanji": "公",
+    "hanViet": "CÔNG",
+    "meaning": "công cộng, công khai"
+   },
+   {
+    "kanji": "開",
+    "hanViet": "KHAI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-516C"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC269",
+  "word": "案内します",
+  "reading": "あんないします",
+  "hanViet": "ÁN NỘI",
+  "meaning": "hướng dẫn",
+  "components": [
+   {
+    "kanji": "案",
+    "hanViet": "ÁN",
+    "meaning": "phương án, ý tưởng"
+   },
+   {
+    "kanji": "内",
+    "hanViet": "NỘI",
+    "meaning": "bên trong"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6848"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC270",
+  "word": "案外",
+  "reading": "あんがい",
+  "hanViet": "ÁN NGOẠI",
+  "meaning": "bất ngờ, ngoài dự đoán",
+  "components": [
+   {
+    "kanji": "案",
+    "hanViet": "ÁN",
+    "meaning": "phương án, ý tưởng"
+   },
+   {
+    "kanji": "外",
+    "hanViet": "NGOẠI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6848"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC271",
+  "word": "提案",
+  "reading": "ていあん",
+  "hanViet": "ĐỀ ÁN",
+  "meaning": "đề xuất",
+  "components": [
+   {
+    "kanji": "提",
+    "hanViet": "ĐỀ",
+    "meaning": ""
+   },
+   {
+    "kanji": "案",
+    "hanViet": "ÁN",
+    "meaning": "phương án, ý tưởng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6848"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC272",
+  "word": "国内",
+  "reading": "こくない",
+  "hanViet": "QUỐC NỘI",
+  "meaning": "trong nước",
+  "components": [
+   {
+    "kanji": "国",
+    "hanViet": "QUỐC",
+    "meaning": ""
+   },
+   {
+    "kanji": "内",
+    "hanViet": "NỘI",
+    "meaning": "bên trong"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5185"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC273",
+  "word": "家内",
+  "reading": "かない",
+  "hanViet": "GIA NỘI",
+  "meaning": "vợ mình, cách nói truyền thống",
+  "components": [
+   {
+    "kanji": "家",
+    "hanViet": "GIA",
+    "meaning": ""
+   },
+   {
+    "kanji": "内",
+    "hanViet": "NỘI",
+    "meaning": "bên trong"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5185"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC274",
+  "word": "石",
+  "reading": "いし",
+  "hanViet": "THẠCH",
+  "meaning": "hòn đá",
+  "components": [
+   {
+    "kanji": "石",
+    "hanViet": "THẠCH",
+    "meaning": "đá"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-77F3"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC275",
+  "word": "宝石",
+  "reading": "ほうせき",
+  "hanViet": "BẢO THẠCH",
+  "meaning": "đá quý",
+  "components": [
+   {
+    "kanji": "宝",
+    "hanViet": "BẢO",
+    "meaning": ""
+   },
+   {
+    "kanji": "石",
+    "hanViet": "THẠCH",
+    "meaning": "đá"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-77F3"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC276",
+  "word": "油",
+  "reading": "あぶら",
+  "hanViet": "DU",
+  "meaning": "dầu",
+  "components": [
+   {
+    "kanji": "油",
+    "hanViet": "DU",
+    "meaning": "dầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CB9"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC277",
+  "word": "石油",
+  "reading": "せきゆ",
+  "hanViet": "THẠCH DU",
+  "meaning": "dầu mỏ",
+  "components": [
+   {
+    "kanji": "石",
+    "hanViet": "THẠCH",
+    "meaning": "đá"
+   },
+   {
+    "kanji": "油",
+    "hanViet": "DU",
+    "meaning": "dầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CB9"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC278",
+  "word": "ごま油",
+  "reading": "ごまあぶら",
+  "hanViet": "DU",
+  "meaning": "dầu mè",
+  "components": [
+   {
+    "kanji": "油",
+    "hanViet": "DU",
+    "meaning": "dầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6CB9"
+  ],
+  "lessons": [
+   "41-42"
+  ]
+ },
+ {
+  "id": "compound-KC279",
+  "word": "回る",
+  "reading": "まわる",
+  "hanViet": "HỒI",
+  "meaning": "quay, đi vòng",
+  "components": [
+   {
+    "kanji": "回",
+    "hanViet": "HỒI",
+    "meaning": "quay, vòng, lần"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-56DE"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC280",
+  "word": "今回",
+  "reading": "こんかい",
+  "hanViet": "KIM HỒI",
+  "meaning": "lần này",
+  "components": [
+   {
+    "kanji": "今",
+    "hanViet": "KIM",
+    "meaning": ""
+   },
+   {
+    "kanji": "回",
+    "hanViet": "HỒI",
+    "meaning": "quay, vòng, lần"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-56DE"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC281",
+  "word": "何回",
+  "reading": "なんかい",
+  "hanViet": "HÀ HỒI",
+  "meaning": "mấy lần",
+  "components": [
+   {
+    "kanji": "何",
+    "hanViet": "HÀ",
+    "meaning": ""
+   },
+   {
+    "kanji": "回",
+    "hanViet": "HỒI",
+    "meaning": "quay, vòng, lần"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-56DE"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC282",
+  "word": "起きる",
+  "reading": "おきる",
+  "hanViet": "KHỞI",
+  "meaning": "thức dậy, xảy ra",
+  "components": [
+   {
+    "kanji": "起",
+    "hanViet": "KHỞI",
+    "meaning": "dậy, bắt đầu, phát sinh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D77"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC283",
+  "word": "起こす",
+  "reading": "おこす",
+  "hanViet": "KHỞI",
+  "meaning": "đánh thức, gây ra",
+  "components": [
+   {
+    "kanji": "起",
+    "hanViet": "KHỞI",
+    "meaning": "dậy, bắt đầu, phát sinh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D77"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC284",
+  "word": "起床",
+  "reading": "きしょう",
+  "hanViet": "KHỞI SÀNG",
+  "meaning": "thức dậy",
+  "components": [
+   {
+    "kanji": "起",
+    "hanViet": "KHỞI",
+    "meaning": "dậy, bắt đầu, phát sinh"
+   },
+   {
+    "kanji": "床",
+    "hanViet": "SÀNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D77"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC285",
+  "word": "起業する",
+  "reading": "きぎょうする",
+  "hanViet": "KHỞI NGHIỆP",
+  "meaning": "khởi nghiệp",
+  "components": [
+   {
+    "kanji": "起",
+    "hanViet": "KHỞI",
+    "meaning": "dậy, bắt đầu, phát sinh"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D77"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC286",
+  "word": "頭",
+  "reading": "あたま",
+  "hanViet": "ĐẦU",
+  "meaning": "đầu",
+  "components": [
+   {
+    "kanji": "頭",
+    "hanViet": "ĐẦU",
+    "meaning": "cái đầu, phần đầu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-982D"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC287",
+  "word": "頭痛",
+  "reading": "ずつう",
+  "hanViet": "ĐẦU THỐNG",
+  "meaning": "đau đầu",
+  "components": [
+   {
+    "kanji": "頭",
+    "hanViet": "ĐẦU",
+    "meaning": "cái đầu, phần đầu"
+   },
+   {
+    "kanji": "痛",
+    "hanViet": "THỐNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-982D"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC288",
+  "word": "頭文字",
+  "reading": "かしらもじ",
+  "hanViet": "ĐẦU VĂN TỰ",
+  "meaning": "chữ cái đầu",
+  "components": [
+   {
+    "kanji": "頭",
+    "hanViet": "ĐẦU",
+    "meaning": "cái đầu, phần đầu"
+   },
+   {
+    "kanji": "文",
+    "hanViet": "VĂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "字",
+    "hanViet": "TỰ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-982D"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC289",
+  "word": "頭脳",
+  "reading": "ずのう",
+  "hanViet": "ĐẦU NÃO",
+  "meaning": "trí óc",
+  "components": [
+   {
+    "kanji": "頭",
+    "hanViet": "ĐẦU",
+    "meaning": "cái đầu, phần đầu"
+   },
+   {
+    "kanji": "脳",
+    "hanViet": "NÃO",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-982D"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC290",
+  "word": "短い",
+  "reading": "みじかい",
+  "hanViet": "ĐOẢN",
+  "meaning": "ngắn",
+  "components": [
+   {
+    "kanji": "短",
+    "hanViet": "ĐOẢN",
+    "meaning": "ngắn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-77ED"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC291",
+  "word": "短所",
+  "reading": "たんしょ",
+  "hanViet": "ĐOẢN SỞ",
+  "meaning": "điểm yếu",
+  "components": [
+   {
+    "kanji": "短",
+    "hanViet": "ĐOẢN",
+    "meaning": "ngắn"
+   },
+   {
+    "kanji": "所",
+    "hanViet": "SỞ",
+    "meaning": "nơi, chỗ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-77ED"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC292",
+  "word": "短期",
+  "reading": "たんき",
+  "hanViet": "ĐOẢN KỲ",
+  "meaning": "thời hạn ngắn",
+  "components": [
+   {
+    "kanji": "短",
+    "hanViet": "ĐOẢN",
+    "meaning": "ngắn"
+   },
+   {
+    "kanji": "期",
+    "hanViet": "KỲ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-77ED"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC293",
+  "word": "低い",
+  "reading": "ひくい",
+  "hanViet": "ĐÊ",
+  "meaning": "thấp",
+  "components": [
+   {
+    "kanji": "低",
+    "hanViet": "ĐÊ",
+    "meaning": "thấp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F4E"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC294",
+  "word": "最低",
+  "reading": "さいてい",
+  "hanViet": "TỐI ĐÊ",
+  "meaning": "thấp nhất, tệ nhất",
+  "components": [
+   {
+    "kanji": "最",
+    "hanViet": "TỐI",
+    "meaning": ""
+   },
+   {
+    "kanji": "低",
+    "hanViet": "ĐÊ",
+    "meaning": "thấp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F4E"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC295",
+  "word": "低下",
+  "reading": "ていか",
+  "hanViet": "ĐÊ HẠ",
+  "meaning": "suy giảm",
+  "components": [
+   {
+    "kanji": "低",
+    "hanViet": "ĐÊ",
+    "meaning": "thấp"
+   },
+   {
+    "kanji": "下",
+    "hanViet": "HẠ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F4E"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC296",
+  "word": "低温",
+  "reading": "ていおん",
+  "hanViet": "ĐÊ ÔN",
+  "meaning": "nhiệt độ thấp",
+  "components": [
+   {
+    "kanji": "低",
+    "hanViet": "ĐÊ",
+    "meaning": "thấp"
+   },
+   {
+    "kanji": "温",
+    "hanViet": "ÔN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F4E"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC297",
+  "word": "軽い",
+  "reading": "かるい",
+  "hanViet": "KHINH",
+  "meaning": "nhẹ",
+  "components": [
+   {
+    "kanji": "軽",
+    "hanViet": "KHINH",
+    "meaning": "nhẹ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EFD"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC298",
+  "word": "手軽い",
+  "reading": "てがるい",
+  "hanViet": "THỦ KHINH",
+  "meaning": "dễ làm, tiện",
+  "components": [
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   },
+   {
+    "kanji": "軽",
+    "hanViet": "KHINH",
+    "meaning": "nhẹ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EFD"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC299",
+  "word": "軽自動車",
+  "reading": "けいじどうしゃ",
+  "hanViet": "KHINH TỰ ĐỘNG XA",
+  "meaning": "ô tô hạng kei",
+  "components": [
+   {
+    "kanji": "軽",
+    "hanViet": "KHINH",
+    "meaning": "nhẹ"
+   },
+   {
+    "kanji": "自",
+    "hanViet": "TỰ",
+    "meaning": ""
+   },
+   {
+    "kanji": "動",
+    "hanViet": "ĐỘNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "車",
+    "hanViet": "XA",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8EFD"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC300",
+  "word": "洗います",
+  "reading": "あらいます",
+  "hanViet": "TẨY",
+  "meaning": "rửa, giặt",
+  "components": [
+   {
+    "kanji": "洗",
+    "hanViet": "TẨY",
+    "meaning": "rửa, giặt"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D17"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC301",
+  "word": "お手洗い",
+  "reading": "おてあらい",
+  "hanViet": "THỦ TẨY",
+  "meaning": "nhà vệ sinh",
+  "components": [
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   },
+   {
+    "kanji": "洗",
+    "hanViet": "TẨY",
+    "meaning": "rửa, giặt"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D17"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC302",
+  "word": "洗濯物",
+  "reading": "せんたくもの",
+  "hanViet": "TẨY TRẠC VẬT",
+  "meaning": "đồ giặt",
+  "components": [
+   {
+    "kanji": "洗",
+    "hanViet": "TẨY",
+    "meaning": "rửa, giặt"
+   },
+   {
+    "kanji": "濯",
+    "hanViet": "TRẠC",
+    "meaning": ""
+   },
+   {
+    "kanji": "物",
+    "hanViet": "VẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D17"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC304",
+  "word": "洋食",
+  "reading": "ようしょく",
+  "hanViet": "DƯƠNG THỰC",
+  "meaning": "món kiểu Tây",
+  "components": [
+   {
+    "kanji": "洋",
+    "hanViet": "DƯƠNG",
+    "meaning": "đại dương, phương Tây"
+   },
+   {
+    "kanji": "食",
+    "hanViet": "THỰC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D0B"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC306",
+  "word": "東洋",
+  "reading": "とうよう",
+  "hanViet": "ĐÔNG DƯƠNG",
+  "meaning": "phương Đông",
+  "components": [
+   {
+    "kanji": "東",
+    "hanViet": "ĐÔNG",
+    "meaning": "phía đông"
+   },
+   {
+    "kanji": "洋",
+    "hanViet": "DƯƠNG",
+    "meaning": "đại dương, phương Tây"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D0B"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC307",
+  "word": "別れる",
+  "reading": "わかれる",
+  "hanViet": "BIỆT",
+  "meaning": "chia tay",
+  "components": [
+   {
+    "kanji": "別",
+    "hanViet": "BIỆT",
+    "meaning": "tách, riêng, khác"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5225"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC308",
+  "word": "特別",
+  "reading": "とくべつ",
+  "hanViet": "ĐẶC BIỆT",
+  "meaning": "đặc biệt",
+  "components": [
+   {
+    "kanji": "特",
+    "hanViet": "ĐẶC",
+    "meaning": ""
+   },
+   {
+    "kanji": "別",
+    "hanViet": "BIỆT",
+    "meaning": "tách, riêng, khác"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5225"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC309",
+  "word": "性別",
+  "reading": "せいべつ",
+  "hanViet": "TÍNH BIỆT",
+  "meaning": "giới tính",
+  "components": [
+   {
+    "kanji": "性",
+    "hanViet": "TÍNH",
+    "meaning": ""
+   },
+   {
+    "kanji": "別",
+    "hanViet": "BIỆT",
+    "meaning": "tách, riêng, khác"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5225"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC310",
+  "word": "別々に",
+  "reading": "べつべつに",
+  "hanViet": "BIỆT BIỆT",
+  "meaning": "riêng từng cái",
+  "components": [
+   {
+    "kanji": "別",
+    "hanViet": "BIỆT",
+    "meaning": "tách, riêng, khác"
+   },
+   {
+    "kanji": "々",
+    "hanViet": "BIỆT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5225"
+  ],
+  "lessons": [
+   "43-44"
+  ]
+ },
+ {
+  "id": "compound-KC311",
+  "word": "卒業します",
+  "reading": "そつぎょうします",
+  "hanViet": "TỐT NGHIỆP",
+  "meaning": "tốt nghiệp",
+  "components": [
+   {
+    "kanji": "卒",
+    "hanViet": "TỐT",
+    "meaning": "hoàn tất, tốt nghiệp"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5352"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC312",
+  "word": "新卒",
+  "reading": "しんそつ",
+  "hanViet": "TÂN TỐT",
+  "meaning": "người mới tốt nghiệp",
+  "components": [
+   {
+    "kanji": "新",
+    "hanViet": "TÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "卒",
+    "hanViet": "TỐT",
+    "meaning": "hoàn tất, tốt nghiệp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5352"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC313",
+  "word": "卒業生",
+  "reading": "そつぎょうせい",
+  "hanViet": "TỐT NGHIỆP SANH",
+  "meaning": "người đã tốt nghiệp",
+  "components": [
+   {
+    "kanji": "卒",
+    "hanViet": "TỐT",
+    "meaning": "hoàn tất, tốt nghiệp"
+   },
+   {
+    "kanji": "業",
+    "hanViet": "NGHIỆP",
+    "meaning": "nghề, công việc"
+   },
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5352"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC314",
+  "word": "引きます",
+  "reading": "ひきます",
+  "hanViet": "DẪN",
+  "meaning": "kéo",
+  "components": [
+   {
+    "kanji": "引",
+    "hanViet": "DẪN",
+    "meaning": "kéo, dẫn"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F15"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC315",
+  "word": "引き出し",
+  "reading": "ひきだし",
+  "hanViet": "DẪN XUẤT",
+  "meaning": "ngăn kéo",
+  "components": [
+   {
+    "kanji": "引",
+    "hanViet": "DẪN",
+    "meaning": "kéo, dẫn"
+   },
+   {
+    "kanji": "出",
+    "hanViet": "XUẤT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F15"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC316",
+  "word": "引っ越し",
+  "reading": "ひっこし",
+  "hanViet": "DẪN VIỆT",
+  "meaning": "chuyển nhà",
+  "components": [
+   {
+    "kanji": "引",
+    "hanViet": "DẪN",
+    "meaning": "kéo, dẫn"
+   },
+   {
+    "kanji": "越",
+    "hanViet": "VIỆT",
+    "meaning": "vượt qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F15"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC317",
+  "word": "越える",
+  "reading": "こえる",
+  "hanViet": "VIỆT",
+  "meaning": "vượt qua, qua một ranh giới",
+  "components": [
+   {
+    "kanji": "越",
+    "hanViet": "VIỆT",
+    "meaning": "vượt qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D8A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC318",
+  "word": "乗り越える",
+  "reading": "のりこえる",
+  "hanViet": "THỪA VIỆT",
+  "meaning": "vượt qua khó khăn hoặc chướng ngại",
+  "components": [
+   {
+    "kanji": "乗",
+    "hanViet": "THỪA",
+    "meaning": "lên, cưỡi"
+   },
+   {
+    "kanji": "越",
+    "hanViet": "VIỆT",
+    "meaning": "vượt qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D8A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC319",
+  "word": "越南",
+  "reading": "えつなん",
+  "hanViet": "VIỆT NAM",
+  "meaning": "Việt Nam, cách viết Hán tự ít dùng trong tiếng Nhật hiện đại",
+  "components": [
+   {
+    "kanji": "越",
+    "hanViet": "VIỆT",
+    "meaning": "vượt qua"
+   },
+   {
+    "kanji": "南",
+    "hanViet": "NAM",
+    "meaning": "phía nam"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8D8A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC320",
+  "word": "太い",
+  "reading": "ふとい",
+  "hanViet": "THÁI",
+  "meaning": "to, dày",
+  "components": [
+   {
+    "kanji": "太",
+    "hanViet": "THÁI",
+    "meaning": "to, dày"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-592A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC321",
+  "word": "太る",
+  "reading": "ふとる",
+  "hanViet": "THÁI",
+  "meaning": "tăng cân",
+  "components": [
+   {
+    "kanji": "太",
+    "hanViet": "THÁI",
+    "meaning": "to, dày"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-592A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC322",
+  "word": "太陽",
+  "reading": "たいよう",
+  "hanViet": "THÁI DƯƠNG",
+  "meaning": "Mặt Trời",
+  "components": [
+   {
+    "kanji": "太",
+    "hanViet": "THÁI",
+    "meaning": "to, dày"
+   },
+   {
+    "kanji": "陽",
+    "hanViet": "DƯƠNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-592A"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC323",
+  "word": "細い",
+  "reading": "ほそい",
+  "hanViet": "TẾ",
+  "meaning": "mảnh, thon",
+  "components": [
+   {
+    "kanji": "細",
+    "hanViet": "TẾ",
+    "meaning": "mảnh, nhỏ, chi tiết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D30"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC324",
+  "word": "細かい",
+  "reading": "こまかい",
+  "hanViet": "TẾ",
+  "meaning": "nhỏ, tỉ mỉ",
+  "components": [
+   {
+    "kanji": "細",
+    "hanViet": "TẾ",
+    "meaning": "mảnh, nhỏ, chi tiết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D30"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC325",
+  "word": "詳細",
+  "reading": "しょうさい",
+  "hanViet": "TƯỜNG TẾ",
+  "meaning": "chi tiết",
+  "components": [
+   {
+    "kanji": "詳",
+    "hanViet": "TƯỜNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "細",
+    "hanViet": "TẾ",
+    "meaning": "mảnh, nhỏ, chi tiết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D30"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC326",
+  "word": "細工",
+  "reading": "さいく",
+  "hanViet": "TẾ CÔNG",
+  "meaning": "chế tác tinh xảo",
+  "components": [
+   {
+    "kanji": "細",
+    "hanViet": "TẾ",
+    "meaning": "mảnh, nhỏ, chi tiết"
+   },
+   {
+    "kanji": "工",
+    "hanViet": "CÔNG",
+    "meaning": "chế tác, công nghiệp"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D30"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC327",
+  "word": "働きます",
+  "reading": "はたらきます",
+  "hanViet": "ĐỘNG",
+  "meaning": "làm việc",
+  "components": [
+   {
+    "kanji": "働",
+    "hanViet": "ĐỘNG",
+    "meaning": "làm việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-50CD"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC328",
+  "word": "共働き",
+  "reading": "ともばたらき",
+  "hanViet": "CỘNG ĐỘNG",
+  "meaning": "hai vợ chồng cùng đi làm",
+  "components": [
+   {
+    "kanji": "共",
+    "hanViet": "CỘNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "働",
+    "hanViet": "ĐỘNG",
+    "meaning": "làm việc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-50CD"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC329",
+  "word": "労働者",
+  "reading": "ろうどうしゃ",
+  "hanViet": "LAO ĐỘNG GIẢ",
+  "meaning": "người lao động",
+  "components": [
+   {
+    "kanji": "労",
+    "hanViet": "LAO",
+    "meaning": ""
+   },
+   {
+    "kanji": "働",
+    "hanViet": "ĐỘNG",
+    "meaning": "làm việc"
+   },
+   {
+    "kanji": "者",
+    "hanViet": "GIẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-50CD"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC330",
+  "word": "押す",
+  "reading": "おす",
+  "hanViet": "ÁP",
+  "meaning": "đẩy, nhấn",
+  "components": [
+   {
+    "kanji": "押",
+    "hanViet": "ÁP",
+    "meaning": "ấn, đẩy"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-62BC"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC331",
+  "word": "押入れ",
+  "reading": "おしいれ",
+  "hanViet": "ÁP NHẬP",
+  "meaning": "tủ âm tường",
+  "components": [
+   {
+    "kanji": "押",
+    "hanViet": "ÁP",
+    "meaning": "ấn, đẩy"
+   },
+   {
+    "kanji": "入",
+    "hanViet": "NHẬP",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-62BC"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC332",
+  "word": "押収する",
+  "reading": "おうしゅうする",
+  "hanViet": "ÁP THÂU",
+  "meaning": "tịch thu vật chứng",
+  "components": [
+   {
+    "kanji": "押",
+    "hanViet": "ÁP",
+    "meaning": "ấn, đẩy"
+   },
+   {
+    "kanji": "収",
+    "hanViet": "THÂU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-62BC"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC333",
+  "word": "好き",
+  "reading": "すき",
+  "hanViet": "HẢO",
+  "meaning": "thích",
+  "components": [
+   {
+    "kanji": "好",
+    "hanViet": "HẢO",
+    "meaning": "ưa, thích"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-597D"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC334",
+  "word": "大好き",
+  "reading": "だいすき",
+  "hanViet": "ĐẠI HẢO",
+  "meaning": "rất thích",
+  "components": [
+   {
+    "kanji": "大",
+    "hanViet": "ĐẠI",
+    "meaning": ""
+   },
+   {
+    "kanji": "好",
+    "hanViet": "HẢO",
+    "meaning": "ưa, thích"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-597D"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC335",
+  "word": "お好み焼き",
+  "reading": "おこのみやき",
+  "hanViet": "HẢO THIÊU",
+  "meaning": "bánh áp chảo mặn kiểu Nhật",
+  "components": [
+   {
+    "kanji": "好",
+    "hanViet": "HẢO",
+    "meaning": "ưa, thích"
+   },
+   {
+    "kanji": "焼",
+    "hanViet": "THIÊU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-597D"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC336",
+  "word": "好意",
+  "reading": "こうい",
+  "hanViet": "HẢO Ý",
+  "meaning": "thiện ý, cảm tình",
+  "components": [
+   {
+    "kanji": "好",
+    "hanViet": "HẢO",
+    "meaning": "ưa, thích"
+   },
+   {
+    "kanji": "意",
+    "hanViet": "Ý",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-597D"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC337",
+  "word": "冷たい",
+  "reading": "つめたい",
+  "hanViet": "LÃNH",
+  "meaning": "lạnh khi chạm, lạnh lùng",
+  "components": [
+   {
+    "kanji": "冷",
+    "hanViet": "LÃNH",
+    "meaning": "lạnh, làm lạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-51B7"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC338",
+  "word": "冷ます",
+  "reading": "さます",
+  "hanViet": "LÃNH",
+  "meaning": "làm nguội",
+  "components": [
+   {
+    "kanji": "冷",
+    "hanViet": "LÃNH",
+    "meaning": "lạnh, làm lạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-51B7"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC339",
+  "word": "冷える",
+  "reading": "ひえる",
+  "hanViet": "LÃNH",
+  "meaning": "nguội đi, lạnh đi",
+  "components": [
+   {
+    "kanji": "冷",
+    "hanViet": "LÃNH",
+    "meaning": "lạnh, làm lạnh"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-51B7"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC340",
+  "word": "冷蔵庫",
+  "reading": "れいぞうこ",
+  "hanViet": "LÃNH TÀNG KHỐ",
+  "meaning": "tủ lạnh",
+  "components": [
+   {
+    "kanji": "冷",
+    "hanViet": "LÃNH",
+    "meaning": "lạnh, làm lạnh"
+   },
+   {
+    "kanji": "蔵",
+    "hanViet": "TÀNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "庫",
+    "hanViet": "KHỐ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-51B7"
+  ],
+  "lessons": [
+   "45-46"
+  ]
+ },
+ {
+  "id": "compound-KC341",
+  "word": "声",
+  "reading": "こえ",
+  "hanViet": "THANH",
+  "meaning": "tiếng, giọng nói",
+  "components": [
+   {
+    "kanji": "声",
+    "hanViet": "THANH",
+    "meaning": "tiếng, giọng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-58F0"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC342",
+  "word": "声楽",
+  "reading": "せいがく",
+  "hanViet": "THANH LẠC",
+  "meaning": "thanh nhạc",
+  "components": [
+   {
+    "kanji": "声",
+    "hanViet": "THANH",
+    "meaning": "tiếng, giọng"
+   },
+   {
+    "kanji": "楽",
+    "hanViet": "LẠC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-58F0"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC343",
+  "word": "声変わり",
+  "reading": "こえがわり",
+  "hanViet": "THANH BIẾN",
+  "meaning": "vỡ giọng",
+  "components": [
+   {
+    "kanji": "声",
+    "hanViet": "THANH",
+    "meaning": "tiếng, giọng"
+   },
+   {
+    "kanji": "変",
+    "hanViet": "BIẾN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-58F0"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC344",
+  "word": "声色",
+  "reading": "こわいろ",
+  "hanViet": "THANH SẮC",
+  "meaning": "giọng điệu, âm sắc giọng",
+  "components": [
+   {
+    "kanji": "声",
+    "hanViet": "THANH",
+    "meaning": "tiếng, giọng"
+   },
+   {
+    "kanji": "色",
+    "hanViet": "SẮC",
+    "meaning": "màu sắc"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-58F0"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC346",
+  "word": "真っ暗",
+  "reading": "まっくら",
+  "hanViet": "CHÂN ÁM",
+  "meaning": "tối om",
+  "components": [
+   {
+    "kanji": "真",
+    "hanViet": "CHÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6697"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC347",
+  "word": "暗記",
+  "reading": "あんき",
+  "hanViet": "ÁM KÝ",
+  "meaning": "học thuộc lòng",
+  "components": [
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   },
+   {
+    "kanji": "記",
+    "hanViet": "KÝ",
+    "meaning": "ghi chép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6697"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC348",
+  "word": "暗証番号",
+  "reading": "あんしょうばんごう",
+  "hanViet": "ÁM CHỨNG PHIÊN HIỆU",
+  "meaning": "mã PIN",
+  "components": [
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   },
+   {
+    "kanji": "証",
+    "hanViet": "CHỨNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "番",
+    "hanViet": "PHIÊN",
+    "meaning": "lượt, thứ tự"
+   },
+   {
+    "kanji": "号",
+    "hanViet": "HIỆU",
+    "meaning": "số hiệu, dấu hiệu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6697"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC349",
+  "word": "弱い",
+  "reading": "よわい",
+  "hanViet": "NHƯỢC",
+  "meaning": "yếu",
+  "components": [
+   {
+    "kanji": "弱",
+    "hanViet": "NHƯỢC",
+    "meaning": "yếu"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F31"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC350",
+  "word": "弱点",
+  "reading": "じゃくてん",
+  "hanViet": "NHƯỢC ĐIỂM",
+  "meaning": "điểm yếu",
+  "components": [
+   {
+    "kanji": "弱",
+    "hanViet": "NHƯỢC",
+    "meaning": "yếu"
+   },
+   {
+    "kanji": "点",
+    "hanViet": "ĐIỂM",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F31"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC351",
+  "word": "弱気",
+  "reading": "よわき",
+  "hanViet": "NHƯỢC KHÍ",
+  "meaning": "thiếu tự tin, nhụt chí",
+  "components": [
+   {
+    "kanji": "弱",
+    "hanViet": "NHƯỢC",
+    "meaning": "yếu"
+   },
+   {
+    "kanji": "気",
+    "hanViet": "KHÍ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5F31"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC352",
+  "word": "遠い",
+  "reading": "とおい",
+  "hanViet": "VIỄN",
+  "meaning": "xa",
+  "components": [
+   {
+    "kanji": "遠",
+    "hanViet": "VIỄN",
+    "meaning": "xa"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9060"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC353",
+  "word": "遠慮する",
+  "reading": "えんりょする",
+  "hanViet": "VIỄN LỰ",
+  "meaning": "giữ ý, ngại, kiêng",
+  "components": [
+   {
+    "kanji": "遠",
+    "hanViet": "VIỄN",
+    "meaning": "xa"
+   },
+   {
+    "kanji": "慮",
+    "hanViet": "LỰ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9060"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC354",
+  "word": "遠足",
+  "reading": "えんそく",
+  "hanViet": "VIỄN TÚC",
+  "meaning": "chuyến dã ngoại",
+  "components": [
+   {
+    "kanji": "遠",
+    "hanViet": "VIỄN",
+    "meaning": "xa"
+   },
+   {
+    "kanji": "足",
+    "hanViet": "TÚC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-9060"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC355",
+  "word": "野菜",
+  "reading": "やさい",
+  "hanViet": "DÃ THÁI",
+  "meaning": "rau",
+  "components": [
+   {
+    "kanji": "野",
+    "hanViet": "DÃ",
+    "meaning": "đồng, hoang dã, lĩnh vực"
+   },
+   {
+    "kanji": "菜",
+    "hanViet": "THÁI",
+    "meaning": "rau"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CE",
+   "kanji-K-83DC"
+  ],
+  "lessons": [
+   "47-48",
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC357",
+  "word": "分野",
+  "reading": "ぶんや",
+  "hanViet": "PHÂN DÃ",
+  "meaning": "lĩnh vực",
+  "components": [
+   {
+    "kanji": "分",
+    "hanViet": "PHÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "野",
+    "hanViet": "DÃ",
+    "meaning": "đồng, hoang dã, lĩnh vực"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CE"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC358",
+  "word": "野球",
+  "reading": "やきゅう",
+  "hanViet": "DÃ CẦU",
+  "meaning": "bóng chày",
+  "components": [
+   {
+    "kanji": "野",
+    "hanViet": "DÃ",
+    "meaning": "đồng, hoang dã, lĩnh vực"
+   },
+   {
+    "kanji": "球",
+    "hanViet": "CẦU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-91CE"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC359",
+  "word": "反対",
+  "reading": "はんたい",
+  "hanViet": "PHẢN ĐỐI",
+  "meaning": "phản đối, phía đối diện",
+  "components": [
+   {
+    "kanji": "反",
+    "hanViet": "PHẢN",
+    "meaning": "ngược, chống"
+   },
+   {
+    "kanji": "対",
+    "hanViet": "ĐỐI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53CD"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC360",
+  "word": "違反",
+  "reading": "いはん",
+  "hanViet": "VI PHẢN",
+  "meaning": "vi phạm",
+  "components": [
+   {
+    "kanji": "違",
+    "hanViet": "VI",
+    "meaning": ""
+   },
+   {
+    "kanji": "反",
+    "hanViet": "PHẢN",
+    "meaning": "ngược, chống"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53CD"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC361",
+  "word": "反物",
+  "reading": "たんもの",
+  "hanViet": "PHẢN VẬT",
+  "meaning": "tấm hoặc cuộn vải may kimono",
+  "components": [
+   {
+    "kanji": "反",
+    "hanViet": "PHẢN",
+    "meaning": "ngược, chống"
+   },
+   {
+    "kanji": "物",
+    "hanViet": "VẬT",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-53CD"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC362",
+  "word": "手伝います",
+  "reading": "てつだいます",
+  "hanViet": "THỦ TRUYỀN",
+  "meaning": "giúp đỡ",
+  "components": [
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   },
+   {
+    "kanji": "伝",
+    "hanViet": "TRUYỀN",
+    "meaning": "truyền, chuyển lời"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F1D"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC363",
+  "word": "伝えます",
+  "reading": "つたえます",
+  "hanViet": "TRUYỀN",
+  "meaning": "truyền đạt",
+  "components": [
+   {
+    "kanji": "伝",
+    "hanViet": "TRUYỀN",
+    "meaning": "truyền, chuyển lời"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F1D"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC364",
+  "word": "伝言",
+  "reading": "でんごん",
+  "hanViet": "TRUYỀN NGÔN",
+  "meaning": "lời nhắn",
+  "components": [
+   {
+    "kanji": "伝",
+    "hanViet": "TRUYỀN",
+    "meaning": "truyền, chuyển lời"
+   },
+   {
+    "kanji": "言",
+    "hanViet": "NGÔN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4F1D"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC365",
+  "word": "若い",
+  "reading": "わかい",
+  "hanViet": "NHƯỢC",
+  "meaning": "trẻ",
+  "components": [
+   {
+    "kanji": "若",
+    "hanViet": "NHƯỢC",
+    "meaning": "trẻ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-82E5"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC366",
+  "word": "若者",
+  "reading": "わかもの",
+  "hanViet": "NHƯỢC GIẢ",
+  "meaning": "người trẻ",
+  "components": [
+   {
+    "kanji": "若",
+    "hanViet": "NHƯỢC",
+    "meaning": "trẻ"
+   },
+   {
+    "kanji": "者",
+    "hanViet": "GIẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-82E5"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC367",
+  "word": "若輩",
+  "reading": "じゃくはい",
+  "hanViet": "NHƯỢC BỐI",
+  "meaning": "người trẻ hoặc chưa có kinh nghiệm",
+  "components": [
+   {
+    "kanji": "若",
+    "hanViet": "NHƯỢC",
+    "meaning": "trẻ"
+   },
+   {
+    "kanji": "輩",
+    "hanViet": "BỐI",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-82E5"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC368",
+  "word": "若々しい",
+  "reading": "わかわかしい",
+  "hanViet": "NHƯỢC NHƯỢC",
+  "meaning": "trẻ trung",
+  "components": [
+   {
+    "kanji": "若",
+    "hanViet": "NHƯỢC",
+    "meaning": "trẻ"
+   },
+   {
+    "kanji": "々",
+    "hanViet": "NHƯỢC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-82E5"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC369",
+  "word": "両親",
+  "reading": "りょうしん",
+  "hanViet": "LƯỠNG THÂN",
+  "meaning": "bố mẹ",
+  "components": [
+   {
+    "kanji": "両",
+    "hanViet": "LƯỠNG",
+    "meaning": "cả hai"
+   },
+   {
+    "kanji": "親",
+    "hanViet": "THÂN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E21"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC370",
+  "word": "両手",
+  "reading": "りょうて",
+  "hanViet": "LƯỠNG THỦ",
+  "meaning": "hai tay",
+  "components": [
+   {
+    "kanji": "両",
+    "hanViet": "LƯỠNG",
+    "meaning": "cả hai"
+   },
+   {
+    "kanji": "手",
+    "hanViet": "THỦ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E21"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC371",
+  "word": "両方",
+  "reading": "りょうほう",
+  "hanViet": "LƯỠNG PHƯƠNG",
+  "meaning": "cả hai phía hoặc lựa chọn",
+  "components": [
+   {
+    "kanji": "両",
+    "hanViet": "LƯỠNG",
+    "meaning": "cả hai"
+   },
+   {
+    "kanji": "方",
+    "hanViet": "PHƯƠNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E21"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC372",
+  "word": "両側",
+  "reading": "りょうがわ",
+  "hanViet": "LƯỠNG TRẮC",
+  "meaning": "cả hai bên",
+  "components": [
+   {
+    "kanji": "両",
+    "hanViet": "LƯỠNG",
+    "meaning": "cả hai"
+   },
+   {
+    "kanji": "側",
+    "hanViet": "TRẮC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E21"
+  ],
+  "lessons": [
+   "47-48"
+  ]
+ },
+ {
+  "id": "compound-KC375",
+  "word": "上京する",
+  "reading": "じょうきょうする",
+  "hanViet": "THƯỢNG KINH",
+  "meaning": "lên Tokyo",
+  "components": [
+   {
+    "kanji": "上",
+    "hanViet": "THƯỢNG",
+    "meaning": ""
+   },
+   {
+    "kanji": "京",
+    "hanViet": "KINH",
+    "meaning": "kinh đô"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4EAC"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC376",
+  "word": "私",
+  "reading": "わたし",
+  "hanViet": "TƯ",
+  "meaning": "tôi",
+  "components": [
+   {
+    "kanji": "私",
+    "hanViet": "TƯ",
+    "meaning": "tôi, riêng tư"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-79C1"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC378",
+  "word": "私立大学",
+  "reading": "しりつだいがく",
+  "hanViet": "TƯ LẬP ĐẠI HỌC",
+  "meaning": "trường đại học tư thục",
+  "components": [
+   {
+    "kanji": "私",
+    "hanViet": "TƯ",
+    "meaning": "tôi, riêng tư"
+   },
+   {
+    "kanji": "立",
+    "hanViet": "LẬP",
+    "meaning": ""
+   },
+   {
+    "kanji": "大",
+    "hanViet": "ĐẠI",
+    "meaning": ""
+   },
+   {
+    "kanji": "学",
+    "hanViet": "HỌC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-79C1"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC379",
+  "word": "私生活",
+  "reading": "しせいかつ",
+  "hanViet": "TƯ SANH HOẠT",
+  "meaning": "đời tư",
+  "components": [
+   {
+    "kanji": "私",
+    "hanViet": "TƯ",
+    "meaning": "tôi, riêng tư"
+   },
+   {
+    "kanji": "生",
+    "hanViet": "SANH",
+    "meaning": ""
+   },
+   {
+    "kanji": "活",
+    "hanViet": "HOẠT",
+    "meaning": "sống, hoạt động"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-79C1"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC380",
+  "word": "乗ります",
+  "reading": "のります",
+  "hanViet": "THỪA",
+  "meaning": "lên xe, tàu",
+  "components": [
+   {
+    "kanji": "乗",
+    "hanViet": "THỪA",
+    "meaning": "lên, cưỡi"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E57"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC381",
+  "word": "乗り場",
+  "reading": "のりば",
+  "hanViet": "THỪA TRÀNG",
+  "meaning": "điểm lên xe hoặc tàu",
+  "components": [
+   {
+    "kanji": "乗",
+    "hanViet": "THỪA",
+    "meaning": "lên, cưỡi"
+   },
+   {
+    "kanji": "場",
+    "hanViet": "TRÀNG",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E57"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC382",
+  "word": "乗客",
+  "reading": "じょうきゃく",
+  "hanViet": "THỪA KHÁCH",
+  "meaning": "hành khách",
+  "components": [
+   {
+    "kanji": "乗",
+    "hanViet": "THỪA",
+    "meaning": "lên, cưỡi"
+   },
+   {
+    "kanji": "客",
+    "hanViet": "KHÁCH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E57"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC383",
+  "word": "乗車券",
+  "reading": "じょうしゃけん",
+  "hanViet": "THỪA XA KHOÁN",
+  "meaning": "vé xe hoặc tàu",
+  "components": [
+   {
+    "kanji": "乗",
+    "hanViet": "THỪA",
+    "meaning": "lên, cưỡi"
+   },
+   {
+    "kanji": "車",
+    "hanViet": "XA",
+    "meaning": ""
+   },
+   {
+    "kanji": "券",
+    "hanViet": "KHOÁN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-4E57"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC385",
+  "word": "菜園",
+  "reading": "さいえん",
+  "hanViet": "THÁI VIÊN",
+  "meaning": "vườn rau",
+  "components": [
+   {
+    "kanji": "菜",
+    "hanViet": "THÁI",
+    "meaning": "rau"
+   },
+   {
+    "kanji": "園",
+    "hanViet": "VIÊN",
+    "meaning": "vườn, khuôn viên"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-83DC"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC386",
+  "word": "菜の花",
+  "reading": "なのはな",
+  "hanViet": "THÁI HOA",
+  "meaning": "hoa cải",
+  "components": [
+   {
+    "kanji": "菜",
+    "hanViet": "THÁI",
+    "meaning": "rau"
+   },
+   {
+    "kanji": "花",
+    "hanViet": "HOA",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-83DC"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC387",
+  "word": "吸います",
+  "reading": "すいます",
+  "hanViet": "HẤP",
+  "meaning": "hút, hít",
+  "components": [
+   {
+    "kanji": "吸",
+    "hanViet": "HẤP",
+    "meaning": "hút, hít"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5438"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC388",
+  "word": "呼吸します",
+  "reading": "こきゅうします",
+  "hanViet": "HÔ HẤP",
+  "meaning": "hô hấp",
+  "components": [
+   {
+    "kanji": "呼",
+    "hanViet": "HÔ",
+    "meaning": ""
+   },
+   {
+    "kanji": "吸",
+    "hanViet": "HẤP",
+    "meaning": "hút, hít"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5438"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC389",
+  "word": "吸い殻",
+  "reading": "すいがら",
+  "hanViet": "HẤP XÁC",
+  "meaning": "đầu mẩu thuốc lá",
+  "components": [
+   {
+    "kanji": "吸",
+    "hanViet": "HẤP",
+    "meaning": "hút, hít"
+   },
+   {
+    "kanji": "殻",
+    "hanViet": "XÁC",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5438"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC390",
+  "word": "吸収",
+  "reading": "きゅうしゅう",
+  "hanViet": "HẤP THÂU",
+  "meaning": "hấp thu",
+  "components": [
+   {
+    "kanji": "吸",
+    "hanViet": "HẤP",
+    "meaning": "hút, hít"
+   },
+   {
+    "kanji": "収",
+    "hanViet": "THÂU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-5438"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC391",
+  "word": "日記",
+  "reading": "にっき",
+  "hanViet": "NHẬT KÝ",
+  "meaning": "nhật ký",
+  "components": [
+   {
+    "kanji": "日",
+    "hanViet": "NHẬT",
+    "meaning": ""
+   },
+   {
+    "kanji": "記",
+    "hanViet": "KÝ",
+    "meaning": "ghi chép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8A18"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC392",
+  "word": "暗記する",
+  "reading": "あんきする",
+  "hanViet": "ÁM KÝ",
+  "meaning": "học thuộc lòng",
+  "components": [
+   {
+    "kanji": "暗",
+    "hanViet": "ÁM",
+    "meaning": "tối"
+   },
+   {
+    "kanji": "記",
+    "hanViet": "KÝ",
+    "meaning": "ghi chép"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8A18"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC393",
+  "word": "記者",
+  "reading": "きしゃ",
+  "hanViet": "KÝ GIẢ",
+  "meaning": "phóng viên",
+  "components": [
+   {
+    "kanji": "記",
+    "hanViet": "KÝ",
+    "meaning": "ghi chép"
+   },
+   {
+    "kanji": "者",
+    "hanViet": "GIẢ",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-8A18"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC394",
+  "word": "雪",
+  "reading": "ゆき",
+  "hanViet": "TUYẾT",
+  "meaning": "tuyết",
+  "components": [
+   {
+    "kanji": "雪",
+    "hanViet": "TUYẾT",
+    "meaning": "tuyết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96EA"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC395",
+  "word": "大雪",
+  "reading": "おおゆき",
+  "hanViet": "ĐẠI TUYẾT",
+  "meaning": "tuyết rơi dày",
+  "components": [
+   {
+    "kanji": "大",
+    "hanViet": "ĐẠI",
+    "meaning": ""
+   },
+   {
+    "kanji": "雪",
+    "hanViet": "TUYẾT",
+    "meaning": "tuyết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96EA"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC396",
+  "word": "新雪",
+  "reading": "しんせつ",
+  "hanViet": "TÂN TUYẾT",
+  "meaning": "tuyết mới rơi",
+  "components": [
+   {
+    "kanji": "新",
+    "hanViet": "TÂN",
+    "meaning": ""
+   },
+   {
+    "kanji": "雪",
+    "hanViet": "TUYẾT",
+    "meaning": "tuyết"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-96EA"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC397",
+  "word": "絵",
+  "reading": "え",
+  "hanViet": "HỘI",
+  "meaning": "tranh",
+  "components": [
+   {
+    "kanji": "絵",
+    "hanViet": "HỘI",
+    "meaning": "tranh, hình vẽ"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D75"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC398",
+  "word": "絵本",
+  "reading": "えほん",
+  "hanViet": "HỘI BỔN",
+  "meaning": "sách tranh",
+  "components": [
+   {
+    "kanji": "絵",
+    "hanViet": "HỘI",
+    "meaning": "tranh, hình vẽ"
+   },
+   {
+    "kanji": "本",
+    "hanViet": "BỔN",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D75"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC399",
+  "word": "絵の具",
+  "reading": "えのぐ",
+  "hanViet": "HỘI CỤ",
+  "meaning": "màu vẽ",
+  "components": [
+   {
+    "kanji": "絵",
+    "hanViet": "HỘI",
+    "meaning": "tranh, hình vẽ"
+   },
+   {
+    "kanji": "具",
+    "hanViet": "CỤ",
+    "meaning": "dụng cụ, vật dụng"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D75"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC400",
+  "word": "絵画",
+  "reading": "かいが",
+  "hanViet": "HỘI HOẠCH",
+  "meaning": "hội họa, tranh vẽ",
+  "components": [
+   {
+    "kanji": "絵",
+    "hanViet": "HỘI",
+    "meaning": "tranh, hình vẽ"
+   },
+   {
+    "kanji": "画",
+    "hanViet": "HOẠCH",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-7D75"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC401",
+  "word": "消します",
+  "reading": "けします",
+  "hanViet": "TIÊU",
+  "meaning": "tắt, xóa",
+  "components": [
+   {
+    "kanji": "消",
+    "hanViet": "TIÊU",
+    "meaning": "tắt, xóa, mất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D88"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC402",
+  "word": "消える",
+  "reading": "きえる",
+  "hanViet": "TIÊU",
+  "meaning": "tắt, biến mất",
+  "components": [
+   {
+    "kanji": "消",
+    "hanViet": "TIÊU",
+    "meaning": "tắt, xóa, mất"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D88"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ },
+ {
+  "id": "compound-KC403",
+  "word": "消去する",
+  "reading": "しょうきょする",
+  "hanViet": "TIÊU KHỨ",
+  "meaning": "xóa bỏ",
+  "components": [
+   {
+    "kanji": "消",
+    "hanViet": "TIÊU",
+    "meaning": "tắt, xóa, mất"
+   },
+   {
+    "kanji": "去",
+    "hanViet": "KHỨ",
+    "meaning": "rời đi, qua"
+   }
+  ],
+  "kanjiIds": [
+   "kanji-K-6D88"
+  ],
+  "lessons": [
+   "49-50"
+  ]
+ }
+]

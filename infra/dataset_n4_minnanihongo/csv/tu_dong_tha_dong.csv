@@ -1,0 +1,13 @@
+﻿id,tadong_ja,tadong_hiragana,tudong_ja,tudong_hiragana,meaning_vi,image_ids,reference_ids
+TD001,電気をつける,でんきをつける,電気がつく,でんきがつく,bật đèn → đèn bật,NP011,"PHOTO, TUFS_RESULT"
+TD002,電気を消す,でんきをけす,電気が消える,でんきがきえる,tắt đèn → đèn tắt,NP011,"PHOTO, TUFS_RESULT"
+TD003,時計を止める,とけいをとめる,時計が止まる,とけいがとまる,dừng đồng hồ → đồng hồ dừng,NP011,"PHOTO, TUFS_RESULT"
+TD004,犬を中に入れる,いぬをなかにいれる,犬が中に入る,いぬがなかにはいる,cho chó vào trong → chó đi vào,NP011,"PHOTO, TUFS_RESULT"
+TD005,鍵を掛ける,かぎをかける,鍵が掛かる,かぎがかかる,khóa cửa → khóa được cài,NP011,"PHOTO, TUFS_RESULT"
+TD006,服を汚す,ふくをよごす,服が汚れる,ふくがよごれる,làm bẩn quần áo → quần áo bị bẩn,NP011,"PHOTO, TUFS_RESULT"
+TD007,家具を壊す,かぐをこわす,家具が壊れる,かぐがこわれる,làm hỏng đồ nội thất → đồ nội thất bị hỏng,NP011,"PHOTO, TUFS_RESULT"
+TD008,卵を割る,たまごをわる,卵が割れる,たまごがわれる,đập trứng → trứng vỡ,NP011,"PHOTO, TUFS_RESULT"
+TD009,紙を破る,かみをやぶる,紙が破れる,かみがやぶれる,xé giấy → giấy bị rách,NP011,"PHOTO, TUFS_RESULT"
+TD010,鉛筆を折る,えんぴつをおる,鉛筆が折れる,えんぴつがおれる,bẻ bút chì → bút chì gãy,NP011,"PHOTO, TUFS_RESULT"
+TD011,ドアを開ける,どあをあける,ドアが開く,どあがあく,mở cửa → cửa mở,"TV007, NP010","PHOTO, TUFS_RESULT"
+TD012,ドアを閉める,どあをしめる,ドアが閉まる,どあがしまる,đóng cửa → cửa đóng,"TV007, NP010","PHOTO, TUFS_RESULT"

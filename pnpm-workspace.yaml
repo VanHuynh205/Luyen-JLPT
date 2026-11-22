@@ -1,0 +1,12 @@
+packages:
+  - frontend
+  - infra/scripts
+# pnpm 11+ reads only allowBuilds; pnpm 10 reads the two lists below.
+allowBuilds:
+  '@biomejs/biome': true
+  esbuild: true
+  sharp: true
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - esbuild
+  - sharp

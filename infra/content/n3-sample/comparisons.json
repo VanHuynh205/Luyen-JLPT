@@ -1,0 +1,20 @@
+[
+ {
+  "id": "n3-comparison-SS001",
+  "group": "Giải thích và câu hỏi trung tính",
+  "patterns": "～んですか／～ですか・ますか",
+  "distinction": "Câu hỏi gắn với dấu hiệu hoặc tình huống; câu hỏi thông tin trung tính",
+  "whenToUse": "Thấy người kia cầm va-li, hỏi 行くんですか. Hỏi lịch từ đầu cuộc trò chuyện có thể dùng 行きますか.",
+  "exampleJa": "明日、出発するんですか。／明日、出発しますか。",
+  "exampleVi": "Mai anh/chị khởi hành à?／Mai anh/chị có khởi hành không?"
+ },
+ {
+  "id": "n3-comparison-SS002",
+  "group": "Xin lời khuyên và đưa lời khuyên",
+  "patterns": "～たらいいですか・～ばいいですか／～たほうがいいです",
+  "distinction": "Hai mẫu đầu dùng khi chưa biết lựa chọn; mẫu sau đề xuất một cách được xem là tốt hơn",
+  "whenToUse": "どうしたら／どうすれば đều thông dụng. Khi trực tiếp khuyên người khác, ほうがいい có thể nghe khá mạnh.",
+  "exampleJa": "どこで買えばいいですか。／早く予約したほうがいいです。",
+  "exampleVi": "Tôi nên mua ở đâu?／Bạn nên đặt sớm."
+ }
+]

@@ -1,0 +1,245 @@
+[
+ {
+  "id": "comparison-SS001",
+  "group": "Giải thích và câu hỏi trung tính",
+  "patterns": "～んですか／～ですか・ますか",
+  "distinction": "Câu hỏi gắn với dấu hiệu hoặc tình huống; câu hỏi thông tin trung tính",
+  "whenToUse": "Thấy người kia cầm va-li, hỏi 行くんですか. Hỏi lịch từ đầu cuộc trò chuyện có thể dùng 行きますか.",
+  "exampleJa": "明日、出発するんですか。／明日、出発しますか。",
+  "exampleVi": "Mai anh/chị khởi hành à?／Mai anh/chị có khởi hành không?"
+ },
+ {
+  "id": "comparison-SS002",
+  "group": "Xin lời khuyên và đưa lời khuyên",
+  "patterns": "～たらいいですか・～ばいいですか／～たほうがいいです",
+  "distinction": "Hai mẫu đầu dùng khi chưa biết lựa chọn; mẫu sau đề xuất một cách được xem là tốt hơn",
+  "whenToUse": "どうしたら／どうすれば đều thông dụng. Khi trực tiếp khuyên người khác, ほうがいい có thể nghe khá mạnh.",
+  "exampleJa": "どこで買えばいいですか。／早く予約したほうがいいです。",
+  "exampleVi": "Tôi nên mua ở đâu?／Bạn nên đặt sớm."
+ },
+ {
+  "id": "comparison-SS003",
+  "group": "Lời yêu cầu và xin phép",
+  "patterns": "Vていただけませんか／Vさせていただけませんか",
+  "distinction": "Nhờ người nghe làm V; xin phép để người nói làm V",
+  "whenToUse": "Nhìn chủ thể của hành động chính. コピーして là nhờ bên kia sao chép, コピーさせて là xin mình được sao chép.",
+  "exampleJa": "コピーしていただけませんか。／コピーさせていただけませんか。",
+  "exampleVi": "Anh/chị sao chép giúp tôi được không?／Anh/chị cho phép tôi sao chép được không?"
+ },
+ {
+  "id": "comparison-SS004",
+  "group": "Mức lịch sự khi nhờ",
+  "patterns": "てください・てくれませんか・てもらえませんか・てくださいませんか・ていただけませんか",
+  "distinction": "Yêu cầu trực tiếp; nhờ gần gũi; xin nhận giúp đỡ; dùng tôn kính của くれる; dùng khiêm nhường ở phía nhận",
+  "whenToUse": "Tình huống và quan hệ quyết định mức phù hợp. Một lời mở đầu cũng giúp lời nhờ nghe nhẹ hơn.",
+  "exampleJa": "ちょっと待ってくれませんか。／少しお待ちいただけませんか。",
+  "exampleVi": "Bạn chờ một chút được không?／Anh/chị vui lòng chờ một lát được không ạ?"
+ },
+ {
+  "id": "comparison-SS005",
+  "group": "Năng lực hay hiện tượng cảm nhận",
+  "patterns": "見える・聞こえる／見られる・聞ける",
+  "distinction": "Thấy/nghe do hiện tượng đi vào tầm mắt/tai; có thể xem/nghe được do khả năng hoặc điều kiện",
+  "whenToUse": "Có loa hay màn hình vẫn có thể dùng 見える・聞こえる nếu nhấn cảm nhận trực tiếp đang xảy ra.",
+  "exampleJa": "窓から山が見えます。／このサイトで映画が見られます。",
+  "exampleVi": "Từ cửa sổ nhìn thấy núi.／Có thể xem phim ở trang này."
+ },
+ {
+  "id": "comparison-SS006",
+  "group": "Giới hạn số lượng",
+  "patterns": "しか～ない／だけ",
+  "distinction": "Chỉ có đến mức đó, gắn phủ định; chỉ giới hạn phạm vi, dùng được với khẳng định",
+  "whenToUse": "しか đặt sau phạm vi giới hạn. だけ cũng có thể đứng trước một trợ từ như を.",
+  "exampleJa": "切符が一枚しかありません。／切符を一枚だけ買いました。",
+  "exampleVi": "Chỉ còn một vé.／Tôi chỉ mua một vé."
+ },
+ {
+  "id": "comparison-SS007",
+  "group": "Trạng thái và chuẩn bị",
+  "patterns": "自動詞ている／他動詞てある／Vておく",
+  "distinction": "Trạng thái đang có; kết quả được chủ động để lại; hành động làm sẵn hoặc quyết định để nguyên",
+  "whenToUse": "Với てある, khi báo việc chuẩn bị đã xong, có cách dùng を, ví dụ 資料を用意してあります.",
+  "exampleJa": "窓が開いている。窓が開けてある。窓を開けておく。",
+  "exampleVi": "Cửa đang mở. Cửa đã được mở sẵn. Tôi sẽ mở cửa sẵn."
+ },
+ {
+  "id": "comparison-SS008",
+  "group": "Hoàn tất và nuối tiếc",
+  "patterns": "Vてしまう (hoàn tất)／Vてしまう (lỡ)",
+  "distinction": "Hoàn thành trọn vẹn; việc không mong muốn hay tiếc nuối",
+  "whenToUse": "Một hình thức có hai cách hiểu. Xem từ chỉ lượng, thời điểm, ngữ cảnh và thái độ.",
+  "exampleJa": "本を全部読んでしまった。／本を電車に忘れてしまった。",
+  "exampleVi": "Tôi đã đọc hết cuốn sách.／Tôi lỡ để quên sách trên tàu."
+ },
+ {
+  "id": "comparison-SS009",
+  "group": "Dự định và kế hoạch",
+  "patterns": "Vようと思う／Vようと思っている／Vる・ないつもり／Vる・Nの予定",
+  "distinction": "Ý định tại thời điểm nói; ý định đã có; dự định cá nhân; lịch trình đã dự kiến",
+  "whenToUse": "Phân biệt thời điểm hình thành ý định và tính chất lịch trình. Mức quyết tâm do ngữ cảnh.",
+  "exampleJa": "今度行こうと思っています。／来週出張する予定です。",
+  "exampleVi": "Tôi đang định dịp tới sẽ đi.／Theo lịch, tuần sau tôi đi công tác."
+ },
+ {
+  "id": "comparison-SS010",
+  "group": "Mốc sau hành động",
+  "patterns": "Vてから／Vた・Nのあとで／lượng＋後に",
+  "distinction": "Thứ tự hoặc mốc khởi đầu; xảy ra sau sự kiện; sau một khoảng xác định",
+  "whenToUse": "Dùng Nのあとで với danh từ sự kiện. 一時間後に đếm một giờ từ mốc đang nói.",
+  "exampleJa": "確認してから送ります。／会議のあとで送ります。",
+  "exampleVi": "Tôi kiểm tra rồi mới gửi.／Tôi sẽ gửi sau cuộc họp."
+ },
+ {
+  "id": "comparison-SS011",
+  "group": "Bốn dạng điều kiện",
+  "patterns": "と／ば／たら／なら",
+  "distinction": "Hệ quả thường lệ; điều kiện để đạt kết quả; tình huống nếu/sau khi; tiếp nhận tiền đề để nhận xét, khuyên",
+  "whenToUse": "と hay dùng với thao tác. ば nêu điều kiện. たら dễ nối lời đề nghị. なら có thể đưa lời khuyên trước khi việc xảy ra.",
+  "exampleJa": "押すと開きます。時間があれば行けます。着いたら電話して。行くなら予約して。",
+  "exampleVi": "Nhấn thì mở. Có thời gian thì đi được. Đến nơi thì gọi. Nếu định đi thì đặt trước."
+ },
+ {
+  "id": "comparison-SS012",
+  "group": "Điều kiện và trường hợp",
+  "patterns": "～場合は／～とき／～たら",
+  "distinction": "Trường hợp cần xử lý; mốc thời gian; giả định hay điều kiện trong hội thoại",
+  "whenToUse": "場合は hợp quy định và tình huống dự phòng, có thể xét sự kiện đã hoàn tất. とき mô tả thời điểm. たら dùng linh hoạt khi nói chuyện.",
+  "exampleJa": "遅れる場合は連絡してください。／着いたら電話してください。",
+  "exampleVi": "Nếu đến trễ, vui lòng báo.／Khi tới nơi, vui lòng gọi."
+ },
+ {
+  "id": "comparison-SS013",
+  "group": "Mục đích và công dụng",
+  "patterns": "Vる・ないように／Vる・Nのために／Vるのに・Nに",
+  "distinction": "Mục tiêu đạt trạng thái; hành động chủ động vì mục đích; công dụng hoặc lượng cần dùng",
+  "whenToUse": "ように đi tự nhiên với thể khả năng và phủ định. ために thường nối mục tiêu có chủ ý. のに công dụng cần vế sau như 使う, 便利 hoặc かかる.",
+  "exampleJa": "読めるように練習します。留学するために貯金します。これを字を書くのに使います。",
+  "exampleVi": "Tôi luyện để đọc được. Tôi tiết kiệm để du học. Tôi dùng cái này để viết chữ."
+ },
+ {
+  "id": "comparison-SS014",
+  "group": "Nếp tự đặt ra và thay đổi",
+  "patterns": "ようにする／ようになる／なくなる",
+  "distinction": "Cố duy trì; trở nên có thể hoặc hình thành thói quen; không còn làm/không còn có thể",
+  "whenToUse": "ようにする nhấn chủ ý. ようになる nhấn sự thay đổi. なくなる diễn tả mất hoặc ngừng trực tiếp.",
+  "exampleJa": "毎日読むようにしています。／新聞が読めるようになりました。",
+  "exampleVi": "Tôi cố đọc mỗi ngày.／Tôi đã có thể đọc báo."
+ },
+ {
+  "id": "comparison-SS015",
+  "group": "Phủ định nối vế",
+  "patterns": "Vないで／Vなくて",
+  "distinction": "Làm vế sau mà bỏ qua hành động trước; nguyên nhân hoặc nối trạng thái phủ định",
+  "whenToUse": "朝ご飯を食べないで出た nói cách rời đi. 連絡が来なくて心配だ nói nguyên nhân lo.",
+  "exampleJa": "朝ご飯を食べないで出ました。／連絡が来なくて心配です。",
+  "exampleVi": "Tôi ra ngoài mà chưa ăn sáng.／Do chưa thấy liên lạc nên tôi lo."
+ },
+ {
+  "id": "comparison-SS016",
+  "group": "Nêu nguyên nhân",
+  "patterns": "から／ので／Vて・Aくて・Nで",
+  "distinction": "Lý do được nêu trực tiếp; giải thích thường mềm hơn; nguyên nhân gắn với kết quả tự nhiên",
+  "whenToUse": "Aな/N hiện tại khẳng định dùng だから, なので, で tương ứng. Với N và Aな, dùng なので ở thể thường hiện tại khẳng định.",
+  "exampleJa": "静かだから集中できます。／雨なので中止します。／雨で電車が止まりました。",
+  "exampleVi": "Vì yên tĩnh nên tập trung được.／Vì mưa nên hủy.／Tàu ngừng chạy vì mưa."
+ },
+ {
+  "id": "comparison-SS017",
+  "group": "Hai chức năng của のに",
+  "patterns": "V辞書形＋のに (công dụng)／thể thường＋のに (nhượng bộ)",
+  "distinction": "Để làm việc gì; dù đã/đang … vậy mà …",
+  "whenToUse": "Công dụng đi với 使う, 便利, 必要, かかる. Nhượng bộ nêu kết quả trái kỳ vọng; Aな/N thêm な ở hiện tại khẳng định.",
+  "exampleJa": "切るのに使います。／よく切れるのに、誰も使いません。",
+  "exampleVi": "Dùng để cắt.／Dù cắt tốt nhưng chẳng ai dùng."
+ },
+ {
+  "id": "comparison-SS018",
+  "group": "Mốc vừa xong",
+  "patterns": "Vたところ／Vたばかり",
+  "distinction": "Ngay sau khi hoàn thành; mới xảy ra theo cảm nhận",
+  "whenToUse": "ところ hợp với たった今. ばかり có thể đi với ngày, tuần, tháng trước tùy mốc chủ quan.",
+  "exampleJa": "今、着いたところです。／先月、来たばかりです。",
+  "exampleVi": "Tôi vừa tới xong.／Tôi mới đến tháng trước."
+ },
+ {
+  "id": "comparison-SS019",
+  "group": "Căn cứ của phỏng đoán",
+  "patterns": "でしょう／かもしれない／はずだ",
+  "distinction": "Dự đoán; có khả năng; kỳ vọng có căn cứ",
+  "whenToUse": "はず liên hệ dữ kiện mà người nói biết. Dùng かもしれない khi chỉ muốn mở ra một khả năng. Không quy thành phần trăm cố định.",
+  "exampleJa": "雨が降るでしょう。雪になるかもしれません。彼は今ごろ着いているはずです。",
+  "exampleVi": "Có lẽ sẽ mưa. Có thể sẽ chuyển sang tuyết. Giờ này chắc anh ấy đã tới."
+ },
+ {
+  "id": "comparison-SS020",
+  "group": "Hai mẫu そう và よう",
+  "patterns": "～そうだ vẻ ngoài／～そうだ truyền tin／～ようだ／～らしい",
+  "distinction": "Dấu hiệu tức thời; dẫn lại thông tin; suy luận từ căn cứ; tin gián tiếp hoặc suy đoán",
+  "whenToUse": "Mưa sắp rơi là 降りそう. Nghe nói sẽ mưa là 降るそう. Dựa dấu hiệu để nói đã mưa dùng 降ったようだ. らしい cũng có nghĩa điển hình với N, ví dụ 子どもらしい.",
+  "exampleJa": "雨が降りそうです。／雨が降るそうです。／雨が降ったようです。",
+  "exampleVi": "Có vẻ sắp mưa.／Nghe nói sẽ mưa.／Hình như trời đã mưa."
+ },
+ {
+  "id": "comparison-SS021",
+  "group": "Khả năng, bị động và tôn kính",
+  "patterns": "Vられる／Vれる",
+  "distinction": "Có thể làm; đối tượng chịu tác động; người được kính trọng làm",
+  "whenToUse": "V nhóm II và 来る có cùng hình thức khả năng/bị động, dạng bị động cũng có thể kính ngữ. Xem chủ thể, tân ngữ, tác nhân và tình huống.",
+  "exampleJa": "納豆が食べられます。魚が猫に食べられました。先生は何を食べられますか。",
+  "exampleVi": "Tôi ăn được natto. Cá bị mèo ăn. Thầy/cô dùng món gì ạ?"
+ },
+ {
+  "id": "comparison-SS022",
+  "group": "Góc nhìn cho và nhận",
+  "patterns": "あげる／くれる／もらう",
+  "distinction": "Chủ thể cho ra; chủ thể cho phía mình; chủ thể nhận",
+  "whenToUse": "Xác định người làm chủ thể trước khi chọn động từ. Lịch sự hơn có 差し上げる, くださる, いただく.",
+  "exampleJa": "先生が本をくださいました。／先生に本をいただきました。",
+  "exampleVi": "Thầy/cô tặng tôi sách.／Tôi nhận sách từ thầy/cô."
+ },
+ {
+  "id": "comparison-SS023",
+  "group": "Tôn kính, khiêm nhường và lịch sự",
+  "patterns": "尊敬語／謙譲語I／謙譲語II／丁寧語",
+  "distinction": "Nâng chủ thể; nâng đích hướng tới của hành động; nói trang trọng về phía mình hướng đến người nghe; lịch sự bằng です／ます",
+  "whenToUse": "Nói với khách về sếp bên mình, thường chọn lời khiêm nhường hoặc lịch sự cho phía mình. Ví dụ 部長の田中は外出しております。",
+  "exampleJa": "先生はいらっしゃいます。私が先生の所へ伺います。私は田中と申します。",
+  "exampleVi": "Thầy/cô có mặt. Tôi xin đến chỗ thầy/cô. Tôi tên Tanaka."
+ },
+ {
+  "id": "comparison-SS024",
+  "group": "Thay đổi tự xảy ra hay chủ động",
+  "patterns": "Aく・Aに・Nに なる／Aく・Aに・Nに する",
+  "distinction": "Trở nên; làm cho/chọn thành",
+  "whenToUse": "なる nêu kết quả thay đổi, đối tượng thay đổi thường đi với が. する có người chủ động và thường đánh dấu đối tượng bằng を.",
+  "exampleJa": "部屋が暖かくなりました。／部屋を暖かくしました。",
+  "exampleVi": "Phòng đã ấm lên.／Tôi đã làm cho phòng ấm lên."
+ },
+ {
+  "id": "comparison-SS025",
+  "group": "Danh từ hóa",
+  "patterns": "の／こと",
+  "distinction": "Sự kiện cụ thể, hành động cảm nhận/quan sát; việc hoặc khái niệm khái quát",
+  "whenToUse": "Hai dạng trùng nhiều ngữ cảnh, có động từ ưu tiên một dạng. 見る・聞く khi trực tiếp chứng kiến thường dùng の. Vことができる là mẫu cố định.",
+  "exampleJa": "子どもが走るのを見ました。／日本語を読むことができます。",
+  "exampleVi": "Tôi nhìn thấy trẻ chạy.／Tôi có thể đọc tiếng Nhật."
+ },
+ {
+  "id": "comparison-SS026",
+  "group": "Nối kết quả và nối thêm ý",
+  "patterns": "それで／そこで／それに",
+  "distinction": "Hệ quả; cách xử lý tình huống; thêm một đặc điểm hoặc lý do",
+  "whenToUse": "そこで thường dẫn hành động chủ động đáp lại. それで kết nối hệ quả hoặc tiếp mạch chuyện; それに thêm thông tin cùng hướng.",
+  "exampleJa": "道が分からなかった。そこで駅員に聞いた。／この部屋は広い。それに明るい。",
+  "exampleVi": "Tôi không biết đường nên hỏi nhân viên ga.／Phòng này rộng. Hơn nữa còn sáng."
+ },
+ {
+  "id": "comparison-SS027",
+  "group": "Chuyển động và thời gian",
+  "patterns": "～てくる／～ていく",
+  "distinction": "Về điểm mốc hoặc diễn tiến tới mốc hiện tại; xa điểm mốc hoặc diễn tiến về sau",
+  "whenToUse": "Hướng tính theo vị trí/ngữ cảnh của người nói. 買ってくる còn có nghĩa đi mua và quay lại.",
+  "exampleJa": "雨が降ってきました。／人口はこれから減っていきます。",
+  "exampleVi": "Trời bắt đầu mưa.／Dân số từ giờ sẽ giảm dần."
+ }
+]

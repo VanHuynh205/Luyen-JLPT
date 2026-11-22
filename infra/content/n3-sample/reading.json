@@ -1,0 +1,133 @@
+[
+ {
+  "id": "n3-reading-01",
+  "title": "Lời nhắn gửi đồng nghiệp — 田中さんへのメモ",
+  "length": "short",
+  "text": "田中さんへ\nきのうはありがとうございました。借りた本は、あしたの朝、田中さんの机の上に置いておきます。それから、来週の会議は月曜日から水曜日に変わりました。時間は同じ午後二時です。よろしくお願いします。\n山本",
+  "translation": "Gửi anh Tanaka,\nCảm ơn anh về chuyện hôm qua. Cuốn sách tôi mượn, sáng mai tôi sẽ để sẵn trên bàn của anh. Ngoài ra, cuộc họp tuần sau đã đổi từ thứ Hai sang thứ Tư. Thời gian vẫn như cũ, 2 giờ chiều. Mong anh giúp đỡ.\nYamamoto",
+  "vocabulary": [
+   {
+    "word": "借りる",
+    "reading": "かりる",
+    "meaning": "mượn"
+   },
+   {
+    "word": "机",
+    "reading": "つくえ",
+    "meaning": "cái bàn (làm việc, học)"
+   },
+   {
+    "word": "置いておく",
+    "reading": "おいておく",
+    "meaning": "đặt sẵn, để sẵn"
+   },
+   {
+    "word": "会議",
+    "reading": "かいぎ",
+    "meaning": "cuộc họp"
+   },
+   {
+    "word": "変わる",
+    "reading": "かわる",
+    "meaning": "thay đổi"
+   },
+   {
+    "word": "同じ",
+    "reading": "おなじ",
+    "meaning": "giống nhau, như cũ"
+   }
+  ],
+  "questions": [
+   {
+    "question": "山本さんはあした何をしますか。",
+    "choices": [
+     "田中さんに本を返します。",
+     "田中さんから本を借ります。",
+     "会議に出ます。",
+     "田中さんに電話します。"
+    ],
+    "answerIndex": 0,
+    "explanation": "「借りた本は、あしたの朝、田中さんの机の上に置いておきます」→ Yamamoto sẽ trả lại sách đã mượn bằng cách để trên bàn anh Tanaka."
+   },
+   {
+    "question": "来週の会議はいつですか。",
+    "choices": [
+     "月曜日の午後二時",
+     "水曜日の午後二時",
+     "月曜日の午前二時",
+     "水曜日の午前中"
+    ],
+    "answerIndex": 1,
+    "explanation": "Cuộc họp đổi「月曜日から水曜日に」(từ thứ Hai sang thứ Tư), giờ vẫn「同じ午後二時」→ 2 giờ chiều thứ Tư."
+   }
+  ]
+ },
+ {
+  "id": "n3-reading-02",
+  "title": "Thông báo của thư viện — 図書館からのお知らせ",
+  "length": "short",
+  "text": "市立図書館からのお知らせ\n図書館は毎週月曜日が休みです。ほかの日は、午前九時から午後七時まで開いています。本は一人十冊まで、二週間借りることができます。借りた本を返すのが遅れた場合は、一週間、新しい本を借りることができません。館内で食べたり飲んだりしないでください。",
+  "translation": "Thông báo từ Thư viện Thành phố\nThư viện nghỉ vào thứ Hai hằng tuần. Các ngày khác mở cửa từ 9 giờ sáng đến 7 giờ tối. Mỗi người có thể mượn tối đa 10 cuốn sách trong 2 tuần. Trường hợp trả sách muộn, bạn sẽ không được mượn sách mới trong một tuần. Vui lòng không ăn uống trong thư viện.",
+  "vocabulary": [
+   {
+    "word": "お知らせ",
+    "reading": "おしらせ",
+    "meaning": "thông báo"
+   },
+   {
+    "word": "図書館",
+    "reading": "としょかん",
+    "meaning": "thư viện"
+   },
+   {
+    "word": "開く",
+    "reading": "あく",
+    "meaning": "mở (cửa)"
+   },
+   {
+    "word": "返す",
+    "reading": "かえす",
+    "meaning": "trả lại"
+   },
+   {
+    "word": "遅れる",
+    "reading": "おくれる",
+    "meaning": "muộn, trễ"
+   },
+   {
+    "word": "場合",
+    "reading": "ばあい",
+    "meaning": "trường hợp"
+   },
+   {
+    "word": "館内",
+    "reading": "かんない",
+    "meaning": "bên trong tòa nhà"
+   }
+  ],
+  "questions": [
+   {
+    "question": "借りた本を返すのが遅れたら、どうなりますか。",
+    "choices": [
+     "お金をはらわなければなりません。",
+     "図書館に入ることができません。",
+     "一週間、新しい本を借りることができません。",
+     "十冊しか借りることができません。"
+    ],
+    "answerIndex": 2,
+    "explanation": "Thông báo ghi「一週間、新しい本を借りることができません」→ không được mượn sách mới trong một tuần. Không hề nhắc đến tiền phạt."
+   },
+   {
+    "question": "このお知らせについて、正しいものはどれですか。",
+    "choices": [
+     "月曜日の午前十時に本を借りることができます。",
+     "一人十五冊まで借りることができます。",
+     "館内で飲み物を飲んでもいいです。",
+     "火曜日の午後六時に図書館に行くことができます。"
+    ],
+    "answerIndex": 3,
+    "explanation": "Thứ Ba không phải ngày nghỉ và 6 giờ chiều vẫn trong giờ mở cửa (đến 7 giờ tối). Thứ Hai nghỉ, tối đa 10 cuốn, và cấm ăn uống."
+   }
+  ]
+ }
+]

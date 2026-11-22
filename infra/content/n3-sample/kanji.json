@@ -1,0 +1,38 @@
+[
+ {
+  "id": "n3-kanji-K-60AA",
+  "kanji": "悪",
+  "hanViet": "ÁC",
+  "onyomi": [
+   "アク",
+   "オ"
+  ],
+  "kunyomi": [
+   "わるい",
+   "わる",
+   "あし",
+   "にくい"
+  ],
+  "meaning": "xấu, ác",
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "n3-kanji-K-6025",
+  "kanji": "急",
+  "hanViet": "CẤP",
+  "onyomi": [
+   "キュウ"
+  ],
+  "kunyomi": [
+   "いそぐ",
+   "いそぎ",
+   "せく"
+  ],
+  "meaning": "gấp, nhanh",
+  "lessons": [
+   "26"
+  ]
+ }
+]

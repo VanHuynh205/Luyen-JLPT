@@ -1,0 +1,49 @@
+# Epics of initiative-jlpt-da-nen-tang in build order. `id` is permanent.
+
+[[epic]]
+id = 1
+slug = "epic-goi-noi-dung"
+title = "Nội dung theo Cấp độ"
+description = "Repo theo quy ước thư mục mới, CI chạy test; Gói nội dung N4 đủ 7 bảng sinh từ dataset, tải theo Cấp độ, người học chọn Cấp độ trên bản web đã deploy."
+covers = ["R1", "R2", "R3", "R4", "R14"]
+
+[[epic]]
+id = 2
+slug = "epic-tai-khoan-dong-bo"
+title = "Tài khoản Supabase và Đồng bộ ngoại tuyến"
+description = "Người học đăng nhập Supabase, Tiến độ ghi cục bộ trước rồi Đồng bộ, tách theo Cấp độ, xoá được Tài khoản; flashcard, trắc nghiệm, ngữ pháp, đọc hiểu dùng kho Tiến độ mới."
+covers = ["R5", "R6", "R8", "R9", "R10", "R11", "R13"]
+after = [{ epic = 1, needs = "mã Mục nội dung ổn định và trạng thái Cấp độ" }]
+
+[[epic]]
+id = 3
+slug = "epic-ung-dung-tauri"
+title = "App desktop, Android, iOS"
+description = "Bạn bè cài `.exe` Windows và `.apk` Android phát trực tiếp, học ngoại tuyến, đăng nhập qua deep link; iOS dựng sau Android."
+covers = ["R15", "R16", "R17"]
+after = [{ epic = 2, needs = "luồng đăng nhập và kho Tiến độ cục bộ" }]
+
+[[epic]]
+id = 4
+slug = "epic-ngu-phap-mo-rong"
+title = "Ngữ pháp mở rộng"
+description = "Trang Bài so sánh, Bảng chia, Kính ngữ, Tự/tha động từ đọc từ Gói N4 và được liên kết từ Mẫu ngữ pháp, trên mọi nền tảng."
+covers = ["R7"]
+after = [{ epic = 1, needs = "Gói N4 chứa 4 bảng mới" }]
+
+[[epic]]
+id = 5
+slug = "epic-giao-dien-3d"
+title = "Điểm nhấn 3D"
+description = "Trang chủ 3D, chuyển cảnh, Thẻ 3D và hanko 3D theo DESIGN.md, có ảnh tĩnh thay thế và giảm chuyển động, đạt ngân sách hiệu năng trên web và app."
+covers = ["R18"]
+after = [{ epic = 1, needs = "trạng thái Cấp độ cho chữ kanji trên cảnh" }]
+
+[[epic]]
+id = 6
+slug = "epic-chuyen-du-lieu-icp"
+title = "Chuyển Tiến độ từ ICP"
+description = "Đã bỏ 2026-11-21: chưa có người dùng ICP (prd OQ-3)."
+dropped = true
+covers = ["R12"]
+after = [{ epic = 2, needs = "schema Tiến độ Supabase" }]

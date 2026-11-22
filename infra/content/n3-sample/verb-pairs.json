@@ -1,0 +1,18 @@
+[
+ {
+  "id": "n3-verbpair-TD001",
+  "transitiveJa": "電気をつける",
+  "transitiveKana": "でんきをつける",
+  "intransitiveJa": "電気がつく",
+  "intransitiveKana": "でんきがつく",
+  "meaning": "bật đèn → đèn bật"
+ },
+ {
+  "id": "n3-verbpair-TD002",
+  "transitiveJa": "電気を消す",
+  "transitiveKana": "でんきをけす",
+  "intransitiveJa": "電気が消える",
+  "intransitiveKana": "でんきがきえる",
+  "meaning": "tắt đèn → đèn tắt"
+ }
+]

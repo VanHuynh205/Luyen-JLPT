@@ -1,0 +1,47 @@
+[
+ {
+  "id": "n3-compound-KC001",
+  "word": "悪口",
+  "reading": "わるぐち",
+  "hanViet": "ÁC KHẨU",
+  "meaning": "nói xấu",
+  "components": [
+   {
+    "kanji": "悪",
+    "hanViet": "ÁC",
+    "meaning": "xấu, ác"
+   },
+   {
+    "kanji": "口",
+    "hanViet": "KHẨU",
+    "meaning": ""
+   }
+  ],
+  "kanjiIds": [
+   "n3-kanji-K-60AA"
+  ],
+  "lessons": [
+   "26"
+  ]
+ },
+ {
+  "id": "n3-compound-KC002",
+  "word": "悪い",
+  "reading": "わるい",
+  "hanViet": "ÁC",
+  "meaning": "xấu, tệ",
+  "components": [
+   {
+    "kanji": "悪",
+    "hanViet": "ÁC",
+    "meaning": "xấu, ác"
+   }
+  ],
+  "kanjiIds": [
+   "n3-kanji-K-60AA"
+  ],
+  "lessons": [
+   "26"
+  ]
+ }
+]

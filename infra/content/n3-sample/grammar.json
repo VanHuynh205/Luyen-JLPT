@@ -1,0 +1,40 @@
+[
+ {
+  "id": "n3-grammar-G001",
+  "lesson": 26,
+  "pattern": "～んですか",
+  "connections": {
+   "v": "Thể thường",
+   "aI": "Thể thường",
+   "aNa": "Thể thường. Hiện tại khẳng định dùng A＋な",
+   "n": "Thể thường. Hiện tại khẳng định dùng N＋な"
+  },
+  "meaning": "… à? … vậy?",
+  "usage": "Hỏi để xác nhận điều suy ra từ tình huống hoặc hỏi thêm chi tiết, thường đã có dấu hiệu hay chủ đề. Ngữ điệu có thể khiến câu nghe như chất vấn.",
+  "examples": [
+   {
+    "japanese": "財布をなくしたんですか。",
+    "meaning": "Bạn làm mất ví à?"
+   }
+  ]
+ },
+ {
+  "id": "n3-grammar-G002",
+  "lesson": 26,
+  "pattern": "Từ nghi vấn＋～んですか",
+  "connections": {
+   "v": "Thể thường",
+   "aI": "Thể thường",
+   "aNa": "Thể thường. Hiện tại khẳng định dùng A＋な",
+   "n": "Thể thường. Hiện tại khẳng định dùng N＋な"
+  },
+  "meaning": "… gì/ở đâu/khi nào vậy?",
+  "usage": "Hỏi thông tin cụ thể về chuyện đang nói đến. Từ nghi vấn giữ trợ từ phù hợp với chức năng của nó.",
+  "examples": [
+   {
+    "japanese": "どこに行くんですか。",
+    "meaning": "Bạn sẽ đi đâu vậy?"
+   }
+  ]
+ }
+]

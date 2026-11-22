@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm packs:build
+      - run: pnpm packs:verify
+      - run: pnpm typecheck
+      - run: pnpm check
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm e2e:web
+      - name: Test experimental levels
+        env:
+          EXPERIMENTAL_LEVELS: "1"
+        run: |
+          pnpm packs:build
+          pnpm packs:verify
+          pnpm build
+          pnpm e2e:web
+      - name: Start local Supabase and run database assertions
+        run: |
+          pnpm dlx deno@2.9.6 test --no-config --no-lock --node-modules-dir=none backend/supabase/tests/functions.test.ts
+          pnpm dlx supabase@3.2.0 --workdir backend start
+          pnpm dlx supabase@3.2.0 --workdir backend test db
+      - name: Run two-account browser integration against local services
+        shell: bash
+        run: |
+          set -eu
+          vars="$(pnpm dlx supabase@3.2.0 --workdir backend status -o json)"
+          export VITE_SUPABASE_URL=http://127.0.0.1:54321
+          export VITE_SUPABASE_PUBLISHABLE_KEY="$(jq -er '.ANON_KEY' <<<"$vars")"
+          pnpm build
+          export SUPABASE_TEST_SERVICE_ROLE_KEY="$(jq -er '.SERVICE_ROLE_KEY' <<<"$vars")"
+          JLPT_LOCAL_AUTH=1 pnpm e2e:web accounts.local.spec.ts account-mail.local.spec.ts

@@ -1,0 +1,17 @@
+{"id": "PHOTO", "name": "dataset_n4.zip", "url": null, "scope_vi": "Ảnh người dùng cung cấp. Ba nhóm theo thư mục gốc và mã ảnh trong anh_nguon."}
+{"id": "MINNA", "name": "3A Corporation — Minna no Nihongo Sơ cấp II, bản 2", "url": "https://www.3anet.co.jp/np/en/books/2400/", "scope_vi": "Phạm vi giáo trình Sơ cấp II và mức gần N4 theo nhà xuất bản."}
+{"id": "MINNA_VI", "name": "3A Corporation — Bản dịch và giải thích tiếng Việt", "url": "https://www.3anet.co.jp/np/en/books/2422/", "scope_vi": "Trang xuất bản dùng để nhận diện loại tài liệu."}
+{"id": "MINNADS", "name": "MinnaNoDS", "url": "https://github.com/vitto4/MinnaNoDS", "scope_vi": "Danh sách tra chéo cách viết và thứ tự từ bản 2. Đối chiếu ảnh để sửa khác biệt."}
+{"id": "VNJP", "name": "VNJPCLUB — Minna no Nihongo bản 2", "url": "https://www.vnjpclub.com/minna-no-nihongo/bai-26-tu-vung.html", "scope_vi": "Đối chiếu cách sắp danh sách từ vựng bài 26 và một số cách đọc. Các bài khác có URL tương ứng."}
+{"id": "KANJIDIC", "name": "EDRDG — KANJIDIC2", "url": "https://www.edrdg.org/wiki/KANJIDIC_Project.html", "scope_vi": "Tra âm On, Kun, và cách đọc Hán Việt ở mức ký tự. KANJIDIC2 CC BY-SA 4.0, https://www.edrdg.org/edrdg/licence.html."}
+{"id": "UNIHAN", "name": "Unicode — Unihan Database", "url": "https://www.unicode.org/reports/tr38/", "scope_vi": "Đối chiếu thuộc tính kVietnamese và dị thể truyền thống."}
+{"id": "JLPT_LEVEL", "name": "JLPT — Mô tả năng lực N4", "url": "https://www.jlpt.jp/e/about/levelsummary.html", "scope_vi": "Đọc hiểu và nghe hiểu tiếng Nhật cơ bản."}
+{"id": "JLPT_GUIDE", "name": "JLPT — New JLPT Guidebook", "url": "https://www.jlpt.jp/e/reference/pdf/guidebook_s_e.pdf", "scope_vi": "Trang 9 giải thích việc JLPT không phát hành danh sách từ, kanji và ngữ pháp cho từng cấp hiện hành."}
+{"id": "JPF", "name": "The Japan Foundation — Irodori Resources", "url": "https://www.irodori.jpf.go.jp/en/resources.html", "scope_vi": "Đối chiếu cách nối, thể phổ thông, dạng diễn đạt và ngữ cảnh cơ bản."}
+{"id": "JPF_KEIGO", "name": "The Japan Foundation — Irodori Sơ trung cấp, bài 18", "url": "https://www.irodori.jpf.go.jp/assets/data/pre-intermediate/pdf/ZZ_L18.pdf", "scope_vi": "Đối chiếu kính ngữ và xin phép trang trọng."}
+{"id": "BUNKA", "name": "Cơ quan Văn hóa Nhật Bản — Kính ngữ cơ bản", "url": "https://www.bunka.go.jp/seisaku/kokugo_nihongo/kokugo_shisaku/keigo/chapter2/detail.html", "scope_vi": "Phân nhóm tôn kính, khiêm nhường I, khiêm nhường II, lịch sự và mỹ hóa."}
+{"id": "TUFS_COND", "name": "Đại học Ngoại ngữ Tokyo — Điều kiện", "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/083.html", "scope_vi": "Phân biệt と, ば, たら, なら."}
+{"id": "TUFS_GUESS", "name": "Đại học Ngoại ngữ Tokyo — Suy đoán và truyền tin", "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/076.html", "scope_vi": "Đối chiếu そう, よう, らしい và かもしれない."}
+{"id": "TUFS_RESULT", "name": "Đại học Ngoại ngữ Tokyo — ～てあります", "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/046.html", "scope_vi": "Phân biệt trợ từ và trạng thái kết quả với việc chuẩn bị đã xong."}
+{"id": "TUFS_PREP", "name": "Đại học Ngoại ngữ Tokyo — ～ておく・～てみる", "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/088.html", "scope_vi": "Phân biệt chuẩn bị và thử làm."}
+{"id": "TUFS_GIVE", "name": "Đại học Ngoại ngữ Tokyo — Cho và nhận hành động", "url": "https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/086.html", "scope_vi": "Vai của chủ thể, người cho và người nhận."}

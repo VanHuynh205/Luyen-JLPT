@@ -1,0 +1,22 @@
+[
+ {
+  "id": "n3-vocab-TV-26-01",
+  "word": "見ます",
+  "reading": "みます",
+  "hanViet": "kiến / chẩn",
+  "meaning": "xem, kiểm tra, khám bệnh",
+  "lesson": 26,
+  "section": "từ chính",
+  "note": "見ます là xem, quan sát. 診ます là khám bệnh."
+ },
+ {
+  "id": "n3-vocab-TV-26-02",
+  "word": "探します",
+  "reading": "さがします",
+  "hanViet": "tham / sưu",
+  "meaning": "tìm, tìm kiếm",
+  "lesson": 26,
+  "section": "từ chính",
+  "note": "探す thường tìm thứ muốn có. 捜す thường tìm người hoặc đồ thất lạc."
+ }
+]

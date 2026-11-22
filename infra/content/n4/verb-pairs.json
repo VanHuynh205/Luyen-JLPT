@@ -1,0 +1,98 @@
+[
+ {
+  "id": "verbpair-TD001",
+  "transitiveJa": "電気をつける",
+  "transitiveKana": "でんきをつける",
+  "intransitiveJa": "電気がつく",
+  "intransitiveKana": "でんきがつく",
+  "meaning": "bật đèn → đèn bật"
+ },
+ {
+  "id": "verbpair-TD002",
+  "transitiveJa": "電気を消す",
+  "transitiveKana": "でんきをけす",
+  "intransitiveJa": "電気が消える",
+  "intransitiveKana": "でんきがきえる",
+  "meaning": "tắt đèn → đèn tắt"
+ },
+ {
+  "id": "verbpair-TD003",
+  "transitiveJa": "時計を止める",
+  "transitiveKana": "とけいをとめる",
+  "intransitiveJa": "時計が止まる",
+  "intransitiveKana": "とけいがとまる",
+  "meaning": "dừng đồng hồ → đồng hồ dừng"
+ },
+ {
+  "id": "verbpair-TD004",
+  "transitiveJa": "犬を中に入れる",
+  "transitiveKana": "いぬをなかにいれる",
+  "intransitiveJa": "犬が中に入る",
+  "intransitiveKana": "いぬがなかにはいる",
+  "meaning": "cho chó vào trong → chó đi vào"
+ },
+ {
+  "id": "verbpair-TD005",
+  "transitiveJa": "鍵を掛ける",
+  "transitiveKana": "かぎをかける",
+  "intransitiveJa": "鍵が掛かる",
+  "intransitiveKana": "かぎがかかる",
+  "meaning": "khóa cửa → khóa được cài"
+ },
+ {
+  "id": "verbpair-TD006",
+  "transitiveJa": "服を汚す",
+  "transitiveKana": "ふくをよごす",
+  "intransitiveJa": "服が汚れる",
+  "intransitiveKana": "ふくがよごれる",
+  "meaning": "làm bẩn quần áo → quần áo bị bẩn"
+ },
+ {
+  "id": "verbpair-TD007",
+  "transitiveJa": "家具を壊す",
+  "transitiveKana": "かぐをこわす",
+  "intransitiveJa": "家具が壊れる",
+  "intransitiveKana": "かぐがこわれる",
+  "meaning": "làm hỏng đồ nội thất → đồ nội thất bị hỏng"
+ },
+ {
+  "id": "verbpair-TD008",
+  "transitiveJa": "卵を割る",
+  "transitiveKana": "たまごをわる",
+  "intransitiveJa": "卵が割れる",
+  "intransitiveKana": "たまごがわれる",
+  "meaning": "đập trứng → trứng vỡ"
+ },
+ {
+  "id": "verbpair-TD009",
+  "transitiveJa": "紙を破る",
+  "transitiveKana": "かみをやぶる",
+  "intransitiveJa": "紙が破れる",
+  "intransitiveKana": "かみがやぶれる",
+  "meaning": "xé giấy → giấy bị rách"
+ },
+ {
+  "id": "verbpair-TD010",
+  "transitiveJa": "鉛筆を折る",
+  "transitiveKana": "えんぴつをおる",
+  "intransitiveJa": "鉛筆が折れる",
+  "intransitiveKana": "えんぴつがおれる",
+  "meaning": "bẻ bút chì → bút chì gãy"
+ },
+ {
+  "id": "verbpair-TD011",
+  "transitiveJa": "ドアを開ける",
+  "transitiveKana": "どあをあける",
+  "intransitiveJa": "ドアが開く",
+  "intransitiveKana": "どあがあく",
+  "meaning": "mở cửa → cửa mở"
+ },
+ {
+  "id": "verbpair-TD012",
+  "transitiveJa": "ドアを閉める",
+  "transitiveKana": "どあをしめる",
+  "intransitiveJa": "ドアが閉まる",
+  "intransitiveKana": "どあがしまる",
+  "meaning": "đóng cửa → cửa đóng"
+ }
+]

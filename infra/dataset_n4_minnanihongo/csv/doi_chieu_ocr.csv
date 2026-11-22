@@ -1,0 +1,207 @@
+﻿id,data_id,image_ids,field,review_reason,ocr_japanese,japanese,similarity
+RV001,TV-26-10,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,運動会,0
+RV002,TV-26-16,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ごみ,0
+RV003,TV-26-18,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,平日,0
+RV004,TV-26-19,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",入 ん,～弁,0.5
+RV005,TV-26-24,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",何で も,どこでも,0.57
+RV006,TV-26-25,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",何で も,誰でも,0.57
+RV007,TV-26-28,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",こん な ぐ 『*,そんな～,0.57
+RV008,TV-26-29,TV001,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",こん な ぐ 『*,あんな～,0.57
+RV009,TV-26-31,TV002,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",近づき ます 1 計 牧 9],片づきます,0.67
+RV010,TV-26-37,TV002,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",めん,缶,0.5
+RV011,TV-27-09,TV003,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,鳥,0
+RV012,TV-27-13,TV003,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,道具,0
+RV013,TV-27-16,TV003,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",か ン ョ ナン,マンション,0.6
+RV014,TV-27-17,TV003,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,キッチン,0
+RV015,TV-27-24,TV003,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,はっきり,0
+RV016,TV-27-26,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,本棚,0
+RV017,TV-27-27,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",い うか,いつか,0.67
+RV018,TV-27-31,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",大 燈 回 [な ],大好き,0.5
+RV019,TV-27-34,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",議 [ な ],不思議,0.67
+RV020,TV-27-35,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ポケット,0
+RV021,TV-27-36,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",例え ば ニー ん NM,例えば,0.67
+RV022,TV-27-41,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,昔,0
+RV023,TV-27-43,TV004,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",し ょ うめ,将来,0.67
+RV024,TV-28-13,TV005,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,台所,0
+RV025,TV-28-25,TV005,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ゲーム,0
+RV026,TV-28-27,TV005,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ドラマ,0
+RV027,TV-28-31,TV005,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～家,0
+RV028,TV-28-45,TV006,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,会話,0
+RV029,TV-28-46,TV006,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,うーん,0
+RV030,TV-28-50,TV006,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,土,0
+RV031,TV-29-28,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,スピーチ,0
+RV032,TV-29-31,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,源氏物語,0
+RV033,TV-29-32,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,今の電車,0
+RV034,TV-29-33,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,忘れ物,0
+RV035,TV-29-34,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,このくらい,0
+RV036,TV-29-35,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～側,0
+RV037,TV-29-36,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ポケット,0
+RV038,TV-29-37,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",せん 。,～辺,0.5
+RV039,TV-29-38,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,覚えていません,0
+RV040,TV-29-39,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",あ ずみ,網棚,0.57
+RV041,TV-29-40,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,確か,0
+RV042,TV-29-41,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,よかった,0
+RV043,TV-29-42,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,新宿,0
+RV044,TV-29-43,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,地震,0
+RV045,TV-29-44,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,壁,0
+RV046,TV-29-45,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,針,0
+RV047,TV-29-46,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,指します,0
+RV048,TV-29-47,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,駅前,0
+RV049,TV-29-48,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",図れ ま 二,倒れます,0.5
+RV050,TV-29-49,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,西,0
+RV051,TV-29-51,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,燃えます,0
+RV052,TV-29-52,TV008,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ーー の,レポーター,0.5
+RV053,TV-30-15,TV009,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ー テ ィ ョ ンク の,ミーティング,0.62
+RV054,TV-30-21,TV009,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",子 定 表,予定表,0.67
+RV055,TV-30-35,TV009,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",まさ,まだ,0.5
+RV056,TV-30-36,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,リュック,0
+RV057,TV-30-37,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,非常袋,0
+RV058,TV-30-38,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,非常時,0
+RV059,TV-30-39,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ます 四,生活します,0.5
+RV060,TV-30-40,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,懐中電灯,0
+RV061,TV-30-41,TV010,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～とか、～とか,0
+RV062,TV-31-13,TV011,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,式,0
+RV063,TV-31-16,TV011,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",攻 会,教会,0.5
+RV064,TV-31-22,TV011,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-号,0
+RV065,TV-31-27,TV011,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,のぞみ,0
+RV066,TV-31-29,TV012,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",残り,残ります,0.67
+RV067,TV-31-37,TV012,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",昌 じ ます T つつ,閉じます,0.6
+RV068,TV-31-38,TV012,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,都会,0
+RV069,TV-32-12,TV013,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",みち が <],空きます,0.6
+RV070,TV-32-20,TV013,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,火傷,0
+RV071,TV-32-29,TV013,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,西,0
+RV072,TV-32-34,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,エンジン,0
+RV073,TV-32-35,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,チーム,0
+RV074,TV-32-36,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,今夜,0
+RV075,TV-32-40,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ぞ ん な (5,こんなに,0.57
+RV076,TV-32-45,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,胃,0
+RV077,TV-32-53,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",Mi ます 1 [ 家 く じ が っ ],当たります,0.62
+RV078,TV-32-54,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,健康,0
+RV079,TV-32-55,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",れん,恋愛,0.67
+RV080,TV-32-57,TV014,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ラッキーアイテム,0
+RV081,TV-33-17,TV015,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",生き,席,0.5
+RV082,TV-33-18,TV015,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,マーク,0
+RV083,TV-33-19,TV015,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ホー ル,ボール,0.67
+RV084,TV-33-35,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",) いう,どういう～,0.67
+RV085,TV-33-36,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ぃ くら [< て 富,いくら,0.5
+RV086,TV-33-37,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,もう,0
+RV087,TV-33-38,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",た あ,後～,0.5
+RV088,TV-33-39,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～程,0
+RV089,TV-33-40,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,駐車違反,0
+RV090,TV-33-41,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,罰金,0
+RV091,TV-33-46,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,悲しい,0
+RV092,TV-33-49,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",*《 あ いさ つ,相手,0.57
+RV093,TV-33-50,TV016,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,気持ち,0
+RV094,TV-34-08,TV017,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",さじ しま 店 記,差します,0.6
+RV095,TV-34-14,TV017,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,矢印,0
+RV096,TV-34-16,TV017,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,白,0
+RV097,TV-34-23,TV017,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ソース,0
+RV098,TV-34-25,TV017,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～か～,0
+RV099,TV-34-28,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,茶道,0
+RV100,TV-34-29,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,お茶をたてます,0
+RV101,TV-34-31,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",赦 せ ま す 本 還,載せます,0.6
+RV102,TV-34-33,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,苦い,0
+RV103,TV-34-34,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",子 ど ん,親子どんぶり,0.67
+RV104,TV-34-36,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～分,0
+RV105,TV-34-37,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-グラム,0
+RV106,TV-34-38,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ー個,0
+RV107,TV-34-39,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",た まれ,玉ねぎ,0.57
+RV108,TV-34-40,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,4分の1,0
+RV109,TV-34-41,TV018,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",調味 利,調味料,0.67
+RV110,TV-35-06,TV019,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",[に し ょ う ) が <],直ります,0.53
+RV111,TV-35-17,TV019,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",4 れき 計 9,歴史,0.67
+RV112,TV-35-18,TV019,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",き ょ か,機会,0.67
+RV113,TV-35-25,TV019,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,カーテン,0
+RV114,TV-35-35,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,マンガミュージアム,0
+RV115,TV-35-38,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",※1MC パ ソコ ン 雪 鹿,IMCパソコン教室,0.67
+RV116,TV-35-47,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",閣 し い,詳しい,0.67
+RV117,TV-35-51,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,朱,0
+RV118,TV-35-55,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,仲よくします,0
+RV119,TV-35-56,TV020,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,必要,0
+RV120,TV-36-08,TV021,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ラッシュ,0
+RV121,TV-36-13,TV021,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",(まい ね れん),毎年,0.62
+RV122,TV-36-15,TV021,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,やっと,0
+RV123,TV-36-19,TV021,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,上手に,0
+RV124,TV-36-20,TV021,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,できるだけ,0
+RV125,TV-36-23,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",quy khach (kinh ng cma お きゃ / ェ,お客様,0.6
+RV126,TV-36-24,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",き 別 [な ],特別,0.67
+RV127,TV-36-26,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,水泳,0
+RV128,TV-36-27,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",dang 1am (kinh ng ca し て いま す ),違います,0.67
+RV129,TV-36-30,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,気持ち,0
+RV130,TV-36-32,TV022,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ー世紀,0
+RV131,TV-37-22,TV023,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",デー ト 人 &( チ う .,デート,0.67
+RV132,TV-37-26,TV023,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ンド ゅ う,～中,0.57
+RV133,TV-37-28,TV023,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",同 語,何語,0.5
+RV134,TV-37-35,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,江戸時代,0
+RV135,TV-37-38,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",※ ワ ロン ア,ロシア,0.57
+RV136,TV-37-43,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～の一つ,0
+RV137,TV-37-52,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",肛 リ ます TI,眠ります,0.5
+RV138,TV-37-53,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",リ ま す 1,彫ります,0.57
+RV139,TV-37-61,TV024,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",※ 了 区 り 猫,眠り猫,0.57
+RV140,TV-38-02,TV025,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",有朋 て ます,育てます,0.67
+RV141,TV-38-28,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,いけない,0
+RV142,TV-38-33,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,回覧,0
+RV143,TV-38-34,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,研究室,0
+RV144,TV-38-38,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～という,0
+RV145,TV-38-39,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",さっ,-冊,0.5
+RV146,TV-38-52,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-点,0
+RV147,TV-38-53,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,気が強い,0
+RV148,TV-38-54,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,喧嘩します,0
+RV149,TV-38-56,TV026,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,年齢,0
+RV150,TV-39-11,TV027,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",や せま す T* こ は そい,痩せます,0.67
+RV151,TV-39-26,TV027,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",か じ,事故,0.5
+RV152,TV-39-32,TV027,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～屋,0
+RV153,TV-39-34,TV028,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",っ ぅ し つ,-号室,0.5
+RV154,TV-39-38,TV028,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",お つか れ さ まで し た 。 お 疲れ さま で し た,お疲れ様でした,0.69
+RV155,TV-40-18,TV029,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,マラソン,0
+RV156,TV-40-32,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",(- ぼ ん,-本,0.5
+RV157,TV-40-33,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-杯,0
+RV158,TV-40-34,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-センチ,0
+RV159,TV-40-35,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-ミリ,0
+RV160,TV-40-36,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-グラム,0
+RV161,TV-40-40,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",せん か,仙台,0.57
+RV162,TV-40-41,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ジェーエル,0
+RV163,TV-40-50,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",上 けん,事件,0.67
+RV164,TV-40-52,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",(だ ん,爆弾,0.67
+RV165,TV-40-58,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",し は 3 けん めい,一生懸命,0.67
+RV166,TV-40-60,TV030,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",お て こ,男,0.67
+RV167,TV-41-17,TV031,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,餌,0
+RV168,TV-41-30,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",祖 号,祖母,0.5
+RV169,TV-41-31,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,孫,0
+RV170,TV-41-33,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,伯父／叔父,0
+RV171,TV-41-35,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ちば,伯母／叔母,0.5
+RV172,TV-41-36,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ゎぉ ば さん,伯母さん／叔母さん,0.67
+RV173,TV-41-41,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ン ず つっ,～ずつ,0.67
+RV174,TV-41-46,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ある～,0
+RV175,TV-41-47,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,男,0
+RV176,TV-41-55,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,陸,0
+RV177,TV-41-58,TV032,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,真っ白,0
+RV178,TV-42-43,TV034,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ローン,0
+RV179,TV-42-46,TV034,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～によって,0
+RV180,TV-42-50,TV034,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,市場調査,0
+RV181,TV-42-53,TV034,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,チキンラーメン,0
+RV182,TV-43-24,TV036,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",し 弄り ます 1,謝ります,0.67
+RV183,TV-44-26,TV037,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ディーブイディー,0
+RV184,TV-44-31,TV038,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",な さい ます か 。,どういうふうになさいますか,0.63
+RV185,TV-44-32,TV038,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ショート,0
+RV186,TV-44-33,TV038,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～みたいにしてください,0
+RV187,TV-44-39,TV038,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",し ゅ ん し ょ,順序,0.6
+RV188,TV-45-16,TV040,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",すむ すり い ん,係員,0.55
+RV189,TV-45-17,TV040,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,コース,0
+RV190,TV-45-19,TV040,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,-位,0
+RV191,TV-45-22,TV040,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",自覚 まし [時 半 ],目覚まし時計,0.67
+RV192,TV-46-02,TV041,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",Ne に 来 ます,帰って来ます,0.6
+RV193,TV-47-07,TV043,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",[あじ が っ ],します,0.6
+RV194,TV-47-10,TV043,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,酷い,0
+RV195,TV-47-27,TV044,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",びと,恋人,0.67
+RV196,TV-47-35,TV044,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",リ ゆう,理由,0.67
+RV197,TV-48-10,TV045,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,～間,0
+RV198,TV-48-11,TV045,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",いこ と C9aM4,いいことですね,0.6
+RV199,TV-48-16,TV046,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",案 し 々 ます 1【,楽しみます,0.6
+RV200,TV-48-17,TV046,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,親,0
+RV201,TV-49-15,TV047,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",お くさ ま,～様,0.67
+RV202,TV-49-19,TV048,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ね ん,-年-組,0.67
+RV203,TV-49-31,TV048,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ヒト,0
+RV204,TV-49-34,TV048,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",伸 弥,山中伸弥,0.67
+RV205,TV-49-35,TV048,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",,ノーベル賞,0
+RV206,TV-50-02,TV049,kana/kanji,"OCR tiếng Nhật khớp thấp hoặc thiếu ở dòng này. Dạng chuẩn hóa dựa vào thứ tự ảnh, ngữ cảnh và tra chéo.",ます ),おります,0.67

@@ -1,0 +1,12 @@
+{"id": "CH001", "bai": "37", "target": "発明します", "comment_vi": "Ghi nghĩa “phát minh” theo nghĩa tiếng Nhật; dòng nghĩa trong ảnh trông giống “giải thích, thuyết trình”, phù hợp hơn với 発表します.", "image_ids": ["TV023"]}
+{"id": "CH002", "bai": "41", "target": "ドライバー", "comment_vi": "Dùng nghĩa “tài xế” theo ảnh. Từ này cũng có nghĩa tua vít trong ngữ cảnh dụng cụ.", "image_ids": ["TV031"]}
+{"id": "CH003", "bai": "49", "target": "受賞します", "comment_vi": "Giữ cách viết 受賞 của ảnh cho “nhận giải”. 授賞 có nghĩa trao giải.", "image_ids": ["TV048"]}
+{"id": "CH004", "bai": "33", "target": "起きます", "comment_vi": "Giữ 起きます cho “xảy ra”. 置きます đồng âm, có nghĩa đặt hoặc để.", "image_ids": ["TV016"]}
+{"id": "CH005", "bai": "42", "target": "缶切り", "comment_vi": "Giữ cách viết có り như ảnh.", "image_ids": ["TV033"]}
+{"id": "CH006", "bai": "35-36", "target": "寒気", "comment_vi": "Cách đọc さむけ là cảm giác ớn lạnh. かんき chỉ khí lạnh trong nhiều ngữ cảnh.", "image_ids": ["KJ012"]}
+{"id": "CH007", "bai": "49-50", "target": "吸い殻", "comment_vi": "Chuẩn hóa cách viết và cách đọc すいがら.", "image_ids": ["KJ025"]}
+{"id": "CH008", "bai": "32,46,47", "target": "Mức độ suy đoán", "comment_vi": "Giữ khác biệt về căn cứ và sắc thái. Các tỷ lệ phần trăm ghi trong sổ chỉ có thể xem là mẹo nhớ cá nhân.", "image_ids": ["NP020", "NP021", "NP057", "NP058"]}
+{"id": "CH009", "bai": "27", "target": "見える・聞こえる", "comment_vi": "Phân biệt cảm nhận và khả năng theo cách nhìn của người nói. Có thiết bị trung gian vẫn có thể dùng 見える hoặc 聞こえる.", "image_ids": ["NP005"]}
+{"id": "CH010", "bai": "37,49", "target": "～れる／～られる", "comment_vi": "Bị động và tôn kính có cách chia giống nhau. Nhận biết bằng chủ thể thực hiện hoặc chịu ảnh hưởng và các trợ từ trong câu.", "image_ids": ["NP035", "NP063"]}
+{"id": "CH011", "bai": "45", "target": "～場合は", "comment_vi": "Có thể dùng với tình huống giả định hoặc trường hợp đã xảy ra khi phân loại tình huống và cách xử lý. とき phù hợp với việc xác định mốc trong một câu kể.", "image_ids": ["NP054"]}
+{"id": "CH012", "bai": "50", "target": "Khiêm nhường ngữ", "comment_vi": "Phân biệt 謙譲語I hướng đến người liên quan với 謙譲語II hướng sự trang trọng tới người nghe.", "image_ids": ["NP069", "NP070"]}

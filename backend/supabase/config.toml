@@ -1,0 +1,52 @@
+project_id = "luyen-jlpt"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[db.seed]
+enabled = false
+
+[local_smtp]
+enabled = true
+port = 54324
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = [
+  "http://localhost:5173/tai-khoan",
+  "http://127.0.0.1:5173/tai-khoan",
+  "http://127.0.0.1:4174/tai-khoan",
+  "luyenjlpt://auth-callback",
+]
+enable_signup = true
+enable_anonymous_sign_ins = false
+minimum_password_length = 8
+
+[auth.email]
+double_confirm_changes = true
+enable_confirmations = true
+
+[auth.external.google]
+enabled = false
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
+
+[edge_runtime]
+enabled = true
+policy = "per_worker"
+
+[functions.resolve-login]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false

@@ -1,0 +1,34 @@
+[
+ {
+  "id": "n3-conjugation-C001",
+  "name": "Thể từ điển",
+  "labelJa": "辞書形",
+  "recognition": "Nền để tra từ, nối với 前に, ために, ところ, な cấm chỉ",
+  "group1": "Âm cuối hàng う",
+  "group2": "Gốc＋る",
+  "group3": "する／来る（くる）",
+  "examplesG1": "書く・読む・買う",
+  "examplesG2": "食べる",
+  "examplesG3": "する・来る",
+  "adjI": "Aい giữ nguyên",
+  "adjNa": "Aな bỏ な khi đứng cuối, thêm だ nếu là câu khẳng định thường",
+  "noun": "Nだ khi làm vị ngữ thường",
+  "exceptions": "Nhóm II thường có ～いる／～える. 帰る・入る・走る・切る・知る là ví dụ nhóm I."
+ },
+ {
+  "id": "n3-conjugation-C002",
+  "name": "Thể lịch sự",
+  "labelJa": "丁寧形",
+  "recognition": "Dùng với người mới gặp, trong lớp hay công việc",
+  "group1": "Hàng う→い＋ます",
+  "group2": "Bỏ る＋ます",
+  "group3": "します／来ます（きます）",
+  "examplesG1": "書きます・読みます・買います",
+  "examplesG2": "食べます",
+  "examplesG3": "します・来ます",
+  "adjI": "高いです／高くないです／高かったです",
+  "adjNa": "静かです／静かではありません／静かでした",
+  "noun": "学生です／学生ではありません／学生でした",
+  "exceptions": "Vます・ません・ました・ませんでした lần lượt là phi quá khứ khẳng định, phủ định, quá khứ khẳng định, phủ định."
+ }
+]

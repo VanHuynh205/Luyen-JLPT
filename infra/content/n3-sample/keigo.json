@@ -1,0 +1,28 @@
+[
+ {
+  "id": "n3-keigo-KG001",
+  "plainJa": "行く／来る",
+  "plainKana": "いく／くる",
+  "sonkeigo": "いらっしゃる／おいでになる",
+  "sonkeigoMasu": "いらっしゃいます／おいでになります",
+  "kenjogoI": "伺う（うかがう） với nghĩa đến thăm",
+  "kenjogoII": "参る（まいる）",
+  "teineigo": "いきます／きます",
+  "recognition": "Tôn kính nâng người đi hoặc đến. 伺う hướng tới người hoặc nơi được thăm. 参る trang trọng với người nghe.",
+  "exampleJa": "先生は午後にいらっしゃいます。明日、私がそちらに伺います。",
+  "exampleVi": "Thầy/cô sẽ đến buổi chiều. Ngày mai tôi xin đến chỗ anh/chị."
+ },
+ {
+  "id": "n3-keigo-KG002",
+  "plainJa": "いる",
+  "plainKana": "いる",
+  "sonkeigo": "いらっしゃる",
+  "sonkeigoMasu": "いらっしゃいます",
+  "kenjogoI": "",
+  "kenjogoII": "おる",
+  "teineigo": "います",
+  "recognition": "いらっしゃる cũng có nghĩa đi hoặc đến. Phân biệt qua trợ từ, thời gian và ngữ cảnh.",
+  "exampleJa": "先生は研究室にいらっしゃいます。私は受付におります。",
+  "exampleVi": "Thầy/cô có mặt ở phòng nghiên cứu. Tôi ở quầy lễ tân."
+ }
+]

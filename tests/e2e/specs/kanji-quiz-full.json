@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "kanji-quiz-full",
+    "kind": "interactive",
+    "goal": "Finish a 10-question mixed kanji quiz and see the score",
+    "requirementIndexes": [],
+    "acceptanceCriteriaIndexes": [],
+    "startPath": "/kanji",
+    "steps": [
+      "Sign in",
+      "Choose Trộn cả hai and press Bắt đầu",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the question with the first choice and press Câu tiếp theo",
+      "Answer the last question with the first choice and press the button to finish"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Bắt đầu"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "1/10"
+      },
+      {
+        "afterStep": 2,
+        "expectText": "2/10"
+      },
+      {
+        "afterStep": 3,
+        "expectText": "3/10"
+      },
+      {
+        "afterStep": 4,
+        "expectText": "4/10"
+      },
+      {
+        "afterStep": 5,
+        "expectText": "5/10"
+      },
+      {
+        "afterStep": 6,
+        "expectText": "6/10"
+      },
+      {
+        "afterStep": 7,
+        "expectText": "7/10"
+      },
+      {
+        "afterStep": 8,
+        "expectText": "8/10"
+      },
+      {
+        "afterStep": 9,
+        "expectText": "9/10"
+      },
+      {
+        "afterStep": 10,
+        "expectText": "10/10"
+      },
+      {
+        "afterStep": 11,
+        "expectText": "Làm lại"
+      }
+    ]
+  }
+}

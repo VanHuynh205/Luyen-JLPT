@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "second-learner-isolated",
+    "kind": "interactive",
+    "goal": "A second learner sees none of the first learner's progress",
+    "requirementIndexes": [],
+    "acceptanceCriteriaIndexes": [],
+    "persona": "second-learner",
+    "steps": [
+      "Sign in",
+      "Open Tiến độ của tôi"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Đọc hiểu"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "Bạn chưa có tiến độ nào"
+      }
+    ]
+  }
+}

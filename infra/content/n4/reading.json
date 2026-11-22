@@ -1,0 +1,590 @@
+[
+ {
+  "id": "reading-01",
+  "title": "Lời nhắn gửi đồng nghiệp — 田中さんへのメモ",
+  "length": "short",
+  "text": "田中さんへ\nきのうはありがとうございました。借りた本は、あしたの朝、田中さんの机の上に置いておきます。それから、来週の会議は月曜日から水曜日に変わりました。時間は同じ午後二時です。よろしくお願いします。\n山本",
+  "translation": "Gửi anh Tanaka,\nCảm ơn anh về chuyện hôm qua. Cuốn sách tôi mượn, sáng mai tôi sẽ để sẵn trên bàn của anh. Ngoài ra, cuộc họp tuần sau đã đổi từ thứ Hai sang thứ Tư. Thời gian vẫn như cũ, 2 giờ chiều. Mong anh giúp đỡ.\nYamamoto",
+  "vocabulary": [
+   {
+    "word": "借りる",
+    "reading": "かりる",
+    "meaning": "mượn"
+   },
+   {
+    "word": "机",
+    "reading": "つくえ",
+    "meaning": "cái bàn (làm việc, học)"
+   },
+   {
+    "word": "置いておく",
+    "reading": "おいておく",
+    "meaning": "đặt sẵn, để sẵn"
+   },
+   {
+    "word": "会議",
+    "reading": "かいぎ",
+    "meaning": "cuộc họp"
+   },
+   {
+    "word": "変わる",
+    "reading": "かわる",
+    "meaning": "thay đổi"
+   },
+   {
+    "word": "同じ",
+    "reading": "おなじ",
+    "meaning": "giống nhau, như cũ"
+   }
+  ],
+  "questions": [
+   {
+    "question": "山本さんはあした何をしますか。",
+    "choices": [
+     "田中さんに本を返します。",
+     "田中さんから本を借ります。",
+     "会議に出ます。",
+     "田中さんに電話します。"
+    ],
+    "answerIndex": 0,
+    "explanation": "「借りた本は、あしたの朝、田中さんの机の上に置いておきます」→ Yamamoto sẽ trả lại sách đã mượn bằng cách để trên bàn anh Tanaka."
+   },
+   {
+    "question": "来週の会議はいつですか。",
+    "choices": [
+     "月曜日の午後二時",
+     "水曜日の午後二時",
+     "月曜日の午前二時",
+     "水曜日の午前中"
+    ],
+    "answerIndex": 1,
+    "explanation": "Cuộc họp đổi「月曜日から水曜日に」(từ thứ Hai sang thứ Tư), giờ vẫn「同じ午後二時」→ 2 giờ chiều thứ Tư."
+   }
+  ]
+ },
+ {
+  "id": "reading-02",
+  "title": "Thông báo của thư viện — 図書館からのお知らせ",
+  "length": "short",
+  "text": "市立図書館からのお知らせ\n図書館は毎週月曜日が休みです。ほかの日は、午前九時から午後七時まで開いています。本は一人十冊まで、二週間借りることができます。借りた本を返すのが遅れた場合は、一週間、新しい本を借りることができません。館内で食べたり飲んだりしないでください。",
+  "translation": "Thông báo từ Thư viện Thành phố\nThư viện nghỉ vào thứ Hai hằng tuần. Các ngày khác mở cửa từ 9 giờ sáng đến 7 giờ tối. Mỗi người có thể mượn tối đa 10 cuốn sách trong 2 tuần. Trường hợp trả sách muộn, bạn sẽ không được mượn sách mới trong một tuần. Vui lòng không ăn uống trong thư viện.",
+  "vocabulary": [
+   {
+    "word": "お知らせ",
+    "reading": "おしらせ",
+    "meaning": "thông báo"
+   },
+   {
+    "word": "図書館",
+    "reading": "としょかん",
+    "meaning": "thư viện"
+   },
+   {
+    "word": "開く",
+    "reading": "あく",
+    "meaning": "mở (cửa)"
+   },
+   {
+    "word": "返す",
+    "reading": "かえす",
+    "meaning": "trả lại"
+   },
+   {
+    "word": "遅れる",
+    "reading": "おくれる",
+    "meaning": "muộn, trễ"
+   },
+   {
+    "word": "場合",
+    "reading": "ばあい",
+    "meaning": "trường hợp"
+   },
+   {
+    "word": "館内",
+    "reading": "かんない",
+    "meaning": "bên trong tòa nhà"
+   }
+  ],
+  "questions": [
+   {
+    "question": "借りた本を返すのが遅れたら、どうなりますか。",
+    "choices": [
+     "お金をはらわなければなりません。",
+     "図書館に入ることができません。",
+     "一週間、新しい本を借りることができません。",
+     "十冊しか借りることができません。"
+    ],
+    "answerIndex": 2,
+    "explanation": "Thông báo ghi「一週間、新しい本を借りることができません」→ không được mượn sách mới trong một tuần. Không hề nhắc đến tiền phạt."
+   },
+   {
+    "question": "このお知らせについて、正しいものはどれですか。",
+    "choices": [
+     "月曜日の午前十時に本を借りることができます。",
+     "一人十五冊まで借りることができます。",
+     "館内で飲み物を飲んでもいいです。",
+     "火曜日の午後六時に図書館に行くことができます。"
+    ],
+    "answerIndex": 3,
+    "explanation": "Thứ Ba không phải ngày nghỉ và 6 giờ chiều vẫn trong giờ mở cửa (đến 7 giờ tối). Thứ Hai nghỉ, tối đa 10 cuốn, và cấm ăn uống."
+   }
+  ]
+ },
+ {
+  "id": "reading-03",
+  "title": "Tôi bắt đầu nấu ăn — 料理を始めました",
+  "length": "medium",
+  "text": "私は去年の春から一人で住んでいます。最初は料理が全然できなかったので、毎日コンビニでお弁当を買っていました。でも、お金がかかるし、体にもよくないと思って、料理を始めることにしました。\nはじめは簡単なものしか作れませんでしたが、母に電話で作り方を教えてもらったり、インターネットで調べたりして、少しずつ上手になりました。今では、週末に友だちを家に呼んで、料理を作ってあげることもあります。友だちが「おいしい」と言ってくれると、とてもうれしいです。\n来月、友だちの誕生日パーティーがあるので、ケーキを作ってみようと思っています。",
+  "translation": "Tôi sống một mình từ mùa xuân năm ngoái. Lúc đầu tôi hoàn toàn không biết nấu ăn nên ngày nào cũng mua cơm hộp ở cửa hàng tiện lợi. Nhưng vì tốn tiền và tôi nghĩ cũng không tốt cho sức khỏe, nên tôi quyết định bắt đầu nấu ăn.\nBan đầu tôi chỉ nấu được những món đơn giản, nhưng nhờ mẹ chỉ cách nấu qua điện thoại và tự tìm hiểu trên Internet, tôi dần dần giỏi lên. Bây giờ, có khi cuối tuần tôi mời bạn bè đến nhà và nấu ăn cho họ. Khi bạn bè khen \"ngon quá\", tôi rất vui.\nTháng sau có tiệc sinh nhật của bạn, nên tôi định thử làm bánh kem.",
+  "vocabulary": [
+   {
+    "word": "最初",
+    "reading": "さいしょ",
+    "meaning": "lúc đầu, ban đầu"
+   },
+   {
+    "word": "全然",
+    "reading": "ぜんぜん",
+    "meaning": "hoàn toàn (không)"
+   },
+   {
+    "word": "お弁当",
+    "reading": "おべんとう",
+    "meaning": "cơm hộp"
+   },
+   {
+    "word": "簡単",
+    "reading": "かんたん",
+    "meaning": "đơn giản, dễ"
+   },
+   {
+    "word": "調べる",
+    "reading": "しらべる",
+    "meaning": "tra cứu, tìm hiểu"
+   },
+   {
+    "word": "少しずつ",
+    "reading": "すこしずつ",
+    "meaning": "từng chút một, dần dần"
+   },
+   {
+    "word": "呼ぶ",
+    "reading": "よぶ",
+    "meaning": "gọi, mời"
+   },
+   {
+    "word": "誕生日",
+    "reading": "たんじょうび",
+    "meaning": "sinh nhật"
+   }
+  ],
+  "questions": [
+   {
+    "question": "この人はどうして料理を始めましたか。",
+    "choices": [
+     "母に料理を習いたかったから",
+     "お弁当はお金がかかるし、体によくないと思ったから",
+     "コンビニが家から遠かったから",
+     "友だちに料理を作ってほしいと言われたから"
+    ],
+    "answerIndex": 1,
+    "explanation": "「お金がかかるし、体にもよくないと思って、料理を始めることにしました」→ lý do là tốn tiền và không tốt cho sức khỏe."
+   },
+   {
+    "question": "この人は料理の作り方をどうやって覚えましたか。",
+    "choices": [
+     "料理の学校に通いました。",
+     "コンビニの人に教えてもらいました。",
+     "母に聞いたり、インターネットで調べたりしました。",
+     "友だちに教えてもらいました。"
+    ],
+    "answerIndex": 2,
+    "explanation": "「母に電話で作り方を教えてもらったり、インターネットで調べたりして」→ học từ mẹ qua điện thoại và tìm hiểu trên mạng."
+   },
+   {
+    "question": "この人は来月何をするつもりですか。",
+    "choices": [
+     "ケーキを作ります。",
+     "ケーキを買います。",
+     "母の家に帰ります。",
+     "料理の本を書きます。"
+    ],
+    "answerIndex": 0,
+    "explanation": "「ケーキを作ってみようと思っています」— mẫu V(よ)うと思う diễn tả dự định: người viết định thử làm bánh kem cho tiệc sinh nhật bạn."
+   }
+  ]
+ },
+ {
+  "id": "reading-04",
+  "title": "Lớp học bị hủy — 授業のお知らせ",
+  "length": "short",
+  "text": "みなさん、こんにちは。あしたの日本語の授業ですが、先生が病気になったので、休みになりました。代わりに、来週の土曜日の午前十時から授業をします。教室はいつもと同じ三階の教室です。宿題は来週の授業のときに出してください。",
+  "translation": "Chào mọi người. Về buổi học tiếng Nhật ngày mai, vì giáo viên bị ốm nên lớp được nghỉ. Thay vào đó, lớp sẽ học từ 10 giờ sáng thứ Bảy tuần sau. Phòng học vẫn là phòng ở tầng 3 như mọi khi. Bài tập về nhà hãy nộp vào buổi học tuần sau.",
+  "vocabulary": [
+   {
+    "word": "授業",
+    "reading": "じゅぎょう",
+    "meaning": "giờ học, buổi học"
+   },
+   {
+    "word": "病気",
+    "reading": "びょうき",
+    "meaning": "bệnh, ốm"
+   },
+   {
+    "word": "代わりに",
+    "reading": "かわりに",
+    "meaning": "thay vào đó"
+   },
+   {
+    "word": "教室",
+    "reading": "きょうしつ",
+    "meaning": "phòng học"
+   },
+   {
+    "word": "宿題",
+    "reading": "しゅくだい",
+    "meaning": "bài tập về nhà"
+   },
+   {
+    "word": "出す",
+    "reading": "だす",
+    "meaning": "nộp, đưa ra"
+   }
+  ],
+  "questions": [
+   {
+    "question": "休んだ授業は、いつしますか。",
+    "choices": [
+     "あしたの午前十時",
+     "来週の月曜日の午前十時",
+     "来週の土曜日の午後十時",
+     "来週の土曜日の午前十時"
+    ],
+    "answerIndex": 3,
+    "explanation": "「代わりに、来週の土曜日の午前十時から授業をします」→ 10 giờ sáng (午前) thứ Bảy tuần sau. Chú ý phân biệt 午前 (sáng) và 午後 (chiều)."
+   },
+   {
+    "question": "宿題はいつ出しますか。",
+    "choices": [
+     "あしたの朝",
+     "来週の授業のとき",
+     "先生の病気が治ったとき",
+     "今日の授業のあと"
+    ],
+    "answerIndex": 1,
+    "explanation": "「宿題は来週の授業のときに出してください」→ nộp bài tập vào buổi học tuần sau."
+   }
+  ]
+ },
+ {
+  "id": "reading-05",
+  "title": "Tàu điện ở Nhật — 日本の電車",
+  "length": "medium",
+  "text": "日本に来て、いちばんおどろいたのは電車です。電車はほとんど時間どおりに来ますし、駅もとてもきれいです。でも、朝の電車はとても込んでいて、最初はびっくりしました。\n私の会社は駅から近いですが、家から駅までは歩いて二十分かかります。前は毎朝七時半の電車に乗っていましたが、込みすぎて本が読めませんでした。それで、今は三十分早く家を出て、七時の電車に乗るようにしています。七時の電車はすいているので、座って本を読むことができます。\n早く起きるのは大変ですが、朝の時間を上手に使えるようになって、よかったと思います。",
+  "translation": "Đến Nhật, điều làm tôi ngạc nhiên nhất là tàu điện. Tàu hầu như đến đúng giờ, nhà ga cũng rất sạch sẽ. Nhưng tàu buổi sáng rất đông, lúc đầu tôi đã giật mình.\nCông ty tôi gần ga, nhưng từ nhà đến ga phải đi bộ mất 20 phút. Trước đây sáng nào tôi cũng đi chuyến tàu 7 giờ 30, nhưng đông quá nên không đọc sách được. Vì vậy, bây giờ tôi ra khỏi nhà sớm hơn 30 phút và cố gắng đi chuyến tàu 7 giờ. Tàu 7 giờ vắng nên tôi có thể ngồi đọc sách.\nDậy sớm thì vất vả, nhưng tôi thấy thật tốt vì đã có thể tận dụng tốt thời gian buổi sáng.",
+  "vocabulary": [
+   {
+    "word": "おどろく",
+    "reading": "おどろく",
+    "meaning": "ngạc nhiên"
+   },
+   {
+    "word": "時間どおり",
+    "reading": "じかんどおり",
+    "meaning": "đúng giờ"
+   },
+   {
+    "word": "込む",
+    "reading": "こむ",
+    "meaning": "đông đúc"
+   },
+   {
+    "word": "すく",
+    "reading": "すく",
+    "meaning": "vắng, trống"
+   },
+   {
+    "word": "かかる",
+    "reading": "かかる",
+    "meaning": "mất, tốn (thời gian, tiền)"
+   },
+   {
+    "word": "座る",
+    "reading": "すわる",
+    "meaning": "ngồi"
+   },
+   {
+    "word": "大変",
+    "reading": "たいへん",
+    "meaning": "vất vả"
+   }
+  ],
+  "questions": [
+   {
+    "question": "この人は日本に来て、何にいちばんおどろきましたか。",
+    "choices": [
+     "会社",
+     "電車",
+     "駅の近くの店",
+     "日本の本"
+    ],
+    "answerIndex": 1,
+    "explanation": "Câu đầu tiên:「いちばんおどろいたのは電車です」→ điều ngạc nhiên nhất là tàu điện."
+   },
+   {
+    "question": "この人は今、何時の電車に乗っていますか。",
+    "choices": [
+     "六時半",
+     "七時",
+     "七時半",
+     "八時"
+    ],
+    "answerIndex": 1,
+    "explanation": "Trước đây đi chuyến 7 giờ 30, nay「三十分早く家を出て、七時の電車に乗るようにしています」→ chuyến 7 giờ."
+   },
+   {
+    "question": "この人はどうして早い電車に乗るようにしましたか。",
+    "choices": [
+     "会社が駅から遠いから",
+     "七時半の電車はよく遅れるから",
+     "座って本を読みたいから",
+     "早く会社に着かなければならないから"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tàu 7 giờ 30 đông quá nên「本が読めませんでした」; tàu 7 giờ vắng nên「座って本を読むことができます」→ muốn ngồi đọc sách."
+   }
+  ]
+ },
+ {
+  "id": "reading-06",
+  "title": "Tuyển nhân viên làm thêm — アルバイト募集",
+  "length": "short",
+  "text": "アルバイトを探しています\n駅前の喫茶店「さくら」で、いっしょに働く人を探しています。仕事は、お客さんに飲み物や料理を運ぶことと、店の掃除です。時間は午後五時から十時までで、週に三日以上働ける人がいいです。日本語が少し話せれば、留学生でも大丈夫です。興味がある人は、店長の木村までお電話ください。",
+  "translation": "Tuyển nhân viên làm thêm\nQuán cà phê \"Sakura\" trước ga đang tìm người cùng làm việc. Công việc là mang đồ uống và đồ ăn cho khách, và dọn dẹp quán. Thời gian từ 5 giờ chiều đến 10 giờ tối, ưu tiên người có thể làm từ 3 ngày trở lên mỗi tuần. Nếu nói được một chút tiếng Nhật thì du học sinh cũng được. Ai quan tâm xin hãy gọi điện cho quản lý Kimura.",
+  "vocabulary": [
+   {
+    "word": "喫茶店",
+    "reading": "きっさてん",
+    "meaning": "quán cà phê, quán giải khát"
+   },
+   {
+    "word": "運ぶ",
+    "reading": "はこぶ",
+    "meaning": "mang, vận chuyển"
+   },
+   {
+    "word": "掃除",
+    "reading": "そうじ",
+    "meaning": "dọn dẹp"
+   },
+   {
+    "word": "以上",
+    "reading": "いじょう",
+    "meaning": "trở lên"
+   },
+   {
+    "word": "留学生",
+    "reading": "りゅうがくせい",
+    "meaning": "du học sinh"
+   },
+   {
+    "word": "興味",
+    "reading": "きょうみ",
+    "meaning": "sự quan tâm, hứng thú"
+   },
+   {
+    "word": "店長",
+    "reading": "てんちょう",
+    "meaning": "quản lý cửa hàng"
+   }
+  ],
+  "questions": [
+   {
+    "question": "このアルバイトに合う人はだれですか。",
+    "choices": [
+     "午前中だけ働きたい会社員",
+     "週に一日だけ働ける学生",
+     "週に四日、夕方から働ける留学生",
+     "日本語が全然話せない旅行者"
+    ],
+    "answerIndex": 2,
+    "explanation": "Yêu cầu: làm từ 5 giờ chiều, tối thiểu 3 ngày/tuần, nói được chút tiếng Nhật → du học sinh làm 4 ngày/tuần từ chiều tối là phù hợp."
+   },
+   {
+    "question": "このアルバイトに興味がある人は、何をしますか。",
+    "choices": [
+     "店長に電話します。",
+     "店にメールを送ります。",
+     "駅で木村さんを待ちます。",
+     "店の掃除をします。"
+    ],
+    "answerIndex": 0,
+    "explanation": "「興味がある人は、店長の木村までお電話ください」→ gọi điện cho quản lý Kimura."
+   }
+  ]
+ },
+ {
+  "id": "reading-07",
+  "title": "Ngày tôi bị lạc đường — 道に迷った日",
+  "length": "medium",
+  "text": "先週の日曜日、友だちの家に遊びに行きました。初めて行く所だったので、友だちが地図をメールで送ってくれました。でも、駅を出てから、どちらに行けばいいかわからなくなってしまいました。そのうえ、スマホの電池がなくなって、地図を見ることができませんでした。\n困っていたとき、近くにいたおばあさんが「どうしましたか」と声をかけてくれました。友だちの住所を見せると、おばあさんはその家の近くまで連れて行ってくれました。友だちの家に着いたのは、約束の時間より三十分遅かったですが、友だちは心配して待っていてくれました。\n次からは、出かける前にスマホをちゃんと充電しておこうと思います。",
+  "translation": "Chủ nhật tuần trước, tôi đến chơi nhà một người bạn. Vì là nơi lần đầu tôi đến nên bạn đã gửi bản đồ qua email cho tôi. Nhưng sau khi ra khỏi ga, tôi không biết nên đi hướng nào. Hơn nữa, điện thoại hết pin nên tôi không xem được bản đồ.\nĐang lúc bối rối thì một bà cụ ở gần đó hỏi tôi \"Cháu bị sao vậy?\". Khi tôi đưa địa chỉ của bạn cho bà xem, bà đã dẫn tôi đến tận gần nhà bạn. Tôi đến nhà bạn muộn 30 phút so với giờ hẹn, nhưng bạn tôi đã lo lắng chờ tôi.\nTừ lần sau, tôi định sẽ sạc pin điện thoại đầy đủ trước khi ra ngoài.",
+  "vocabulary": [
+   {
+    "word": "道に迷う",
+    "reading": "みちにまよう",
+    "meaning": "lạc đường"
+   },
+   {
+    "word": "地図",
+    "reading": "ちず",
+    "meaning": "bản đồ"
+   },
+   {
+    "word": "電池",
+    "reading": "でんち",
+    "meaning": "pin"
+   },
+   {
+    "word": "困る",
+    "reading": "こまる",
+    "meaning": "khó xử, bối rối"
+   },
+   {
+    "word": "住所",
+    "reading": "じゅうしょ",
+    "meaning": "địa chỉ"
+   },
+   {
+    "word": "連れて行く",
+    "reading": "つれていく",
+    "meaning": "dẫn đi"
+   },
+   {
+    "word": "約束",
+    "reading": "やくそく",
+    "meaning": "lời hẹn, cuộc hẹn"
+   },
+   {
+    "word": "心配",
+    "reading": "しんぱい",
+    "meaning": "lo lắng"
+   }
+  ],
+  "questions": [
+   {
+    "question": "この人はどうして地図を見ることができませんでしたか。",
+    "choices": [
+     "友だちが地図を送らなかったから",
+     "スマホの電池がなくなったから",
+     "駅でスマホをなくしたから",
+     "地図の字が小さすぎたから"
+    ],
+    "answerIndex": 1,
+    "explanation": "「スマホの電池がなくなって、地図を見ることができませんでした」→ điện thoại hết pin. Bạn đã gửi bản đồ rồi nên lựa chọn 1 sai."
+   },
+   {
+    "question": "おばあさんは何をしてくれましたか。",
+    "choices": [
+     "スマホを貸してくれました。",
+     "友だちに電話してくれました。",
+     "友だちの家の近くまで連れて行ってくれました。",
+     "新しい地図をくれました。"
+    ],
+    "answerIndex": 2,
+    "explanation": "「おばあさんはその家の近くまで連れて行ってくれました」— mẫu Vてくれる thể hiện người khác làm gì đó cho mình."
+   },
+   {
+    "question": "この人はこれから何をしようと思っていますか。",
+    "choices": [
+     "出かける前に、スマホを充電しておきます。",
+     "新しいスマホを買います。",
+     "友だちの家に行かないようにします。",
+     "いつも約束の時間より早く出かけます。"
+    ],
+    "answerIndex": 0,
+    "explanation": "Câu cuối:「出かける前にスマホをちゃんと充電しておこうと思います」— Vておく: làm sẵn việc gì để chuẩn bị."
+   }
+  ]
+ },
+ {
+  "id": "reading-08",
+  "title": "Vì sức khỏe của bố — 父の健康",
+  "length": "medium",
+  "text": "私の父は会社員で、毎日遅くまで働いています。去年の健康診断のとき、お医者さんに「もう少し運動したほうがいいですよ」と言われました。\nそれから父は、会社でエレベーターを使わないで、階段を使うようになりました。また、週末には母といっしょに近くの公園を一時間ぐらい散歩しています。前はたばこも吸っていましたが、今はやめました。\n今年の健康診断の結果は、とてもよかったそうです。父は「体が軽くなって、仕事も楽しくなった」と言っています。私も父のように、健康に気をつけたいと思います。",
+  "translation": "Bố tôi là nhân viên công ty, ngày nào cũng làm việc đến khuya. Trong lần khám sức khỏe năm ngoái, bố bị bác sĩ nói rằng \"Anh nên vận động nhiều hơn một chút\".\nTừ đó, ở công ty bố không dùng thang máy mà đi cầu thang bộ. Ngoài ra, cuối tuần bố cùng mẹ đi dạo khoảng một tiếng ở công viên gần nhà. Trước đây bố còn hút thuốc nhưng giờ đã bỏ.\nNghe nói kết quả khám sức khỏe năm nay của bố rất tốt. Bố bảo \"Cơ thể nhẹ nhõm hơn, công việc cũng trở nên vui hơn\". Tôi cũng muốn chú ý giữ gìn sức khỏe giống như bố.",
+  "vocabulary": [
+   {
+    "word": "健康診断",
+    "reading": "けんこうしんだん",
+    "meaning": "khám sức khỏe"
+   },
+   {
+    "word": "運動",
+    "reading": "うんどう",
+    "meaning": "vận động, tập thể dục"
+   },
+   {
+    "word": "階段",
+    "reading": "かいだん",
+    "meaning": "cầu thang"
+   },
+   {
+    "word": "散歩",
+    "reading": "さんぽ",
+    "meaning": "đi dạo"
+   },
+   {
+    "word": "たばこを吸う",
+    "reading": "たばこをすう",
+    "meaning": "hút thuốc lá"
+   },
+   {
+    "word": "結果",
+    "reading": "けっか",
+    "meaning": "kết quả"
+   },
+   {
+    "word": "気をつける",
+    "reading": "きをつける",
+    "meaning": "chú ý, cẩn thận"
+   }
+  ],
+  "questions": [
+   {
+    "question": "お父さんはお医者さんに何と言われましたか。",
+    "choices": [
+     "もっと仕事をしたほうがいい。",
+     "たばこを吸ってもいい。",
+     "もう少し運動したほうがいい。",
+     "会社を休んだほうがいい。"
+    ],
+    "answerIndex": 2,
+    "explanation": "「もう少し運動したほうがいいですよ」と言われました — 言われる là thể bị động: bố bị/được bác sĩ khuyên nên vận động."
+   },
+   {
+    "question": "お父さんがしていないことはどれですか。",
+    "choices": [
+     "会社で階段を使うこと",
+     "週末に公園を散歩すること",
+     "たばこをやめたこと",
+     "毎朝スポーツクラブに行くこと"
+    ],
+    "answerIndex": 3,
+    "explanation": "Bài có nhắc đi cầu thang, đi dạo công viên và bỏ thuốc lá. Việc đến câu lạc bộ thể thao mỗi sáng không được đề cập."
+   },
+   {
+    "question": "「私」はこれからどうしたいと思っていますか。",
+    "choices": [
+     "父のように健康に気をつけたい。",
+     "父と同じ会社で働きたい。",
+     "医者になりたい。",
+     "母と公園を散歩したい。"
+    ],
+    "answerIndex": 0,
+    "explanation": "Câu cuối:「私も父のように、健康に気をつけたいと思います」→ muốn chú ý sức khỏe giống bố."
+   }
+  ]
+ }
+]

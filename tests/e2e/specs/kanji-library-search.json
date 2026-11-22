@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "kanji-library-search",
+    "kind": "interactive",
+    "goal": "Tìm kanji và từ ghép trong thư viện",
+    "requirementIndexes": [],
+    "acceptanceCriteriaIndexes": [],
+    "startPath": "/kanji/tra-cuu",
+    "steps": [
+      "Sign in",
+      "Search for 悪口"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectPath": "/kanji/tra-cuu"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "nói xấu"
+      }
+    ]
+  }
+}

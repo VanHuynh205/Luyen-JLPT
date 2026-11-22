@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "reading-and-progress",
+    "kind": "interactive",
+    "goal": "Submit a reading passage, show its translation, and see progress on My Progress",
+    "requirementIndexes": [],
+    "acceptanceCriteriaIndexes": [],
+    "startPath": "/doc-hieu",
+    "steps": [
+      "Sign in",
+      "Open the first reading passage",
+      "Answer every question with its first choice and press Nộp bài",
+      "Press Bản dịch",
+      "Open Tiến độ của tôi"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Đọc hiểu"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "Nộp bài"
+      },
+      {
+        "afterStep": 2,
+        "expectText": "Làm lại"
+      },
+      {
+        "afterStep": 3,
+        "expectText": "Làm lại"
+      },
+      {
+        "afterStep": 4,
+        "expectText": "Tiến độ của tôi"
+      }
+    ]
+  }
+}

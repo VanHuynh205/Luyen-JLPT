@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "language_pair": [
+    "ja",
+    "vi"
+  ],
+  "scope": "Minna no Nihongo Shokyu II, bai 26–50",
+  "source_archive": "dataset_n4.zip",
+  "records": {
+    "kanji": 118,
+    "tu_ghep_kanji": 403,
+    "tu_vung": 1182,
+    "doi_chieu_ocr": 206,
+    "ngu_phap": 148,
+    "so_sanh": 27,
+    "cach_chia": 22,
+    "kinh_ngu": 17,
+    "tu_dong_tha_dong": 12,
+    "chuan_hoa": 12,
+    "nguon": 17,
+    "anh_nguon": 146
+  },
+  "lesson_range": [
+    26,
+    50
+  ],
+  "archive_layout": {
+    "spreadsheet": "dataset_n4.xlsx",
+    "machine_readable": [
+      "csv/",
+      "jsonl/"
+    ],
+    "readme": "README.md"
+  }
+}

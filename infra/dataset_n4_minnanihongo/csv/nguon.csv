@@ -1,0 +1,18 @@
+﻿id,name,url,scope_vi
+PHOTO,dataset_n4.zip,,Ảnh người dùng cung cấp. Ba nhóm theo thư mục gốc và mã ảnh trong anh_nguon.
+MINNA,"3A Corporation — Minna no Nihongo Sơ cấp II, bản 2",https://www.3anet.co.jp/np/en/books/2400/,Phạm vi giáo trình Sơ cấp II và mức gần N4 theo nhà xuất bản.
+MINNA_VI,3A Corporation — Bản dịch và giải thích tiếng Việt,https://www.3anet.co.jp/np/en/books/2422/,Trang xuất bản dùng để nhận diện loại tài liệu.
+MINNADS,MinnaNoDS,https://github.com/vitto4/MinnaNoDS,Danh sách tra chéo cách viết và thứ tự từ bản 2. Đối chiếu ảnh để sửa khác biệt.
+VNJP,VNJPCLUB — Minna no Nihongo bản 2,https://www.vnjpclub.com/minna-no-nihongo/bai-26-tu-vung.html,Đối chiếu cách sắp danh sách từ vựng bài 26 và một số cách đọc. Các bài khác có URL tương ứng.
+KANJIDIC,EDRDG — KANJIDIC2,https://www.edrdg.org/wiki/KANJIDIC_Project.html,"Tra âm On, Kun, và cách đọc Hán Việt ở mức ký tự. KANJIDIC2 CC BY-SA 4.0, https://www.edrdg.org/edrdg/licence.html."
+UNIHAN,Unicode — Unihan Database,https://www.unicode.org/reports/tr38/,Đối chiếu thuộc tính kVietnamese và dị thể truyền thống.
+JLPT_LEVEL,JLPT — Mô tả năng lực N4,https://www.jlpt.jp/e/about/levelsummary.html,Đọc hiểu và nghe hiểu tiếng Nhật cơ bản.
+JLPT_GUIDE,JLPT — New JLPT Guidebook,https://www.jlpt.jp/e/reference/pdf/guidebook_s_e.pdf,"Trang 9 giải thích việc JLPT không phát hành danh sách từ, kanji và ngữ pháp cho từng cấp hiện hành."
+JPF,The Japan Foundation — Irodori Resources,https://www.irodori.jpf.go.jp/en/resources.html,"Đối chiếu cách nối, thể phổ thông, dạng diễn đạt và ngữ cảnh cơ bản."
+JPF_KEIGO,"The Japan Foundation — Irodori Sơ trung cấp, bài 18",https://www.irodori.jpf.go.jp/assets/data/pre-intermediate/pdf/ZZ_L18.pdf,Đối chiếu kính ngữ và xin phép trang trọng.
+BUNKA,Cơ quan Văn hóa Nhật Bản — Kính ngữ cơ bản,https://www.bunka.go.jp/seisaku/kokugo_nihongo/kokugo_shisaku/keigo/chapter2/detail.html,"Phân nhóm tôn kính, khiêm nhường I, khiêm nhường II, lịch sự và mỹ hóa."
+TUFS_COND,Đại học Ngoại ngữ Tokyo — Điều kiện,https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/083.html,"Phân biệt と, ば, たら, なら."
+TUFS_GUESS,Đại học Ngoại ngữ Tokyo — Suy đoán và truyền tin,https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/076.html,"Đối chiếu そう, よう, らしい và かもしれない."
+TUFS_RESULT,Đại học Ngoại ngữ Tokyo — ～てあります,https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/046.html,Phân biệt trợ từ và trạng thái kết quả với việc chuẩn bị đã xong.
+TUFS_PREP,Đại học Ngoại ngữ Tokyo — ～ておく・～てみる,https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/088.html,Phân biệt chuẩn bị và thử làm.
+TUFS_GIVE,Đại học Ngoại ngữ Tokyo — Cho và nhận hành động,https://www.coelang.tufs.ac.jp/mt/ja/gmod/contents/explanation/086.html,"Vai của chủ thể, người cho và người nhận."

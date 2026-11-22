@@ -1,0 +1,13 @@
+﻿id,bai,target,comment_vi,image_ids
+CH001,37,発明します,"Ghi nghĩa “phát minh” theo nghĩa tiếng Nhật; dòng nghĩa trong ảnh trông giống “giải thích, thuyết trình”, phù hợp hơn với 発表します.",TV023
+CH002,41,ドライバー,Dùng nghĩa “tài xế” theo ảnh. Từ này cũng có nghĩa tua vít trong ngữ cảnh dụng cụ.,TV031
+CH003,49,受賞します,Giữ cách viết 受賞 của ảnh cho “nhận giải”. 授賞 có nghĩa trao giải.,TV048
+CH004,33,起きます,"Giữ 起きます cho “xảy ra”. 置きます đồng âm, có nghĩa đặt hoặc để.",TV016
+CH005,42,缶切り,Giữ cách viết có り như ảnh.,TV033
+CH006,35-36,寒気,Cách đọc さむけ là cảm giác ớn lạnh. かんき chỉ khí lạnh trong nhiều ngữ cảnh.,KJ012
+CH007,49-50,吸い殻,Chuẩn hóa cách viết và cách đọc すいがら.,KJ025
+CH008,"32,46,47",Mức độ suy đoán,Giữ khác biệt về căn cứ và sắc thái. Các tỷ lệ phần trăm ghi trong sổ chỉ có thể xem là mẹo nhớ cá nhân.,"NP020, NP021, NP057, NP058"
+CH009,27,見える・聞こえる,Phân biệt cảm nhận và khả năng theo cách nhìn của người nói. Có thiết bị trung gian vẫn có thể dùng 見える hoặc 聞こえる.,NP005
+CH010,"37,49",～れる／～られる,Bị động và tôn kính có cách chia giống nhau. Nhận biết bằng chủ thể thực hiện hoặc chịu ảnh hưởng và các trợ từ trong câu.,"NP035, NP063"
+CH011,45,～場合は,Có thể dùng với tình huống giả định hoặc trường hợp đã xảy ra khi phân loại tình huống và cách xử lý. とき phù hợp với việc xác định mốc trong một câu kể.,NP054
+CH012,50,Khiêm nhường ngữ,Phân biệt 謙譲語I hướng đến người liên quan với 謙譲語II hướng sự trang trọng tới người nghe.,"NP069, NP070"
