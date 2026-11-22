@@ -32,7 +32,11 @@ Trước lần phát hành đầu tiên:
 4. Đồng bộ `version` của hai cấu hình Tauri. Chọn tag `vX.Y.Z` khớp, nằm trong lịch sử nhánh mặc định, khi chạy `Native apps` với `publish: true`. Sau ba job hệ điều hành, GitHub Release nhận NSIS, APK ký, `latest.json`, `android-latest.json` và `SHA256SUMS.txt`. Chữ ký updater không thay cho Authenticode; hướng dẫn cài Windows yêu cầu kiểm nguồn trước khi tiếp tục qua SmartScreen.
 5. Kiểm bản cài từ hai phiên bản liên tiếp: Windows tải và cài đúng phiên bản đã ký; Android báo và mở đúng APK, Android cho cài đè bằng cùng keystore. Kiểm học N4 ngoại tuyến, đăng nhập và đồng bộ Tiến độ Windows–Android trước khi gửi bạn bè.
 
+Repo nguồn trên GitHub Free phải giữ private. GitHub Free không hỗ trợ cấu hình môi trường có secrets trên repo private. Không chuyển khóa ký sang secrets cấp repo để chạy bước 4. Sau khi chủ repo duyệt nội dung và nắm giữ khóa, ký cục bộ theo [hướng dẫn Windows](../../../desktop/README.md) và [hướng dẫn Android](../../../mobile/README.md). Dùng cùng khóa cho hai bản liên tiếp. Chỉ tải bộ cài và metadata lên repo phân phối sau khi chủ repo duyệt phát hành.
+
 ## Nghiệm thu Auth trên staging
+
+Dùng `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` của dự án staging khi build frontend cho cả hai bộ cài. Chạy `node infra/scripts/src/validate-native-env.mjs` trước khi build để kiểm URL Supabase và loại khóa. Phần kiểm này không xác nhận cấu hình Google, email hay redirect; kiểm từng luồng trên bản cài.
 
 Dùng hai tài khoản thử và bản cài Windows/Android trỏ cùng dự án. Giữ URL callback, mã PKCE, token và mật khẩu ngoài ảnh chụp và log. Mỗi lần thử callback dùng một luồng mới; email phải mở trên thiết bị đã gửi yêu cầu.
 
@@ -50,6 +54,8 @@ Dùng hai tài khoản thử và bản cài Windows/Android trỏ cùng dự án
 - **Web và contract:** 195 test frontend, 93 test build gói và 8 test Android release; `pnpm check`, `pnpm typecheck`, `pnpm build`, `pnpm packs:verify` và `actionlint` đạt. Chromium: 17 bài đạt, 3 bài cần Supabase local được bỏ qua trong lượt này. `mobile/scripts/validate-scaffold.mjs` xác minh SHA-256 của cả chín bảng N4.
 - **Kiểm bổ sung:** ký APK release universal `arm64-v8a` và `x86_64` bằng khóa thử. Đối chiếu chứng chỉ và metadata `0.1.0`/`1000`, từ chối fingerprint khác, kiểm ZIP alignment 16 KiB. Bản release ký thử cài mới trên emulator API 34 và mở `見ます` ở chế độ máy bay. Test PKCE dùng Supabase SDK thật với HTTP fixture: Google, xác nhận và khôi phục dùng verifier riêng; callback lạ và replay bị chặn trước HTTP. Đây chưa phải Auth staging.
 - **GitHub, PR #1:** lượt `45044714012` dựng và cài được app iOS Simulator. Maestro mở đúng thẻ `見ます`, nhưng cây trợ năng tách bộ đếm `1 / 1182` thành ba phần. Windows dừng vì thừa dấu `--` trước `--locked`; Android không thấy `sdkmanager` trên `PATH`. Đã gộp sửa bộ đếm, tham số build và đường dẫn SDK. Lệnh Windows đã dựng NSIS cục bộ; vẫn cần xác nhận cả ba job trên GitHub.
+- **GitHub, PR #1, commit `5aecb40`:** Web/Supabase (`45050344080`) và iOS Simulator (`45050344101`) đạt. Cùng lượt native, Windows dựng NSIS nhưng không tìm được debugger WebView2; Android dựng APK và tìm được AVD nhưng thiếu đĩa để boot. Hai job chưa tải bộ cài lên.
+- **Cục bộ ngày 23-11-2026:** bộ cài NSIS qua smoke callback lạnh/nóng với cổng do WebView2 cấp; tiến độ N4 vẫn còn sau khi tải lại. APK debug mở thẻ `見ます` trong chế độ máy bay trên AVD API 34 mới với phân vùng dữ liệu 6 GiB. Cần xác nhận lại trên runner.
 - **Còn mở:** chưa có release công khai hoặc nghiệm thu Auth, Đồng bộ hai chiều và cập nhật qua hai bản phát hành ký thật trên staging.
 
 ## Bước kế tiếp

@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
-import { mkdtemp, realpath, rm, stat } from "node:fs/promises";
-import { createServer } from "node:net";
+import { mkdtemp, readFile, realpath, rm, stat } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, dirname, isAbsolute, join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
@@ -27,7 +26,6 @@ const profilePrefix = "luyen-jlpt-smoke-";
 const profile = await mkdtemp(join(tempRoot, profilePrefix));
 const offlineArguments =
   "--proxy-server=127.0.0.1:9 --proxy-bypass-list=<-loopback>;tauri.localhost;ipc.localhost";
-const environment = { ...process.env, WEBVIEW2_USER_DATA_FOLDER: profile };
 const driver = spawn(
   "tauri-driver",
   ["--port", String(port), "--native-port", String(nativePort)],
@@ -35,7 +33,8 @@ const driver = spawn(
     stdio: "inherit",
     windowsHide: true,
     env: {
-      ...environment,
+      ...process.env,
+      WEBVIEW2_USER_DATA_FOLDER: join(profile, "webdriver"),
       WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: offlineArguments,
     },
   },
@@ -68,7 +67,8 @@ async function request(path, method, data, timeout = 10_000) {
 async function until(description, probe, timeoutMs = 20_000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
-    if (await probe()) return;
+    const value = await probe();
+    if (value) return value;
     await delay(150);
   }
   assert.fail(`Timed out waiting for ${description}`);
@@ -92,47 +92,55 @@ async function startSession(alwaysMatch) {
 }
 
 async function testColdLaunch() {
-  const server = createServer();
-  server.listen(0, "127.0.0.1");
-  await once(server, "listening");
-  const debuggerPort = server.address().port;
-  await new Promise((resolve, reject) => {
-    server.close((error) => (error ? reject(error) : resolve()));
-  });
-  const debuggerAddress = `127.0.0.1:${debuggerPort}`;
+  const coldProfile = join(profile, "cold");
+  const portFile = join(coldProfile, "EBWebView", "DevToolsActivePort");
   const cold = spawn(app, [coldLink], {
     windowsHide: true,
     env: {
-      ...environment,
-      WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: `${offlineArguments} --remote-debugging-address=127.0.0.1 --remote-debugging-port=${debuggerPort}`,
+      ...process.env,
+      WEBVIEW2_USER_DATA_FOLDER: coldProfile,
+      WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: `${offlineArguments} --remote-debugging-address=127.0.0.1 --remote-debugging-port=0`,
     },
   });
   await once(cold, "spawn");
+  let phase = "reading the WebView2 port file";
   try {
-    await until("WebView2 debugger", async () => {
+    const debuggerAddress = await until("WebView2 debugger", async () => {
       assert.equal(cold.exitCode, null, "Cold launch exited during startup");
       try {
+        const [portText] = (await readFile(portFile, "utf8")).split(/\r?\n/);
+        const debuggerPort = Number(portText);
+        if (!/^\d{1,5}$/.test(portText) || debuggerPort < 1 || debuggerPort > 65535) {
+          return false;
+        }
+        phase = "connecting to the loopback debugger";
         const response = await fetch(
           `http://127.0.0.1:${debuggerPort}/json/list`,
           {
             signal: AbortSignal.timeout(1_000),
           },
         );
+        phase = "finding the bundled app target";
         return (
           response.ok &&
-          (await response.json()).some(({ url }) =>
-            url.startsWith("http://tauri.localhost/"),
-          )
+          (await response.json()).some(
+            ({ type, url }) => type === "page" && url.startsWith("http://tauri.localhost/"),
+          ) &&
+          `127.0.0.1:${debuggerPort}`
         );
       } catch {
         return false;
       }
     }, 60_000);
+    phase = "opening the debugger session";
     await startSession({
       browserName: "webview2",
       "ms:edgeOptions": { debuggerAddress },
     });
+    phase = "checking the cold callback";
     await waitForCallback("cold launch");
+  } catch (error) {
+    throw new Error(`Cold launch failed while ${phase}.`, { cause: error });
   } finally {
     try {
       await endSession();

@@ -41,13 +41,15 @@ function uiDump() {
 }
 
 function tapNode(xml, predicate) {
-  const node = (xml.match(/<node\b[^>]+>/g) ?? []).find(predicate);
-  const match = node && /bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(node);
-  if (!match) return false;
-  const [left, top, right, bottom] = match.slice(1).map(Number);
-  if (left >= right || top >= bottom) return false;
-  shell("input", "tap", String(Math.floor((left + right) / 2)), String(Math.floor((top + bottom) / 2)));
-  return true;
+  for (const node of xml.match(/<node\b[^>]+>/g) ?? []) {
+    if (!predicate(node)) continue;
+    const bounds = /bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(node);
+    if (!bounds) continue;
+    const [left, top, right, bottom] = bounds.slice(1).map(Number);
+    if (left >= right || top >= bottom) continue;
+    shell("input", "tap", String(Math.floor((left + right) / 2)), String(Math.floor((top + bottom) / 2)));
+    return;
+  }
 }
 
 async function waitForUi(predicate, description) {
@@ -81,15 +83,11 @@ try {
   assert.equal(settings("airplane_mode_on"), "1");
   assert.equal(settings("wifi_on"), "0");
   shell("am", "start", "-W", "-n", `${id}/.MainActivity`);
-  let openedMenu = false;
   await waitForUi((xml) => {
-    if (tapNode(xml, (node) => /(?:text|content-desc)="Từ vựng"/.test(node))) return true;
-    if (!openedMenu) openedMenu = tapNode(xml, (node) => /(?:text|content-desc)="Mở menu"/.test(node));
-    if (openedMenu) return false;
-    if (tapNode(xml, (node) => /(?:text|content-desc)="Bắt đầu học"/.test(node))) return true;
+    if (xml.includes("Từ vựng Minna no Nihongo")) return true;
+    tapNode(xml, (node) => /(?:text|content-desc)="Bắt đầu học"/.test(node));
     return false;
-  }, "the vocabulary tab");
-  await waitForUi((xml) => xml.includes("Từ vựng Minna no Nihongo"), "the N4 vocabulary heading");
+  }, "the N4 vocabulary heading after tapping Bắt đầu học");
   const dimensions = [...shell("wm", "size").matchAll(/(\d+)x(\d+)/g)].at(-1);
   assert(dimensions, "Could not determine the emulator screen size");
   const [, width, height] = dimensions.map(Number);
