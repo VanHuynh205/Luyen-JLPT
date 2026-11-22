@@ -53,6 +53,23 @@ export async function clearDeletedSession(owner: string) {
   });
 }
 
+// The token captured at confirmation can expire before the click; getSession
+// refreshes it, and the owner check keeps the request bound to that account.
+export async function deleteAccount(owner: string) {
+  if (!supabase) throw new Error("Chưa cấu hình Supabase.");
+  const { data, error } = await supabase.auth.getSession();
+  if (error || data.session?.user.id !== owner)
+    throw new Error("Account changed");
+  const result = await supabase.functions.invoke("delete-account", {
+    body: {},
+    headers: {
+      Authorization: `Bearer ${data.session.access_token}`,
+      "x-confirmed-owner": owner,
+    },
+  });
+  if (result.error) throw result.error;
+}
+
 export async function login(identifier: string, password: string) {
   if (!supabase) throw new Error("Chưa cấu hình Supabase.");
   const name = identifier.trim();

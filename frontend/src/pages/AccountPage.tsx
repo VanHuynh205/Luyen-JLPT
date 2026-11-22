@@ -1,6 +1,7 @@
 import {
   LOGIN_ERROR,
   clearDeletedSession,
+  deleteAccount,
   login,
   supabase,
 } from "@/adapters/auth/client";
@@ -22,10 +23,7 @@ export default function AccountPage() {
   const [mode, setMode] = useState<Mode>("login");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
-  const [confirmDelete, setConfirmDelete] = useState<{
-    id: string;
-    bearer: string;
-  } | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [deletedOwner, setDeletedOwner] = useState<string | null>(null);
   const [changePassword, setChangePassword] = useState(false);
   const callback = `${window.location.origin}/tai-khoan`;
@@ -163,7 +161,7 @@ export default function AccountPage() {
               Đăng xuất
             </Button>
           </div>
-          {confirmDelete?.id === session.user.id ? (
+          {confirmDelete === session.user.id ? (
             <div className="space-y-3 rounded-md border p-4">
               <p>
                 Bạn sẽ mất tài khoản và toàn bộ tiến độ đã lưu. Không thể hoàn
@@ -174,22 +172,12 @@ export default function AccountPage() {
                 variant="destructive"
                 onClick={() =>
                   void run(async () => {
-                    if (deletedOwner !== confirmDelete.id) {
-                      const { error } = await supabase!.functions.invoke(
-                        "delete-account",
-                        {
-                          body: {},
-                          headers: {
-                            Authorization: `Bearer ${confirmDelete.bearer}`,
-                            "x-confirmed-owner": confirmDelete.id,
-                          },
-                        },
-                      );
-                      if (error) throw error;
-                      setDeletedOwner(confirmDelete.id);
+                    if (deletedOwner !== confirmDelete) {
+                      await deleteAccount(confirmDelete);
+                      setDeletedOwner(confirmDelete);
                     }
-                    await progressStore.purgeOwner(confirmDelete.id);
-                    await clearDeletedSession(confirmDelete.id);
+                    await progressStore.purgeOwner(confirmDelete);
+                    await clearDeletedSession(confirmDelete);
                     window.location.reload();
                   })
                 }
@@ -208,12 +196,7 @@ export default function AccountPage() {
             <Button
               disabled={busy}
               variant="destructive"
-              onClick={() =>
-                setConfirmDelete({
-                  id: session.user.id,
-                  bearer: session.access_token,
-                })
-              }
+              onClick={() => setConfirmDelete(session.user.id)}
             >
               Xoá tài khoản
             </Button>

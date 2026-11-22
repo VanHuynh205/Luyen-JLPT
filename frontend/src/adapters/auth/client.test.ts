@@ -2,7 +2,11 @@ import "fake-indexeddb/auto";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const sdk = vi.hoisted(() => ({
-  auth: { signInWithPassword: vi.fn(), setSession: vi.fn() },
+  auth: {
+    signInWithPassword: vi.fn(),
+    setSession: vi.fn(),
+    getSession: vi.fn(),
+  },
   functions: { invoke: vi.fn() },
 }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => sdk }));
@@ -16,6 +20,35 @@ beforeEach(() => {
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
+});
+
+describe("account deletion", () => {
+  it("sends the current token of the confirmed owner, not a token captured earlier", async () => {
+    const { deleteAccount } = await import("./client");
+    sdk.auth.getSession.mockResolvedValue({
+      data: { session: { access_token: "refreshed", user: { id: "owner-a" } } },
+      error: null,
+    });
+    sdk.functions.invoke.mockResolvedValue({ data: { deleted: true } });
+    await deleteAccount("owner-a");
+    expect(sdk.functions.invoke).toHaveBeenCalledWith("delete-account", {
+      body: {},
+      headers: {
+        Authorization: "Bearer refreshed",
+        "x-confirmed-owner": "owner-a",
+      },
+    });
+  });
+
+  it("refuses to delete when the stored session now belongs to another account", async () => {
+    const { deleteAccount } = await import("./client");
+    sdk.auth.getSession.mockResolvedValue({
+      data: { session: { access_token: "other", user: { id: "owner-b" } } },
+      error: null,
+    });
+    await expect(deleteAccount("owner-a")).rejects.toThrow();
+    expect(sdk.functions.invoke).not.toHaveBeenCalled();
+  });
 });
 
 describe("account login", () => {
