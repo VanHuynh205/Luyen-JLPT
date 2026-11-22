@@ -1,6 +1,6 @@
 # Epic 2: tài khoản và đồng bộ ngoại tuyến
 
-**Trạng thái: chưa nghiệm thu.** Việc triển khai và kiểm tra cục bộ không thay cho lần chạy CI với Supabase thật và lần đăng nhập trên bản staging. Không chuyển dữ liệu ICP.
+**Trạng thái: staging đã nghiệm thu.** Người dùng xác nhận tất cả luồng tài khoản và đồng bộ đã đạt khi thử thủ công. Dọn mã ICP cũ sau nghiệm thu; không chuyển dữ liệu ICP.
 
 | Hạng mục | Điểm kiểm tra |
 | --- | --- |
@@ -20,11 +20,13 @@ Hai thay đổi so với phác thảo: khoá trạng thái gồm `(user_id, leve
 
 **Kết quả cục bộ ngày 22-11-2026:** 178 test frontend và 93 test đóng gói đạt. Typecheck, Biome, build và kiểm gói đạt. Chromium: 15 E2E khách đạt ở mỗi chế độ N4/N3 thử nghiệm. Deno: 8 test Edge Functions dùng upstream giả lập đạt. Chưa chạy Semgrep.
 
-**Staging:** `https://luyen-jlpt.vanhuynh20050808.workers.dev`. `/tai-khoan` và `/tai-khoan?type=recovery` trả HTTP 200 khi điều hướng trực tiếp; `/packs/index.json` trả HTTP 200 và JSON. `JLPT_STAGING_URL` + `pnpm e2e:web`: 15/15 bài khách đạt. Nút Google dùng PKCE S256; Supabase trả 302 tới màn hình đăng nhập Google với callback cùng project và đích quay về `/tai-khoan`. Chưa đăng nhập Google, chưa kiểm tra việc tạo phiên sau callback hoặc các luồng tài khoản khác trên staging.
+**Staging:** `https://luyen-jlpt.vanhuynh20050808.workers.dev`. `/tai-khoan` và `/tai-khoan?type=recovery` trả HTTP 200 khi điều hướng trực tiếp; `/packs/index.json` trả HTTP 200 và JSON. `JLPT_STAGING_URL` + `pnpm e2e:web`: 15/15 bài khách đạt. Người dùng xác nhận đã thử và đạt tất cả các luồng ở mục 5, gồm nhận thư Quên mật khẩu, đặt mật khẩu mới qua link và đăng nhập lại.
+
+**Lỗi Quên mật khẩu đã xử lý:** Supabase Auth từng trả HTTP 429 (`email rate limit exceeded`) khi staging dùng dịch vụ gửi thư mặc định. Người dùng xác nhận luồng hoạt động sau khi cấu hình [Custom SMTP](https://supabase.com/docs/guides/auth/auth-smtp). Bản vá frontend báo thử lại sau khi Auth giới hạn yêu cầu, giữ thông báo trung tính khi yêu cầu thành công. Không lưu khóa SMTP, link đặt lại hay địa chỉ email thử trong repo.
 
 Hai Edge Functions `resolve-login` và `delete-account` trả HTTP 204 cho yêu cầu CORS preflight từ staging và cho phép POST. Kiểm tra này không tạo tài khoản và không chứng minh đăng nhập hoặc xoá tài khoản thành công.
 
-**GitHub Actions:** Workflow `ci.yml` có sẵn; checkout chưa có commit hoặc remote. Chưa có kết quả CI từ xa. Cần push mã và workflow tới repo GitHub đã bật Actions.
+**GitHub Actions:** Run `44999424889` trên `VanHuynh205/Luyen-JLPT`, commit `6339be4`, đã đạt. Các bước N4/N3 thử nghiệm, test Edge Functions, kiểm tra cơ sở dữ liệu và E2E hai tài khoản trên Supabase local của runner đều thành công.
 
 1. Chạy `pnpm install --frozen-lockfile`, `pnpm packs:build`, `pnpm packs:verify`, `pnpm typecheck`, `pnpm check`, `pnpm test`, `pnpm build`, `pnpm e2e:web`. Lặp lại build và E2E với `EXPERIMENTAL_LEVELS=1`.
 2. Trên máy có Docker/Podman, chạy `supabase start --workdir backend` và `supabase test db --workdir backend`. Chạy test Edge theo `backend/supabase/README.md`. Job CI dựng frontend bằng URL và public key của stack cục bộ; `JLPT_LOCAL_AUTH=1` bật E2E hai tài khoản, hai trình duyệt và đồng bộ trong 30 giây. Service-role của stack cục bộ chỉ cấp cho test runner sau bước build.

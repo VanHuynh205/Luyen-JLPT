@@ -8,6 +8,64 @@ const callback = `${app}/tai-khoan`;
 
 test.skip(process.env.JLPT_LOCAL_AUTH !== "1", "Disposable local stack only");
 
+test("recovery explains rate limits and keeps other notices neutral", async ({
+  page,
+  context,
+  baseURL,
+}) => {
+  if (baseURL !== app || process.env.VITE_SUPABASE_URL !== api)
+    throw new Error("Use the loopback app and Auth endpoints");
+
+  const waitMessage = "Có quá nhiều yêu cầu. Vui lòng thử lại sau.";
+  const cases = [
+    { status: 429, code: "over_email_send_rate_limit", notice: waitMessage },
+    { status: 429, code: "over_request_rate_limit", notice: waitMessage },
+    {
+      status: 500,
+      code: "unexpected_failure",
+      notice: "Không thực hiện được. Vui lòng thử lại.",
+    },
+    {
+      status: 200,
+      notice: "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
+    },
+  ];
+  let requests = 0;
+  await context.route("**/*", async (route) => {
+    const request = route.request();
+    const url = new URL(request.url());
+    if (url.origin === app) return route.continue();
+    if (
+      url.origin !== api ||
+      url.pathname !== "/auth/v1/recover" ||
+      request.method() !== "POST"
+    )
+      return route.abort();
+    const response = cases[requests++];
+    if (!response) return route.abort();
+    return route.fulfill({
+      status: response.status,
+      json: response.code
+        ? { error_code: response.code, msg: "Private Auth response" }
+        : {},
+    });
+  });
+
+  await page.goto(callback);
+  await page
+    .getByRole("button", { name: "Quên mật khẩu", exact: true })
+    .click();
+  await page.getByLabel("Email", { exact: true }).fill("learner@example.test");
+  const send = page.getByRole("button", { name: "Gửi liên kết", exact: true });
+  const notice = page.locator('[data-ocid="account.page"]').getByRole("status");
+  for (const response of cases) {
+    await send.click();
+    await expect(send).toBeEnabled();
+    await expect(notice).toHaveText(response.notice);
+  }
+  expect(requests).toBe(cases.length);
+});
+
 async function mailedCallback(
   request: APIRequestContext,
   email: string,

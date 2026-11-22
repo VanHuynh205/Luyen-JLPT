@@ -83,6 +83,13 @@ export default function AccountPage() {
             field("email").trim(),
             { redirectTo: callback },
           );
+          if (
+            error?.code === "over_email_send_rate_limit" ||
+            error?.code === "over_request_rate_limit"
+          ) {
+            setNotice("Có quá nhiều yêu cầu. Vui lòng thử lại sau.");
+            return;
+          }
           if (error) throw error;
           setNotice(
             "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
