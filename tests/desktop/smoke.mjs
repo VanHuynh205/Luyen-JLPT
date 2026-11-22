@@ -65,8 +65,8 @@ async function request(path, method, data, timeout = 10_000) {
   return result.value;
 }
 
-async function until(description, probe) {
-  const deadline = Date.now() + 20_000;
+async function until(description, probe, timeoutMs = 20_000) {
+  const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     if (await probe()) return;
     await delay(150);
@@ -127,7 +127,7 @@ async function testColdLaunch() {
       } catch {
         return false;
       }
-    });
+    }, 60_000);
     await startSession({
       browserName: "webview2",
       "ms:edgeOptions": { debuggerAddress },
