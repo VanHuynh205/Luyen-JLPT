@@ -22,7 +22,7 @@
 
 ## Build và phát hành
 
-CI chạy `Native apps` cho pull request có thay đổi liên quan. Job Windows tạo NSIS và chạy WebDriver; Android tạo APK debug và thử chế độ máy bay ở 360 dp; macOS dựng bản Simulator và chạy smoke từ vựng N4. Tải NSIS và APK debug từ run để thử bản khách. Bản debug dùng khóa thử, không cài đè lên APK phát hành.
+CI chạy `Native apps` cho pull request có thay đổi liên quan. Job Windows tạo NSIS và chạy smoke; Android build APK rồi chạy smoke ở chế độ máy bay (360 dp) trên runner riêng; macOS dựng bản Simulator và chạy smoke từ vựng N4. Chỉ dùng bộ cài từ lượt CI đạt để thử bản khách. Bản Android debug dùng khóa thử, không cài đè lên APK phát hành.
 
 Trước lần phát hành đầu tiên:
 
@@ -56,6 +56,8 @@ Dùng hai tài khoản thử và bản cài Windows/Android trỏ cùng dự án
 - **GitHub, PR #1:** lượt `45044714012` dựng và cài được app iOS Simulator. Maestro mở đúng thẻ `見ます`, nhưng cây trợ năng tách bộ đếm `1 / 1182` thành ba phần. Windows dừng vì thừa dấu `--` trước `--locked`; Android không thấy `sdkmanager` trên `PATH`. Đã gộp sửa bộ đếm, tham số build và đường dẫn SDK. Lệnh Windows đã dựng NSIS cục bộ; vẫn cần xác nhận cả ba job trên GitHub.
 - **GitHub, PR #1, commit `5aecb40`:** Web/Supabase (`45050344080`) và iOS Simulator (`45050344101`) đạt. Cùng lượt native, Windows dựng NSIS nhưng không tìm được debugger WebView2; Android dựng APK và tìm được AVD nhưng thiếu đĩa để boot. Hai job chưa tải bộ cài lên.
 - **Cục bộ ngày 23-11-2026:** bộ cài NSIS qua smoke callback lạnh/nóng với cổng do WebView2 cấp; tiến độ N4 vẫn còn sau khi tải lại. APK debug mở thẻ `見ます` trong chế độ máy bay trên AVD API 34 mới với phân vùng dữ liệu 6 GiB. Cần xác nhận lại trên runner.
+- **GitHub, PR #1, commit `36ebef9`:** Web/Supabase (`45055313097`) và iOS Simulator (`45055313138`) đạt. Log Android báo còn `4122.48 MB` sau dọn cache, thiếu so với `7372.80 MB` cần để tạo đĩa dữ liệu. Runner Windows không ghi `DevToolsActivePort`. Job publish không chạy.
+- **Bản sửa chưa chạy trên GitHub:** Android chuyển APK từ job build sang một runner chỉ chạy emulator và smoke. Thử luồng chuyển APK cục bộ đã boot AVD nhưng gặp hộp thoại `Pixel Launcher isn't responding`. Windows dùng UI Automation cho cold callback, không bật CDP trong bộ cài; NSIS thử qua cold/warm callback, flashcard ngoại tuyến và lưu tiến độ cục bộ.
 - **Còn mở:** chưa có release công khai hoặc nghiệm thu Auth, Đồng bộ hai chiều và cập nhật qua hai bản phát hành ký thật trên staging.
 
 ## Bước kế tiếp

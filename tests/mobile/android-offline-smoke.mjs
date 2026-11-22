@@ -71,10 +71,8 @@ const originalAirplane = settings("airplane_mode_on");
 const originalWifi = settings("wifi_on");
 assert.match(originalAirplane, /^[01]$/);
 assert.match(originalWifi, /^[012]$/);
-const rows = JSON.parse(readFileSync(new URL("../../frontend/dist/packs/index.json", import.meta.url), "utf8"));
-const seed = rows.levels.find(({ level }) => level === "n4");
-assert(seed, "Missing N4 seed in built frontend");
-const [card] = JSON.parse(readFileSync(new URL(`../../frontend/dist/packs/${seed.path}/vocabulary.json`, import.meta.url), "utf8"));
+const [card] = JSON.parse(readFileSync(new URL("../../infra/content/n4/vocabulary.json", import.meta.url), "utf8"));
+assert(card?.word, "Missing the first N4 vocabulary card in the dataset");
 
 assert.match(device("install", apk), /Success/);
 try {

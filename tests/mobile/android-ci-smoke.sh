@@ -5,11 +5,12 @@ output="$RUNNER_TEMP/android-native"
 if [[ "${PUBLISH:-false}" == true ]]; then
   apk="$output/Luyen-JLPT-android.apk"
 else
-  mapfile -t apks < <(find mobile/src-tauri/gen/android/app/build/outputs/apk -name '*-debug.apk')
-  test "${#apks[@]}" -eq 1
-  apk="${apks[0]}"
+  apk="$output/Luyen-JLPT-android-debug.apk"
 fi
-test -f "$apk"
+if [[ ! -s "$apk" ]]; then
+  echo "Missing Android smoke APK: $apk" >&2
+  exit 1
+fi
 export ANDROID_SERIAL=emulator-5554
 emulator_log="$RUNNER_TEMP/emulator.log"
 "$ANDROID_HOME/emulator/emulator" -avd luyen-jlpt -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect > "$emulator_log" 2>&1 &
@@ -30,7 +31,3 @@ adb shell wm size 1080x1920
 adb shell wm density 480
 adb shell input keyevent 82
 node tests/mobile/android-offline-smoke.mjs "$apk" --required
-if [[ "${PUBLISH:-false}" != true ]]; then
-  mkdir -p "$output"
-  cp "$apk" "$output/Luyen-JLPT-android-debug.apk"
-fi

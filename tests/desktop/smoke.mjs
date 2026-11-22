@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
-import { mkdtemp, readFile, realpath, rm, stat } from "node:fs/promises";
+import { mkdtemp, realpath, rm, stat } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { basename, dirname, isAbsolute, join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
@@ -64,11 +64,10 @@ async function request(path, method, data, timeout = 10_000) {
   return result.value;
 }
 
-async function until(description, probe, timeoutMs = 20_000) {
-  const deadline = Date.now() + timeoutMs;
+async function until(description, probe) {
+  const deadline = Date.now() + 20_000;
   while (Date.now() < deadline) {
-    const value = await probe();
-    if (value) return value;
+    if (await probe()) return;
     await delay(150);
   }
   assert.fail(`Timed out waiting for ${description}`);
@@ -92,64 +91,74 @@ async function startSession(alwaysMatch) {
 }
 
 async function testColdLaunch() {
-  const coldProfile = join(profile, "cold");
-  const portFile = join(coldProfile, "EBWebView", "DevToolsActivePort");
   const cold = spawn(app, [coldLink], {
     windowsHide: true,
     env: {
       ...process.env,
-      WEBVIEW2_USER_DATA_FOLDER: coldProfile,
-      WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: `${offlineArguments} --remote-debugging-address=127.0.0.1 --remote-debugging-port=0`,
+      WEBVIEW2_USER_DATA_FOLDER: join(profile, "cold"),
+      WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS: offlineArguments,
     },
   });
   await once(cold, "spawn");
-  let phase = "reading the WebView2 port file";
   try {
-    const debuggerAddress = await until("WebView2 debugger", async () => {
-      assert.equal(cold.exitCode, null, "Cold launch exited during startup");
-      try {
-        const [portText] = (await readFile(portFile, "utf8")).split(/\r?\n/);
-        const debuggerPort = Number(portText);
-        if (!/^\d{1,5}$/.test(portText) || debuggerPort < 1 || debuggerPort > 65535) {
-          return false;
-        }
-        phase = "connecting to the loopback debugger";
-        const response = await fetch(
-          `http://127.0.0.1:${debuggerPort}/json/list`,
-          {
-            signal: AbortSignal.timeout(1_000),
-          },
-        );
-        phase = "finding the bundled app target";
-        return (
-          response.ok &&
-          (await response.json()).some(
-            ({ type, url }) => type === "page" && url.startsWith("http://tauri.localhost/"),
-          ) &&
-          `127.0.0.1:${debuggerPort}`
-        );
-      } catch {
-        return false;
-      }
-    }, 60_000);
-    phase = "opening the debugger session";
-    await startSession({
-      browserName: "webview2",
-      "ms:edgeOptions": { debuggerAddress },
-    });
-    phase = "checking the cold callback";
-    await waitForCallback("cold launch");
-  } catch (error) {
-    throw new Error(`Cold launch failed while ${phase}.`, { cause: error });
-  } finally {
+    const observer = spawn("powershell.exe", [
+      "-NoProfile", "-NonInteractive", "-MTA", "-Command", `
+$ErrorActionPreference = 'Stop'
+Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
+$target = Get-Process -Id ([int]$env:DESKTOP_SMOKE_PID)
+$element = [Windows.Automation.AutomationElement]
+$control = [Windows.Automation.ControlType]
+$conditions = [Windows.Automation.Condition[]]@(
+  [Windows.Automation.PropertyCondition]::new($element::ControlTypeProperty, $control::Document)
+  [Windows.Automation.PropertyCondition]::new($element::NameProperty, $env:DESKTOP_SMOKE_HEADING)
+  [Windows.Automation.PropertyCondition]::new($element::NameProperty, $env:DESKTOP_SMOKE_TOAST)
+)
+$match = [Windows.Automation.OrCondition]::new($conditions)
+$clock = [Diagnostics.Stopwatch]::StartNew()
+$state = @{ url = $null; heading = $false; toast = $false }
+while (!$target.HasExited -and $clock.Elapsed.TotalSeconds -lt 20) {
+  $target.Refresh()
+  if ($target.MainWindowHandle -ne [IntPtr]::Zero) {
     try {
-      await endSession();
-    } finally {
-      if (cold.exitCode === null && cold.signalCode === null) {
-        const done = once(cold, "exit");
-        cold.kill();
-        await done;
+      $window = $element::FromHandle($target.MainWindowHandle)
+      $state = @{ url = $null; heading = $false; toast = $false }
+      foreach ($node in $window.FindAll([Windows.Automation.TreeScope]::Descendants, $match)) {
+        if ($node.Current.IsOffscreen) { continue }
+        $role = $node.Current.ControlType
+        $pattern = $null
+        if ($role -eq $control::Document -and $node.TryGetCurrentPattern([Windows.Automation.ValuePattern]::Pattern, [ref]$pattern)) {
+          $state.url = $pattern.Current.Value
+        } elseif ($role -eq $control::Text -and $node.Current.Name -ceq $env:DESKTOP_SMOKE_HEADING) {
+          $state.heading = $true
+        } elseif ($role -eq $control::ListItem -and $node.Current.Name -ceq $env:DESKTOP_SMOKE_TOAST) {
+          $state.toast = $true
+        }
       }
+      if ($state.url -ceq 'http://tauri.localhost/#/tai-khoan' -and $state.heading -and $state.toast) { exit 0 }
+    } catch [Windows.Automation.ElementNotAvailableException] {}
+  }
+  Start-Sleep -Milliseconds 125
+}
+throw "Cold callback not visible in Windows UI Automation (session $($target.SessionId)): $($state | ConvertTo-Json -Compress)"
+`,
+    ], {
+      env: {
+        ...process.env,
+        DESKTOP_SMOKE_PID: String(cold.pid),
+        DESKTOP_SMOKE_HEADING: "Tài khoản",
+        DESKTOP_SMOKE_TOAST: invalidLinkToast,
+      },
+      stdio: ["ignore", "inherit", "inherit"],
+      timeout: 25_000,
+      windowsHide: true,
+    });
+    const [code, signal] = await once(observer, "close");
+    assert.equal(code, 0, `Cold callback UI Automation failed (${signal ?? code})`);
+  } finally {
+    if (cold.exitCode === null && cold.signalCode === null) {
+      const done = once(cold, "exit");
+      cold.kill();
+      await done;
     }
   }
 }
@@ -198,6 +207,7 @@ async function waitForCallback(phase) {
 }
 
 try {
+  await testColdLaunch();
   await until("tauri-driver and Edge WebDriver", async () => {
     if (driverFailure) throw driverFailure;
     assert.equal(driver.exitCode, null, "tauri-driver stopped during startup");
@@ -208,7 +218,6 @@ try {
     }
   });
 
-  await testColdLaunch();
   await startSession({ "tauri:options": { application: app } });
   const startLearning = '[data-ocid="home.hero.primary_button"]';
   await until("home navigation", () =>
