@@ -27,7 +27,7 @@ Thêm Cấp độ N3: khi chủ dự án có dataset N3 (cùng định dạng `j
 3. Lõi `core/progress` + `core/sync`: kiểu Tiến độ, outbox, hợp nhất LWW, tổng hợp lần làm/điểm cao nhất. Unit test thuần (không mạng).
 4. Adapter `local-store` (bảng Dexie `progress_*`, `outbox`) + `supabase-sync` (đẩy outbox, kéo theo `server_updated_at`). Test tích hợp với `supabase start` cục bộ: ghi offline → bật mạng → dữ liệu lên trong 30 giây.
 5. Đăng ký/đăng nhập (AD-9): bảng `profiles.username` unique; Edge Function `resolve-login`; adapter `auth` (Email + mật khẩu có xác nhận email, Google PKCE, quên mật khẩu, session lưu Dexie); màn `/tai-khoan`; gộp Tiến độ khách khi đăng nhập. Test: tên đăng nhập trùng bị từ chối (không phân biệt hoa thường); đăng nhập bằng tên đăng nhập và bằng email đều được; sai tên đăng nhập và sai mật khẩu trả cùng một thông báo; email chưa xác nhận không Đồng bộ được.
-6. Thay `hooks/useProgress.ts` bằng hook đọc `ProgressRepository`; giữ nguyên chữ ký hook để trang không đổi. Xoá gọi ICP, xoá `src/backend`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/`, `.old/`.
+6. Thay `hooks/useProgress.ts` bằng hook đọc `ProgressRepository`; giữ nguyên chữ ký hook để trang không đổi. **Đã hoàn tất:** xoá gọi ICP, `src/backend`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/`, `.old/` và test Caffeine cũ trong `tests/e2e`.
 7. Edge Function `delete-account` + nút xoá Tài khoản. Test: sau xoá, query mọi bảng của user trả 0 dòng.
 8. Trang Tiến độ theo Cấp độ. E2E: hai người dùng (giữ kịch bản `second-learner-isolated`, `second-user-empty-progress`).
 
@@ -73,7 +73,7 @@ Không chuyển dữ liệu ICP; xoá code ICP nằm ở epic 2 task 6.
 | Hiệu năng 3D | Playwright + CPU throttle | PR đụng `scene/` | fps, kích thước chunk |
 | Bảo mật | `differential-review` (Trail of Bits) + Semgrep | PR đụng auth, RLS, sync | theo AD-8, AD-12 |
 
-E2E sinh bởi Caffeine trong `tests/e2e` chỉ chạy trên hạ tầng Caffeine; giữ đến khi rời Caffeine (epic 2 task 1), sau đó chuyển các kịch bản sang `tests/web` Playwright.
+Bộ E2E hiện hành dùng Playwright trong `tests/web`. Bộ test sinh bởi Caffeine trong `tests/e2e` đã được xoá.
 
 ## Môi trường điện thoại ảo
 
