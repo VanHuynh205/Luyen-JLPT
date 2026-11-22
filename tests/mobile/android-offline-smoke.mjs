@@ -36,8 +36,22 @@ const settings = (name) => shell("settings", "get", "global", name);
 const dumpPath = `/data/local/tmp/luyen-jlpt-smoke-${process.pid}.xml`;
 
 function uiDump() {
-  shell("uiautomator", "dump", dumpPath);
+  try {
+    shell("uiautomator", "dump", dumpPath);
+  } catch (error) {
+    // API 34 uiautomator is sometimes killed (exit 137) after it has written the dump.
+    if (!String(error.stdout).includes(`dumped to: ${dumpPath}`)) throw error;
+  }
   return device("exec-out", "cat", dumpPath);
+}
+
+const dimensions = [...shell("wm", "size").matchAll(/(\d+)x(\d+)/g)].at(-1);
+assert(dimensions, "Could not determine the emulator screen size");
+const [, width, height] = dimensions.map(Number);
+const center = String(Math.floor(width / 2));
+
+function scrollDown() {
+  shell("input", "swipe", center, String(Math.floor(height * 0.8)), center, String(Math.floor(height * 0.35)), "400");
 }
 
 function tapNode(xml, predicate) {
@@ -47,7 +61,13 @@ function tapNode(xml, predicate) {
     if (!bounds) continue;
     const [left, top, right, bottom] = bounds.slice(1).map(Number);
     if (left >= right || top >= bottom) continue;
-    shell("input", "tap", String(Math.floor((left + right) / 2)), String(Math.floor((top + bottom) / 2)));
+    const y = Math.floor((top + bottom) / 2);
+    // A node clipped at the bottom edge sits under the gesture bar, where a tap never reaches the app.
+    if (y > height * 0.85) {
+      scrollDown();
+      return;
+    }
+    shell("input", "tap", String(Math.floor((left + right) / 2)), String(y));
     return;
   }
 }
@@ -86,12 +106,8 @@ try {
     tapNode(xml, (node) => /(?:text|content-desc)="Bắt đầu học"/.test(node));
     return false;
   }, "the N4 vocabulary heading after tapping Bắt đầu học");
-  const dimensions = [...shell("wm", "size").matchAll(/(\d+)x(\d+)/g)].at(-1);
-  assert(dimensions, "Could not determine the emulator screen size");
-  const [, width, height] = dimensions.map(Number);
-  const center = String(Math.floor(width / 2));
   if (!uiDump().includes(card.word)) {
-    shell("input", "swipe", center, String(Math.floor(height * 0.8)), center, String(Math.floor(height * 0.35)), "400");
+    scrollDown();
     await waitForUi((xml) => xml.includes(card.word), `the first N4 card (${card.word})`);
   }
   console.log(`PASS Android offline smoke: fresh install loaded the N4 card ${card.word} in airplane mode.`);

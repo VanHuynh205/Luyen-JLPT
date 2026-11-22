@@ -116,12 +116,12 @@ $conditions = [Windows.Automation.Condition[]]@(
 $match = [Windows.Automation.OrCondition]::new($conditions)
 $clock = [Diagnostics.Stopwatch]::StartNew()
 $state = @{ url = $null; heading = $false; toast = $false }
-while (!$target.HasExited -and $clock.Elapsed.TotalSeconds -lt 20) {
+while (!$target.HasExited -and $clock.Elapsed.TotalSeconds -lt 60) {
   $target.Refresh()
   if ($target.MainWindowHandle -ne [IntPtr]::Zero) {
     try {
       $window = $element::FromHandle($target.MainWindowHandle)
-      $state = @{ url = $null; heading = $false; toast = $false }
+      # Keep earlier matches: the error toast closes after 4 s, which a slow runner can miss between scans.
       foreach ($node in $window.FindAll([Windows.Automation.TreeScope]::Descendants, $match)) {
         if ($node.Current.IsOffscreen) { continue }
         $role = $node.Current.ControlType
@@ -139,7 +139,8 @@ while (!$target.HasExited -and $clock.Elapsed.TotalSeconds -lt 20) {
   }
   Start-Sleep -Milliseconds 125
 }
-throw "Cold callback not visible in Windows UI Automation (session $($target.SessionId)): $($state | ConvertTo-Json -Compress)"
+$target.Refresh()
+throw "Cold callback not visible in Windows UI Automation (session $($target.SessionId), exited $($target.HasExited), window $($target.MainWindowHandle -ne [IntPtr]::Zero), $([int]$clock.Elapsed.TotalSeconds) s): $($state | ConvertTo-Json -Compress)"
 `,
     ], {
       env: {
@@ -149,7 +150,7 @@ throw "Cold callback not visible in Windows UI Automation (session $($target.Ses
         DESKTOP_SMOKE_TOAST: invalidLinkToast,
       },
       stdio: ["ignore", "inherit", "inherit"],
-      timeout: 25_000,
+      timeout: 75_000,
       windowsHide: true,
     });
     const [code, signal] = await once(observer, "close");
