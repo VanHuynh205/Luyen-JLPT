@@ -86,7 +86,7 @@ jobs:
           pnpm --filter @luyen/frontend build
       - run: pnpm packs:verify
       - if: ${{ !inputs.publish }}
-        run: pnpm tauri:desktop build --bundles nsis --ci -- -- --locked
+        run: pnpm tauri:desktop build --bundles nsis --ci '--' --locked
       - name: Compile release binary with updater configuration
         if: ${{ inputs.publish }}
         env:
@@ -97,7 +97,7 @@ jobs:
           $config.plugins.updater.pubkey = $env:TAURI_UPDATER_PUBLIC_KEY.Trim()
           $releaseConfig = Join-Path $env:RUNNER_TEMP 'luyen-jlpt-updater.json'
           $config | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $releaseConfig -Encoding utf8
-          pnpm tauri:desktop build --no-bundle --ci --config $releaseConfig -- -- --locked
+          pnpm tauri:desktop build --no-bundle --ci --config $releaseConfig '--' --locked
       - name: Bundle and sign the Windows updater
         if: ${{ inputs.publish }}
         env:
@@ -143,7 +143,7 @@ jobs:
     environment: ${{ inputs.publish && 'native-signing' || 'native-checks' }}
     env:
       ANDROID_BUILD_TOOLS_VERSION: 37.0.0
-      ANDROID_NDK_VERSION: 29.0.13846066
+      ANDROID_NDK_VERSION: 29.0.14206865
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -160,13 +160,15 @@ jobs:
       - run: rustup toolchain install "$RUSTUP_TOOLCHAIN" --profile minimal --target aarch64-linux-android,armv7-linux-androideabi,x86_64-linux-android
       - name: Set up Android SDK and API 34 emulator
         run: |
-          installed="$(sdkmanager --list_installed)"
-          if [[ "$installed" == *"platforms/"* ]]; then
-            sdkmanager platform-tools platforms/android-36 platforms/android-37.0 "build-tools/$ANDROID_BUILD_TOOLS_VERSION" "ndk/$ANDROID_NDK_VERSION" emulator system-images/android-34/google_apis/x86_64
-          else
-            sdkmanager platform-tools 'platforms;android-36' 'platforms;android-37.0' "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" emulator 'system-images;android-34;google_apis;x86_64'
-          fi
+          export ANDROID_HOME="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          export ANDROID_SDK_ROOT="$ANDROID_HOME"
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+          command -v sdkmanager
+          command -v avdmanager
+          sdkmanager platform-tools 'platforms;android-36' 'platforms;android-37.0' "build-tools;$ANDROID_BUILD_TOOLS_VERSION" "ndk;$ANDROID_NDK_VERSION" emulator 'system-images;android-34;google_apis;x86_64'
           test -f "$ANDROID_HOME/system-images/android-34/google_apis/x86_64/system.img"
+          printf '%s\n' "$ANDROID_HOME/platform-tools" "$ANDROID_HOME/emulator" >> "$GITHUB_PATH"
+          printf '%s\n' "ANDROID_HOME=$ANDROID_HOME" "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
           echo "NDK_HOME=$ANDROID_HOME/ndk/$ANDROID_NDK_VERSION" >> "$GITHUB_ENV"
           sudo chmod a+rw /dev/kvm
           echo no | avdmanager create avd --name luyen-jlpt --package 'system-images;android-34;google_apis;x86_64' --device pixel_5
@@ -188,10 +190,10 @@ jobs:
           pnpm tauri:mobile icon app-icon.svg
       - name: Build debug APK for pull request smoke
         if: ${{ !inputs.publish }}
-        run: pnpm tauri:mobile android build --ci --apk --debug --target x86_64 -- -- --locked
+        run: pnpm tauri:mobile android build --ci --apk --debug --target x86_64 -- --locked
       - name: Build unsigned Android release APK
         if: ${{ inputs.publish }}
-        run: pnpm tauri:mobile android build --ci --apk --target aarch64 armv7 x86_64 -- -- --locked
+        run: pnpm tauri:mobile android build --ci --apk --target aarch64 armv7 x86_64 -- --locked
       - name: Sign the Android release APK and generate metadata
         if: ${{ inputs.publish }}
         env:

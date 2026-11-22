@@ -17,7 +17,7 @@ pnpm exec tauri icon app-icon.svg
 pnpm exec tauri android build --ci --apk --debug --target x86_64
 ```
 
-CLI phải là `2.12.6`; CI dùng Rust `1.100.0`. Thêm target `x86_64-linux-android` cho emulator x86_64 và `aarch64-linux-android` cho máy ARM64. Runner dùng JDK 21, SDK `platforms;android-37.0`, Platform Tools, Build Tools `37.0.0` và NDK `29.0.13846066`. Đặt `JAVA_HOME`, `ANDROID_HOME` (hoặc `ANDROID_SDK_ROOT`) và `NDK_HOME`. Cài thêm system image/API để chạy emulator. Trên Windows, Tauri cần quyền tạo symbolic link khi sinh APK; nếu host không có quyền này, dùng runner Linux.
+CLI phải là `2.12.6`; CI dùng Rust `1.100.0`. Thêm target `x86_64-linux-android` cho emulator x86_64 và `aarch64-linux-android` cho máy ARM64. Runner dùng JDK 21, SDK `platforms;android-37.0`, Platform Tools, Build Tools `37.0.0` và NDK `29.0.14206865`. Đặt `JAVA_HOME`, `ANDROID_HOME` (hoặc `ANDROID_SDK_ROOT`) và `NDK_HOME`. Cài thêm system image/API để chạy emulator. Trên Windows, Tauri cần quyền tạo symbolic link khi sinh APK; nếu host không có quyền này, dùng runner Linux.
 
 `android init` tạo `mobile/src-tauri/gen/android/`. Chạy `tauri icon` sau `init` để sinh icon Rust và cập nhật resource của project đã sinh. Git bỏ qua `gen/android`, `gen/apple`, schema và icon sinh ra; giữ `Cargo.lock`. Đầu ra APK nằm dưới `mobile/src-tauri/gen/android/app/build/outputs/apk/`.
 

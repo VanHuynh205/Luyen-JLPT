@@ -8,7 +8,7 @@ Install stable Rust for MSVC (opener requires Rust 1.90 or higher) and Visual St
 
 ```powershell
 pnpm --filter @luyen/frontend build
-pnpm tauri:desktop build --bundles nsis --ci -- -- --locked
+pnpm tauri:desktop build --bundles nsis --ci '--' --locked
 ```
 
 The installer is under `desktop/src-tauri/target/release/bundle/nsis/` unless Cargo's target directory is overridden. Building it downloads the WebView2 offline installer; installing it does not require a WebView2 download. Start Tauri in `desktop/` to select this crate when the repo also contains a mobile crate.
@@ -28,7 +28,7 @@ $config = Get-Content desktop/src-tauri/tauri.release.conf.example.json -Raw | C
 $config.plugins.updater.pubkey = $env:TAURI_UPDATER_PUBLIC_KEY.Trim()
 try {
   $config | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $releaseConfig -Encoding utf8
-  pnpm tauri:desktop build --bundles nsis --ci --config $releaseConfig -- -- --locked
+  pnpm tauri:desktop build --bundles nsis --ci --config $releaseConfig '--' --locked
   if ($LASTEXITCODE -ne 0) { throw 'Desktop release build failed' }
 } finally {
   Remove-Item -LiteralPath $releaseConfig -ErrorAction SilentlyContinue
