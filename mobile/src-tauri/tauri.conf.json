@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Luyện JLPT",
+  "version": "0.1.0",
+  "identifier": "vn.luyenjlpt.app.mobile",
+  "build": {
+    "frontendDist": "../../frontend/dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "security": {
+      "capabilities": ["mobile-main", "android-update"],
+      "csp": "default-src 'self'; connect-src 'self' ipc: https://ipc.localhost https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "Luyện JLPT",
+        "useHttpsScheme": true
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "icon": ["icons/icon.png"],
+    "android": {
+      "minSdkVersion": 26
+    },
+    "iOS": {
+      "minimumSystemVersion": "15.0"
+    }
+  },
+  "plugins": {
+    "deep-link": {
+      "mobile": [
+        { "scheme": ["luyenjlpt"], "host": "auth-callback" }
+      ]
+    },
+    "http": { "scopeRedirects": true }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main-capability",
+  "description": "Minimal local capability for the main bundled window",
+  "windows": ["main"],
+  "local": true,
+  "permissions": [
+    "core:app:allow-version",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "core:resources:allow-close",
+    "deep-link:allow-get-current",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9].supabase.co/auth/v1/authorize[?]*"
+        },
+        {
+          "url": "https://www.edrdg.org/wiki/KANJIDIC_Project.html"
+        },
+        {
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "url": "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases"
+        }
+      ]
+    },
+    "updater:allow-check",
+    "updater:allow-download-and-install"
+  ]
+}

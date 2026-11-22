@@ -1,6 +1,8 @@
 import { db } from "@/adapters/local-store/db";
 import { isOwnerRetired } from "@/adapters/local-store/retirement";
 import { type Session, createClient } from "@supabase/supabase-js";
+import { isTauri } from "@tauri-apps/api/core";
+import { getAuthRedirectUrl } from "./nativeAuth";
 
 export const sessionStorage = {
   async getItem(key: string) {
@@ -29,11 +31,52 @@ const storageKey = url
 export const supabase =
   url && key
     ? createClient(url, key, {
-        auth: { flowType: "pkce", storage: sessionStorage, storageKey },
+        auth: {
+          flowType: "pkce",
+          storage: sessionStorage,
+          storageKey,
+          detectSessionInUrl: !isTauri(),
+          experimental: { appendPkceFlowIdToRedirects: isTauri() },
+        },
       })
     : null;
 
 export const LOGIN_ERROR = "Tên đăng nhập, email hoặc mật khẩu không đúng.";
+
+export async function signInWithGoogle() {
+  if (!supabase || !url) throw new Error("Chưa cấu hình Supabase.");
+  const native = isTauri();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: getAuthRedirectUrl(window.location.origin),
+      skipBrowserRedirect: native ? true : undefined,
+    },
+  });
+  if (error) throw error;
+  if (!native) return;
+  const authorize = new URL(data.url);
+  if (
+    authorize.protocol !== "https:" ||
+    authorize.origin !== new URL(url).origin ||
+    authorize.pathname !== "/auth/v1/authorize" ||
+    authorize.searchParams.get("code_challenge_method") !== "s256" ||
+    authorize.username ||
+    authorize.password
+  ) {
+    throw new Error("URL đăng nhập không hợp lệ.");
+  }
+  const { openUrl } = await import("@tauri-apps/plugin-opener");
+  await openUrl(authorize.href);
+}
+
+export async function completeNativeSignIn(code: string, flowId: string) {
+  if (!supabase) throw new Error("Chưa cấu hình Supabase.");
+  const { error } = await supabase.auth.exchangeCodeForSession(code, {
+    flowId,
+  });
+  if (error) throw error;
+}
 
 export async function offlineSession(): Promise<Session | null> {
   if (!storageKey || navigator.onLine !== false) return null;

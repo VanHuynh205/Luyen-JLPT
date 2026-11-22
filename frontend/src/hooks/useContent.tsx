@@ -101,11 +101,9 @@ function OwnerContentProvider({
       if (inFlight || navigator.onLine === false) return;
       const controller = new AbortController();
       inFlight = controller;
-      const signal = AbortSignal.any([
-        controller.signal,
-        AbortSignal.timeout(retryMs),
-      ]);
-      void syncLevelPreference(owner, profile, signal)
+      void withAbortDeadline(controller.signal, retryMs, (signal) =>
+        syncLevelPreference(owner, profile, signal),
+      )
         .then((synced) => {
           if (!controller.signal.aborted) setProfileSynced(synced);
         })
@@ -194,3 +192,4 @@ export function useReadyPack(): ContentPack {
   if (!pack) throw new Error("No content pack is ready");
   return pack;
 }
+import { withAbortDeadline } from "@/core/abort";

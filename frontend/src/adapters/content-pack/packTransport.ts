@@ -1,3 +1,4 @@
+import { throwIfAborted } from "../../core/abort";
 import {
   type ContentPack,
   LEVELS,
@@ -55,9 +56,9 @@ async function getBytes(
   signal: AbortSignal,
   limit: number,
 ): Promise<Uint8Array<ArrayBuffer>> {
-  signal.throwIfAborted();
+  throwIfAborted(signal);
   const response = await fetch(url, { signal });
-  signal.throwIfAborted();
+  throwIfAborted(signal);
   if (!response.ok)
     throw new Error(`Failed to fetch ${url}: ${response.status}`);
   if (!response.body) throw new Error(`Missing response body: ${url}`);
@@ -71,7 +72,7 @@ async function getBytes(
   try {
     while (true) {
       const { done, value } = await reader.read();
-      signal.throwIfAborted();
+      throwIfAborted(signal);
       if (done) break;
       length += value.byteLength;
       if (length > limit) {

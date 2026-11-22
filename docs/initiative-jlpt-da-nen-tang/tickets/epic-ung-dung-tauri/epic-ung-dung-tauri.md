@@ -33,6 +33,10 @@ Bạn bè nhận file `.exe`/`.apk`, cài được và học được khi không
 
 - Không phát hành App Store/Google Play (prd OQ-1 đã chốt).
 
+## Nghiệm thu
+
+Windows NSIS và APK Android debug đã qua kiểm ngoại tuyến cục bộ. Chưa đóng epic: cần CI native trên ba runner, iOS Simulator, bản phát hành ký và xác nhận đăng nhập, Đồng bộ, cập nhật trên staging. Xem [plan Epic 3](../../../superpowers/plans/2026-11-22-epic-ung-dung-tauri.md).
+
 ## References
 
 - parent — docs/initiative-jlpt-da-nen-tang/initiative-jlpt-da-nen-tang.md, section Requirements

@@ -10,6 +10,7 @@ const routes = [
   ["/doc-hieu", "reading_list.page"],
   ["/doc-hieu/reading-01", "reading_detail.page"],
   ["/tai-khoan", "account.page"],
+  ["/gioi-thieu", "about.page"],
   ["/tien-do", "progress.page"],
 ] as const;
 
@@ -38,5 +39,22 @@ for (const [path, pageId] of routes) {
         "Lời nhắn gửi đồng nghiệp",
       );
     }
+    if (path === "/gioi-thieu") {
+      await expect(page.getByRole("link", { name: "Nguồn KANJIDIC2" })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Giấy phép CC BY-SA 4.0" })).toBeVisible();
+    }
   });
 }
+
+test("360px layout keeps primary study actions at least 44px high", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 640 });
+  await page.goto("/");
+  const menu = page.getByRole("button", { name: "Mở menu" });
+  await expect(menu).toBeVisible();
+  expect((await menu.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  await page.getByRole("link", { name: "Bắt đầu học" }).click();
+  const known = page.getByRole("button", { name: "Đã thuộc", exact: true });
+  await expect(known).toBeVisible();
+  expect((await known.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(360);
+});

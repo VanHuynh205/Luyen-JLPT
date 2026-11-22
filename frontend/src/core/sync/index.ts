@@ -1,3 +1,4 @@
+import { throwIfAborted, withAbortDeadline } from "../abort";
 import {
   GUEST_OWNER,
   PROGRESS_KINDS,
@@ -95,16 +96,14 @@ export function createProgressSync({
     let changed = false;
     try {
       while (true) {
-        signal.throwIfAborted();
+        throwIfAborted(signal);
         const batch = await store.listPending(owner, pageSize);
         if (!batch.length) break;
-        signal.throwIfAborted();
-        await remote.push(
-          owner,
-          batch,
-          AbortSignal.any([signal, AbortSignal.timeout(RETRY_MS)]),
+        throwIfAborted(signal);
+        await withAbortDeadline(signal, RETRY_MS, (request) =>
+          remote.push(owner, batch, request),
         );
-        signal.throwIfAborted();
+        throwIfAborted(signal);
         await store.acknowledge(
           owner,
           batch.map(({ opId }) => opId),
@@ -113,17 +112,13 @@ export function createProgressSync({
 
       for (const kind of PROGRESS_KINDS) {
         while (true) {
-          signal.throwIfAborted();
+          throwIfAborted(signal);
           const cursor = await store.getCursor(owner, kind);
-          signal.throwIfAborted();
-          const page = await remote.pull(
-            owner,
-            kind,
-            cursor,
-            pageSize,
-            AbortSignal.any([signal, AbortSignal.timeout(RETRY_MS)]),
+          throwIfAborted(signal);
+          const page = await withAbortDeadline(signal, RETRY_MS, (request) =>
+            remote.pull(owner, kind, cursor, pageSize, request),
           );
-          signal.throwIfAborted();
+          throwIfAborted(signal);
           if (!page.length) break;
           assertPage(owner, kind, cursor, page, pageSize);
           if (await store.applyPulledPage(owner, kind, cursor, page)) {

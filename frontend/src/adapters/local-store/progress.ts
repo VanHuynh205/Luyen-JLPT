@@ -16,6 +16,23 @@ import type { Cursor, PulledRow } from "../../core/sync";
 import { db } from "./db";
 import { isOwnerRetired, ownerRetirementKey } from "./retirement";
 
+function newProgressId() {
+  if (crypto.randomUUID) return crypto.randomUUID();
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0"));
+  return [
+    hex.slice(0, 4),
+    hex.slice(4, 6),
+    hex.slice(6, 8),
+    hex.slice(8, 10),
+    hex.slice(10),
+  ]
+    .map((part) => part.join(""))
+    .join("-");
+}
+
 function rowKey(
   row: ProgressRow,
 ): [string, ProgressScope["level"], ProgressKind, string] {
@@ -34,7 +51,7 @@ function getPrevious(row: ProgressRow) {
 async function queue(row: ProgressRow) {
   if (row.owner !== GUEST_OWNER) {
     await db.progressOutbox.add({
-      opId: crypto.randomUUID(),
+      opId: newProgressId(),
       owner: row.owner,
       row,
     });
@@ -97,13 +114,7 @@ export const progressStore = {
 
   async recordKanjiQuiz(
     scope: ProgressScope,
-    {
-      mode,
-      score,
-      total,
-      wrongItemIds,
-      id = crypto.randomUUID(),
-    }: KanjiQuizInput,
+    { mode, score, total, wrongItemIds, id = newProgressId() }: KanjiQuizInput,
   ) {
     const attempt = await write({
       ...scope,
@@ -122,7 +133,7 @@ export const progressStore = {
 
   async recordReadingAttempt(
     scope: ProgressScope,
-    { passageId, score, total, id = crypto.randomUUID() }: ReadingAttemptInput,
+    { passageId, score, total, id = newProgressId() }: ReadingAttemptInput,
   ) {
     const attempt = await write({
       ...scope,

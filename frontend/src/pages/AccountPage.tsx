@@ -3,12 +3,15 @@ import {
   clearDeletedSession,
   deleteAccount,
   login,
+  signInWithGoogle,
   supabase,
 } from "@/adapters/auth/client";
+import { getAuthRedirectUrl } from "@/adapters/auth/nativeAuth";
 import { useAuth } from "@/adapters/auth/session";
 import { progressStore } from "@/adapters/local-store/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { isTauri } from "@tauri-apps/api/core";
 import { type FormEvent, useState } from "react";
 
 type Mode = "login" | "signup" | "reset";
@@ -26,7 +29,7 @@ export default function AccountPage() {
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [deletedOwner, setDeletedOwner] = useState<string | null>(null);
   const [changePassword, setChangePassword] = useState(false);
-  const callback = `${window.location.origin}/tai-khoan`;
+  const callback = getAuthRedirectUrl(window.location.origin);
 
   async function run(
     action: () => Promise<void>,
@@ -74,7 +77,9 @@ export default function AccountPage() {
           });
           if (error) throw error;
           setNotice(
-            "Hãy mở thư xác nhận trên trình duyệt này để hoàn tất đăng ký.",
+            isTauri()
+              ? "Mở liên kết xác nhận trên thiết bị này rồi chọn mở bằng Luyện JLPT."
+              : "Hãy mở thư xác nhận trên trình duyệt này để hoàn tất đăng ký.",
           );
         } else {
           const { error } = await client.auth.resetPasswordForEmail(
@@ -90,7 +95,9 @@ export default function AccountPage() {
           }
           if (error) throw error;
           setNotice(
-            "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
+            isTauri()
+              ? "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu. Hãy mở liên kết trên thiết bị này."
+              : "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
           );
         }
         form.reset();
@@ -112,8 +119,8 @@ export default function AccountPage() {
       {notice && <output className="rounded-md bg-muted p-3">{notice}</output>}
       {!supabase ? (
         <p>
-          Bạn có thể học và lưu tiến độ trên máy. Bản web này chưa cấu hình dịch
-          vụ tài khoản.
+          Bạn có thể học và lưu tiến độ trên máy. Bản này chưa cấu hình dịch vụ
+          tài khoản.
         </p>
       ) : session ? (
         <>
@@ -289,15 +296,7 @@ export default function AccountPage() {
           <Button
             disabled={busy}
             variant="outline"
-            onClick={() =>
-              void run(async () => {
-                const { error } = await supabase!.auth.signInWithOAuth({
-                  provider: "google",
-                  options: { redirectTo: callback },
-                });
-                if (error) throw error;
-              })
-            }
+            onClick={() => void run(signInWithGoogle)}
           >
             Tiếp tục với Google
           </Button>

@@ -7,6 +7,7 @@ export default defineConfig({
     global: "globalThis",
   },
   build: {
+    target: ["chrome109", "edge109", "firefox115", "safari15"],
     emptyOutDir: true,
     sourcemap: false,
     minify: false,

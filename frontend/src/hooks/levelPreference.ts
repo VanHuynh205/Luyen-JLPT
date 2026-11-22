@@ -47,14 +47,14 @@ export async function syncLevelPreference(
   signal: AbortSignal,
 ) {
   async function sync() {
-    signal.throwIfAborted();
+    throwIfAborted(signal);
     const snapshot = await db.transaction("r", db.settings, async () => {
       if (await isOwnerRetired(owner)) return null;
       return { preference: await readLevelPreference(owner) };
     });
     if (!snapshot) return false;
     const { preference } = snapshot;
-    signal.throwIfAborted();
+    throwIfAborted(signal);
     let level: unknown;
     if (preference?.pending) {
       level = preference.level;
@@ -67,7 +67,7 @@ export async function syncLevelPreference(
     return db.transaction("rw", db.settings, async () => {
       if (await isOwnerRetired(owner)) return false;
       const current = await readLevelPreference(owner);
-      signal.throwIfAborted();
+      throwIfAborted(signal);
       if (
         current?.level !== preference?.level ||
         current?.pending !== preference?.pending
@@ -116,3 +116,4 @@ export function createLevelProfile(
     },
   };
 }
+import { throwIfAborted } from "@/core/abort";

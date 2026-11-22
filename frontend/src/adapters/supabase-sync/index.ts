@@ -131,7 +131,7 @@ export function createSupabaseProgressRemote(
             batch.set(key, row);
         }
         if (!batch.size) continue;
-        signal.throwIfAborted();
+        throwIfAborted(signal);
         const { error } = await client
           .from(kind)
           .upsert([...batch.values()].map(toWire), {
@@ -178,3 +178,4 @@ export function createSupabaseProgressRemote(
     },
   };
 }
+import { throwIfAborted } from "@/core/abort";

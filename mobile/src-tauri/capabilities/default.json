@@ -1,0 +1,25 @@
+{
+  "$schema": "../gen/schemas/mobile-schema.json",
+  "identifier": "mobile-main",
+  "description": "Version and OAuth callback permissions for the bundled UI.",
+  "platforms": ["android", "iOS"],
+  "local": true,
+  "windows": ["main"],
+  "permissions": [
+    "core:app:allow-version",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "deep-link:allow-get-current",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://[a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9][a-z0-9].supabase.co/auth/v1/authorize[?]*"
+        },
+        { "url": "https://www.edrdg.org/wiki/KANJIDIC_Project.html" },
+        { "url": "https://creativecommons.org/licenses/by-sa/4.0/" },
+        { "url": "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases" }
+      ]
+    }
+  ]
+}

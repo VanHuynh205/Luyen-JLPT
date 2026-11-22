@@ -1,0 +1,21 @@
+[package]
+name = "luyen-jlpt-desktop"
+version = "0.1.0"
+description = "Luyện JLPT N4 desktop shell"
+authors = ["Luyện JLPT"]
+edition = "2021"
+rust-version = "1.90"
+
+[build-dependencies]
+tauri-build = { version = "=2.7.6", features = [] }
+
+[dependencies]
+serde_json = "1"
+tauri = { version = "=2.12.7", features = [] }
+tauri-plugin-deep-link = "=2.6.3"
+tauri-plugin-opener = "=2.7.3"
+tauri-plugin-single-instance = { version = "=2.5.5", features = ["deep-link"] }
+tauri-plugin-updater = "=2.14.1"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

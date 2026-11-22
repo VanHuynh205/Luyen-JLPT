@@ -1,0 +1,56 @@
+# Epic 3 — App desktop, Android, iOS
+
+**Mục tiêu:** Phát bộ cài Windows NSIS và APK Android cho bạn bè. Học N4 ngoại tuyến ngay lần đầu mở, đăng nhập và đồng bộ khi kết nối lại. Dựng bản iOS Simulator trên macOS, không đưa lên store.
+
+**Đặc tả:** Epic `epic-ung-dung-tauri`, R15–R17 và AD-4/AD-9/AD-10. Hai crate Tauri dùng chung `frontend/dist`, giữ học và lưu tiến độ ở frontend. Web tiếp tục dùng redirect HTTPS; Tauri nhận `luyenjlpt://auth-callback` và đổi mã PKCE. Khóa ký cập nhật và keystore không nằm trong Git.
+
+## Thực hiện
+
+1. **Windows, WebDriver:** Tạo vỏ desktop, giới hạn capability ở cửa sổ `main`, đăng ký protocol và chuyển URL từ lần mở thứ hai về cửa sổ hiện có. Dựng NSIS, kiểm tra N4 đóng kèm và callback lúc mở app/lúc app đang chạy.
+2. **Android, iOS:** Tạo vỏ mobile cùng app ID gốc, hỗ trợ Android API 26 và iOS 15. Kiểm tra APK mở được và làm flashcard ở chế độ máy bay. Dựng iOS Simulator trên macOS.
+3. **Frontend dùng chung:** Kiểm callback chỉ chấp nhận đúng protocol/host và mã PKCE. Mở OAuth qua trình duyệt hệ thống, giữ phiên và thông báo khôi phục mật khẩu. Thêm Giới thiệu, nguồn KANJIDIC2, hướng dẫn bộ cài và thông báo cập nhật.
+4. **CI, phát hành:** Dựng frontend và xác minh Gói N4 trước native build. Xuất NSIS, APK và metadata; chỉ ký khi có khóa. Updater desktop xác minh chữ ký, Android so `versionCode` và mở trang tải chính thức. Cách ly secrets khỏi jobs kiểm thử PR.
+5. **Nghiệm thu:** Chạy frontend, CI native và test trên bản đã cài. Trên staging, kiểm Google, email, đặt lại mật khẩu và đồng bộ desktop–điện thoại. Kiểm bản cập nhật từ bản ký cũ sang bản ký mới. Ghi riêng kết quả cục bộ và bước cần runner, khóa hoặc người dùng.
+
+## Rủi ro cần kiểm
+
+- Callback trùng ở lúc khởi động không đổi mã hai lần; link sai không đổi phiên.
+- Xác nhận và đặt lại mật khẩu mở trên cùng thiết bị đã tạo PKCE verifier.
+- Native không dùng service role, khóa riêng hoặc thông tin ký trong tài nguyên bundle.
+- Metadata Android không được chuyển người dùng sang origin khác hoặc tải bản cũ.
+- Gói nhúng mở được khi chưa có cache hoặc chưa đăng nhập.
+
+## Build và phát hành
+
+CI chạy `Native apps` cho pull request có thay đổi liên quan. Job Windows tạo NSIS và chạy WebDriver; Android tạo APK debug và thử chế độ máy bay ở 360 dp; macOS dựng bản Simulator và chạy smoke từ vựng N4. Tải NSIS và APK debug từ run để thử bản khách. Bản debug dùng khóa thử, không cài đè lên APK phát hành.
+
+Trước lần phát hành đầu tiên:
+
+1. Trong Supabase Auth, giữ redirect web hiện có và thêm `luyenjlpt://auth-callback` cùng `luyenjlpt://auth-callback[?]sb_flow_id=*`. Mở email xác nhận hoặc đặt lại mật khẩu trên thiết bị đã gửi yêu cầu. Kiểm Google và hai luồng email trên bản cài thật.
+2. Giữ repo mã nguồn `VanHuynh205/Luyen-JLPT` ở chế độ private. Sau khi xác nhận có thể phân phối nội dung đóng kèm, tạo repo công khai riêng `VanHuynh205/Luyen-JLPT-Releases` với một README và nhánh mặc định. Repo này chỉ nhận bộ cài, metadata và checksum. Không chuyển mã nguồn sang repo phát hành.
+3. Bảo vệ nhánh mặc định và tag `v*` trong repo mã nguồn. Tạo môi trường GitHub `native-signing` và `native-publish`, giới hạn ở tag phát hành và yêu cầu người duyệt. Trong `native-publish`, đặt `PUBLIC_RELEASES_TOKEN`: token có quyền `Contents: write` chỉ ở repo phát hành công khai. Trong `native-signing`, đặt variables `NATIVE_SUPABASE_URL`, `NATIVE_SUPABASE_PUBLISHABLE_KEY`, `TAURI_UPDATER_PUBLIC_KEY`, `ANDROID_SIGNING_CERT_SHA256`. Đặt signing secrets chỉ trong `native-signing`: `TAURI_SIGNING_PRIVATE_KEY`, `TAURI_SIGNING_PRIVATE_KEY_PASSWORD`, `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`. Giữ bản sao khóa updater và keystore ngoài repo. Không gửi khóa qua chat.
+4. Đồng bộ `version` của hai cấu hình Tauri. Chọn tag `vX.Y.Z` khớp, nằm trong lịch sử nhánh mặc định, khi chạy `Native apps` với `publish: true`. Sau ba job hệ điều hành, GitHub Release nhận NSIS, APK ký, `latest.json`, `android-latest.json` và `SHA256SUMS.txt`. Chữ ký updater không thay cho Authenticode; hướng dẫn cài Windows yêu cầu kiểm nguồn trước khi tiếp tục qua SmartScreen.
+5. Kiểm bản cài từ hai phiên bản liên tiếp: Windows tải và cài đúng phiên bản đã ký; Android báo và mở đúng APK, Android cho cài đè bằng cùng keystore. Kiểm học N4 ngoại tuyến, đăng nhập và đồng bộ Tiến độ Windows–Android trước khi gửi bạn bè.
+
+## Nghiệm thu Auth trên staging
+
+Dùng hai tài khoản thử và bản cài Windows/Android trỏ cùng dự án. Giữ URL callback, mã PKCE, token và mật khẩu ngoài ảnh chụp và log. Mỗi lần thử callback dùng một luồng mới; email phải mở trên thiết bị đã gửi yêu cầu.
+
+- **Google:** chọn `Tiếp tục với Google`, xác nhận đúng tài khoản trong trình duyệt hệ thống. Thử một lần mở lại app lạnh và một lần app còn chạy; cả hai lần `Tài khoản` phải hiện đúng người dùng. Khởi động lại để kiểm phiên còn lưu.
+- **Xác nhận email:** đăng ký từ app. Mật khẩu chưa đăng nhập được trước khi xác nhận. Sau khi mở thư từ chính thiết bị đó, app phải đăng nhập đúng người và cho đồng bộ.
+- **Quên mật khẩu:** gửi yêu cầu khi đã đăng xuất. Link phải mở form `Mật khẩu mới` mà không cần chọn `Đổi mật khẩu`. Lưu, đăng xuất, kiểm mật khẩu cũ bị từ chối và mật khẩu mới dùng được.
+- **Đồng bộ:** đánh dấu một thẻ N4 trên Android lúc ngoại tuyến, kết nối lại và kiểm đúng thẻ trên Windows. Kiểm chiều ngược lại với thẻ khác. Tài khoản thứ hai không được thấy hai thay đổi này.
+
+## Kiểm chứng ngày 22-11-2026
+
+- **Windows:** dựng và cài thử NSIS x64. WebDriver nhận callback lỗi lúc mở lạnh và lúc app đang chạy. Flashcard N4 lật được, đánh dấu và giữ trạng thái sau khi tải lại khi WebView bị chặn mạng ngoài. Bản thử đã gỡ; bộ cài khách giữ trong `.cache/epic3-native/verified-installer/`.
+- **Updater Windows:** từ chối gói ký cho `0.1.1` khi feed loopback báo `0.1.2`; file thực thi và đăng ký NSIS giữ nguyên. Khi feed báo `0.1.1`, app tải, cài và mở lại đúng bản mới; thẻ N4 vẫn mở được. Xem cách chạy tại `tests/desktop/updater-smoke.md` và log cục bộ `.cache/epic3-updater/353b6b3ec3/smoke-10.log`. Chưa kiểm qua HTTPS với khóa phát hành thật.
+- **Android:** dựng `0.1.0` debug x86_64, `versionCode=1000`, `minSdkVersion=26`; `apksigner` xác minh chữ ký debug. Windows không cho Tauri tạo symlink nên bước đóng gói cục bộ dùng Gradle với thư viện Rust đã biên dịch, không đổi quyền hệ thống. Emulator API 34 ở 360 dp cài mới, bật máy bay, tắt Wi-Fi và mở thẻ N4 `見ます`. APK thử nằm trong `.cache/epic3-android/`; chưa có APK phát hành ký bằng keystore thật.
+- **Nâng cấp Android:** hai APK thử cùng chứng chỉ, dùng chung mã và tài nguyên; chỉ đổi `versionName` và `versionCode` trong manifest. `adb install -r` nâng `0.1.0 (1000)` lên `0.1.1 (1001)` trên emulator API 34. Ở chế độ máy bay, app mở lại thẻ `見ます`, giữ trạng thái đã thuộc và `updatedAt` trong IndexedDB. Log: `.cache/epic3-android/upgrade-validation/post-upgrade-evidence.txt`. Chưa kiểm nâng cấp giữa hai release thật hay qua trang tải.
+- **Web và contract:** 195 test frontend, 93 test build gói và 8 test Android release; `pnpm check`, `pnpm typecheck`, `pnpm build`, `pnpm packs:verify` và `actionlint` đạt. Chromium: 17 bài đạt, 3 bài cần Supabase local được bỏ qua trong lượt này. `mobile/scripts/validate-scaffold.mjs` xác minh SHA-256 của cả chín bảng N4.
+- **Kiểm bổ sung:** ký APK release universal `arm64-v8a` và `x86_64` bằng khóa thử. Đối chiếu chứng chỉ và metadata `0.1.0`/`1000`, từ chối fingerprint khác, kiểm ZIP alignment 16 KiB. Bản release ký thử cài mới trên emulator API 34 và mở `見ます` ở chế độ máy bay. Test PKCE dùng Supabase SDK thật với HTTP fixture: Google, xác nhận và khôi phục dùng verifier riêng; callback lạ và replay bị chặn trước HTTP. Đây chưa phải Auth staging.
+- **Còn mở:** chạy `Native apps` trên GitHub để xác nhận CI Windows/Android và iOS Simulator. Kiểm chỉ đọc thấy repo nguồn chỉ có workflow `CI`; thay đổi Epic 3 chưa được đẩy lên. Repo phân phối chưa đọc được công khai; chưa có release hoặc nghiệm thu Auth, Đồng bộ và cập nhật trên staging.
+
+## Bước kế tiếp
+
+Khi Windows và Android phát hành thử đạt, cho bạn bè dùng `.exe`/`.apk`. Epic 4 có thể chuẩn bị song song: refine `epic-ngu-phap-mo-rong`, bắt đầu ánh xạ `comparisons.patterns` sang ID mẫu ngữ pháp, ghi mẫu không khớp trong báo cáo build.

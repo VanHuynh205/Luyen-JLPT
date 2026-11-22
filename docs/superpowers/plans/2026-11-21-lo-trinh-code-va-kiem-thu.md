@@ -1,6 +1,6 @@
 # Lộ trình code và kiểm thử: initiative-jlpt-da-nen-tang
 
-> Tài liệu điều phối. Mỗi epic có một plan riêng theo `superpowers:writing-plans`, viết khi Sofia (`bmad-agent-po`) đã refine epic đó. Plan đã viết: `2026-11-21-epic-goi-noi-dung.md`.
+> Tài liệu điều phối. Mỗi epic có một plan riêng. Xem cột Plan để biết lệnh kiểm và phần nghiệm thu còn mở.
 
 **Spec:** `docs/initiative-jlpt-da-nen-tang/initiative-jlpt-da-nen-tang.md`, `tickets/tickets.toml`, `architecture-jlpt-da-nen-tang/architecture-jlpt-da-nen-tang.md`.
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | 1 | epic-goi-noi-dung | `2026-11-21-epic-goi-noi-dung.md` (đã viết) | Ngay |
 | 2 | epic-tai-khoan-dong-bo | `2026-11-22-epic-tai-khoan-dong-bo.md` (chờ nghiệm thu staging) | Epic 1 xong; có dự án Supabase staging và OAuth client Google |
-| 3 | epic-ung-dung-tauri | viết sau refine | Epic 2 xong luồng đăng nhập; `.exe` + `.apk` trước, iOS khi có macOS |
+| 3 | epic-ung-dung-tauri | `2026-11-22-epic-ung-dung-tauri.md` | Epic 2 xong luồng đăng nhập; `.exe` + `.apk` trước, iOS khi có macOS |
 | 4 | epic-ngu-phap-mo-rong | viết sau refine | Epic 1 xong (chạy song song với 2–3 được, khác file) |
 | 5 | epic-giao-dien-3d | viết sau refine; trước đó chạy `impeccable` (shape/new-work) để có mock Trang chủ 3D và Thẻ 3D | Epic 1 xong |
 | 6 | ~~epic-chuyen-du-lieu-icp~~ | đã bỏ 2026-11-21 | Chưa có người dùng ICP (OQ-3) |
