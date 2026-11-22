@@ -16,7 +16,9 @@ function skip(reason) {
 }
 
 function run(...args) {
-  return execFileSync(adb, args, { encoding: "utf8", timeout: 30_000, stdio: ["ignore", "pipe", "pipe"] }).trim();
+  // Installing the 190 MB debug APK can take over 30 s on a runner's software-rendered emulator.
+  const timeout = args.includes("install") ? 180_000 : 30_000;
+  return execFileSync(adb, args, { encoding: "utf8", timeout, stdio: ["ignore", "pipe", "pipe"] }).trim();
 }
 
 if (!apk || !existsSync(apk)) skip("Pass the built APK path as the first argument.");

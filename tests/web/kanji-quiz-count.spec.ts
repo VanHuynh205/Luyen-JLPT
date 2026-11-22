@@ -37,6 +37,32 @@ test("each kanji quiz mode keeps its own question count from 10 to all", async (
   await mode("single").click();
   await input.fill("20");
   await input.blur();
+  // The count is saved to IndexedDB asynchronously; reloading first can read the previous value.
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        const db = await new Promise<IDBDatabase>((resolve, reject) => {
+          const request = indexedDB.open("luyen-jlpt");
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+        return new Promise<unknown>((resolve, reject) => {
+          const request = db
+            .transaction("settings")
+            .objectStore("settings")
+            .get("kanjiQuizCounts");
+          request.onsuccess = () => {
+            db.close();
+            resolve(request.result?.value);
+          };
+          request.onerror = () => {
+            db.close();
+            reject(request.error);
+          };
+        });
+      }),
+    )
+    .toEqual({ single: 20, compound: 50, mixed: 10 });
 
   expect((await page.reload())?.status()).toBe(200);
   await expect(input).toHaveValue("20");

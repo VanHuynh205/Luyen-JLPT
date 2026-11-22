@@ -121,6 +121,15 @@ jobs:
           $signature = Get-AuthenticodeSignature -LiteralPath (Join-Path $driverDir 'msedgedriver.exe')
           if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'CN=Microsoft Corporation') { throw 'Invalid Edge WebDriver signature' }
           Add-Content -LiteralPath $env:GITHUB_PATH -Value $driverDir
+      - name: Pass WebView2 test arguments through machine policy
+        # The runner is elevated, and WebView2 Runtime 150+ ignores WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS
+        # for elevated hosts (MicrosoftEdge/WebView2Feedback#5640); only HKLM policy applies. Keep in sync
+        # with offlineArguments in tests/desktop/smoke.mjs.
+        run: |
+          $key = 'HKLM:\SOFTWARE\Policies\Microsoft\Edge\WebView2\AdditionalBrowserArguments'
+          New-Item -Path $key -Force | Out-Null
+          New-ItemProperty -LiteralPath $key -Name 'luyen-jlpt-desktop.exe' -PropertyType String -Force `
+            -Value '--remote-debugging-port=0 --proxy-server=127.0.0.1:9 --proxy-bypass-list=<-loopback>;tauri.localhost;ipc.localhost' | Out-Null
       - name: Install and check the Windows bundle
         shell: pwsh
         run: ./tests/desktop/ci-smoke.ps1
