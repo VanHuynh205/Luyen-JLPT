@@ -35,6 +35,8 @@ test("each kanji quiz mode keeps its own question count from 10 to all", async (
   await mode("compound").click();
   await page.locator('[data-ocid="kanji_quiz.count_50.toggle"]').click();
   await mode("single").click();
+  // Wait for the mode's own count; typing earlier can mix into the previous mode's value.
+  await expect(input).toHaveValue("118");
   await input.fill("20");
   await input.blur();
   // The count is saved to IndexedDB asynchronously; reloading first can read the previous value.
