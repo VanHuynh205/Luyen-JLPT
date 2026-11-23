@@ -1,13 +1,17 @@
 import {
   LOGIN_ERROR,
   clearDeletedSession,
+  deleteAccount,
   login,
+  signInWithGoogle,
   supabase,
 } from "@/adapters/auth/client";
+import { getAuthRedirectUrl } from "@/adapters/auth/nativeAuth";
 import { useAuth } from "@/adapters/auth/session";
 import { progressStore } from "@/adapters/local-store/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { isTauri } from "@tauri-apps/api/core";
 import { type FormEvent, useState } from "react";
 
 type Mode = "login" | "signup" | "reset";
@@ -22,13 +26,10 @@ export default function AccountPage() {
   const [mode, setMode] = useState<Mode>("login");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
-  const [confirmDelete, setConfirmDelete] = useState<{
-    id: string;
-    bearer: string;
-  } | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [deletedOwner, setDeletedOwner] = useState<string | null>(null);
   const [changePassword, setChangePassword] = useState(false);
-  const callback = `${window.location.origin}/tai-khoan`;
+  const callback = getAuthRedirectUrl(window.location.origin);
 
   async function run(
     action: () => Promise<void>,
@@ -76,7 +77,9 @@ export default function AccountPage() {
           });
           if (error) throw error;
           setNotice(
-            "Hãy mở thư xác nhận trên trình duyệt này để hoàn tất đăng ký.",
+            isTauri()
+              ? "Mở liên kết xác nhận trên thiết bị này rồi chọn mở bằng Luyện JLPT."
+              : "Hãy mở thư xác nhận trên trình duyệt này để hoàn tất đăng ký.",
           );
         } else {
           const { error } = await client.auth.resetPasswordForEmail(
@@ -92,7 +95,9 @@ export default function AccountPage() {
           }
           if (error) throw error;
           setNotice(
-            "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
+            isTauri()
+              ? "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu. Hãy mở liên kết trên thiết bị này."
+              : "Nếu email có tài khoản, bạn sẽ nhận được thư đặt lại mật khẩu.",
           );
         }
         form.reset();
@@ -114,8 +119,8 @@ export default function AccountPage() {
       {notice && <output className="rounded-md bg-muted p-3">{notice}</output>}
       {!supabase ? (
         <p>
-          Bạn có thể học và lưu tiến độ trên máy. Bản web này chưa cấu hình dịch
-          vụ tài khoản.
+          Bạn có thể học và lưu tiến độ trên máy. Bản này chưa cấu hình dịch vụ
+          tài khoản.
         </p>
       ) : session ? (
         <>
@@ -163,7 +168,7 @@ export default function AccountPage() {
               Đăng xuất
             </Button>
           </div>
-          {confirmDelete?.id === session.user.id ? (
+          {confirmDelete === session.user.id ? (
             <div className="space-y-3 rounded-md border p-4">
               <p>
                 Bạn sẽ mất tài khoản và toàn bộ tiến độ đã lưu. Không thể hoàn
@@ -174,22 +179,12 @@ export default function AccountPage() {
                 variant="destructive"
                 onClick={() =>
                   void run(async () => {
-                    if (deletedOwner !== confirmDelete.id) {
-                      const { error } = await supabase!.functions.invoke(
-                        "delete-account",
-                        {
-                          body: {},
-                          headers: {
-                            Authorization: `Bearer ${confirmDelete.bearer}`,
-                            "x-confirmed-owner": confirmDelete.id,
-                          },
-                        },
-                      );
-                      if (error) throw error;
-                      setDeletedOwner(confirmDelete.id);
+                    if (deletedOwner !== confirmDelete) {
+                      await deleteAccount(confirmDelete);
+                      setDeletedOwner(confirmDelete);
                     }
-                    await progressStore.purgeOwner(confirmDelete.id);
-                    await clearDeletedSession(confirmDelete.id);
+                    await progressStore.purgeOwner(confirmDelete);
+                    await clearDeletedSession(confirmDelete);
                     window.location.reload();
                   })
                 }
@@ -208,12 +203,7 @@ export default function AccountPage() {
             <Button
               disabled={busy}
               variant="destructive"
-              onClick={() =>
-                setConfirmDelete({
-                  id: session.user.id,
-                  bearer: session.access_token,
-                })
-              }
+              onClick={() => setConfirmDelete(session.user.id)}
             >
               Xoá tài khoản
             </Button>
@@ -306,15 +296,7 @@ export default function AccountPage() {
           <Button
             disabled={busy}
             variant="outline"
-            onClick={() =>
-              void run(async () => {
-                const { error } = await supabase!.auth.signInWithOAuth({
-                  provider: "google",
-                  options: { redirectTo: callback },
-                });
-                if (error) throw error;
-              })
-            }
+            onClick={() => void run(signInWithGoogle)}
           >
             Tiếp tục với Google
           </Button>

@@ -1,0 +1,12 @@
+{
+  "name": "@luyen/mobile-shell",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test ../tests/mobile/android-release.test.mjs",
+    "validate": "node scripts/validate-scaffold.mjs",
+    "android:release:check": "node scripts/android-release.mjs check",
+    "android:release:metadata": "node scripts/android-release.mjs metadata",
+    "android:sign": "node scripts/sign-android.mjs"
+  }
+}

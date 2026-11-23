@@ -10,6 +10,27 @@ const id = "9fef9a7e-181c-45e6-be34-7a6b567a019f";
 beforeEach(() => db.open());
 afterEach(() => db.delete());
 
+it("can save an attempt and queue its UUID on an older webview", async () => {
+  vi.stubGlobal("crypto", {
+    getRandomValues: crypto.getRandomValues.bind(crypto),
+  });
+  try {
+    await progressStore.recordReadingAttempt(account, {
+      passageId: "reading",
+      score: 1,
+      total: 2,
+    });
+    const [entry] = await progressStore.listPending(account.owner, 10);
+    const uuid =
+      /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
+    expect(entry.opId).toMatch(uuid);
+    expect(entry.row.id).toMatch(uuid);
+    expect(entry.opId).not.toBe(entry.row.id);
+  } finally {
+    vi.unstubAllGlobals();
+  }
+});
+
 it("merges across levels only with consent and queues for the consenting account", async () => {
   await progressStore.setCardStatus(guest, "same-id", true);
   await progressStore.setCardStatus(

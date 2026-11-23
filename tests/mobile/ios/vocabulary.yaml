@@ -1,0 +1,18 @@
+appId: vn.luyenjlpt.app.mobile
+name: First N4 vocabulary card
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: '^Bắt đầu học$'
+    timeout: 45000
+- tapOn: '^Bắt đầu học$'
+- assertVisible: '^Từ vựng Minna no Nihongo$'
+- scrollUntilVisible:
+    element: '^(見ます|Thẻ 見ます\. Nhấn để lật xem nghĩa)$'
+    direction: DOWN
+    timeout: 15000
+- scrollUntilVisible:
+    element: '^1\s*/\s*1182$'
+    direction: DOWN
+    timeout: 15000

@@ -4,6 +4,7 @@ import {
   listAvailableLevels,
   loadPack,
 } from "@/adapters/content-pack/packSource";
+import { withAbortDeadline } from "@/core/abort";
 import type { ContentPack, Level } from "@/core/content/types";
 import { resolveLevel } from "@/core/level";
 import { GUEST_OWNER } from "@/core/progress";
@@ -101,11 +102,9 @@ function OwnerContentProvider({
       if (inFlight || navigator.onLine === false) return;
       const controller = new AbortController();
       inFlight = controller;
-      const signal = AbortSignal.any([
-        controller.signal,
-        AbortSignal.timeout(retryMs),
-      ]);
-      void syncLevelPreference(owner, profile, signal)
+      void withAbortDeadline(controller.signal, retryMs, (signal) =>
+        syncLevelPreference(owner, profile, signal),
+      )
         .then((synced) => {
           if (!controller.signal.aborted) setProfileSynced(synced);
         })

@@ -1,0 +1,11 @@
+appId: vn.luyenjlpt.app.mobile
+name: Denied account callback
+---
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: '^Bắt đầu học$'
+    timeout: 45000
+- openLink: 'luyenjlpt://auth-callback?error=access_denied'
+- assertVisible: '^Liên kết tài khoản không hợp lệ hoặc đã hết hạn\.$'
+- assertVisible: '^Tài khoản$'

@@ -1,6 +1,6 @@
 # Lộ trình code và kiểm thử: initiative-jlpt-da-nen-tang
 
-> Tài liệu điều phối. Mỗi epic có một plan riêng theo `superpowers:writing-plans`, viết khi Sofia (`bmad-agent-po`) đã refine epic đó. Plan đã viết: `2026-11-21-epic-goi-noi-dung.md`.
+> Tài liệu điều phối. Mỗi epic có một plan riêng. Xem cột Plan để biết lệnh kiểm và phần nghiệm thu còn mở.
 
 **Spec:** `docs/initiative-jlpt-da-nen-tang/initiative-jlpt-da-nen-tang.md`, `tickets/tickets.toml`, `architecture-jlpt-da-nen-tang/architecture-jlpt-da-nen-tang.md`.
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | 1 | epic-goi-noi-dung | `2026-11-21-epic-goi-noi-dung.md` (đã viết) | Ngay |
 | 2 | epic-tai-khoan-dong-bo | `2026-11-22-epic-tai-khoan-dong-bo.md` (chờ nghiệm thu staging) | Epic 1 xong; có dự án Supabase staging và OAuth client Google |
-| 3 | epic-ung-dung-tauri | viết sau refine | Epic 2 xong luồng đăng nhập; `.exe` + `.apk` trước, iOS khi có macOS |
+| 3 | epic-ung-dung-tauri | `2026-11-22-epic-ung-dung-tauri.md` | Epic 2 xong luồng đăng nhập; `.exe` + `.apk` trước, iOS khi có macOS |
 | 4 | epic-ngu-phap-mo-rong | viết sau refine | Epic 1 xong (chạy song song với 2–3 được, khác file) |
 | 5 | epic-giao-dien-3d | viết sau refine; trước đó chạy `impeccable` (shape/new-work) để có mock Trang chủ 3D và Thẻ 3D | Epic 1 xong |
 | 6 | ~~epic-chuyen-du-lieu-icp~~ | đã bỏ 2026-11-21 | Chưa có người dùng ICP (OQ-3) |
@@ -27,7 +27,7 @@ Thêm Cấp độ N3: khi chủ dự án có dataset N3 (cùng định dạng `j
 3. Lõi `core/progress` + `core/sync`: kiểu Tiến độ, outbox, hợp nhất LWW, tổng hợp lần làm/điểm cao nhất. Unit test thuần (không mạng).
 4. Adapter `local-store` (bảng Dexie `progress_*`, `outbox`) + `supabase-sync` (đẩy outbox, kéo theo `server_updated_at`). Test tích hợp với `supabase start` cục bộ: ghi offline → bật mạng → dữ liệu lên trong 30 giây.
 5. Đăng ký/đăng nhập (AD-9): bảng `profiles.username` unique; Edge Function `resolve-login`; adapter `auth` (Email + mật khẩu có xác nhận email, Google PKCE, quên mật khẩu, session lưu Dexie); màn `/tai-khoan`; gộp Tiến độ khách khi đăng nhập. Test: tên đăng nhập trùng bị từ chối (không phân biệt hoa thường); đăng nhập bằng tên đăng nhập và bằng email đều được; sai tên đăng nhập và sai mật khẩu trả cùng một thông báo; email chưa xác nhận không Đồng bộ được.
-6. Thay `hooks/useProgress.ts` bằng hook đọc `ProgressRepository`; giữ nguyên chữ ký hook để trang không đổi. Xoá gọi ICP, xoá `src/backend`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/`, `.old/`.
+6. Thay `hooks/useProgress.ts` bằng hook đọc `ProgressRepository`; giữ nguyên chữ ký hook để trang không đổi. **Đã hoàn tất:** xoá gọi ICP, `src/backend`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/`, `.old/` và test Caffeine cũ trong `tests/e2e`.
 7. Edge Function `delete-account` + nút xoá Tài khoản. Test: sau xoá, query mọi bảng của user trả 0 dòng.
 8. Trang Tiến độ theo Cấp độ. E2E: hai người dùng (giữ kịch bản `second-learner-isolated`, `second-user-empty-progress`).
 
@@ -73,7 +73,7 @@ Không chuyển dữ liệu ICP; xoá code ICP nằm ở epic 2 task 6.
 | Hiệu năng 3D | Playwright + CPU throttle | PR đụng `scene/` | fps, kích thước chunk |
 | Bảo mật | `differential-review` (Trail of Bits) + Semgrep | PR đụng auth, RLS, sync | theo AD-8, AD-12 |
 
-E2E sinh bởi Caffeine trong `tests/e2e` chỉ chạy trên hạ tầng Caffeine; giữ đến khi rời Caffeine (epic 2 task 1), sau đó chuyển các kịch bản sang `tests/web` Playwright.
+Bộ E2E hiện hành dùng Playwright trong `tests/web`. Bộ test sinh bởi Caffeine trong `tests/e2e` đã được xoá.
 
 ## Môi trường điện thoại ảo
 

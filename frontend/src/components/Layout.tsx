@@ -68,13 +68,15 @@ export function Layout() {
   const { level, pack, status, retry } = useContent();
   const { session } = useAuth();
   const accountRoute = useMatch({ from: "/tai-khoan", shouldThrow: false });
+  const aboutRoute = useMatch({ from: "/gioi-thieu", shouldThrow: false });
+  const standaloneRoute = accountRoute || aboutRoute;
   const homeRoute = useMatch({ from: "/", shouldThrow: false });
   const [open, setOpen] = useState(false);
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex min-h-dvh flex-col bg-background">
-      <header className="sticky top-0 z-40 border-b bg-card shadow-subtle">
+    <div className="flex min-h-screen flex-col bg-background pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] supports-[height:100dvh]:min-h-dvh">
+      <header className="sticky top-0 z-40 border-b bg-card pt-[env(safe-area-inset-top)] shadow-subtle">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
           <Logo />
           <nav aria-label="Điều hướng chính" className="hidden lg:block">
@@ -159,7 +161,7 @@ export function Layout() {
 
       <main className="flex-1 bg-paper">
         {!session && homeRoute && <SignInPrompt />}
-        {!accountRoute && status === "loading" && (
+        {!standaloneRoute && status === "loading" && (
           <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
             <output className="sr-only">Đang tải nội dung</output>
             <div aria-hidden="true" className="space-y-4">
@@ -168,7 +170,7 @@ export function Layout() {
             </div>
           </section>
         )}
-        {!accountRoute && status === "error" && (
+        {!standaloneRoute && status === "error" && (
           <section className="mx-auto max-w-6xl space-y-4 px-4 py-12 md:px-6">
             <h1 role="alert" className="text-lg font-semibold">
               Không tải được nội dung. Vui lòng thử lại.
@@ -178,7 +180,7 @@ export function Layout() {
             </Button>
           </section>
         )}
-        {accountRoute ? (
+        {standaloneRoute ? (
           <Outlet />
         ) : (
           pack && (
@@ -187,13 +189,18 @@ export function Layout() {
         )}
       </main>
 
-      <footer className="border-t bg-muted/50">
+      <footer className="border-t bg-muted/50 pb-[env(safe-area-inset-bottom)]">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between md:px-6">
           <p>
             Ôn JLPT {level.toUpperCase()} · Từ vựng, kanji, ngữ pháp và đọc
             hiểu.
           </p>
-          <p>© {year} Ôn JLPT.</p>
+          <p className="flex flex-wrap gap-x-3 gap-y-1">
+            <span>© {year} Ôn JLPT.</span>
+            <Link to="/gioi-thieu" className="underline underline-offset-4">
+              Giới thiệu
+            </Link>
+          </p>
         </div>
       </footer>
     </div>

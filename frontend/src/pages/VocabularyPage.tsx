@@ -337,7 +337,7 @@ export default function VocabularyPage() {
                 aria-live="polite"
                 className="font-mono text-sm tabular-nums text-muted-foreground"
               >
-                {safeIndex + 1} / {deck.length}
+                {`${safeIndex + 1} / ${deck.length}`}
               </span>
               <Button
                 type="button"

@@ -2,20 +2,114 @@ import "fake-indexeddb/auto";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const sdk = vi.hoisted(() => ({
-  auth: { signInWithPassword: vi.fn(), setSession: vi.fn() },
+  auth: {
+    signInWithPassword: vi.fn(),
+    setSession: vi.fn(),
+    getSession: vi.fn(),
+    signInWithOAuth: vi.fn(),
+    exchangeCodeForSession: vi.fn(),
+  },
   functions: { invoke: vi.fn() },
 }));
 vi.mock("@supabase/supabase-js", () => ({ createClient: () => sdk }));
+const native = vi.hoisted(() => ({ isTauri: vi.fn(), openUrl: vi.fn() }));
+vi.mock("@tauri-apps/api/core", () => ({ isTauri: native.isTauri }));
+vi.mock("@tauri-apps/plugin-opener", () => ({ openUrl: native.openUrl }));
 
 beforeEach(() => {
   vi.resetModules();
   vi.resetAllMocks();
   vi.stubEnv("VITE_SUPABASE_URL", "http://127.0.0.1:54321");
   vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "test-public-key");
+  vi.stubGlobal("window", { location: { origin: "https://jlpt.test" } });
+});
+
+describe("Google PKCE", () => {
+  const base = "https://project.supabase.co";
+  const authorize = `${base}/auth/v1/authorize?provider=google&code_challenge_method=s256`;
+
+  it("preserves the Supabase browser redirect on the web", async () => {
+    sdk.auth.signInWithOAuth.mockResolvedValue({ data: { url: authorize } });
+    const { signInWithGoogle } = await import("./client");
+    await signInWithGoogle();
+    expect(sdk.auth.signInWithOAuth).toHaveBeenCalledWith({
+      provider: "google",
+      options: {
+        redirectTo: "https://jlpt.test/tai-khoan",
+        skipBrowserRedirect: undefined,
+      },
+    });
+    expect(native.openUrl).not.toHaveBeenCalled();
+  });
+
+  it("opens only the configured HTTPS authorization endpoint in the system browser", async () => {
+    vi.stubEnv("VITE_SUPABASE_URL", base);
+    native.isTauri.mockReturnValue(true);
+    sdk.auth.signInWithOAuth.mockResolvedValue({ data: { url: authorize } });
+    const { signInWithGoogle } = await import("./client");
+    await signInWithGoogle();
+    expect(sdk.auth.signInWithOAuth).toHaveBeenCalledWith({
+      provider: "google",
+      options: {
+        redirectTo: "luyenjlpt://auth-callback",
+        skipBrowserRedirect: true,
+      },
+    });
+    expect(native.openUrl).toHaveBeenCalledExactlyOnceWith(authorize);
+    for (const url of [
+      authorize.replace("https", "http"),
+      `${base}/wrong`,
+      "https://other.test/auth/v1/authorize",
+      authorize.replace("s256", "plain"),
+    ]) {
+      sdk.auth.signInWithOAuth.mockResolvedValue({ data: { url } });
+      await expect(signInWithGoogle()).rejects.toThrow();
+    }
+    expect(native.openUrl).toHaveBeenCalledOnce();
+  });
+
+  it("passes the callback's flow id to Supabase instead of borrowing another verifier", async () => {
+    const { completeNativeSignIn } = await import("./client");
+    sdk.auth.exchangeCodeForSession.mockResolvedValue({ error: null });
+    await completeNativeSignIn("code", "flow");
+    expect(sdk.auth.exchangeCodeForSession).toHaveBeenCalledExactlyOnceWith(
+      "code",
+      { flowId: "flow" },
+    );
+  });
 });
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
+});
+
+describe("account deletion", () => {
+  it("sends the current token of the confirmed owner, not a token captured earlier", async () => {
+    const { deleteAccount } = await import("./client");
+    sdk.auth.getSession.mockResolvedValue({
+      data: { session: { access_token: "refreshed", user: { id: "owner-a" } } },
+      error: null,
+    });
+    sdk.functions.invoke.mockResolvedValue({ data: { deleted: true } });
+    await deleteAccount("owner-a");
+    expect(sdk.functions.invoke).toHaveBeenCalledWith("delete-account", {
+      body: {},
+      headers: {
+        Authorization: "Bearer refreshed",
+        "x-confirmed-owner": "owner-a",
+      },
+    });
+  });
+
+  it("refuses to delete when the stored session now belongs to another account", async () => {
+    const { deleteAccount } = await import("./client");
+    sdk.auth.getSession.mockResolvedValue({
+      data: { session: { access_token: "other", user: { id: "owner-b" } } },
+      error: null,
+    });
+    await expect(deleteAccount("owner-a")).rejects.toThrow();
+    expect(sdk.functions.invoke).not.toHaveBeenCalled();
+  });
 });
 
 describe("account login", () => {

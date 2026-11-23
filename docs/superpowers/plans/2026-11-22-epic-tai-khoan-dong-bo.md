@@ -1,6 +1,6 @@
 # Epic 2: tài khoản và đồng bộ ngoại tuyến
 
-**Trạng thái: staging đã nghiệm thu.** Người dùng xác nhận tất cả luồng tài khoản và đồng bộ đã đạt khi thử thủ công. Dọn mã ICP cũ sau nghiệm thu; không chuyển dữ liệu ICP.
+**Trạng thái: staging đã nghiệm thu, mã ICP cũ đã dọn.** Người dùng xác nhận tất cả luồng tài khoản và đồng bộ đã đạt khi thử thủ công. Không chuyển dữ liệu ICP.
 
 | Hạng mục | Điểm kiểm tra |
 | --- | --- |
@@ -10,7 +10,7 @@
 | Đồng bộ | `core/sync` và `adapters/supabase-sync`: gửi lại khi có mạng, lượt làm có UUID, trạng thái mới hơn thắng, kéo từng trang theo dấu thời gian máy chủ. |
 | Tài khoản | Đăng ký tên/email/mật khẩu, email xác nhận, Google PKCE, đặt lại mật khẩu, gộp khách có xác nhận, xoá có xác nhận. Phiên lưu trong Dexie. |
 | Giao diện | Học cả bốn phần khi chưa đăng nhập; trang Tiến độ lọc theo cấp độ, gồm cả bài Kanji đúng hết và danh sách mục hay sai. |
-| Cắt chuyển ICP | Frontend không gọi canister. Giữ mã nguồn và bản triển khai ICP cũ đến khi bản thay thế chạy thật. |
+| Cắt chuyển ICP | Frontend không gọi canister. Mã và cấu hình ICP đã xoá khỏi repo sau nghiệm thu. |
 
 Hai thay đổi so với phác thảo: khoá trạng thái gồm `(user_id, level, item_id)` để hai gói có thể dùng cùng mã; `resolve-login` không trả email cho người tra tên. Chỉ khi mật khẩu hợp lệ mới trả token phiên.
 
@@ -28,11 +28,13 @@ Hai Edge Functions `resolve-login` và `delete-account` trả HTTP 204 cho yêu 
 
 **GitHub Actions:** Run `44999424889` trên `VanHuynh205/Luyen-JLPT`, commit `6339be4`, đã đạt. Các bước N4/N3 thử nghiệm, test Edge Functions, kiểm tra cơ sở dữ liệu và E2E hai tài khoản trên Supabase local của runner đều thành công.
 
+**Dọn legacy ICP/Caffeine:** Đã xoá `src/backend`, `tests/e2e`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/` và `.old/`. Không chuyển dữ liệu ICP.
+
 1. Chạy `pnpm install --frozen-lockfile`, `pnpm packs:build`, `pnpm packs:verify`, `pnpm typecheck`, `pnpm check`, `pnpm test`, `pnpm build`, `pnpm e2e:web`. Lặp lại build và E2E với `EXPERIMENTAL_LEVELS=1`.
 2. Trên máy có Docker/Podman, chạy `supabase start --workdir backend` và `supabase test db --workdir backend`. Chạy test Edge theo `backend/supabase/README.md`. Job CI dựng frontend bằng URL và public key của stack cục bộ; `JLPT_LOCAL_AUTH=1` bật E2E hai tài khoản, hai trình duyệt và đồng bộ trong 30 giây. Service-role của stack cục bộ chỉ cấp cho test runner sau bước build.
 3. Staging: quản trị viên cấu hình Google provider, xác nhận email, SMTP và redirect chính xác tới `/tai-khoan`; áp migrations và triển khai hai Edge Functions. Không đưa service role, mật khẩu DB hay Google secret vào frontend.
 4. Trên host web tĩnh, build từ repo root bằng `pnpm build`, xuất `frontend/dist`. Cấu hình `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` **trước** khi build. Hai biến trống cho phép chạy bản khách, không phải bản nghiệm thu tài khoản.
 5. Ghi URL staging và kết quả: email chưa xác nhận, đăng nhập bằng tên/email/Google, đặt lại mật khẩu, gộp hoặc giữ riêng tiến độ khách, lưu ngoại tuyến rồi đồng bộ sang thiết bị thứ hai, tài khoản khác không thấy dữ liệu, xoá tài khoản thử. Không dùng tài khoản cá nhân để test xoá.
-6. Sau khi các cổng trên xanh: bỏ `src/backend`, `mops.toml`, `mops.lock`, `caffeine.toml`, `deployed/` và `.old/` theo roadmap. Sau đó bắt đầu **Epic 3**: `desktop/src-tauri`, build Windows `.exe`, rồi Android `.apk`; iOS sau khi có macOS.
+6. **Tiếp theo, Epic 3:** tạo `desktop/src-tauri` và build bộ cài Windows `.exe`, rồi làm Android `.apk`; iOS sau khi có macOS.
 
 Để chạy lại E2E khách trên bản đã deploy, đặt `JLPT_STAGING_URL` bằng origin HTTPS của staging rồi chạy `pnpm e2e:web`. Runner không khởi động Vite và chỉ chọn bốn tệp test khách. Đặt `EXPERIMENTAL_LEVELS=1` nếu bản staging có gói N3 mẫu. Không bật `JLPT_LOCAL_AUTH`; bộ này không xác minh đăng nhập, đồng bộ sang thiết bị khác hay xoá tài khoản.

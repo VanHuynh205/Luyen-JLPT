@@ -27,6 +27,7 @@ additional_redirect_urls = [
   "http://127.0.0.1:5173/tai-khoan",
   "http://127.0.0.1:4174/tai-khoan",
   "luyenjlpt://auth-callback",
+  "luyenjlpt://auth-callback[?]sb_flow_id=*",
 ]
 enable_signup = true
 enable_anonymous_sign_ins = false
