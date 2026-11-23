@@ -16,7 +16,10 @@ vi.mock("@tauri-apps/plugin-deep-link", () => plugin);
 const flowId = "0123456789abcdef0123456789abcdef";
 const valid = `luyenjlpt://auth-callback?code=abc&sb_flow_id=${flowId}`;
 
-beforeEach(() => vi.resetAllMocks());
+beforeEach(() => {
+  vi.resetAllMocks();
+  sessionStorage.clear();
+});
 
 describe("native auth callback", () => {
   it("uses HTTPS on the web and the app callback only in Tauri", async () => {
@@ -70,6 +73,17 @@ describe("native auth callback", () => {
     plugin.getCurrent.mockResolvedValue([`${valid}&extra=ignored`]);
     expect(await listenForNativeAuth(receiver)).toBe(unlisten);
     expect(receiver).toHaveBeenCalledExactlyOnceWith({ code: "abc", flowId });
+  });
+
+  it("does not replay the launch link after the webview reloads", async () => {
+    plugin.isTauri.mockReturnValue(true);
+    plugin.onOpenUrl.mockResolvedValue(vi.fn());
+    // The plugin keeps returning the launch link for the life of the process.
+    plugin.getCurrent.mockResolvedValue([valid]);
+    const receiver = vi.fn();
+    await listenForNativeAuth(receiver);
+    await listenForNativeAuth(receiver);
+    expect(receiver).toHaveBeenCalledOnce();
   });
 
   it("removes the listener when reading the launch link fails", async () => {

@@ -39,11 +39,25 @@ export function parseAuthCallback(raw: string): AuthCallback | null {
     : {};
 }
 
+const SEEN_KEY = "luyenjlpt.handledAuthLinks";
+
+function readSeen(): string[] {
+  try {
+    const saved: unknown = JSON.parse(sessionStorage.getItem(SEEN_KEY) ?? "[]");
+    return Array.isArray(saved)
+      ? saved.filter((item): item is string => typeof item === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
+
 export async function listenForNativeAuth(
   handler: (callback: AuthCallback) => void,
 ) {
   if (!isTauri()) return () => {};
-  const seen: string[] = [];
+  // getCurrent() keeps the launch link for the whole process, so remember handled links across webview reloads.
+  const seen = readSeen();
   const consume = (urls: string[]) => {
     for (const raw of urls) {
       const callback = parseAuthCallback(raw);
@@ -54,6 +68,11 @@ export async function listenForNativeAuth(
       if (seen.includes(identity)) continue;
       seen.push(identity);
       if (seen.length > 16) seen.shift();
+      try {
+        sessionStorage.setItem(SEEN_KEY, JSON.stringify(seen));
+      } catch {
+        // Storage may be unavailable; duplicates in this page load are still skipped.
+      }
       handler(callback);
     }
   };
