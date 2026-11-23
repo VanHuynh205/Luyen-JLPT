@@ -1,5 +1,6 @@
 import { db } from "@/adapters/local-store/db";
 import { isOwnerRetired } from "@/adapters/local-store/retirement";
+import { throwIfAborted } from "@/core/abort";
 import { LEVELS, type Level } from "@/core/content/types";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
@@ -116,4 +117,3 @@ export function createLevelProfile(
     },
   };
 }
-import { throwIfAborted } from "@/core/abort";

@@ -4,6 +4,7 @@ import {
   listAvailableLevels,
   loadPack,
 } from "@/adapters/content-pack/packSource";
+import { withAbortDeadline } from "@/core/abort";
 import type { ContentPack, Level } from "@/core/content/types";
 import { resolveLevel } from "@/core/level";
 import { GUEST_OWNER } from "@/core/progress";
@@ -192,4 +193,3 @@ export function useReadyPack(): ContentPack {
   if (!pack) throw new Error("No content pack is ready");
   return pack;
 }
-import { withAbortDeadline } from "@/core/abort";

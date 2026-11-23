@@ -1,3 +1,4 @@
+import { throwIfAborted } from "@/core/abort";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Level } from "../../core/content/types";
 import {
@@ -178,4 +179,3 @@ export function createSupabaseProgressRemote(
     },
   };
 }
-import { throwIfAborted } from "@/core/abort";
