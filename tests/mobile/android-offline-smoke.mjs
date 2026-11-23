@@ -81,13 +81,20 @@ async function waitForUi(predicate, description) {
     if (/isn(?:'|&apos;)t responding/.test(snapshot)) {
       // A system ANR dialog for another app covers ours; let that app keep running.
       tapNode(snapshot, (node) => /resource-id="android:id\/aerr_wait"|text="Wait"/.test(node));
+    } else if (!snapshot.includes(`package="${id}"`)) {
+      // On a slow runner the launcher can take the foreground after `am start -W` returns; bring the app back.
+      if (attempt % 4 === 0) shell("am", "start", "-n", `${id}/.MainActivity`);
     } else if (predicate(snapshot)) return;
     await delay(500);
   }
   const labels = [...snapshot.matchAll(/(?:text|content-desc)="([^"]+)"/g)]
     .map((match) => match[1])
     .slice(0, 30);
-  throw new Error(`Did not find ${description} in the offline app UI. Labels: ${labels.join(" | ")}`);
+  const focus = shell("dumpsys", "window").match(/mCurrentFocus=.*/)?.[0] ?? "unknown";
+  const crashes = shell("logcat", "-d", "-b", "crash", "-t", "40");
+  throw new Error(
+    `Did not find ${description} in the offline app UI. Focus: ${focus}. Labels: ${labels.join(" | ")}\nCrash log:\n${crashes || "(empty)"}`,
+  );
 }
 
 const installed = shell("pm", "list", "packages", id).split(/\r?\n/);
