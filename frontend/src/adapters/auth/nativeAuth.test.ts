@@ -18,7 +18,12 @@ const valid = `luyenjlpt://auth-callback?code=abc&sb_flow_id=${flowId}`;
 
 beforeEach(() => {
   vi.resetAllMocks();
-  sessionStorage.clear();
+  // Node 24 (CI) has no global sessionStorage; give each test its own webview-like store.
+  const items = new Map<string, string>();
+  vi.stubGlobal("sessionStorage", {
+    getItem: (key: string) => items.get(key) ?? null,
+    setItem: (key: string, value: string) => items.set(key, value),
+  });
 });
 
 describe("native auth callback", () => {
