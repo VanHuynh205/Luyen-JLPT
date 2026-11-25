@@ -8,7 +8,7 @@ const frontend = new URL(`${config.build.frontendDist}/`, configUrl);
 const readJson = (url) => JSON.parse(readFileSync(url, "utf8"));
 
 createMetadata(config);
-if (config.build.frontendDist !== "../../frontend/dist" || config.identifier !== "vn.luyenjlpt.app.mobile")
+if (config.build.frontendDist !== "../../frontend/dist" || config.identifier !== "vn.luyenjlpt.app")
   throw new Error("Unexpected shared frontend path or mobile identifier");
 if (config.bundle.android.minSdkVersion !== 26 || config.bundle.iOS.minimumSystemVersion !== "15.0")
   throw new Error("Expected Android API 26 and iOS 15 minimums");

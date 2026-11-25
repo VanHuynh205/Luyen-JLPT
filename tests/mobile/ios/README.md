@@ -1,6 +1,6 @@
 # iOS Simulator smoke
 
-`vocabulary.yaml` launches the installed `vn.luyenjlpt.app.mobile`, taps
+`vocabulary.yaml` launches the installed `vn.luyenjlpt.app`, taps
 `Bắt đầu học`, and checks the N4 heading, first card `見ます`, and position
 `1 / 1182`. Use a fresh Simulator so local progress and level preferences cannot
 affect the result. The smoke needs no Supabase configuration or Apple signing secrets.
@@ -33,7 +33,7 @@ shopt -s nullglob
 apps=("$PWD"/mobile/src-tauri/gen/apple/build/arm64-sim/*.app)
 test "${#apps[@]}" -eq 1
 IOS_APP="${apps[0]}"
-test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$IOS_APP/Info.plist")" = vn.luyenjlpt.app.mobile
+test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$IOS_APP/Info.plist")" = vn.luyenjlpt.app
 ```
 
 The frontend build generates the packs. Leave `VITE_SUPABASE_URL` and

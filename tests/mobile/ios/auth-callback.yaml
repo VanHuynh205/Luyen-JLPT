@@ -1,4 +1,4 @@
-appId: vn.luyenjlpt.app.mobile
+appId: vn.luyenjlpt.app
 name: Denied account callback
 ---
 - launchApp:
