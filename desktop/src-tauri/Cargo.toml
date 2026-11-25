@@ -2,7 +2,8 @@
 name = "luyen-jlpt-desktop"
 version = "0.1.0"
 description = "Luyện JLPT N4 desktop shell"
-authors = ["Luyện JLPT"]
+authors = ["VanHuynh205"]
+license = "AGPL-3.0-only"
 edition = "2021"
 rust-version = "1.90"
 

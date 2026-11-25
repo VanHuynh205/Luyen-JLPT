@@ -1,0 +1,20 @@
+Luyện JLPT N4
+Copyright (C) 2026 VanHuynh205 (https://github.com/VanHuynh205/Luyen-JLPT)
+
+Mã nguồn của dự án này được cấp phép theo Giấy phép Công cộng Affero GNU
+phiên bản 3.0 (GNU Affero General Public License v3.0 — AGPL-3.0-only).
+Xem toàn văn tại tệp LICENSE đi kèm.
+
+---
+
+Ghi nhận nguồn dữ liệu và tài nguyên bên thứ ba:
+
+1. KANJIDIC2 (âm On và âm Kun của Kanji)
+   Nguồn: Electronic Dictionary Research and Development Group (EDRDG)
+   URL: https://www.edrdg.org/wiki/KANJIDIC_Project.html
+   Giấy phép: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+   URL giấy phép: https://creativecommons.org/licenses/by-sa/4.0/
+
+2. Dữ liệu biên soạn N4 trong infra/content/ và infra/dataset_n4_minnanihongo/
+   Phục vụ mục đích tự học và tham khảo theo lộ trình Minna no Nihongo bài 26-50.
+   Các tên gọi, giáo trình gốc thuộc quyền sở hữu của tác giả và nhà xuất bản tương ứng.

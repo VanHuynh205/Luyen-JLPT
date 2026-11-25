@@ -1,6 +1,7 @@
 {
   "name": "@luyen/infra-scripts",
   "private": true,
+  "license": "AGPL-3.0-only",
   "type": "module",
   "scripts": {
     "content:n4": "tsx src/content-n4.ts",
