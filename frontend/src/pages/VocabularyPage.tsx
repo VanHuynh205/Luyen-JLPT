@@ -26,10 +26,18 @@ import {
   Shuffle,
   X,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const ALL = "all";
 const sections: VocabSection[] = ["từ chính", "hội thoại", "đọc", "ghi tay"];
+
+function isInteractiveTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false;
+  if (target.isContentEditable) return true;
+  return Boolean(
+    target.closest("input, textarea, select, button, [role='combobox']"),
+  );
+}
 
 function shuffled<T>(items: T[]): T[] {
   const copy = [...items];
@@ -127,30 +135,69 @@ export default function VocabularyPage() {
   const pendingFor = setStatus.isPending ? setStatus.variables : undefined;
   const statusLoading = statusesQuery.isLoading;
 
+  useEffect(() => {
+    if (!current) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      if (isInteractiveTarget(event.target)) return;
+
+      if (event.key === " " || event.code === "Space") {
+        // Let the card's own keydown handler flip when the card itself is focused.
+        if (
+          event.target instanceof HTMLElement &&
+          event.target.closest('[data-ocid="flashcard.card"]')
+        ) {
+          return;
+        }
+        event.preventDefault();
+        setFlipped((f) => !f);
+        return;
+      }
+
+      if (event.key === "ArrowLeft" && safeIndex > 0) {
+        event.preventDefault();
+        setIndex(safeIndex - 1);
+        setFlipped(false);
+        return;
+      }
+
+      if (event.key === "ArrowRight" && safeIndex < deck.length - 1) {
+        event.preventDefault();
+        setIndex(safeIndex + 1);
+        setFlipped(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [current, deck.length, safeIndex]);
+
   return (
     <section
       data-ocid="vocabulary.page"
-      className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-4xl px-4 py-4 sm:py-10 md:px-6 md:py-14"
     >
-      <header className="mb-8">
-        <p className="text-sm uppercase tracking-wider text-muted-foreground">
+      <header className="mb-3 sm:mb-8">
+        <p className="hidden text-sm uppercase tracking-wider text-muted-foreground sm:block">
           Flashcard · JLPT {manifest.level.toUpperCase()}
         </p>
-        <h1 className="font-display mt-1 text-3xl font-semibold md:text-4xl">
+        <h1 className="font-display text-2xl font-semibold sm:mt-1 sm:text-3xl md:text-4xl">
           {manifest.level === "n4"
             ? "Từ vựng Minna no Nihongo"
             : `Từ vựng ${manifest.level.toUpperCase()}`}
         </h1>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
+        <p className="mt-2 hidden max-w-2xl text-muted-foreground sm:block">
           Chọn bài và mục từ vựng, lật thẻ để xem cách đọc, âm Hán Việt và nghĩa
           tiếng Việt. Đánh dấu từ đã thuộc để tập trung ôn những từ còn lại.
         </p>
       </header>
 
-      <div className="mb-6 flex flex-col gap-4 rounded-xl border bg-card p-4 shadow-subtle sm:flex-row sm:items-end sm:justify-between">
-        <div className="grid min-w-0 flex-1 gap-4 sm:max-w-xl sm:grid-cols-2">
-          <div className="flex min-w-0 flex-col gap-1.5">
-            <Label htmlFor="vocab-lesson">Bài học</Label>
+      <div className="mb-3 flex flex-col gap-2.5 rounded-xl border bg-card p-3 shadow-subtle sm:mb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:p-4">
+        <div className="grid min-w-0 flex-1 grid-cols-2 gap-2 sm:max-w-xl sm:gap-4">
+          <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
+            <Label htmlFor="vocab-lesson" className="text-xs sm:text-sm">
+              Bài học
+            </Label>
             <Select
               value={lesson}
               onValueChange={(v) => {
@@ -162,6 +209,7 @@ export default function VocabularyPage() {
               <SelectTrigger
                 id="vocab-lesson"
                 data-ocid="vocabulary.lesson.select"
+                className="min-h-11 min-w-0 w-full"
               >
                 <SelectValue />
               </SelectTrigger>
@@ -177,8 +225,10 @@ export default function VocabularyPage() {
               </SelectContent>
             </Select>
           </div>
-          <div className="flex min-w-0 flex-col gap-1.5">
-            <Label htmlFor="vocab-section">Mục</Label>
+          <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
+            <Label htmlFor="vocab-section" className="text-xs sm:text-sm">
+              Mục
+            </Label>
             <Select
               value={section}
               onValueChange={(v) => {
@@ -190,6 +240,7 @@ export default function VocabularyPage() {
               <SelectTrigger
                 id="vocab-section"
                 data-ocid="vocabulary.section.select"
+                className="min-h-11 min-w-0 w-full"
               >
                 <SelectValue />
               </SelectTrigger>
@@ -207,39 +258,43 @@ export default function VocabularyPage() {
             </Select>
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <Switch
-            id="vocab-only-unknown"
-            data-ocid="vocabulary.only_unknown.switch"
-            checked={onlyUnknown}
-            onCheckedChange={(checked) => {
-              setOnlyUnknown(checked);
-              resetPosition();
-            }}
-          />
-          <Label htmlFor="vocab-only-unknown" className="cursor-pointer">
-            Chỉ ôn thẻ chưa thuộc
-          </Label>
+        <div className="flex flex-wrap items-center justify-between gap-2 sm:justify-end sm:gap-3">
+          <div className="flex items-center gap-2.5">
+            <Switch
+              id="vocab-only-unknown"
+              data-ocid="vocabulary.only_unknown.switch"
+              checked={onlyUnknown}
+              onCheckedChange={(checked) => {
+                setOnlyUnknown(checked);
+                resetPosition();
+              }}
+            />
+            <Label
+              htmlFor="vocab-only-unknown"
+              className="cursor-pointer text-xs sm:text-sm"
+            >
+              Chỉ ôn thẻ chưa thuộc
+            </Label>
+          </div>
+          {statusesQuery.isSuccess && (
+            <p className="text-xs text-muted-foreground sm:text-sm">
+              Đã thuộc{" "}
+              <span className="font-semibold tabular-nums text-foreground">
+                {knownCount}/{topicWords.length}
+              </span>
+              <span className="hidden sm:inline"> từ trong lựa chọn này</span>
+            </p>
+          )}
         </div>
       </div>
 
-      {statusesQuery.isSuccess && (
-        <p className="mb-4 text-sm text-muted-foreground">
-          Đã thuộc{" "}
-          <span className="font-semibold text-foreground">
-            {knownCount}/{topicWords.length}
-          </span>{" "}
-          từ trong lựa chọn này
-        </p>
-      )}
-
       {statusLoading ? (
         <div data-ocid="vocabulary.loading_state" aria-busy="true">
-          <Skeleton className="h-[24rem] w-full rounded-xl" />
-          <div className="mt-6 flex justify-between">
-            <Skeleton className="h-10 w-28" />
-            <Skeleton className="h-10 w-40" />
-            <Skeleton className="h-10 w-28" />
+          <Skeleton className="h-[15rem] w-full rounded-xl sm:h-[22rem] md:h-[24rem]" />
+          <div className="mt-4 flex justify-between sm:mt-6">
+            <Skeleton className="h-11 w-28" />
+            <Skeleton className="h-11 w-32" />
+            <Skeleton className="h-11 w-28" />
           </div>
         </div>
       ) : statusesQuery.isError ? (
@@ -254,6 +309,7 @@ export default function VocabularyPage() {
             type="button"
             variant="outline"
             data-ocid="vocabulary.retry_button"
+            className="min-h-11"
             onClick={() => void statusesQuery.refetch()}
           >
             Thử lại
@@ -277,6 +333,7 @@ export default function VocabularyPage() {
           <Button
             type="button"
             data-ocid="vocabulary.reset_filters_button"
+            className="min-h-11"
             onClick={() => {
               setLesson(ALL);
               setSection(ALL);
@@ -302,6 +359,7 @@ export default function VocabularyPage() {
           <Button
             type="button"
             data-ocid="vocabulary.show_all_button"
+            className="min-h-11"
             onClick={() => {
               setOnlyUnknown(false);
               resetPosition();
@@ -318,20 +376,54 @@ export default function VocabularyPage() {
             status={currentStatus}
             flipped={flipped}
             onFlip={() => setFlipped((f) => !f)}
+            onPrev={safeIndex > 0 ? () => go(safeIndex - 1) : undefined}
+            onNext={
+              safeIndex < deck.length - 1 ? () => go(safeIndex + 1) : undefined
+            }
           />
 
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:flex sm:items-center sm:justify-between">
+          <div className="mt-3 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-3">
+            <Button
+              type="button"
+              variant={currentStatus === "unknown" ? "secondary" : "outline"}
+              data-ocid="vocabulary.mark_unknown_button"
+              className="min-h-11"
+              disabled={setStatus.isPending}
+              onClick={() => mark(false)}
+            >
+              <X className="size-4" aria-hidden="true" />
+              {pendingFor?.cardId === current.id && !pendingFor.known
+                ? "Đang lưu…"
+                : "Chưa thuộc"}
+            </Button>
+            <Button
+              type="button"
+              variant={currentStatus === "known" ? "default" : "outline"}
+              data-ocid="vocabulary.mark_known_button"
+              className="min-h-11"
+              disabled={setStatus.isPending}
+              onClick={() => mark(true)}
+            >
+              <Check className="size-4" aria-hidden="true" />
+              {pendingFor?.cardId === current.id && pendingFor.known
+                ? "Đang lưu…"
+                : "Đã thuộc"}
+            </Button>
+          </div>
+
+          <div className="mt-2.5 grid grid-cols-2 gap-2.5 sm:mt-4 sm:flex sm:items-center sm:justify-between sm:gap-3">
             <Button
               type="button"
               variant="outline"
               data-ocid="vocabulary.pagination_prev"
+              className="min-h-11"
               disabled={safeIndex === 0}
               onClick={() => go(safeIndex - 1)}
             >
               <ChevronLeft className="size-4" aria-hidden="true" />
               Trước
             </Button>
-            <div className="order-first col-span-2 flex items-center justify-center gap-3 sm:order-none">
+            <div className="order-last col-span-2 flex items-center justify-center gap-3 sm:order-none">
               <span
                 data-ocid="vocabulary.position"
                 aria-live="polite"
@@ -344,6 +436,7 @@ export default function VocabularyPage() {
                 variant="ghost"
                 size="sm"
                 data-ocid="vocabulary.shuffle_button"
+                className="min-h-11 sm:min-h-9"
                 onClick={() => {
                   setOrder(shuffled(topicWords.map((w) => w.id)));
                   resetPosition();
@@ -357,6 +450,7 @@ export default function VocabularyPage() {
               type="button"
               variant="outline"
               data-ocid="vocabulary.pagination_next"
+              className="min-h-11"
               disabled={safeIndex >= deck.length - 1}
               onClick={() => go(safeIndex + 1)}
             >
@@ -365,32 +459,9 @@ export default function VocabularyPage() {
             </Button>
           </div>
 
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <Button
-              type="button"
-              variant={currentStatus === "unknown" ? "secondary" : "outline"}
-              data-ocid="vocabulary.mark_unknown_button"
-              disabled={setStatus.isPending}
-              onClick={() => mark(false)}
-            >
-              <X className="size-4" aria-hidden="true" />
-              {pendingFor?.cardId === current.id && !pendingFor.known
-                ? "Đang lưu…"
-                : "Chưa thuộc"}
-            </Button>
-            <Button
-              type="button"
-              variant={currentStatus === "known" ? "default" : "outline"}
-              data-ocid="vocabulary.mark_known_button"
-              disabled={setStatus.isPending}
-              onClick={() => mark(true)}
-            >
-              <Check className="size-4" aria-hidden="true" />
-              {pendingFor?.cardId === current.id && pendingFor.known
-                ? "Đang lưu…"
-                : "Đã thuộc"}
-            </Button>
-          </div>
+          <p className="mt-3 hidden text-center text-xs text-muted-foreground sm:block">
+            Phím tắt: Space lật thẻ · ← / → chuyển thẻ
+          </p>
         </div>
       )}
     </section>

@@ -10,7 +10,19 @@ export default defineConfig({
     target: ["chrome109", "edge109", "firefox115", "safari15"],
     emptyOutDir: true,
     sourcemap: false,
-    minify: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalized = id.replace(/\\/g, "/");
+          if (
+            normalized.includes("/node_modules/gsap/") ||
+            normalized.includes("/node_modules/lenis/")
+          ) {
+            return "motion-vendor";
+          }
+        },
+      },
+    },
   },
   optimizeDeps: {
     rolldownOptions: {

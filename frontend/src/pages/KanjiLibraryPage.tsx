@@ -39,7 +39,7 @@ function LoadMore({
       <Button
         type="button"
         variant="outline"
-        className="rounded-lg"
+        className="min-h-11 rounded-lg"
         onClick={onMore}
         data-ocid={ocid}
       >
@@ -123,11 +123,11 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
   return (
     <section
       data-ocid="kanji_library.page"
-      className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14"
     >
-      <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <header className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-accent">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
             Thư viện JLPT {pack.manifest.level.toUpperCase()}
           </p>
           <h1 className="text-3xl font-semibold md:text-4xl">Tra cứu Kanji</h1>
@@ -139,7 +139,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
             kèm âm Hán Việt, cách đọc On – Kun và nghĩa tiếng Việt.
           </p>
         </div>
-        <Button asChild className="rounded-lg self-start md:self-auto">
+        <Button asChild className="min-h-11 self-start rounded-lg md:self-auto">
           <Link to="/kanji" data-ocid="kanji_library.start_quiz_link">
             Làm trắc nghiệm Kanji
             <ArrowUpRight className="ml-1 h-4 w-4" aria-hidden="true" />
@@ -147,7 +147,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
         </Button>
       </header>
 
-      <div className="relative mt-8">
+      <div className="relative mt-6 md:mt-8">
         <label htmlFor="kanji-search" className="sr-only">
           Tìm kiếm kanji
         </label>
@@ -164,7 +164,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
             resetPaging();
           }}
           placeholder="Tìm theo kanji, cách đọc, Hán Việt, nghĩa hoặc từ ghép… (vd: 学, がく, học)"
-          className="h-12 rounded-lg bg-card pl-11 pr-11 text-base"
+          className="h-12 rounded-lg bg-card pl-11 pr-12 text-base"
           data-ocid="kanji_library.search_input"
           autoComplete="off"
         />
@@ -176,7 +176,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
               resetPaging();
             }}
             aria-label="Xóa tìm kiếm"
-            className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-smooth hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="absolute right-0.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-smooth hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             data-ocid="kanji_library.search_clear_button"
           >
             <X className="h-4 w-4" aria-hidden="true" />
@@ -189,7 +189,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
         data-ocid="kanji_library.lesson_filter"
       >
         <legend className="sr-only">Lọc theo bài</legend>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-visible md:pb-0">
           {[ALL_LESSONS, ...lessonGroups].map((value) => {
             const active = lesson === value;
             return (
@@ -202,7 +202,7 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
                   resetPaging();
                 }}
                 data-ocid={`kanji_library.lesson.${value}.toggle`}
-                className={`min-h-9 rounded-full border px-3.5 text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                className={`min-h-11 shrink-0 rounded-full border px-3.5 text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:min-h-9 ${
                   active
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-card text-foreground hover:bg-muted"

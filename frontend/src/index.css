@@ -80,12 +80,22 @@
     --sidebar-border: 0.89 0.015 80;
     --sidebar-ring: 0.38 0.11 262;
 
+    /* 3D scene tokens (Washi & Sumi 3D) */
+    --desk-wood: 0.545 0.058 63;
+    --ink-shadow: 0.2 0.015 265;
+
     --gradient-paper: linear-gradient(
       180deg,
       oklch(0.985 0.006 85),
       oklch(0.965 0.012 82)
     );
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth:
+      color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .dark {
@@ -134,6 +144,9 @@
     --sidebar-border: 0.3 0.02 265;
     --sidebar-ring: 0.72 0.1 258;
 
+    --desk-wood: 0.36 0.04 60;
+    --ink-shadow: 0.08 0.01 265;
+
     --gradient-paper: linear-gradient(
       180deg,
       oklch(0.19 0.015 265),
@@ -151,6 +164,11 @@
     @apply bg-background text-foreground font-body antialiased;
     font-feature-settings: "palt" 0;
     line-height: 1.65;
+    caret-color: oklch(var(--primary));
+  }
+  ::selection {
+    background-color: oklch(var(--primary) / 0.16);
+    color: oklch(var(--foreground));
   }
   h1,
   h2,
@@ -212,4 +230,75 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+  /* Safe-area padding utilities for iOS/Android Tauri webviews */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+  /* Tactile layered paper edge + soft sumi ink shadow for 3D flashcards (no glow) */
+  .paper-edge {
+    box-shadow: 0 1px 0 oklch(var(--border)), 0 3px 0 -1px oklch(var(--muted)),
+      0 4px 0 -1px oklch(var(--border)), 0 12px 28px -12px
+      oklch(var(--ink-shadow) / 0.14);
+  }
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+}
+
+/* Gate pointer lift to devices with true hover + fine pointer so touch never sticks */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px oklch(var(--ink-shadow) / 0.06), 0 10px 24px -10px
+      oklch(var(--ink-shadow) / 0.14);
+  }
+}
+
+/* Reduced motion: preserve quick, calm state feedback without spatial motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-pulse,
+  .animate-fade-up,
+  .animate-stamp-in,
+  .animate-shake,
+  [data-slot="sheet-content"] {
+    animation: none;
+  }
+  .hover-lift:hover {
+    transform: none;
+  }
+  .flashcard-3d-inner {
+    transition: opacity 0.18s ease-out;
+  }
+}
+
+html.reduce-motion {
+  scroll-behavior: auto;
+}
+
+html.reduce-motion .animate-pulse,
+html.reduce-motion .animate-fade-up,
+html.reduce-motion .animate-stamp-in,
+html.reduce-motion .animate-shake,
+html.reduce-motion [data-slot="sheet-content"] {
+  animation: none;
+}
+
+html.reduce-motion .hover-lift:hover {
+  transform: none;
+}
+
+html.reduce-motion .flashcard-3d-inner {
+  transition: opacity 0.18s ease-out;
 }

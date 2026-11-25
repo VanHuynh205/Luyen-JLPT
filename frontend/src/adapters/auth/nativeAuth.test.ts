@@ -52,6 +52,38 @@ describe("native auth callback", () => {
     }
   });
 
+  it("accepts callbacks when Android WebView parses the custom authority as a path", () => {
+    const standardUrl = URL;
+    vi.stubGlobal(
+      "URL",
+      class extends URL {
+        override get host() {
+          return "";
+        }
+
+        override get pathname() {
+          return `//${super.host}${super.pathname}`;
+        }
+      },
+    );
+    try {
+      expect(parseAuthCallback(valid)).toEqual({ code: "abc", flowId });
+      expect(parseAuthCallback(valid.replace("?", "/?"))).toEqual({
+        code: "abc",
+        flowId,
+      });
+      expect(
+        parseAuthCallback("luyenjlpt://auth-callback?error=access_denied"),
+      ).toEqual({});
+      expect(
+        parseAuthCallback(valid.replace("auth-callback", "foreign")),
+      ).toBeNull();
+      expect(parseAuthCallback(valid.replace("?", "//?"))).toBeNull();
+    } finally {
+      vi.stubGlobal("URL", standardUrl);
+    }
+  });
+
   it("exchanges only a code bound to an explicit valid flow", () => {
     expect(parseAuthCallback(valid)).toEqual({ code: "abc", flowId });
     for (const url of [

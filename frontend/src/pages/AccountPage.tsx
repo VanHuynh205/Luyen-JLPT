@@ -11,6 +11,9 @@ import { useAuth } from "@/adapters/auth/session";
 import { progressStore } from "@/adapters/local-store/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { useMotionPreference } from "@/hooks/useMotionPreference";
 import { isTauri } from "@tauri-apps/api/core";
 import { type FormEvent, useState } from "react";
 
@@ -21,8 +24,62 @@ const modes: Record<Mode, string> = {
   reset: "Quên mật khẩu",
 };
 
+function MotionSettingsCard() {
+  const { setPreference, mode, osReduced, webglSupported, lowPerf } =
+    useMotionPreference();
+  const effectsEnabled = mode !== "reduced";
+
+  const helperText = osReduced
+    ? "Đang tắt theo cài đặt Giảm chuyển động của thiết bị."
+    : !effectsEnabled
+      ? "Đã tắt chuyển động 3D; lật thẻ chuyển sang mờ dần nhẹ nhàng."
+      : webglSupported === false || lowPerf
+        ? "Thiết bị đang dùng ảnh tĩnh thay cho cảnh 3D để đảm bảo mượt mà."
+        : "Hiển thị bàn học 3D, lật thẻ và chuyển cảnh mượt.";
+
+  return (
+    <section
+      aria-labelledby="account-motion-title"
+      className="rounded-xl border bg-card p-5 shadow-subtle"
+    >
+      <h2
+        id="account-motion-title"
+        className="font-display text-xl font-semibold"
+      >
+        Giao diện &amp; hiệu ứng
+      </h2>
+      <div className="mt-4 flex min-h-11 items-center justify-between gap-4">
+        <div className="min-w-0 space-y-1">
+          <Label
+            htmlFor="account-motion-switch"
+            className="cursor-pointer text-sm font-medium text-foreground"
+          >
+            Hiệu ứng 3D và chuyển động
+          </Label>
+          <p className="text-xs text-muted-foreground">{helperText}</p>
+        </div>
+        <Switch
+          id="account-motion-switch"
+          data-ocid="account.motion.switch"
+          checked={effectsEnabled}
+          disabled={osReduced}
+          onCheckedChange={(checked) =>
+            setPreference(checked ? "full" : "reduced")
+          }
+        />
+      </div>
+    </section>
+  );
+}
+
 export default function AccountPage() {
-  const { session, recovering, finishRecovery } = useAuth();
+  const {
+    session,
+    recovering,
+    callbackError,
+    clearCallbackError,
+    finishRecovery,
+  } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
@@ -38,6 +95,7 @@ export default function AccountPage() {
     if (!supabase || busy) return;
     setBusy(true);
     setNotice("");
+    clearCallbackError();
     try {
       await action();
     } catch {
@@ -113,28 +171,35 @@ export default function AccountPage() {
   return (
     <section
       data-ocid="account.page"
-      className="mx-auto max-w-xl space-y-5 px-4 py-12"
+      className="mx-auto max-w-xl space-y-6 px-4 py-12"
     >
-      <h1 className="font-display text-3xl">Tài khoản</h1>
-      {notice && <output className="rounded-md bg-muted p-3">{notice}</output>}
+      <h1 className="font-display text-3xl font-semibold">Tài khoản</h1>
+      {(notice || callbackError) && (
+        <output className="block rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground">
+          {notice || callbackError}
+        </output>
+      )}
       {!supabase ? (
-        <p>
+        <p className="rounded-xl border bg-card p-5 text-sm text-muted-foreground shadow-subtle">
           Bạn có thể học và lưu tiến độ trên máy. Bản này chưa cấu hình dịch vụ
           tài khoản.
         </p>
       ) : session ? (
-        <>
+        <div className="space-y-4 rounded-xl border bg-card p-5 shadow-subtle">
           <p>
             Đã đăng nhập: <strong>{session.user.email}</strong>
           </p>
-          <p>
+          <p className="text-sm text-muted-foreground">
             {session.user.email_confirmed_at
               ? "Tiến độ lưu trên máy và tự đồng bộ khi có mạng."
               : "Hãy xác nhận email để đồng bộ tiến độ."}
           </p>
           {recovering || changePassword ? (
             <form onSubmit={submit} className="grid gap-3">
-              <label htmlFor="auth-password">
+              <label
+                htmlFor="auth-password"
+                className="flex flex-col gap-1.5 text-sm font-medium text-foreground"
+              >
                 Mật khẩu mới
                 <Input
                   id="auth-password"
@@ -169,35 +234,37 @@ export default function AccountPage() {
             </Button>
           </div>
           {confirmDelete === session.user.id ? (
-            <div className="space-y-3 rounded-md border p-4">
-              <p>
+            <div className="space-y-3 rounded-lg border border-destructive/40 bg-destructive/5 p-4">
+              <p className="text-sm">
                 Bạn sẽ mất tài khoản và toàn bộ tiến độ đã lưu. Không thể hoàn
                 tác.
               </p>
-              <Button
-                disabled={busy}
-                variant="destructive"
-                onClick={() =>
-                  void run(async () => {
-                    if (deletedOwner !== confirmDelete) {
-                      await deleteAccount(confirmDelete);
-                      setDeletedOwner(confirmDelete);
-                    }
-                    await progressStore.purgeOwner(confirmDelete);
-                    await clearDeletedSession(confirmDelete);
-                    window.location.reload();
-                  })
-                }
-              >
-                Xác nhận xoá vĩnh viễn
-              </Button>{" "}
-              <Button
-                disabled={busy}
-                variant="outline"
-                onClick={() => setConfirmDelete(null)}
-              >
-                Huỷ
-              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  disabled={busy}
+                  variant="destructive"
+                  onClick={() =>
+                    void run(async () => {
+                      if (deletedOwner !== confirmDelete) {
+                        await deleteAccount(confirmDelete);
+                        setDeletedOwner(confirmDelete);
+                      }
+                      await progressStore.purgeOwner(confirmDelete);
+                      await clearDeletedSession(confirmDelete);
+                      window.location.reload();
+                    })
+                  }
+                >
+                  Xác nhận xoá vĩnh viễn
+                </Button>
+                <Button
+                  disabled={busy}
+                  variant="outline"
+                  onClick={() => setConfirmDelete(null)}
+                >
+                  Huỷ
+                </Button>
+              </div>
             </div>
           ) : (
             <Button
@@ -208,7 +275,7 @@ export default function AccountPage() {
               Xoá tài khoản
             </Button>
           )}
-        </>
+        </div>
       ) : (
         <>
           <div className="flex flex-wrap gap-2">
@@ -221,6 +288,7 @@ export default function AccountPage() {
                 disabled={busy}
                 onClick={() => {
                   setNotice("");
+                  clearCallbackError();
                   setMode(option);
                 }}
               >
@@ -231,10 +299,13 @@ export default function AccountPage() {
           <form
             key={mode}
             onSubmit={submit}
-            className="grid gap-4 rounded-xl border bg-card p-5"
+            className="grid gap-4 rounded-xl border bg-card p-5 shadow-subtle"
           >
             {mode === "login" ? (
-              <label htmlFor="auth-identifier">
+              <label
+                htmlFor="auth-identifier"
+                className="flex flex-col gap-1.5 text-sm font-medium text-foreground"
+              >
                 Email hoặc tên đăng nhập
                 <Input
                   id="auth-identifier"
@@ -245,7 +316,10 @@ export default function AccountPage() {
                 />
               </label>
             ) : (
-              <label htmlFor="auth-email">
+              <label
+                htmlFor="auth-email"
+                className="flex flex-col gap-1.5 text-sm font-medium text-foreground"
+              >
                 Email
                 <Input
                   id="auth-email"
@@ -258,7 +332,10 @@ export default function AccountPage() {
               </label>
             )}
             {mode === "signup" && (
-              <label htmlFor="auth-username">
+              <label
+                htmlFor="auth-username"
+                className="flex flex-col gap-1.5 text-sm font-medium text-foreground"
+              >
                 Tên đăng nhập (3–32 chữ, số, dấu gạch dưới)
                 <Input
                   id="auth-username"
@@ -271,7 +348,10 @@ export default function AccountPage() {
               </label>
             )}
             {mode !== "reset" && (
-              <label htmlFor="auth-password">
+              <label
+                htmlFor="auth-password"
+                className="flex flex-col gap-1.5 text-sm font-medium text-foreground"
+              >
                 Mật khẩu
                 <Input
                   id="auth-password"
@@ -302,6 +382,8 @@ export default function AccountPage() {
           </Button>
         </>
       )}
+
+      <MotionSettingsCard />
     </section>
   );
 }

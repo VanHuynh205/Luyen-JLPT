@@ -141,7 +141,7 @@ function OwnerProgress({
       {prompt && (
         <aside
           aria-label="Tiến độ khách"
-          className="flex flex-wrap items-center justify-center gap-3 border-b p-3"
+          className="flex flex-wrap items-center justify-center gap-3 border-b bg-card px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] text-sm"
         >
           <p>Gộp tiến độ khách trên máy này vào tài khoản đang đăng nhập?</p>
           <Button disabled={busy} onClick={() => void merge()}>

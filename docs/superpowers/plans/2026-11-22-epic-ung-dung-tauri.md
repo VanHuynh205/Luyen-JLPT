@@ -65,4 +65,47 @@ Dùng hai tài khoản thử và bản cài Windows/Android trỏ cùng dự án
 
 ## Bước kế tiếp
 
+### Checkpoint phát hành ngày 23-11-2026
+
+- Repo nguồn `VanHuynh205/Luyen-JLPT` vẫn private. Repo phân phối `VanHuynh205/Luyen-JLPT-Releases` đã public, có nhánh `main` và README, chưa có release. Không có mã nguồn hay dataset trong repo này. Chưa có xác nhận quyền phân phối công khai phần giáo trình Minna; chỉ upload sau khi chủ dự án xác nhận quyền cho nội dung đóng kèm.
+- Hai môi trường trên **repo nguồn**, `native-signing` và `native-publish`, đều chỉ cho tag `v*`. GitHub trả HTTP 422 khi yêu cầu reviewer bảo vệ môi trường, HTTP 403 khi kiểm tra branch protection và rulesets. Không đặt khóa, token publish hoặc mật khẩu vào GitHub. Dùng luồng ký local; tag filter không thay cho duyệt phát hành.
+- ID cố định cho bản phân phối trực tiếp là `vn.luyenjlpt.app`. Project Android sinh mới có cả `namespace` và `applicationId` này. APK thử hậu tố `.mobile` không nâng cấp tại chỗ sang ID mới. Cặp bản dùng nghiệm thu phải cùng ID mới và cùng chứng chỉ. Không dùng lại Gradle/Xcode project sinh theo ID cũ.
+- Khóa updater đã ký một mẫu thử; kiểm độc lập cả chữ ký payload lẫn trusted comment chứa version. Keystore Android PKCS12 có alias `luyen-jlpt-release`, SHA-256 chứng chỉ `8B912DF32875CF913BB759376238D5DE13B1E275F70D42934A66CD429926A6FC`. Các kiểm tra này chưa chứng minh cập nhật app.
+- Staging web theo plan Epic 2 trỏ tới Supabase ref `vuyanbtfmhnqvirkikgf`. Endpoint settings công khai báo Google/email bật, xác nhận email bắt buộc, đăng ký mở. [Biên bản Auth và đồng bộ](../../2026-11-23-nghiem-thu-auth-staging-native.md) phân biệt test web, test giả lập và kết quả trên bản cài.
+- Run `45130724256` xanh trên commit `9f6a06e`; không bao gồm UI 3D hoặc ID vừa sửa trong working tree. Chỉ dùng kết quả CI trên chính revision dự định phát hành.
+
+### Bàn giao khóa cho người phát hành
+
+`native-signing` có bốn biến không bí mật: URL và publishable key của staging, pubkey updater và fingerprint Android đã đối chiếu với chứng chỉ xuất từ keystore. Cả hai môi trường không có signing secret hoặc token publish. Các tệp nghiệm thu ký cục bộ chưa được tải lên GitHub; trước khi phát stable, xác nhận custody và bản sao phục hồi độc lập.
+
+Trên máy tạo khóa, `%LOCALAPPDATA%\LuyenJLPT-ReleaseSigning` chỉ cấp quyền cho tài khoản Windows đã tạo khóa. `updater.key` và `android-release.p12` có mật khẩu riêng. `updater.key.pub` và `android-release.cer` là dữ liệu công khai. Các tệp `*.password.dpapi` chỉ mở được trong ngữ cảnh tài khoản/máy này. Chép mỗi thư mục sang máy khác chưa phải sao lưu phục hồi được.
+
+Trước khi ký bản đầu, người giữ khóa nhập hai mật khẩu vào kho mật khẩu riêng, sao lưu hai khóa đã mã hóa ở nơi độc lập và thử phục hồi trên một hồ sơ khác. Đừng in mật khẩu ra console hoặc gửi qua chat. Trên máy gốc, dùng PowerShell 7 trong phiên riêng; chỉ nạp bí mật sau khi build xong. Ví dụ nạp mật khẩu cho **bước ký** rồi đóng phiên ngay sau khi kiểm chứng:
+
+```powershell
+$vault = Join-Path $env:LOCALAPPDATA 'LuyenJLPT-ReleaseSigning'
+function Read-SigningPassword($file) {
+  $secure = Get-Content -Raw -LiteralPath (Join-Path $vault $file)
+  [Net.NetworkCredential]::new('', (ConvertTo-SecureString $secure.Trim())).Password
+}
+$env:TAURI_SIGNING_PRIVATE_KEY_PATH = Join-Path $vault 'updater.key'
+$env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = Read-SigningPassword 'updater.password.dpapi'
+$env:ANDROID_KEYSTORE_PATH = Join-Path $vault 'android-release.p12'
+$env:ANDROID_KEYSTORE_PASSWORD = Read-SigningPassword 'android.password.dpapi'
+$env:ANDROID_KEY_PASSWORD = $env:ANDROID_KEYSTORE_PASSWORD
+$env:ANDROID_KEY_ALIAS = 'luyen-jlpt-release'
+$env:ANDROID_SIGNING_CERT_SHA256 = '8B912DF32875CF913BB759376238D5DE13B1E275F70D42934A66CD429926A6FC'
+```
+
+Với NSIS đã nhúng đúng pubkey và endpoint release, `pnpm exec tauri signer sign --app-version <version-trong-NSIS> <installer>` ký file bằng khóa theo đường dẫn. Với APK unsigned, dùng `sign-android.mjs` và `android-release.mjs metadata` theo hướng dẫn Android. Chỉ ký bộ cài đã kiểm nguồn, môi trường và version; không ký installer dùng endpoint thử bằng khóa chính thức.
+
+### Bản nghiệm thu nội bộ (không phát công khai)
+
+Hai bộ cài QA `0.1.2` đã được cài đè trên Windows và Android thật và xác nhận đầy đủ các luồng Auth + đồng bộ trên staging: đăng nhập Google, đăng ký/xác nhận email, đặt lại mật khẩu và đồng bộ hai chiều Windows–Android giữa hai tài khoản QA. Các bộ cài nội bộ nằm trong `.cache/epic3-identity-check/qa-0.1.1/` và `.cache/epic3-identity-check/qa-0.1.2/` (chưa phát ra feed công khai).
+
+- Windows x64: dựng hai bộ NSIS `0.1.0`/`0.1.1` và bản QA `0.1.2` (SHA-256 `5be4acb7ce45ed4c3e9bd0ff6506ea3adc205fcd2b874c7ddea11541274c3026`) nhúng frontend staging theo đường dẫn **tương đối** `frontendDist`, endpoint HTTPS như release, cùng pubkey. `0.1.0` qua smoke callback lỗi lạnh/nóng, mở thẻ N4 và lưu cục bộ khi ngoại tuyến; cài đè lên `0.1.1` giữ `見ます` là `Đã thuộc` trên cùng hồ sơ WebView2; cài đè lên `0.1.2` xác nhận Auth và đồng bộ trên máy thật. Chưa thử tải/cài qua thông báo updater ở feed HTTPS công khai; chữ ký updater không phải Authenticode.
+- Android x86_64 và ARM64: cặp staging `0.1.0` (`1000`) / `0.1.1` (`1001`) cùng `vn.luyenjlpt.app` và một signer trùng fingerprint phát hành đã cài đè ngoại tuyến trên AVD API 34 giữ tiến độ `1/1182`, UID và `dataDir`. Bản QA ARM64 `0.1.2` (`1002`, SHA-256 `46300ed7c73be7741a88f3e4db33aa0115ccfef3f4ab6785d345f4bea7a2d3d1`, căn chỉnh 16 KiB) đã cài đè trên thiết bị Android thật và xác nhận Auth + đồng bộ hai chiều với Windows.
+- UI dùng chung: trang học không tải scene 3D, giảm chuyển động của hệ điều hành thắng tùy chọn `full`, thiếu WebGL2 hoặc mất context thì giữ SVG và nút học. Bộ kiểm baseline (`pnpm check`, `pnpm typecheck`, `pnpm packs:verify`, `pnpm test`, `android-release.test.mjs`, `validate-scaffold.mjs`, `pnpm build`) đạt.
+- Chuẩn bị phát hành bản đầu `0.2.0` (`versionCode` Android `2000`, lớn hơn bản QA `0.1.2` / `1002`): tăng đồng bộ `version` trong hai cấu hình Tauri lên `0.2.0`, chạy CI native (Windows, Android, iOS Simulator) trên đúng revision phát hành, kiểm cập nhật từ bản ký cũ `0.1.2` sang `0.2.0` qua feed HTTPS công khai rồi phát hành trên `VanHuynh205/Luyen-JLPT-Releases`. Không tạo tag cho bản QA.
+
 Khi Windows và Android phát hành thử đạt, cho bạn bè dùng `.exe`/`.apk`. Epic 4 có thể chuẩn bị song song: refine `epic-ngu-phap-mo-rong`, bắt đầu ánh xạ `comparisons.patterns` sang ID mẫu ngữ pháp, ghi mẫu không khớp trong báo cáo build.

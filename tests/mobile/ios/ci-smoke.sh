@@ -5,7 +5,7 @@ shopt -s nullglob
 apps=(mobile/src-tauri/gen/apple/build/arm64-sim/*.app)
 test "${#apps[@]}" -eq 1
 app="${apps[0]}"
-test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")" = vn.luyenjlpt.app.mobile
+test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")" = vn.luyenjlpt.app
 
 work="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/luyen-ios.XXXXXX")"
 reports="${RUNNER_TEMP:-$work}/ios-smoke"

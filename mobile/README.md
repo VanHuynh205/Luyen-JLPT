@@ -1,8 +1,10 @@
 # Vỏ Tauri mobile
 
-Android dùng ID `vn.luyenjlpt.app.mobile`, hỗ trợ Android 8.0 (API 26) trở lên. Vỏ dùng `../../frontend/dist`, không có bản sao frontend hay dữ liệu N4 riêng. Origin HTTPS cục bộ cho WebView Android cho phép loader dùng `crypto.subtle` để kiểm hash và mở gói N4 trong `/packs` khi ngoại tuyến.
+Android dùng ID `vn.luyenjlpt.app`, hỗ trợ Android 8.0 (API 26) trở lên. Vỏ dùng `../../frontend/dist`, không có bản sao frontend hay dữ liệu N4 riêng. Origin HTTPS cục bộ cho WebView Android cho phép loader dùng `crypto.subtle` để kiểm hash và mở gói N4 trong `/packs` khi ngoại tuyến.
 
 ## Dựng Android
+
+Kênh phát trực tiếp giữ ID `vn.luyenjlpt.app`. Bản thử cũ dùng `.mobile` là ứng dụng khác: không gỡ nếu còn tiến độ chưa đồng bộ. Khi chuyển ID, sinh lại project Android/iOS trong checkout sạch để Gradle và Xcode không giữ namespace cũ.
 
 Từ root, cài dependency của workspace và build frontend (`pnpm --filter @luyen/frontend build`). Sau đó:
 
@@ -26,7 +28,7 @@ Từ root, chạy `node tests/mobile/android-offline-smoke.mjs <debug.apk> --req
 Test callback từ host, không đặt mã xác thực thật trong log hoặc command history:
 
 ```sh
-adb shell am start -W -a android.intent.action.VIEW -d luyenjlpt://auth-callback vn.luyenjlpt.app.mobile
+adb shell am start -W -a android.intent.action.VIEW -d luyenjlpt://auth-callback vn.luyenjlpt.app
 ```
 
 Thử khi app đã đóng và khi đang chạy. URI thiếu mã dùng để kiểm phản hồi trung tính của frontend. Thêm `luyenjlpt://auth-callback[?]sb_flow_id=*` vào redirect allowlist của Supabase để nhận lại mã PKCE và ID phiên đã tạo.

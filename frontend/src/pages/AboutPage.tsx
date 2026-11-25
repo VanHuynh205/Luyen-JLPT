@@ -31,25 +31,27 @@ export default function AboutPage() {
   return (
     <section
       data-ocid="about.page"
-      className="mx-auto max-w-3xl space-y-6 px-4 py-12 md:px-6"
+      className="mx-auto max-w-3xl space-y-6 px-4 py-8 md:px-6 md:py-14"
     >
       <div className="space-y-2">
-        <h1 className="font-display text-3xl">Giới thiệu</h1>
+        <h1 className="font-display text-3xl font-semibold md:text-4xl">
+          Giới thiệu
+        </h1>
         <p className="text-muted-foreground">
           Ôn JLPT giúp bạn học từ vựng, kanji, ngữ pháp và đọc hiểu N4.
         </p>
       </div>
-      <Card>
+      <Card className="rounded-xl shadow-subtle">
         <CardHeader>
           <CardTitle>Nguồn dữ liệu</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-2 leading-relaxed">
           <p>
             Âm On và Kun của kanji lấy từ KANJIDIC2 của Electronic Dictionary
             Research and Development Group. Ứng dụng hiển thị phần dữ liệu này
             trong Gói N4 theo giấy phép CC BY-SA 4.0.
           </p>
-          <div className="flex flex-wrap gap-x-4">
+          <div className="flex flex-wrap gap-x-6 gap-y-1">
             <ExternalLink href="https://www.edrdg.org/wiki/KANJIDIC_Project.html">
               Nguồn KANJIDIC2
             </ExternalLink>
@@ -59,11 +61,11 @@ export default function AboutPage() {
           </div>
         </CardContent>
       </Card>
-      <Card>
+      <Card className="rounded-xl shadow-subtle">
         <CardHeader>
           <CardTitle>Cài app trực tiếp</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className="space-y-3 leading-relaxed">
           <p>
             Windows: tải bộ cài <code>.exe</code> từ trang phát hành. Nếu
             SmartScreen hiện cảnh báo, hãy xác minh nguồn trước khi chọn Thông

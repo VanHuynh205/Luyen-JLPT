@@ -34,7 +34,7 @@ function KanjiCardBase({ entry, index, compounds }: KanjiCardProps) {
   return (
     <article
       data-ocid={`kanji_library.kanji.item.${index}`}
-      className="ink-rule group flex min-w-0 flex-col gap-4 rounded-lg border border-border bg-card p-5 transition-smooth hover:-translate-y-0.5 hover:shadow-md"
+      className="hover-lift group flex min-w-0 flex-col gap-4 rounded-xl border border-border bg-card p-5 shadow-subtle"
     >
       <div className="flex gap-4">
         <div
@@ -105,7 +105,7 @@ function KanjiCardBase({ entry, index, compounds }: KanjiCardProps) {
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="mt-2 inline-flex min-h-8 items-center gap-1 rounded-md px-1 text-xs font-medium text-accent transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="mt-2 inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-xs font-medium text-primary transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-9"
               data-ocid={`kanji_library.kanji.toggle.${index}`}
             >
               {expanded ? "Thu gọn" : `Xem thêm ${hidden} từ`}

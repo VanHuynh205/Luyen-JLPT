@@ -22,11 +22,11 @@ test("only accepts one signer with the pinned release certificate fingerprint", 
 });
 
 const settings = {
-  identifier: "vn.luyenjlpt.app.mobile",
+  identifier: "vn.luyenjlpt.app",
   version: "1.4.23",
   bundle: { android: { minSdkVersion: 26 } },
 };
-const badging = `package: name='vn.luyenjlpt.app.mobile' versionCode='1004023' versionName='1.4.23'
+const badging = `package: name='vn.luyenjlpt.app' versionCode='1004023' versionName='1.4.23'
 sdkVersion:'26'
 targetSdkVersion:'37'`;
 
@@ -64,7 +64,7 @@ test("checks the APK application ID, version and minimum API instead of its name
   );
   assert.throws(() => assertApkBadging(`${badging}\napplication-debuggable`, settings), /debuggable/);
   for (const [original, replacement] of [
-    ["vn.luyenjlpt.app.mobile", "vn.luyenjlpt.app.mobile.debug"],
+    ["vn.luyenjlpt.app", "vn.luyenjlpt.app.debug"],
     ["1004023", "1004022"],
     ["1.4.23", "1.4.24"],
     ["sdkVersion:'26'", "sdkVersion:'25'"],
@@ -84,6 +84,7 @@ test("opens only the approved About links on Android and iOS", () => {
 
 test("real mobile config uses the derived version code contract", () => {
   const config = JSON.parse(readFileSync(new URL("../../mobile/src-tauri/tauri.conf.json", import.meta.url)));
+  assert.equal(config.identifier, settings.identifier, "keep the direct-distribution application ID stable across upgrades");
   assert.equal(createMetadata(config).versionCode, versionToCode(config.version));
 });
 

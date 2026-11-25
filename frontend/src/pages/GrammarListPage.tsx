@@ -52,6 +52,7 @@ function LearnedSummary({
           type="button"
           size="sm"
           variant="outline"
+          className="min-h-11"
           data-ocid="grammar_list.retry_button"
           onClick={() => void learnedQuery.refetch()}
         >
@@ -126,9 +127,9 @@ export default function GrammarListPage() {
   return (
     <section
       data-ocid="grammar_list.page"
-      className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14"
     >
-      <header className="grid gap-8 md:grid-cols-[1fr_minmax(0,20rem)] md:items-end">
+      <header className="grid gap-6 md:grid-cols-[1fr_minmax(0,20rem)] md:items-end md:gap-8">
         <div className="space-y-3">
           <p className="flex items-center gap-2 text-sm font-medium text-primary">
             <span className="font-jp text-lg" lang="ja">
@@ -144,7 +145,7 @@ export default function GrammarListPage() {
             dùng và câu ví dụ kèm bản dịch.
           </p>
         </div>
-        <div className="rounded-lg border border-border bg-card p-5">
+        <div className="rounded-xl border border-border bg-card p-5 shadow-subtle">
           <LearnedSummary
             learnedIds={learnedIds}
             total={grammarPatterns.length}
@@ -152,7 +153,7 @@ export default function GrammarListPage() {
         </div>
       </header>
 
-      <div className="mt-10 grid gap-3 md:grid-cols-[minmax(0,1fr)_14rem]">
+      <div className="mt-8 grid gap-3 md:mt-10 md:grid-cols-[minmax(0,1fr)_14rem]">
         <div className="relative">
           <label htmlFor="grammar-search" className="sr-only">
             Tìm mẫu ngữ pháp
@@ -214,7 +215,7 @@ export default function GrammarListPage() {
           </p>
           <Button
             type="button"
-            className="mt-6"
+            className="mt-6 min-h-11"
             data-ocid="grammar_list.clear_search_button"
             onClick={() => {
               setQuery("");
@@ -240,7 +241,7 @@ export default function GrammarListPage() {
                   to="/ngu-phap/$patternId"
                   params={{ patternId: p.id }}
                   data-ocid={`grammar_list.item.${index + 1}`}
-                  className="group ink-rule flex h-full items-center gap-4 rounded-lg border border-border bg-card p-5 transition-smooth hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="hover-lift group flex h-full items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">

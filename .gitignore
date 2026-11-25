@@ -14,3 +14,5 @@ backend/supabase/.temp/
 backend/supabase/.branches/
 /.claude/settings.local.json
 /.codex/config.toml
+graphify-out/
+.wrangler/

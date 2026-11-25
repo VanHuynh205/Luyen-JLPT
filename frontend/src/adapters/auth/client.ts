@@ -28,6 +28,62 @@ const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const storageKey = url
   ? `sb-${new URL(url).hostname.split(".")[0]}-auth-token`
   : undefined;
+const rejectedCallbackKeys = [
+  "error",
+  "error_code",
+  "error_description",
+  "error_reason",
+  "error_uri",
+  "access_token",
+  "refresh_token",
+  "provider_token",
+  "provider_refresh_token",
+];
+const authCallbackKeys = ["code", "sb_flow_id", ...rejectedCallbackKeys];
+
+export const AUTH_CALLBACK_ERROR =
+  "Không mở được liên kết tài khoản. Hãy mở lại trên cùng trình duyệt hoặc yêu cầu liên kết mới.";
+
+export function parseWebAuthCallback(href: string) {
+  const parsed = new URL(href);
+  if (parsed.pathname !== "/tai-khoan") return null;
+  const query = parsed.searchParams;
+  const fragment = new URLSearchParams(parsed.hash.slice(1));
+  const fragmentAuth = authCallbackKeys.some((name) => fragment.has(name));
+  if (!fragmentAuth && !authCallbackKeys.some((name) => query.has(name)))
+    return null;
+  const codes = query.getAll("code");
+  const flows = query.getAll("sb_flow_id");
+  const valid =
+    codes.length === 1 &&
+    flows.length <= 1 &&
+    !fragmentAuth &&
+    !rejectedCallbackKeys.some((name) => query.has(name));
+  for (const name of [
+    ...authCallbackKeys,
+    "type",
+    "expires_in",
+    "expires_at",
+    "token_type",
+  ]) {
+    query.delete(name);
+    fragment.delete(name);
+  }
+  if (fragmentAuth) parsed.hash = fragment.toString();
+  return {
+    code: valid ? codes[0] : null,
+    flowId: flows[0],
+    cleanUrl: parsed.href,
+  };
+}
+
+const callback =
+  url && key && !isTauri() && globalThis.window?.location?.href
+    ? parseWebAuthCallback(window.location.href)
+    : null;
+if (callback)
+  window.history.replaceState(window.history.state, "", callback.cleanUrl);
+
 export const supabase =
   url && key
     ? createClient(url, key, {
@@ -35,11 +91,24 @@ export const supabase =
           flowType: "pkce",
           storage: sessionStorage,
           storageKey,
-          detectSessionInUrl: !isTauri(),
+          detectSessionInUrl: false,
           experimental: { appendPkceFlowIdToRedirects: isTauri() },
         },
       })
     : null;
+
+let callbackResult: Promise<boolean> | undefined;
+export function completeWebAuthCallback(): Promise<boolean> {
+  if (!callback || !supabase) return Promise.resolve(false);
+  if (!callback.code) return Promise.resolve(true);
+  callbackResult ??= supabase.auth
+    .exchangeCodeForSession(callback.code, { flowId: callback.flowId })
+    .then(
+      ({ error }) => !!error,
+      () => true,
+    );
+  return callbackResult;
+}
 
 export const LOGIN_ERROR = "Tên đăng nhập, email hoặc mật khẩu không đúng.";
 

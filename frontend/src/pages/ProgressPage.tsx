@@ -8,6 +8,7 @@ import {
   KanjiResultsList,
   ReadingResultsList,
 } from "@/components/progress/ResultLists";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useReadyPack } from "@/hooks/useContent";
@@ -72,7 +73,7 @@ function ProgressContent() {
         <Button
           type="button"
           data-ocid="progress.retry_button"
-          className="rounded-md transition-smooth"
+          className="min-h-11 rounded-md transition-smooth"
           disabled={isRefetching}
           onClick={() => void refetch()}
         >
@@ -92,8 +93,16 @@ function ProgressContent() {
       mistakes.set(id, (mistakes.get(id) ?? 0) + 1);
   }
   const mostMissed = [
-    ...pack.kanji.map((item) => ({ id: item.id, text: item.kanji })),
-    ...pack.compounds.map((item) => ({ id: item.id, text: item.word })),
+    ...pack.kanji.map((item) => ({
+      id: item.id,
+      text: item.kanji,
+      sub: item.hanViet,
+    })),
+    ...pack.compounds.map((item) => ({
+      id: item.id,
+      text: item.word,
+      sub: item.hanViet || item.meaning,
+    })),
   ]
     .filter((item) => mistakes.has(item.id))
     .sort((left, right) => mistakes.get(right.id)! - mistakes.get(left.id)!)
@@ -128,7 +137,7 @@ function ProgressContent() {
             sẽ được lưu lại tại đây.
           </p>
         </div>
-        <Button asChild className="rounded-md transition-smooth">
+        <Button asChild className="min-h-11 rounded-md transition-smooth">
           <Link to="/tu-vung" data-ocid="progress.empty_state.primary_button">
             Bắt đầu học từ vựng
           </Link>
@@ -188,16 +197,41 @@ function ProgressContent() {
         <ReadingResultsList results={readingResults} passages={pack.reading} />
       </div>
       {mostMissed.length > 0 && (
-        <section className="rounded-lg border bg-card p-5">
-          <h2 className="mb-3 text-xl">Kanji và từ ghép hay sai</h2>
-          <ul>
+        <section className="rounded-xl border bg-card p-5 shadow-subtle md:p-6">
+          <div className="mb-4 flex items-baseline justify-between gap-2">
+            <h2 className="text-xl font-semibold">Kanji và từ ghép hay sai</h2>
+            <span className="text-xs text-muted-foreground">
+              Ưu tiên ôn lại
+            </span>
+          </div>
+          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {mostMissed.map((item) => (
-              <li key={item.id}>
-                <span lang="ja">{item.text}</span>: {mistakes.get(item.id)} lần
-                sai
-              </li>
+              <div
+                key={item.id}
+                className="flex min-w-0 items-center justify-between gap-3 rounded-lg border border-border bg-muted/40 px-3.5 py-2.5"
+              >
+                <div className="min-w-0">
+                  <span
+                    lang="ja"
+                    className="font-jp block truncate text-2xl font-semibold leading-tight text-foreground"
+                  >
+                    {item.text}
+                  </span>
+                  {item.sub && (
+                    <span className="mt-0.5 block truncate text-xs text-muted-foreground">
+                      {item.sub}
+                    </span>
+                  )}
+                </div>
+                <Badge
+                  variant="secondary"
+                  className="shrink-0 rounded-full tabular-nums text-destructive"
+                >
+                  {mistakes.get(item.id)} lần sai
+                </Badge>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
       )}
     </div>
@@ -210,7 +244,7 @@ export default function ProgressPage() {
   return (
     <section
       data-ocid="progress.page"
-      className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14"
     >
       <PageHeader level={level} />
       {isInitializing ? <LoadingState /> : <ProgressContent />}

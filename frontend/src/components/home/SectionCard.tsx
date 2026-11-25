@@ -17,11 +17,11 @@ export function SectionCard({
     <Link
       to={section.to}
       data-ocid={`home.section.item.${index}`}
-      className="group ink-rule relative flex h-full flex-col overflow-hidden rounded-xl border bg-card p-5 transition-smooth hover:-translate-y-0.5 hover:shadow-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-6"
+      className="group ink-rule hover-lift relative flex h-full flex-col overflow-hidden rounded-xl border bg-card p-5 shadow-card hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-6"
     >
       <span
         aria-hidden="true"
-        className="font-jp pointer-events-none absolute -right-3 -top-6 select-none text-[7rem] leading-none text-foreground/[0.05] transition-smooth group-hover:text-primary/10"
+        className="font-jp pointer-events-none absolute -right-3 -top-6 select-none text-[7rem] leading-none text-foreground/[0.045] transition-smooth group-hover:text-primary/10"
       >
         {section.glyph}
       </span>
@@ -30,7 +30,7 @@ export function SectionCard({
           {section.glyph}
           <rt>{section.reading}</rt>
         </ruby>
-        <h3 className="text-2xl">{section.title}</h3>
+        <h3 className="text-2xl font-semibold">{section.title}</h3>
       </div>
       <p className="relative mt-3 flex-1 text-sm text-muted-foreground">
         {section.description}

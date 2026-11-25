@@ -1,10 +1,12 @@
+import { HankoStamp } from "@/components/motion/HankoStamp";
 import { QuestionCard } from "@/components/reading/QuestionCard";
 import { StudyAids } from "@/components/reading/StudyAids";
 import { Button } from "@/components/ui/button";
 import { useReadyPack } from "@/hooks/useContent";
+import { useMotionPreference } from "@/hooks/useMotionPreference";
 import { useRecordReadingResult } from "@/hooks/useProgress";
 import { Link, useParams } from "@tanstack/react-router";
-import { ArrowLeft, CheckCircle2, FileQuestion, RotateCcw } from "lucide-react";
+import { ArrowLeft, FileQuestion, RotateCcw } from "lucide-react";
 import { useState } from "react";
 
 function BackLink() {
@@ -23,6 +25,7 @@ function BackLink() {
 export default function ReadingDetailPage() {
   const { reading: readingPassages, manifest } = useReadyPack();
   const { passageId } = useParams({ from: "/doc-hieu/$passageId" });
+  const { mode } = useMotionPreference();
   const passage = readingPassages.find((p) => p.id === passageId);
   const recordResult = useRecordReadingResult();
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -44,7 +47,7 @@ export default function ReadingDetailPage() {
         <p className="mt-2 text-muted-foreground">
           Bài đọc này không tồn tại hoặc đã bị gỡ. Hãy chọn một bài khác.
         </p>
-        <Button asChild className="mt-6 rounded-md">
+        <Button asChild className="mt-6 min-h-11 rounded-md">
           <Link to="/doc-hieu" data-ocid="reading_detail.back.primary_button">
             Xem danh sách bài đọc
           </Link>
@@ -59,12 +62,16 @@ export default function ReadingDetailPage() {
   const score = passage.questions.filter(
     (q, i) => answers[i] === q.answerIndex,
   ).length;
+  const percent = total > 0 ? Math.round((score / total) * 100) : 0;
 
   const handleSubmit = () => {
     if (!allAnswered) return;
     setSubmitted(true);
     recordResult.mutate({ passageId: passage.id, score, total });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: mode === "reduced" ? "auto" : "smooth",
+    });
   };
 
   const handleRetry = () => {
@@ -76,11 +83,11 @@ export default function ReadingDetailPage() {
   return (
     <section
       data-ocid="reading_detail.page"
-      className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-12"
+      className="mx-auto max-w-6xl px-4 py-6 md:px-6 md:py-12"
     >
       <BackLink />
       <header className="mb-6 mt-2">
-        <p className="text-xs font-medium uppercase tracking-wider text-accent">
+        <p className="text-xs font-medium uppercase tracking-wider text-primary">
           Đọc hiểu {manifest.level.toUpperCase()} ·{" "}
           {passage.length === "short" ? "Đoạn ngắn" : "Đoạn vừa"}
         </p>
@@ -92,13 +99,18 @@ export default function ReadingDetailPage() {
       {submitted && (
         <div
           data-ocid="reading_detail.result.success_state"
-          className="ink-rule mb-6 flex flex-col gap-4 rounded-xl border bg-card p-5 shadow-subtle sm:flex-row sm:items-center md:p-6"
+          className="mb-6 flex flex-col gap-4 rounded-xl border bg-card p-5 shadow-subtle sm:flex-row sm:items-center md:p-6"
         >
           <div className="flex flex-1 items-center gap-4">
-            <CheckCircle2 className="size-8 text-success" aria-hidden="true" />
+            <HankoStamp
+              label={`${percent}%`}
+              sublabel={`${score}/${total}`}
+              size="md"
+              className="shrink-0"
+            />
             <div>
               <p className="text-sm text-muted-foreground">Kết quả của bạn</p>
-              <p className="font-display text-3xl font-semibold">
+              <p className="font-display text-3xl font-semibold tabular-nums">
                 {score}/{total}{" "}
                 <span className="text-base font-normal text-muted-foreground">
                   câu đúng
@@ -121,7 +133,7 @@ export default function ReadingDetailPage() {
             type="button"
             variant="outline"
             data-ocid="reading_detail.retry_button"
-            className="rounded-md transition-smooth"
+            className="min-h-11 rounded-md transition-smooth"
             onClick={handleRetry}
           >
             <RotateCcw className="size-4" aria-hidden="true" />
@@ -174,7 +186,7 @@ export default function ReadingDetailPage() {
               <Button
                 type="button"
                 data-ocid="reading_detail.submit_button"
-                className="rounded-md transition-smooth"
+                className="min-h-11 rounded-md transition-smooth"
                 disabled={!allAnswered}
                 onClick={handleSubmit}
               >
