@@ -185,6 +185,11 @@ test("public signup requires confirmation; mailed recovery replaces the password
 
   await page.goto(await mailedCallback(request, email, "signup"));
   await expect(page.getByText(email, { exact: true })).toBeVisible();
+  await page.goto(`${callback}?code=fixture-used&keep=1`);
+  await expect(page.getByText("Không mở được liên kết tài khoản.", { exact: false })).toBeVisible();
+  await expect(page).toHaveURL(`${callback}?keep=1`);
+  await expect(page.getByText(email, { exact: true })).toBeVisible();
+  await expect(page.getByLabel("Mật khẩu mới", { exact: true })).toHaveCount(0);
   await button("Đăng xuất").click();
   await button("Quên mật khẩu").click();
   await page.getByLabel("Email", { exact: true }).fill(email);

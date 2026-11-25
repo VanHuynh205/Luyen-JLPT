@@ -11,30 +11,20 @@ export function getAuthRedirectUrl(origin: string) {
 
 export function parseAuthCallback(raw: string): AuthCallback | null {
   if (raw.length > 4096) return null;
-  let url: URL;
-  try {
-    url = new URL(raw);
-  } catch {
+  const [address = ""] = raw.split(/[?#]/, 1);
+  if (address !== nativeAuthRedirect && address !== `${nativeAuthRedirect}/`)
     return null;
-  }
-  if (
-    url.protocol !== "luyenjlpt:" ||
-    url.host !== "auth-callback" ||
-    (url.pathname !== "/" && url.pathname !== "") ||
-    url.username ||
-    url.password
-  ) {
-    return null;
-  }
-  const [code, ...extraCodes] = url.searchParams.getAll("code");
-  const [flowId, ...extraFlows] = url.searchParams.getAll("sb_flow_id");
+  const [search, fragment] = raw.slice(address.length).split("#", 2);
+  const params = new URLSearchParams(search);
+  const [code, ...extraCodes] = params.getAll("code");
+  const [flowId, ...extraFlows] = params.getAll("sb_flow_id");
   return code &&
     !extraCodes.length &&
     flowId &&
     /^[a-zA-Z0-9_-]{8,64}$/.test(flowId) &&
     !extraFlows.length &&
-    !url.searchParams.has("error") &&
-    !url.hash
+    !params.has("error") &&
+    fragment === undefined
     ? { code, flowId }
     : {};
 }

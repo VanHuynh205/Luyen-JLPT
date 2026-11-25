@@ -78,6 +78,71 @@ describe("Google PKCE", () => {
     );
   });
 });
+
+describe("web auth callbacks", () => {
+  it("recognizes callback errors and PKCE links even without a verifier", async () => {
+    const { parseWebAuthCallback } = await import("./client");
+    expect(
+      parseWebAuthCallback(
+        "https://jlpt.test/tai-khoan?code=used&sb_flow_id=missing",
+      ),
+    ).toMatchObject({ code: "used" });
+    expect(
+      parseWebAuthCallback(
+        "https://jlpt.test/tai-khoan#error=access_denied&error_description=private",
+      ),
+    ).toMatchObject({ code: null });
+    expect(
+      parseWebAuthCallback("https://jlpt.test/tu-vung?code=used"),
+    ).toBeNull();
+  });
+
+  it("cleans auth parameters while preserving ordinary account parameters", async () => {
+    const { parseWebAuthCallback } = await import("./client");
+    expect(
+      parseWebAuthCallback(
+        "https://jlpt.test/tai-khoan?keep=1&code=used&sb_flow_id=missing#error=private&error_description=detail&provider_token=fixture&access_token=fixture",
+      )?.cleanUrl,
+    ).toBe("https://jlpt.test/tai-khoan?keep=1");
+  });
+
+  it("reports rejected exchanges, never borrowing a different verifier", async () => {
+    const location = new URL(
+      "https://jlpt.test/tai-khoan?code=used&sb_flow_id=unknown_flow#help",
+    );
+    const history = { state: { route: 1 }, replaceState: vi.fn() };
+    vi.stubGlobal("window", { location, history });
+    sdk.auth.exchangeCodeForSession.mockResolvedValue({
+      error: new Error("private detail"),
+    });
+    const { completeWebAuthCallback } = await import("./client");
+    expect(await completeWebAuthCallback()).toBe(true);
+    expect(sdk.auth.exchangeCodeForSession).toHaveBeenCalledExactlyOnceWith(
+      "used",
+      { flowId: "unknown_flow" },
+    );
+    expect(history.replaceState).toHaveBeenCalledExactlyOnceWith(
+      history.state,
+      "",
+      "https://jlpt.test/tai-khoan#help",
+    );
+  });
+
+  it.each([
+    [false, "/tai-khoan"],
+    [false, "/tai-khoan?type=recovery"],
+    [false, "/tu-vung?code=unrelated"],
+    [true, "/tai-khoan?code=native"],
+  ])("ignores non-web callbacks (native=%s, path=%s)", async (tauri, path) => {
+    native.isTauri.mockReturnValue(tauri);
+    vi.stubGlobal("window", {
+      location: new URL(String(path), "https://jlpt.test"),
+    });
+    const { completeWebAuthCallback } = await import("./client");
+    expect(await completeWebAuthCallback()).toBe(false);
+    expect(sdk.auth.exchangeCodeForSession).not.toHaveBeenCalled();
+  });
+});
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
