@@ -10,13 +10,21 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { buildComparisonLinks } from "../../../frontend/src/core/content/comparisonLinks";
 import {
+  type GrammarComparison,
+  type GrammarPattern,
   type Level,
   PACK_TABLES,
 } from "../../../frontend/src/core/content/types";
 import { validatePack } from "../../../frontend/src/core/content/validate";
-import { buildPack, writeIndex } from "./build-packs";
+import {
+  buildPack,
+  formatComparisonLinkReport,
+  writeIndex,
+} from "./build-packs";
+import { buildPacks } from "./packs";
 
 const contentDir = fileURLToPath(new URL("../../content/n4/", import.meta.url));
 const dirs: string[] = [];
@@ -163,5 +171,69 @@ describe("writeIndex", () => {
       writeIndex(out, [{ level: "../bad" as Level, version: "1.0.0" }]),
     ).toThrow();
     expect(readFileSync(index)).toEqual(before);
+  });
+});
+
+describe("formatComparisonLinkReport", () => {
+  const comparisons = JSON.parse(
+    readFileSync(join(contentDir, "comparisons.json"), "utf8"),
+  ) as GrammarComparison[];
+  const grammar = JSON.parse(
+    readFileSync(join(contentDir, "grammar.json"), "utf8"),
+  ) as GrammarPattern[];
+
+  it("returns null when every comparison part is matched", () => {
+    const report = buildComparisonLinks(
+      [
+        {
+          id: "c-1",
+          group: "Nhóm khớp",
+          patterns: "～んですか",
+          distinction: "",
+          whenToUse: "",
+          exampleJa: "",
+          exampleVi: "",
+        },
+      ],
+      grammar,
+    );
+    expect(formatComparisonLinkReport("n4", report)).toBeNull();
+  });
+
+  it("formats matched/unmatched counts and lists each unmatched part", () => {
+    const report = buildComparisonLinks(comparisons, grammar);
+    const formatted = formatComparisonLinkReport("n4", report);
+    expect(formatted).not.toBeNull();
+    expect(formatted).toContain("n4");
+    expect(formatted).toContain("comparison-SS001");
+    expect(formatted).toContain("～ですか・ますか");
+    expect(formatted).toContain("comparison-SS006");
+    expect(formatted).toContain("だけ");
+  });
+
+  it("prints unmatched comparison parts during buildPacks without failing or mutating pack output", () => {
+    const root = temporaryDir();
+    cpSync(
+      fileURLToPath(new URL("../../content", import.meta.url)),
+      join(root, "infra/content"),
+      { recursive: true },
+    );
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    try {
+      buildPacks(root, false);
+      const output = [
+        ...logSpy.mock.calls.map((args) => args.join(" ")),
+        ...warnSpy.mock.calls.map((args) => args.join(" ")),
+      ].join("\n");
+      expect(output).toContain("comparison-SS001");
+      expect(output).toContain("～ですか・ますか");
+      expect(
+        readFileSync(join(root, "infra/packs/n4/1.0.0/comparisons.json")),
+      ).toEqual(readFileSync(join(contentDir, "comparisons.json")));
+    } finally {
+      logSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
   });
 });

@@ -31,6 +31,7 @@ const NAV_ITEMS = [
   { to: "/kanji", label: "Kanji", id: "kanji", exact: false },
   { to: "/ngu-phap", label: "Ngữ pháp", id: "grammar", exact: false },
   { to: "/doc-hieu", label: "Đọc hiểu", id: "reading", exact: false },
+  { to: "/luyen-de", label: "Luyện đề", id: "exam", exact: false },
   { to: "/tien-do", label: "Tiến độ của tôi", id: "progress", exact: false },
 ] as const;
 

@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import AboutPage from "@/pages/AboutPage";
 import AccountPage from "@/pages/AccountPage";
+import ExamListPage from "@/pages/ExamListPage";
+import ExamRunnerPage from "@/pages/ExamRunnerPage";
+import GrammarComparisonDetailPage from "@/pages/GrammarComparisonDetailPage";
+import GrammarComparisonsPage from "@/pages/GrammarComparisonsPage";
+import GrammarConjugationsPage from "@/pages/GrammarConjugationsPage";
 import GrammarDetailPage from "@/pages/GrammarDetailPage";
+import GrammarKeigoPage from "@/pages/GrammarKeigoPage";
 import GrammarListPage from "@/pages/GrammarListPage";
+import GrammarVerbPairsPage from "@/pages/GrammarVerbPairsPage";
 import HomePage from "@/pages/HomePage";
 import KanjiLibraryPage from "@/pages/KanjiLibraryPage";
 import KanjiQuizPage from "@/pages/KanjiQuizPage";
@@ -102,6 +109,31 @@ const routes = [
   }),
   createRoute({
     getParentRoute: () => rootRoute,
+    path: "/ngu-phap/so-sanh",
+    component: GrammarComparisonsPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/ngu-phap/so-sanh/$comparisonId",
+    component: GrammarComparisonDetailPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/ngu-phap/cach-chia",
+    component: GrammarConjugationsPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/ngu-phap/kinh-ngu",
+    component: GrammarKeigoPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/ngu-phap/tu-dong-tha-dong",
+    component: GrammarVerbPairsPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
     path: "/ngu-phap/$patternId",
     component: GrammarDetailPage,
   }),
@@ -114,6 +146,16 @@ const routes = [
     getParentRoute: () => rootRoute,
     path: "/doc-hieu/$passageId",
     component: ReadingDetailPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/luyen-de",
+    component: ExamListPage,
+  }),
+  createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/luyen-de/$examId",
+    component: ExamRunnerPage,
   }),
   createRoute({
     getParentRoute: () => rootRoute,

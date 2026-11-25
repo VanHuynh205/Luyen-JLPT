@@ -16,3 +16,4 @@ backend/supabase/.branches/
 /.codex/config.toml
 graphify-out/
 .wrangler/
+/infra/de_jlptn4/

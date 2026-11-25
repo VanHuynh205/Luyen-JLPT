@@ -3,7 +3,10 @@ import {
   currentKanjiResults,
   currentReadingResults,
 } from "@/components/home/sections";
-import { ProgressStatCard } from "@/components/progress/ProgressStatCard";
+import {
+  ProgressStatCard,
+  percentOf,
+} from "@/components/progress/ProgressStatCard";
 import {
   KanjiResultsList,
   ReadingResultsList,
@@ -11,12 +14,93 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import type { ExamAttemptRecord } from "@/core/exam/types";
 import { useReadyPack } from "@/hooks/useContent";
+import { useExamAttempts, useExamIndex } from "@/hooks/useExams";
 import { useIsSignedIn, useMyProgress } from "@/hooks/useProgress";
 import { Link } from "@tanstack/react-router";
-import { AlertTriangle, RotateCw, Sprout } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, RotateCw, Sprout } from "lucide-react";
 
 const SKELETON_IDS = Array.from({ length: 4 }, (_, i) => `skeleton-${i}`);
+
+const examDateFormat = new Intl.DateTimeFormat("vi-VN", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+function formatExamCompletedAt(iso: string): string {
+  const date = new Date(iso);
+  return Number.isNaN(date.getTime())
+    ? "Không rõ thời gian"
+    : examDateFormat.format(date);
+}
+
+function ExamAttemptsSection({
+  attempts,
+}: {
+  attempts: readonly ExamAttemptRecord[];
+}) {
+  const examIndexQuery = useExamIndex();
+  const titleById = new Map(
+    (examIndexQuery.data?.exams ?? []).map((exam) => [exam.id, exam.title]),
+  );
+
+  return (
+    <section
+      data-ocid="progress.exam_attempts.section"
+      aria-labelledby="progress-exam-attempts-title"
+      className="rounded-lg border bg-card p-5 shadow-subtle md:p-6"
+    >
+      <h2 id="progress-exam-attempts-title" className="mb-4 text-2xl">
+        Lịch sử luyện đề
+      </h2>
+      <ul
+        data-ocid="progress.exam_attempts.list"
+        className="divide-y divide-border"
+      >
+        {attempts.map((attempt, i) => {
+          const pct = percentOf(attempt.totalScore, attempt.totalQuestions);
+          return (
+            <li
+              key={attempt.id}
+              data-ocid={`progress.exam_attempts.item.${i + 1}`}
+              className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+            >
+              <div className="min-w-0">
+                <p className="truncate font-medium text-foreground">
+                  {titleById.get(attempt.examId) ?? attempt.examId}
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {formatExamCompletedAt(attempt.completedAt)}
+                </p>
+              </div>
+              <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
+                <span className="font-semibold tabular-nums text-foreground">
+                  {attempt.totalScore}/{attempt.totalQuestions}
+                  <span className="ml-2 text-sm font-normal text-muted-foreground">
+                    ({pct}%)
+                  </span>
+                </span>
+                <Link
+                  to="/luyen-de/$examId"
+                  params={{ examId: attempt.examId }}
+                  data-ocid={`progress.exam_attempts.link.${i + 1}`}
+                  className="inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm font-medium text-primary transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Làm lại
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
 
 function PageHeader({ level }: { level: string }) {
   return (
@@ -26,8 +110,8 @@ function PageHeader({ level }: { level: string }) {
       </p>
       <h1 className="text-3xl font-semibold md:text-4xl">Tiến độ của tôi</h1>
       <p className="max-w-2xl text-muted-foreground">
-        Tổng hợp từ vựng đã thuộc, ngữ pháp đã học, bài đọc hiểu đã làm và kết
-        quả trắc nghiệm Kanji của bạn.
+        Tổng hợp từ vựng đã thuộc, ngữ pháp đã học, bài đọc hiểu đã làm, kết quả
+        trắc nghiệm Kanji và lịch sử luyện đề của bạn.
       </p>
     </header>
   );
@@ -53,8 +137,14 @@ function LoadingState() {
 function ProgressContent() {
   const pack = useReadyPack();
   const { data, isPending, isError, refetch, isRefetching } = useMyProgress();
+  const examAttemptsQuery = useExamAttempts();
 
-  if (isPending && !isError) return <LoadingState />;
+  if (
+    (isPending && !isError) ||
+    (examAttemptsQuery.isPending && !examAttemptsQuery.isError)
+  ) {
+    return <LoadingState />;
+  }
 
   if (isError || !data) {
     return (
@@ -117,11 +207,14 @@ function ProgressContent() {
   );
   const kanjiAsked = kanjiResults.reduce((sum, r) => sum + Number(r.total), 0);
 
+  const examAttempts = examAttemptsQuery.data ?? [];
+
   const isEmpty =
     knownCount === 0 &&
     learnedGrammar === 0 &&
     readingResults.length === 0 &&
-    kanjiResults.length === 0;
+    kanjiResults.length === 0 &&
+    examAttempts.length === 0;
 
   if (isEmpty) {
     return (
@@ -196,6 +289,9 @@ function ProgressContent() {
         <KanjiResultsList results={kanjiResults} />
         <ReadingResultsList results={readingResults} passages={pack.reading} />
       </div>
+      {examAttempts.length > 0 && (
+        <ExamAttemptsSection attempts={examAttempts} />
+      )}
       {mostMissed.length > 0 && (
         <section className="rounded-xl border bg-card p-5 shadow-subtle md:p-6">
           <div className="mb-4 flex items-baseline justify-between gap-2">

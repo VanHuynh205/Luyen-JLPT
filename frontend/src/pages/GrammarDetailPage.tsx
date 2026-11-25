@@ -10,10 +10,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { buildComparisonLinks } from "@/core/content/comparisonLinks";
 import type { GrammarPattern } from "@/core/content/types";
 import { useReadyPack } from "@/hooks/useContent";
 import { Link, useParams } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, SearchX } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronRight, SearchX } from "lucide-react";
+import { useMemo } from "react";
 
 const CONNECTION_LABELS = [
   { key: "v", label: "Động từ" },
@@ -79,7 +81,7 @@ function BackLink() {
 }
 
 export default function GrammarDetailPage() {
-  const { grammar: grammarPatterns, manifest } = useReadyPack();
+  const { grammar: grammarPatterns, comparisons, manifest } = useReadyPack();
   const { patternId } = useParams({ from: "/ngu-phap/$patternId" });
   const index = grammarPatterns.findIndex((p) => p.id === patternId);
   const pattern = index >= 0 ? grammarPatterns[index] : undefined;
@@ -88,6 +90,13 @@ export default function GrammarDetailPage() {
     index >= 0 && index < grammarPatterns.length - 1
       ? grammarPatterns[index + 1]
       : undefined;
+  const comparisonLinks = useMemo(
+    () => buildComparisonLinks(comparisons, grammarPatterns),
+    [comparisons, grammarPatterns],
+  );
+  const relatedComparisons = pattern
+    ? (comparisonLinks.byGrammarId.get(pattern.id) ?? [])
+    : [];
   const connectionRows = pattern
     ? CONNECTION_LABELS.flatMap(({ key, label }) => {
         const value = pattern.connections[key];
@@ -235,6 +244,49 @@ export default function GrammarDetailPage() {
             ))}
           </ol>
         </DetailSection>
+
+        {relatedComparisons.length > 0 && (
+          <DetailSection
+            id="so-sanh-lien-quan"
+            label="So sánh liên quan"
+            jpLabel="比較"
+          >
+            <ul
+              data-ocid="grammar_detail.comparisons.list"
+              className="space-y-3"
+            >
+              {relatedComparisons.map((comparison, i) => (
+                <li key={comparison.id}>
+                  <Link
+                    to="/ngu-phap/so-sanh/$comparisonId"
+                    params={{ comparisonId: comparison.id }}
+                    data-ocid={`grammar_detail.comparison.item.${i + 1}`}
+                    className="hover-lift group flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-smooth hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <div className="min-w-0 flex-1 space-y-1">
+                      <p className="text-sm font-semibold text-foreground">
+                        {comparison.group}
+                      </p>
+                      <p
+                        lang="ja"
+                        className="break-words font-jp text-lg font-semibold text-primary"
+                      >
+                        {comparison.patterns}
+                      </p>
+                      <p className="break-words text-sm text-muted-foreground">
+                        {comparison.distinction}
+                      </p>
+                    </div>
+                    <ChevronRight
+                      className="h-5 w-5 shrink-0 text-muted-foreground transition-smooth group-hover:translate-x-0.5 group-hover:text-primary"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </DetailSection>
+        )}
 
         {hasQuiz && (
           <section

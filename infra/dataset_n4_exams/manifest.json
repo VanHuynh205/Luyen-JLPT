@@ -1,0 +1,116 @@
+{
+ "level": "n4",
+ "version": "1.0.0",
+ "examCount": 6,
+ "totalQuestions": 426,
+ "exams": [
+  {
+   "id": "n4-2025-07",
+   "year": 2025,
+   "month": 7,
+   "code": "2025-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2025",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": false,
+   "hasSourceAudio": false,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 0
+   },
+   "totalQuestions": 57,
+   "totalDurationSeconds": 6900,
+   "sha256": "76c32a3bc5c069d57617bd44e91cb8ce9381d59264f763bd6a88f92620ebef4c"
+  },
+  {
+   "id": "n4-2024-12",
+   "year": 2024,
+   "month": 12,
+   "code": "2024-12",
+   "title": "Đề thi JLPT N4 — Tháng 12/2024",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": true,
+   "hasSourceAudio": false,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 28
+   },
+   "totalQuestions": 85,
+   "totalDurationSeconds": 6900,
+   "sha256": "ec4ec67c2e2592416c0bbdc1b618365f5382dfac8d4c1dcdfb2f5240efb06d59"
+  },
+  {
+   "id": "n4-2024-07",
+   "year": 2024,
+   "month": 7,
+   "code": "2024-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2024",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": true,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 28
+   },
+   "totalQuestions": 85,
+   "totalDurationSeconds": 6900,
+   "sha256": "312741c49c680013dcbedc5a32c0a996f566a96aff41ab0a11b8ed9dc9c8fe43"
+  },
+  {
+   "id": "n4-2023-07",
+   "year": 2023,
+   "month": 7,
+   "code": "2023-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2023",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": false,
+   "hasSourceAudio": false,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 0
+   },
+   "totalQuestions": 57,
+   "totalDurationSeconds": 6900,
+   "sha256": "036aeaf35e9063ba7e8acf219d2d7ad2f8a2c9491a7f3e0a352a78f9f501f6ef"
+  },
+  {
+   "id": "n4-2021-12",
+   "year": 2021,
+   "month": 12,
+   "code": "2021-12",
+   "title": "Đề thi JLPT N4 — Tháng 12/2021",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": true,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 28
+   },
+   "totalQuestions": 85,
+   "totalDurationSeconds": 6900,
+   "sha256": "02dab5bc964571b9393c2a7bce3b5e2fe431a3823e62f203bcbec915d5060824"
+  },
+  {
+   "id": "n4-2021-07",
+   "year": 2021,
+   "month": 7,
+   "code": "2021-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2021",
+   "answerSourceSummary": "mixed",
+   "hasListeningScript": false,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 28,
+    "grammar_reading": 29,
+    "listening": 0
+   },
+   "totalQuestions": 57,
+   "totalDurationSeconds": 6900,
+   "sha256": "b11bd5342828eb9fc3f22ed71e296c13fd6a9cb8ef279114d68f5333652feb38"
+  }
+ ]
+}

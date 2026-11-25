@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { isDeepStrictEqual } from "node:util";
+import type { ComparisonLinkReport } from "../../../frontend/src/core/content/comparisonLinks";
 import {
   LEVELS,
   type Level,
@@ -92,4 +93,24 @@ export function writeIndex(
     JSON.stringify({ levels }, null, 1),
     "utf8",
   );
+}
+
+export function formatComparisonLinkReport(
+  level: Level,
+  report: ComparisonLinkReport,
+): string | null {
+  if (report.unmatched.length === 0) return null;
+  let totalParts = 0;
+  for (const parts of report.partsByComparisonId.values()) {
+    totalParts += parts.length;
+  }
+  const matchedParts = totalParts - report.unmatched.length;
+  const lines = [
+    `[packs] ${level} comparison links: ${matchedParts}/${totalParts} parts matched, ${report.unmatched.length} unmatched:`,
+    ...report.unmatched.map(
+      ({ comparisonId, group, part }) =>
+        `  - ${comparisonId} (${group}): ${part}`,
+    ),
+  ];
+  return lines.join("\n");
 }

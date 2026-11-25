@@ -1,0 +1,1254 @@
+{
+  "id": "n4-2021-07",
+  "level": "n4",
+  "year": 2021,
+  "month": 7,
+  "code": "2021-07",
+  "title": "Đề thi JLPT N4 — Tháng 7/2021",
+  "answerSourceSummary": "mixed",
+  "hasListeningScript": false,
+  "hasSourceAudio": true,
+  "sections": [
+    {
+      "key": "vocab",
+      "title": "Từ vựng & Chữ Hán",
+      "titleJa": "言語知識（文字・語彙）",
+      "durationSeconds": 1500,
+      "audioAvailable": false,
+      "groups": [
+        {
+          "id": "v-mondai-1",
+          "label": "問題1",
+          "instructionJa": "＿＿＿の ことばは ひらがなで どう かきますか。1・2・3・4から いちばん いい ものを ひとつ えらんでください。",
+          "instructionVi": "Từ được gạch chân viết bằng hiragana như thế nào? Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-v-01",
+              "number": 1,
+              "prompt": "きのう 3時間[[以上]] べんきょうしました。",
+              "promptRuby": "きのう 3{時間|じかん}[[{以上|いじょう}]] べんきょうしました。",
+              "choices": [
+                "いがい",
+                "いじょう",
+                "いない",
+                "いか"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Hôm qua tôi đã học hơn 3 tiếng đồng hồ.",
+              "explanation": "「以上」(DĨ THƯỢNG) đọc là 「いじょう」, nghĩa là 'trên, trở lên' (bao gồm cả mốc đó). Các đáp án khác: いがい (以外: ngoại trừ), いない (以内: trong vòng), いか (以下: dưới, trở xuống)."
+            },
+            {
+              "id": "n4-2021-07-v-02",
+              "number": 2,
+              "prompt": "もう 少し [[近い]] ほうが いいです。",
+              "promptRuby": "もう {少|すこ}し [[{近|ちか}い]] ほうが いいです。",
+              "choices": [
+                "ちかい",
+                "はやい",
+                "ひろい",
+                "ふとい"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Gần hơn một chút nữa thì tốt hơn.",
+              "explanation": "「近い」(CẬN) đọc là 「ちかい」, nghĩa là 'gần'. Các đáp án khác: はやい (早い/速い: sớm/nhanh), ひろい (広い: rộng), ふとい (太い: to, dày)."
+            },
+            {
+              "id": "n4-2021-07-v-03",
+              "number": 3,
+              "prompt": "あしたは [[都合]]が わるいです。",
+              "promptRuby": "あしたは [[{都合|つごう}]]が わるいです。",
+              "choices": [
+                "とごう",
+                "つかい",
+                "つごう",
+                "とかい"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Ngày mai tôi không tiện (bận việc).",
+              "explanation": "「都合」(ĐÔ HỢP) đọc là 「つごう」, nghĩa là 'sự thuận tiện, lịch trình, hoàn cảnh'. Cụm 「都合が悪い」 nghĩa là 'không tiện, bận'. Chú ý âm đọc 「都」 ở đây là つ (không phải と) và 「合」 bị biến âm thành ごう."
+            },
+            {
+              "id": "n4-2021-07-v-04",
+              "number": 4,
+              "prompt": "ドアを [[引いて]] ください。",
+              "promptRuby": "ドアを [[{引|ひ}いて]] ください。",
+              "choices": [
+                "ふいて",
+                "ひいて",
+                "ついて",
+                "おいて"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Hãy kéo cửa ra.",
+              "explanation": "Động từ 「引く」(DẪN) đọc là 「ひく」 (kéo), chia thể て thành 「引いて (ひいて)」. Các đáp án khác: ふいて (吹いて/拭いて: thổi/lau), ついて (着いて/点いて: đến/bật), おいて (置いて: đặt, để)."
+            },
+            {
+              "id": "n4-2021-07-v-05",
+              "number": 5,
+              "prompt": "[[女性]]の おてあらいは あちらです。",
+              "promptRuby": "[[{女性|じょせい}]]の おてあらいは あちらです。",
+              "choices": [
+                "しょせい",
+                "だんせい",
+                "じょせい",
+                "たんせい"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Nhà vệ sinh nữ ở đằng kia.",
+              "explanation": "「女性」(NỮ TÍNH) đọc là 「じょせい」, nghĩa là 'nữ giới, phụ nữ'. Chú ý có âm đục じょ (không phải しょせい), còn だんせい là 男性 (nam giới)."
+            },
+            {
+              "id": "n4-2021-07-v-06",
+              "number": 6,
+              "prompt": "いつから [[習って]] いるんですか。",
+              "promptRuby": "いつから [[{習|なら}って]] いるんですか。",
+              "choices": [
+                "おそわって",
+                "かよって",
+                "おこなって",
+                "ならって"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Bạn đang theo học từ bao giờ vậy?",
+              "explanation": "Động từ 「習う」(TẬP) đọc là 「ならう」 (học từ ai đó), chia thể て là 「習って (ならって)」. Các đáp án khác: おそわって (教わって: được dạy), かよって (通って: đi lại đều đặn), おこなって (行って: tiến hành, tổ chức)."
+            },
+            {
+              "id": "n4-2021-07-v-07",
+              "number": 7,
+              "prompt": "あそこに いるのは はやしさんの[[お姉さん]]です。",
+              "promptRuby": "あそこに いるのは はやしさんの[[お{姉|ねえ}さん]]です。",
+              "choices": [
+                "おねえさん",
+                "おにいさん",
+                "おねさん",
+                "おにさん"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Người ở đằng kia là chị gái của anh/chị Hayashi.",
+              "explanation": "「お姉さん」(TỶ) đọc là 「おねえさん」 (chị gái), có trường âm 「え」. Đáp án 3 thiếu trường âm; おにいさん là お兄さん (anh trai)."
+            }
+          ]
+        },
+        {
+          "id": "v-mondai-2",
+          "label": "問題2",
+          "instructionJa": "＿＿＿の ことばは かんじで どう かきますか。1・2・3・4から いちばん いい ものを ひとつ えらんでください。",
+          "instructionVi": "Từ được gạch chân viết bằng chữ Hán như thế nào? Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-v-08",
+              "number": 8,
+              "prompt": "おとといの [[よる]] パーティーに 行きました。",
+              "promptRuby": "おとといの [[よる]] パーティーに {行|い}きました。",
+              "choices": [
+                "晩",
+                "夜",
+                "挽",
+                "液"
+              ],
+              "choicesRuby": [
+                "{晩|ばん}",
+                "{夜|よる}",
+                "{挽|ひ}",
+                "{液|えき}"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Tối hôm kia tôi đã đi dự tiệc.",
+              "explanation": "「よる」 (buổi tối, ban đêm) viết bằng chữ Hán là 「夜」(DẠ). Các chữ dễ nhầm: 晩 (VÃN, đọc là ばん), 挽 (VÃN, nghĩa là kéo/xay), 液 (DỊCH, chất lỏng — có bộ thủy 氵)."
+            },
+            {
+              "id": "n4-2021-07-v-09",
+              "number": 9,
+              "prompt": "あの [[しろい]] 車が わたしのです。",
+              "promptRuby": "あの [[しろい]] {車|くるま}が わたしのです。",
+              "choices": [
+                "赤い",
+                "青い",
+                "黒い",
+                "白い"
+              ],
+              "choicesRuby": [
+                "{赤|あか}い",
+                "{青|あお}い",
+                "{黒|くろ}い",
+                "{白|しろ}い"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Chiếc ô tô màu trắng đằng kia là của tôi.",
+              "explanation": "「しろい」 (màu trắng) viết bằng chữ Hán là 「白い」(BẠCH). Các đáp án khác: 赤い (あかい: đỏ), 青い (あおい: xanh dương), 黒い (くろい: đen)."
+            },
+            {
+              "id": "n4-2021-07-v-10",
+              "number": 10,
+              "prompt": "[[しょくどう]]は あの たてものの 中です。",
+              "promptRuby": "[[しょくどう]]は あの たてものの {中|なか}です。",
+              "choices": [
+                "食室",
+                "飯室",
+                "食堂",
+                "飯堂"
+              ],
+              "choicesRuby": [
+                "{食室|しょくしつ}",
+                "{飯室|はんしつ}",
+                "{食堂|しょくどう}",
+                "{飯堂|はんどう}"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Nhà ăn (căng-tin) nằm ở bên trong tòa nhà kia.",
+              "explanation": "「しょくどう」 (nhà ăn, căng-tin) viết là 「食堂」(THỰC ĐƯỜNG). 「食」 (しょく: ăn) + 「堂」 (どう: gian lớn, sảnh)."
+            },
+            {
+              "id": "n4-2021-07-v-11",
+              "number": 11,
+              "prompt": "まどを [[しめて]] ください。",
+              "promptRuby": "まどを [[しめて]] ください。",
+              "choices": [
+                "関めて",
+                "閉めて",
+                "問めて",
+                "開めて"
+              ],
+              "choicesRuby": [
+                "{関|かん}めて",
+                "{閉|し}めて",
+                "{問|と}めて",
+                "{開|あ}めて"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Hãy đóng cửa sổ lại.",
+              "explanation": "Động từ 「しめる」 (đóng) viết là 「閉める」(BẾ), chia thể て là 「閉めて」. Cần phân biệt với bộ môn 門 tương tự: 開 (KHAI: mở, あける), 問 (VẤN: hỏi, とう), 関 (QUAN: liên quan)."
+            },
+            {
+              "id": "n4-2021-07-v-12",
+              "number": 12,
+              "prompt": "なかさんは [[しんせつ]]です。",
+              "promptRuby": "なかさんは [[しんせつ]]です。",
+              "choices": [
+                "親切",
+                "新切",
+                "親功",
+                "新功"
+              ],
+              "choicesRuby": [
+                "{親切|しんせつ}",
+                "{新切|しんせつ}",
+                "{親功|しんこう}",
+                "{新功|しんこう}"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Anh/chị Naka là người tử tế, thân thiện.",
+              "explanation": "「しんせつ」 (tử tế, thân thiện, chu đáo) viết là 「親切」(THÂN THIẾT). Không nhầm 「親」(THÂN) với 「新」(TÂN: mới) và không nhầm 「切」(THIẾT) với 「功」(CÔNG)."
+            }
+          ]
+        },
+        {
+          "id": "v-mondai-3",
+          "label": "問題3",
+          "instructionJa": "（　　）に なにを 入れますか。1・2・3・4から いちばん いい ものを ひとつ えらんでください。",
+          "instructionVi": "Điền từ nào vào chỗ trống ( )? Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-v-13",
+              "number": 13,
+              "prompt": "このどうぐは、あの きかいを なおす ために （　　）です。",
+              "promptRuby": "このどうぐは、あの きかいを なおす ために （　　）です。",
+              "choices": [
+                "ねっしん",
+                "ていねい",
+                "ひつよう",
+                "とくべつ"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Dụng cụ này cần thiết để sửa chiếc máy kia.",
+              "explanation": "「ひつよう」(必要: cần thiết) hợp nghĩa với 「〜を直すために必要です」 (cần thiết để sửa...). Các đáp án khác: ねっしん (熱心: nhiệt tình), ていねい (丁寧: lịch sự, cẩn thận), とくべつ (特別: đặc biệt)."
+            },
+            {
+              "id": "n4-2021-07-v-14",
+              "number": 14,
+              "prompt": "この プールは （　　）ですから、子どもは およがないで ください。",
+              "promptRuby": "この プールは （　　）ですから、{子|こ}どもは およがないで ください。",
+              "choices": [
+                "かたい",
+                "おもい",
+                "ふかい",
+                "にがい"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Hồ bơi này sâu nên trẻ em xin đừng bơi.",
+              "explanation": "「ふかい」(深い: sâu) mô tả độ sâu của hồ bơi (プール) và giải thích lý do trẻ em không được bơi. Các đáp án khác: かたい (硬い: cứng), おもい (重い: nặng), にがい (苦い: đắng)."
+            },
+            {
+              "id": "n4-2021-07-v-15",
+              "number": 15,
+              "prompt": "その はがきに この きってを （　　）ください。",
+              "promptRuby": "その はがきに この きってを （　　）ください。",
+              "choices": [
+                "かけて",
+                "はって",
+                "ぬって",
+                "すてて"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Hãy dán con tem này lên tấm bưu thiếp đó.",
+              "explanation": "Cụm từ cố định 「切手を貼る (きってをはる)」 nghĩa là 'dán tem' (lên phong bì, bưu thiếp はがき). Các đáp án khác: かけて (treo/đeo/gọi), ぬって (塗って: sơn/bôi; 縫って: khâu), すてて (捨てて: vứt bỏ)."
+            },
+            {
+              "id": "n4-2021-07-v-16",
+              "number": 16,
+              "prompt": "えきまえの ほんやは あさ 8時から （　　）して います。",
+              "promptRuby": "えきまえの ほんやは あさ 8{時|じ}から （　　）して います。",
+              "choices": [
+                "えいぎょう",
+                "せいさん",
+                "ぼうえき",
+                "ゆしゅつ"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Hiệu sách trước nhà ga mở cửa kinh doanh từ 8 giờ sáng.",
+              "explanation": "「えいぎょうする」(営業する: mở cửa kinh doanh, hoạt động buôn bán) rất hay dùng cho cửa hàng, hiệu sách với giờ mở cửa. Các đáp án khác: せいさん (生産: sản xuất), ぼうえき (貿易: thương mại/mậu dịch), ゆしゅつ (輸出: xuất khẩu)."
+            },
+            {
+              "id": "n4-2021-07-v-17",
+              "number": 17,
+              "prompt": "この みちを まっすぐ （　　）と、右がわに としょかんが あります。",
+              "promptRuby": "この みちを まっすぐ （　　）と、{右|みぎ}がわに としょかんが あります。",
+              "choices": [
+                "でかける",
+                "うごく",
+                "たずねる",
+                "すすむ"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Đi thẳng con đường này thì sẽ thấy thư viện ở phía bên phải.",
+              "explanation": "「まっすぐ進む (すすむ)」 nghĩa là 'đi thẳng, tiến thẳng về phía trước' — mẫu chỉ đường tiêu chuẩn. Các đáp án khác: でかける (出かける: đi ra ngoài), うごく (動く: chuyển động), たずねる (訪ねる/尋ねる: ghé thăm/hỏi)."
+            },
+            {
+              "id": "n4-2021-07-v-18",
+              "number": 18,
+              "prompt": "どちらの けいかくが いいと おもうか、みんなの （　　）を 聞きました。",
+              "promptRuby": "どちらの けいかくが いいと おもうか、みんなの （　　）を {聞|き}きました。",
+              "choices": [
+                "やくそく",
+                "いけん",
+                "あいさつ",
+                "ひみつ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Tôi đã hỏi ý kiến của mọi người xem họ nghĩ kế hoạch nào tốt hơn.",
+              "explanation": "「意見を聞く (いけんをきく)」 nghĩa là 'lắng nghe/hỏi ý kiến'. Các đáp án khác: やくそく (約束: lời hứa), あいさつ (挨拶: lời chào), ひみつ (秘密: bí mật)."
+            },
+            {
+              "id": "n4-2021-07-v-19",
+              "number": 19,
+              "prompt": "きのう うちの ねこが 子どもを 3びき （　　）。",
+              "promptRuby": "きのう うちの ねこが {子|こ}どもを 3びき （　　）。",
+              "choices": [
+                "しました",
+                "だしました",
+                "やりました",
+                "うみました"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Hôm qua con mèo nhà tôi đã đẻ 3 con mèo con.",
+              "explanation": "「産む (うむ)」 nghĩa là 'sinh, đẻ', đi với 「子どもを産む」 (sinh con / đẻ con). Các động từ しました (làm), だしました (đưa ra/nộp), やりました (làm/cho) không mang nghĩa sinh nở."
+            },
+            {
+              "id": "n4-2021-07-v-20",
+              "number": 20,
+              "prompt": "しけんの （　　）が よかったので、うれしいです。",
+              "promptRuby": "しけんの （　　）が よかったので、うれしいです。",
+              "choices": [
+                "けっか",
+                "ごうかく",
+                "げんいん",
+                "せいこう"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Vì kết quả kỳ thi tốt nên tôi rất vui.",
+              "explanation": "「試験の結果 (しけんのけっか) がいい」 nghĩa là 'kết quả kỳ thi tốt'. 「ごうかく」(合格: đỗ) và 「せいこう」(成功: thành công) không kết hợp với 「がいい」, còn 「げんいん」(原因: nguyên nhân) sai nghĩa."
+            }
+          ]
+        },
+        {
+          "id": "v-mondai-4",
+          "label": "問題4",
+          "instructionJa": "＿＿＿の ぶんと だいたい おなじ いみの ぶんが あります。1・2・3・4から いちばん いい ものを ひとつ えらんでください。",
+          "instructionVi": "Có câu mang ý nghĩa gần giống nhất với câu được gạch chân. Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-v-21",
+              "number": 21,
+              "prompt": "[[さいきん いそがしくて、うんどうできません。]]",
+              "promptRuby": "[[さいきん いそがしくて、うんどうできません。]]",
+              "choices": [
+                "さいきん いそがしくて、本を 読んで いません。",
+                "さいきん いそがしくて、休んで いません。",
+                "さいきん いそがしくて、うちの しごとを して いません。",
+                "さいきん いそがしくて、スポーツを して いません。"
+              ],
+              "choicesRuby": [
+                "さいきん いそがしくて、{本|ほん}を {読|よ}んで いません。",
+                "さいきん いそがしくて、{休|やす}んで いません。",
+                "さいきん いそがしくて、うちの しごとを して いません。",
+                "さいきん いそがしくて、スポーツを して いません。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Gần đây vì bận nên tôi không thể vận động (tập thể thao) được.",
+              "explanation": "「うんどうする」(運動する: vận động, tập thể dục) có nghĩa gần nhất với 「スポーツをする」 (chơi thể thao). Các đáp án khác là đọc sách (本を読む), nghỉ ngơi (休む), làm việc nhà (うちの仕事をする)."
+            },
+            {
+              "id": "n4-2021-07-v-22",
+              "number": 22,
+              "prompt": "[[くうこうは ここから とおいですか。]]",
+              "promptRuby": "[[くうこうは ここから とおいですか。]]",
+              "choices": [
+                "ひこうきに のる ところは ここから とおいですか。",
+                "ふねに のる ところは ここから とおいですか。",
+                "たべものを 買う ところは ここから とおいですか。",
+                "きっぷを 買う ところは ここから とおいですか。"
+              ],
+              "choicesRuby": [
+                "ひこうきに のる ところは ここから とおいですか。",
+                "ふねに のる ところは ここから とおいですか。",
+                "たべものを {買|か}う ところは ここから とおいですか。",
+                "きっぷを {買|か}う ところは ここから とおいですか。"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Sân bay có xa đây không?",
+              "explanation": "「くうこう」(空港: sân bay) tương đương với 「ひこうきに のる ところ」 (nơi lên máy bay). Đáp án 2 là bến tàu/cảng (ふねにのるところ), 3 là nơi mua đồ ăn, 4 là quầy vé."
+            },
+            {
+              "id": "n4-2021-07-v-23",
+              "number": 23,
+              "prompt": "[[もりさんに たのみました。]]",
+              "promptRuby": "[[もりさんに たのみました。]]",
+              "choices": [
+                "もりさんに れんらくしました。",
+                "もりさんに へんじしました。",
+                "もりさんに おねがいしました。",
+                "もりさんに しょうかいしました。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Tôi đã nhờ anh/chị Mori.",
+              "explanation": "「たのむ」(頼む: nhờ vả, yêu cầu) đồng nghĩa với 「おねがいする」(お願いする: nhờ, xin giúp đỡ). Các đáp án khác: れんらく (liên lạc), へんじ (trả lời), しょうかい (giới thiệu)."
+            },
+            {
+              "id": "n4-2021-07-v-24",
+              "number": 24,
+              "prompt": "[[けさから 雨が ざあざあ ふって います。]]",
+              "promptRuby": "[[けさから {雨|あめ}が ざあざあ ふって います。]]",
+              "choices": [
+                "けさから つめたい 雨が ふって います。",
+                "けさから こまかい 雨が ふって います。",
+                "けさから 雨が しずかに ふって います。",
+                "けさから 雨が つよく ふって います。"
+              ],
+              "choicesRuby": [
+                "けさから つめたい {雨|あめ}が ふって います。",
+                "けさから こまかい {雨|あめ}が ふって います。",
+                "けさから {雨|あめ}が しずかに ふって います。",
+                "けさから {雨|あめ}が つよく ふって います。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Từ sáng nay trời đang mưa ào ào (mưa rất to).",
+              "explanation": "Từ tượng thanh 「ざあざあ」 miêu tả mưa rơi xối xả, nặng hạt, tương đương với 「つよく ふって います」 (đang mưa to/mạnh). Các đáp án khác: つめたい (lạnh), こまかい (mưa phùn/hạt nhỏ), しずかに (nhẹ nhàng, êm ả)."
+            }
+          ]
+        },
+        {
+          "id": "v-mondai-5",
+          "label": "問題5",
+          "instructionJa": "つぎの ことばの つかいかたで いちばん いい ものを 1・2・3・4から ひとつ えらんで ください。",
+          "instructionVi": "Hãy chọn 1 câu sử dụng từ cho sẵn đúng cách nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-v-25",
+              "number": 25,
+              "prompt": "しんぱい",
+              "promptRuby": "しんぱい",
+              "choices": [
+                "たなか「先週 ひさしぶりに ともだちに あったんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「先週 わたしに たんじょうびの プレゼントが とどいたんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「先週 かって いた いぬが しんだんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「先週 あにが にゅういんしたんです。」\nやまだ「それは [[しんぱい]]ですね。」"
+              ],
+              "choicesRuby": [
+                "たなか「{先週|せんしゅう} ひさしぶりに ともだちに あったんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「{先週|せんしゅう} わたしに たんじょうびの プレゼントが とどいたんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「{先週|せんしゅう} かって いた いぬが しんだんです。」\nやまだ「それは [[しんぱい]]ですね。」",
+                "たなか「{先週|せんしゅう} あにが にゅういんしたんです。」\nやまだ「それは [[しんぱい]]ですね。」"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "しんぱい (lo lắng) — Tanaka: 'Tuần trước anh trai tôi đã nhập viện.' / Yamada: 'Vậy thì đáng lo quá nhỉ.'",
+              "explanation": "「しんぱい」(心配: lo lắng) dùng khi tình trạng sức khỏe hoặc kết quả vẫn chưa yên tâm, như việc anh trai nhập viện (đáp án 4). Đáp án 1 (gặp bạn) và 2 (nhận quà sinh nhật) là chuyện vui; đáp án 3 (chó đã chết) là chuyện buồn đã xảy ra rồi nên dùng 「ざんねんですね / かなしいですね」 chứ không dùng 「しんぱい」."
+            },
+            {
+              "id": "n4-2021-07-v-26",
+              "number": 26,
+              "prompt": "せまい",
+              "promptRuby": "せまい",
+              "choices": [
+                "この みちは [[せまい]]ので、車は とおれません。",
+                "この ズボンは わたしには 少し [[せまい]]です。",
+                "小さい じを 書く ときは、[[せまい]] ペンが いいです。",
+                "その やさいは [[せまく]] きって ください。"
+              ],
+              "choicesRuby": [
+                "この みちは [[せまい]]ので、{車|くるま}は とおれません。",
+                "この ズボンは わたしには {少|すこ}し [[せまい]]です。",
+                "{小|ちい}さい じを {書|か}く ときは、[[せまい]] ペンが いいです。",
+                "その やさいは [[せまく]] きって ください。"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "せまい (hẹp, chật hẹp) — Con đường này hẹp nên ô tô không thể đi qua được.",
+              "explanation": "「せまい」(狭い: chật hẹp) dùng cho diện tích, không gian, đường sá (như 道・部屋). Với quần áo chật (đáp án 2) dùng 「きつい / ちいさい」, ngòi bút mảnh (đáp án 3) dùng 「ほそい」, cắt rau nhỏ (đáp án 4) dùng 「ちいさく / こまかく」."
+            },
+            {
+              "id": "n4-2021-07-v-27",
+              "number": 27,
+              "prompt": "こしょう",
+              "promptRuby": "こしょう",
+              "choices": [
+                "水を あげるのを わすれて、花が [[こしょう]]して しまいました。",
+                "その パソコンは [[こしょう]]して いるので、つかえません。",
+                "この ぎゅうにゅうは [[こしょう]]して いるので、飲まないで ください。",
+                "テーブルから おちて、コップが [[こしょう]]しました。"
+              ],
+              "choicesRuby": [
+                "{水|みず}を あげるのを わすれて、{花|はな}が [[こしょう]]して しまいました。",
+                "その パソコンは [[こしょう]]して いるので、つかえません。",
+                "この ぎゅうにゅうは [[こしょう]]して いるので、{飲|の}まないで ください。",
+                "テーブルから おちて、コップが [[こしょう]]しました。"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "こしょう (hỏng hóc) — Chiếc máy tính đó đang bị hỏng nên không dùng được.",
+              "explanation": "「こしょう」(故障: hỏng hóc) chỉ dùng cho máy móc, thiết bị điện tử như パソコン (đáp án 2). Hoa héo (1) dùng 「かれる」, sữa hỏng (3) dùng 「くさる」, cốc rơi vỡ (4) dùng 「われる」."
+            },
+            {
+              "id": "n4-2021-07-v-28",
+              "number": 28,
+              "prompt": "たおれる",
+              "promptRuby": "たおれる",
+              "choices": [
+                "たいふうで 山が [[たおれました]]。",
+                "おとうとは こうつうじこで 足が [[たおれました]]。",
+                "大きい じしんで ほんだなが [[たおれました]]。",
+                "先生の びょうきで じゅぎょうが [[たおれました]]。"
+              ],
+              "choicesRuby": [
+                "たいふうで {山|やま}が [[たおれました]]。",
+                "おとうとは こうつうじこで {足|あし}が [[たおれました]]。",
+                "{大|おお}きい じしんで ほんだなが [[たおれました]]。",
+                "{先生|せんせい}の びょうきで じゅぎょうが [[たおれました]]。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "たおれる (đổ, ngã) — Vì trận động đất lớn nên giá sách đã bị đổ.",
+              "explanation": "「たおれる」(倒れる: đổ, ngã xuống) dùng cho đồ vật dựng đứng (như cây, giá sách ほんだな) hoặc người bị ngã/ngất. Núi không thể đổ (1), gãy chân (2) dùng 「おれる」, tiết học bị nghỉ (4) dùng 「やすみになる / ちゅうしになる」."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grammar_reading",
+      "title": "Ngữ pháp & Đọc hiểu",
+      "titleJa": "言語知識（文法）・読解",
+      "durationSeconds": 3300,
+      "audioAvailable": false,
+      "groups": [
+        {
+          "id": "g-mondai-1",
+          "label": "問題1",
+          "instructionJa": "（　　）に なにを 入れますか。1・2・3・4から いちばん いい ものを ひとつ えらんでください。",
+          "instructionVi": "Điền gì vào chỗ trống ( )? Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-01",
+              "number": 1,
+              "prompt": "田中さんは かぜ（　　）仕事を 休みました。",
+              "promptRuby": "{田中|たなか}さんは かぜ（　　）{仕事|しごと}を {休|やす}みました。",
+              "choices": [
+                "を",
+                "で",
+                "に",
+                "が"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Anh Tanaka đã nghỉ làm vì bị cảm cúm.",
+              "explanation": "Trợ từ 「で」 dùng sau danh từ chỉ nguyên nhân, lý do (bệnh tật, thiên tai, tai nạn...). 「かぜで仕事を休みました」 = nghỉ làm vì bị cảm."
+            },
+            {
+              "id": "n4-2021-07-g-02",
+              "number": 2,
+              "prompt": "私は 毎朝、天気予報を 見て、駅まで 自転車で 行くか バスで 行く（　　）決めます。",
+              "promptRuby": "{私|わたし}は {毎朝|まいあさ}、{天気予報|てんきよほう}を {見|み}て、{駅|えき}まで {自転車|じてんしゃ}で {行|い}くか バスで {行|い}く（　　）{決|き}めます。",
+              "choices": [
+                "を",
+                "と",
+                "か",
+                "が"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Mỗi sáng tôi đều xem dự báo thời tiết rồi quyết định xem sẽ đi ra ga bằng xe đạp hay bằng xe buýt.",
+              "explanation": "Cấu trúc câu hỏi lồng lựa chọn: 「Aか Bか ＋ 決める / わかる / 知っている」 (quyết định xem A hay B). Ở đây cần 「か」 sau 「バスで行く」 để tạo cặp 「自転車で行くか バスで行くか」."
+            },
+            {
+              "id": "n4-2021-07-g-03",
+              "number": 3,
+              "prompt": "バターは ぎゅうにゅう（　　）作られます。",
+              "promptRuby": "バターは ぎゅうにゅう（　　）{作|つく}られます。",
+              "choices": [
+                "の",
+                "を",
+                "から",
+                "には"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bơ được làm từ sữa bò.",
+              "explanation": "Mẫu bị động chỉ nguyên liệu: 「Nから作られる」 dùng khi nguyên liệu biến đổi tính chất, không còn thấy hình dạng ban đầu (bơ làm từ sữa, rượu làm từ gạo). Nếu giữ nguyên chất liệu nhìn thấy được (như bàn làm bằng gỗ) thì dùng 「で」."
+            },
+            {
+              "id": "n4-2021-07-g-04",
+              "number": 4,
+              "prompt": "（かばん屋で）\n客「すみません、この スーツケース（　　）同じくらいの 大きさで、もっと 軽いのは ありますか。」",
+              "promptRuby": "（かばん{屋|や}で）\n{客|きゃく}「すみません、この スーツケース（　　）{同|おな}じくらいの {大|おお}きさで、もっと {軽|かる}いのは ありますか。」",
+              "choices": [
+                "が",
+                "に",
+                "を",
+                "と"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "(Ở tiệm bán túi xách) Khách: 'Xin lỗi, có chiếc vali nào kích cỡ khoảng bằng chiếc này nhưng nhẹ hơn không ạ?'",
+              "explanation": "Cấu trúc so sánh ngang bằng: 「Nと同じ (おなじ)」 (giống với N) / 「Nと同じくらい」 (cỡ khoảng bằng N). Luôn đi với trợ từ 「と」."
+            },
+            {
+              "id": "n4-2021-07-g-05",
+              "number": 5,
+              "prompt": "田中「リーさんは 日本でも ちゅうか料理を 食べて いますか。」\nリー「いいえ。（　　）に 来てから 食べて いません。」",
+              "promptRuby": "{田中|たなか}「リーさんは {日本|にほん}でも ちゅうか{料理|りょうり}を {食|た}べて いますか。」\nリー「いいえ。（　　）に {来|き}てから {食|た}べて いません。」",
+              "choices": [
+                "あっち",
+                "どっち",
+                "こっち",
+                "そっち"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Tanaka: 'Bạn Lee ở Nhật cũng ăn đồ ăn Trung Hoa chứ?' — Lee: 'Không, từ khi sang đây (Nhật Bản) tôi vẫn chưa ăn.'",
+              "explanation": "Cả hai người đều đang ở Nhật Bản nên bạn Lee dùng 「こっち」 (phía này / bên này = Nhật Bản) kết hợp với 「来てから」 (từ khi đến đây). あっち (bên kia) và そっち (phía đó) không phù hợp với 「来てから」."
+            },
+            {
+              "id": "n4-2021-07-g-06",
+              "number": 6,
+              "prompt": "私は アイスクリームが 大好きです。（　　）いちごの アイスクリームが 好きです。",
+              "promptRuby": "{私|わたし}は アイスクリームが {大好|だいす}きです。（　　）いちごの アイスクリームが {好|す}きです。",
+              "choices": [
+                "とくに",
+                "かならず",
+                "よく",
+                "だんだん"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Tôi rất thích kem. Đặc biệt là tôi thích kem dâu tây.",
+              "explanation": "「とくに」(特に: đặc biệt là) dùng để nhấn mạnh một đối tượng nổi bật nhất trong nhóm đã nêu ở câu trước. Các phó từ khác: かならず (nhất định), よく (thường xuyên/giỏi), だんだん (dần dần)."
+            },
+            {
+              "id": "n4-2021-07-g-07",
+              "number": 7,
+              "prompt": "きのうは 私は 一日（　　）家に いました。",
+              "promptRuby": "きのうは {私|わたし}は {一日|いちにち}（　　）{家|いえ}に いました。",
+              "choices": [
+                "しか",
+                "ごろ",
+                "間",
+                "中"
+              ],
+              "choicesRuby": [
+                "しか",
+                "ごろ",
+                "{間|かん}",
+                "{中|じゅう}"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Hôm qua tôi đã ở nhà suốt cả ngày.",
+              "explanation": "Hậu tố 「〜中 (じゅう)」 gắn sau danh từ thời gian diễn tả 'suốt khoảng thời gian đó': 「一日中 (いちにちじゅう)」 = suốt cả ngày. 「しか」 phải đi với phủ định, 「ごろ」 đi với mốc thời điểm, còn 「一日間」 không tự nhiên bằng 「一日中」."
+            },
+            {
+              "id": "n4-2021-07-g-08",
+              "number": 8,
+              "prompt": "A「週末は 何か予定が ありますか。」\nB「ええ、（　　）ともだちと テニスを しようと 思って います。」",
+              "promptRuby": "A「{週末|しゅうまつ}は {何|なに}か{予定|よてい}が ありますか。」\nB「ええ、（　　）ともだちと テニスを しようと {思|おも}って います。」",
+              "choices": [
+                "晴れて",
+                "晴れたり",
+                "晴れると",
+                "晴れたら"
+              ],
+              "choicesRuby": [
+                "{晴|は}れて",
+                "{晴|は}れたり",
+                "{晴|は}れると",
+                "{晴|は}れたら"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "A: 'Cuối tuần bạn có dự định gì không?' — B: 'Có, nếu trời nắng thì tôi định chơi tennis với bạn.'",
+              "explanation": "Mẫu điều kiện 「〜たら」 (nếu...) có thể kết hợp với mệnh đề phía sau mang ý chí, dự định (「〜しようと思っています」). Ngược lại, 「晴れると」 không được dùng khi vế sau biểu thị ý chí/dự định của người nói."
+            },
+            {
+              "id": "n4-2021-07-g-09",
+              "number": 9,
+              "prompt": "わたしは いい 仕事を 見つけて 両親を（　　）ことができました。",
+              "promptRuby": "わたしは いい {仕事|しごと}を {見|み}つけて {両親|りょうしん}を（　　）ことができました。",
+              "choices": [
+                "安心する",
+                "安心させる",
+                "安心して いる",
+                "安心させて いる"
+              ],
+              "choicesRuby": [
+                "{安心|あんしん}する",
+                "{安心|あんしん}させる",
+                "{安心|あんしん}して いる",
+                "{安心|あんしん}させて いる"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Tôi đã tìm được một công việc tốt và có thể làm cho bố mẹ yên tâm.",
+              "explanation": "Trước chỗ trống có 「両親を」 và sau có 「ことができました」 (Vる + ことができる). Chủ ngữ 'tôi' làm cho 'bố mẹ' yên tâm nên dùng thể sai khiến của 「安心する」 là 「安心させる」 (khiến cho yên tâm)."
+            },
+            {
+              "id": "n4-2021-07-g-10",
+              "number": 10,
+              "prompt": "A「みんな 集まりましたか。」\nB「田中さんが まだ（　　）。」",
+              "promptRuby": "A「みんな {集|あつ}まりましたか。」\nB「{田中|たなか}さんが まだ（　　）。」",
+              "choices": [
+                "来ません",
+                "来ませんでした",
+                "来ました",
+                "来るでしょう"
+              ],
+              "choicesRuby": [
+                "{来|き}ません",
+                "{来|き}ませんでした",
+                "{来|き}ました",
+                "{来|く}るでしょう"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "A: 'Mọi người đã tập hợp đủ chưa?' — B: 'Anh Tanaka vẫn chưa đến.'",
+              "explanation": "Phó từ 「まだ」 (vẫn chưa) khi nói về hành động đến thời điểm hiện tại vẫn chưa xảy ra sẽ đi với thể phủ định hiện tại 「Vません / Vていません」 (ở đây là 「来ません」). Không dùng phủ định quá khứ 「来ませんでした」 (chỉ dùng cho sự việc đã kết thúc trong quá khứ)."
+            },
+            {
+              "id": "n4-2021-07-g-11",
+              "number": 11,
+              "prompt": "ジョン「サムさん、しゅくだいは 出しましたか。」\nサム「ええ。今、先生に 出して（　　）。」",
+              "promptRuby": "ジョン「サムさん、しゅくだいは {出|だ}しましたか。」\nサム「ええ。{今|いま}、{先生|せんせい}に {出|だ}して（　　）。」",
+              "choices": [
+                "いきました",
+                "きました",
+                "いました",
+                "ありました"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "John: 'Sam ơi, cậu nộp bài tập chưa?' — Sam: 'Ừ, tôi vừa mới đi nộp cho thầy rồi quay lại đây.'",
+              "explanation": "Cấu trúc 「Vてきました」 diễn tả hành động đi đến một nơi nào đó làm việc gì rồi quay trở về vị trí hiện tại (「出してきました」 = vừa đi nộp rồi quay lại). 「いきました」 chỉ hướng đi xa khỏi người nói."
+            },
+            {
+              "id": "n4-2021-07-g-12",
+              "number": 12,
+              "prompt": "（映画館の 前で）\nA「山田さん おそいですね。」\nB「そうですね。電車が おくれて いる（　　）。」",
+              "promptRuby": "（{映画館|えいがかん}の {前|まえ}で）\nA「{山田|やまだ}さん おそいですね。」\nB「そうですね。{電車|でんしゃ}が おくれて いる（　　）。」",
+              "choices": [
+                "のかもしれません",
+                "つもりです",
+                "ことに なります",
+                "ところです"
+              ],
+              "answerIndex": 0,
+              "answerSource": "solved",
+              "translation": "(Trước rạp chiếu phim) A: 'Anh Yamada đến muộn quá nhỉ.' — B: 'Đúng vậy. Có lẽ là tàu điện đang bị trễ đấy.'",
+              "explanation": "Mẫu 「〜のかもしれません」 (có lẽ là...) dùng để phỏng đoán nguyên nhân khi hai người đang chờ ở rạp chiếu phim mà chưa rõ lý do anh Yamada đến muộn. Các đáp án khác sai ngữ cảnh: つもりです (dự định của bản thân), ことになります (được quyết định là), ところです (đang đúng lúc làm gì — không dùng để phỏng đoán nguyên nhân từ xa). (Lưu ý: bảng đáp án in cuối file PDF gốc bị in nhầm thành 4, đáp án chuẩn JLPT N4 là 1)."
+            },
+            {
+              "id": "n4-2021-07-g-13",
+              "number": 13,
+              "prompt": "A「もしもし、タクシーを 1台 おねがい（　　）。」\nB「はい。場所は どちらですか。」\nA「西山びょういんまで 来て ください。」",
+              "promptRuby": "A「もしもし、タクシーを 1{台|だい} おねがい（　　）。」\nB「はい。{場所|ばしょ}は どちらですか。」\nA「{西山|にしやま}びょういんまで {来|き}て ください。」",
+              "choices": [
+                "したいんですが",
+                "しますが",
+                "したいんですか",
+                "しますか"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "A: 'Alo, tôi muốn gọi 1 chiếc taxi ạ.' — B: 'Vâng. Địa chỉ ở đâu ạ?' — A: 'Xin hãy đến bệnh viện Nishiyama.'",
+              "explanation": "Mẫu nói lịch sự khi mở lời yêu cầu hoặc đặt dịch vụ: 「〜たいんですが」 (tôi muốn... nhưng mà... — bỏ lửng mềm mại để đối phương hồi đáp). 「お願いしたいんですが」 là cách gọi taxi/đặt hàng chuẩn mực trong tiếng Nhật. Đáp án 3 và 4 là câu hỏi (か) nên sai."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-2",
+          "label": "問題2",
+          "instructionJa": "＿＿＿ ★ に入る ものは どれですか。1・2・3・4から いちばん いい ものを 一つ えらんでください。",
+          "instructionVi": "Từ nào sẽ điền vào vị trí dấu ★? Hãy sắp xếp 4 cụm từ vào các chỗ trống rồi chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-14",
+              "number": 14,
+              "prompt": "弟は 映画が 好きで、ビデオ ＿＿＿ ＿＿＿ ★ ＿＿＿ 。",
+              "promptRuby": "{弟|おとうと}は {映画|えいが}が {好|す}きで、ビデオ ＿＿＿ ＿＿＿ ★ ＿＿＿ 。",
+              "choices": [
+                "持って います",
+                "も",
+                "を",
+                "200本"
+              ],
+              "choicesRuby": [
+                "{持|も}って います",
+                "も",
+                "を",
+                "200{本|ほん}"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Em trai tôi thích phim ảnh nên có tới tận 200 băng video.",
+              "explanation": "Thứ tự đúng: 3 → 4 → 2 → 1. Câu hoàn chỉnh: 「弟は 映画が 好きで、ビデオ [を] [200本] [も] [持って います]。」. Trợ từ 「も」 đặt sau lượng từ 「200本」 để nhấn mạnh số lượng lớn ('nhiều tới tận 200 cuốn'). Vì vậy vị trí ★ (ô số 3) là 2 (も)."
+            },
+            {
+              "id": "n4-2021-07-g-15",
+              "number": 15,
+              "prompt": "わたしは 日本の 料理を、はしを ＿＿＿ ＿＿＿ ★ ＿＿＿ しました。",
+              "promptRuby": "わたしは {日本|にほん}の {料理|りょうり}を、はしを ＿＿＿ ＿＿＿ ★ ＿＿＿ しました。",
+              "choices": [
+                "使って",
+                "食べたくて",
+                "練習を",
+                "使い方の"
+              ],
+              "choicesRuby": [
+                "{使|つか}って",
+                "{食|た}べたくて",
+                "{練習|れんしゅう}を",
+                "{使|つか}い{方|かた}の"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Vì muốn ăn món ăn Nhật bằng đũa nên tôi đã luyện tập cách sử dụng đũa.",
+              "explanation": "Thứ tự đúng: 1 → 2 → 4 → 3. Câu hoàn chỉnh: 「わたしは 日本の 料理を、はしを [使って] [食べたくて] [使い方の] [練習を] しました。」. Cụm 「はしを使って食べたくて」 (vì muốn dùng đũa để ăn) nối tiếp với 「使い方の練習をしました」 (đã luyện tập cách sử dụng). Vì vậy vị trí ★ (ô số 3) là 4 (使い方の)."
+            },
+            {
+              "id": "n4-2021-07-g-16",
+              "number": 16,
+              "prompt": "A「新しい アパートは どう？」\nB「ちょっと 駅から ＿＿＿ ＿＿＿ ★ ＿＿＿ ところだよ。」",
+              "promptRuby": "A「{新|あたら}しい アパートは どう？」\nB「ちょっと {駅|えき}から ＿＿＿ ＿＿＿ ★ ＿＿＿ ところだよ。」",
+              "choices": [
+                "静かで",
+                "遠い",
+                "けど",
+                "いい"
+              ],
+              "choicesRuby": [
+                "{静|しず}かで",
+                "{遠|とお}い",
+                "けど",
+                "いい"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "A: 'Căn hộ mới thế nào?' — B: 'Hơi xa nhà ga một chút nhưng là nơi yên tĩnh và rất tốt đấy.'",
+              "explanation": "Thứ tự đúng: 2 → 3 → 1 → 4. Câu hoàn chỉnh: 「ちょっと 駅から [遠い] [けど] [静かで] [いい] ところだよ。」. 「駅から遠いけど」 (tuy xa ga nhưng) nối với hai tính từ bổ nghĩa cho 「ところ」 là 「静かでいいところ」 (nơi yên tĩnh và tốt). Vì vậy vị trí ★ (ô số 3) là 1 (静かで)."
+            },
+            {
+              "id": "n4-2021-07-g-17",
+              "number": 17,
+              "prompt": "外国に 住んで いる ＿＿＿ ＿＿＿ ★ ＿＿＿ 思う。",
+              "promptRuby": "{外国|がいこく}に {住|す}んで いる ＿＿＿ ＿＿＿ ★ ＿＿＿ {思|おも}う。",
+              "choices": [
+                "けっこんすると",
+                "プレゼントを 送ろうと",
+                "ともだちが",
+                "聞いたので"
+              ],
+              "choicesRuby": [
+                "けっこんすると",
+                "プレゼントを {送|おく}ろうと",
+                "ともだちが",
+                "{聞|き}いたので"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Vì nghe tin người bạn đang sống ở nước ngoài sắp kết hôn nên tôi định sẽ gửi tặng quà.",
+              "explanation": "Thứ tự đúng: 3 → 1 → 4 → 2. Câu hoàn chỉnh: 「外国に 住んで いる [ともだちが] [けっこんすると] [聞いたので] [プレゼントを 送ろうと] 思う。」. 「外国に住んでいるともだち」 là mệnh đề bổ nghĩa cho danh từ; 「〜と聞いたので」 (vì nghe nói là...); và thể ý chí 「送ろうと思う」 (định gửi). Vì vậy vị trí ★ (ô số 3) là 4 (聞いたので)."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-3",
+          "label": "問題3",
+          "instructionJa": "18から21に なにを 入れますか。文章の 意味を 考えて、1・2・3・4から いちばん いい ものを 一つ えらんでください。",
+          "instructionVi": "Điền từ nào vào các chỗ trống 18 đến 21 trong đoạn văn dưới đây? Hãy suy nghĩ ý nghĩa bài văn và chọn 1 đáp án đúng nhất.",
+          "passage": "下の 文章は、留学生の作文である。\n\n初めての 野球\nパホモフ セリク\n\n日本に 来る 前に まんがで 野球という スポーツを 知って、きょうみを もちました。でも、私の 国では、野球を して いる 人を 見たことが ありません。道具も ないので、野球は できませんでした。\n先週の 土曜日に ともだちが 入って いる 野球クラブの 見学に 行きました。クラブの 人たちに さそわれて、ずっと やりたかった 野球の 練習を 初めて することに なりました。[ 18 ] 野球が できることに なって、うれしかったです。ボールを 打つのは 難しかったです。でも、クラブの 人たちが やさしく [ 19 ]。野球は やはり おもしろい スポーツだと 思いました。[ 20 ] クラブに 入ることに しました。\nこれから 毎日 クラブで たくさん 練習します。そして、いつか試合に [ 21 ]。",
+          "passageRuby": "{下|した}の {文章|ぶんしょう}は、{留学生|りゅうがくせい}の{作文|さくぶん}である。\n\n{初|はじ}めての {野球|やきゅう}\nパホモフ セリク\n\n{日本|にほん}に {来|く}る {前|まえ}に まんがで {野球|やきゅう}という スポーツを {知|し}って、きょうみを もちました。でも、{私|わたし}の {国|くに}では、{野球|やきゅう}を して いる {人|ひと}を {見|み}たことが ありません。{道具|どうぐ}も ないので、{野球|やきゅう}は できませんでした。\n{先週|せんしゅう}の {土曜日|どようび}に ともだちが {入|はい}って いる {野球|やきゅう}クラブの {見学|けんがく}に {行|い}きました。クラブの {人|ひと}たちに さそわれて、ずっと やりたかった {野球|やきゅう}の {練習|れんしゅう}を {初|はじ}めて することに なりました。[ 18 ] {野球|やきゅう}が できることに なって、うれしかったです。ボールを {打|う}つのは {難|むずか}しかったです。でも、クラブの {人|ひと}たちが やさしく [ 19 ]。{野球|やきゅう}は やはり おもしろい スポーツだと {思|おも}いました。[ 20 ] クラブに {入|はい}ることに しました。\nこれから {毎日|まいにち} クラブで たくさん {練習|れんしゅう}します。そして、いつか{試合|しあい}に [ 21 ]。",
+          "passageTranslation": "Đoạn văn dưới đây là bài tập làm văn của một lưu học sinh.\n\nLần đầu chơi bóng chày — Pahomov Serik\n\nTrước khi sang Nhật, tôi biết đến môn thể thao gọi là bóng chày qua truyện tranh và thấy hứng thú. Nhưng ở nước tôi, tôi chưa từng thấy ai chơi bóng chày cả. Cũng không có dụng cụ nên tôi đã không thể chơi bóng chày được.\nThứ Bảy tuần trước, tôi đã đi tham quan câu lạc bộ bóng chày mà bạn tôi đang tham gia. Được các thành viên trong câu lạc bộ rủ, lần đầu tiên tôi đã được tập luyện môn bóng chày mà mình muốn chơi từ lâu. [18] Tôi rất vui vì cuối cùng cũng có thể chơi bóng chày. Đánh bóng thật khó. Nhưng các thành viên trong câu lạc bộ đã tận tình [19]. Tôi nghĩ bóng chày quả nhiên là một môn thể thao thú vị. [20] Tôi đã quyết định gia nhập câu lạc bộ.\nTừ nay về sau mỗi ngày tôi sẽ luyện tập thật nhiều ở câu lạc bộ. Và một ngày nào đó tôi [21] thi đấu.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-18",
+              "number": 18,
+              "prompt": "[ 18 ] に入る ものは どれですか。",
+              "promptRuby": "[ 18 ] に{入|はい}る ものは どれですか。",
+              "choices": [
+                "もっと",
+                "やっと",
+                "また",
+                "まだ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Cuối cùng thì tôi cũng được chơi bóng chày nên tôi rất vui.",
+              "explanation": "Trước đó tác giả nói 「ずっとやりたかった」 (muốn chơi từ lâu mà ở nước mình không chơi được), nên 「やっと」 (cuối cùng cũng — đạt được điều mong mỏi bấy lâu) là phù hợp nhất. Các từ khác: もっと (hơn nữa), また (lại nữa), まだ (vẫn còn/vẫn chưa)."
+            },
+            {
+              "id": "n4-2021-07-g-19",
+              "number": 19,
+              "prompt": "[ 19 ] に入る ものは どれですか。",
+              "promptRuby": "[ 19 ] に{入|はい}る ものは どれですか。",
+              "choices": [
+                "教えて くれました",
+                "教えて あげました",
+                "教えて もらいました",
+                "教えて やりました"
+              ],
+              "choicesRuby": [
+                "{教|おし}えて くれました",
+                "{教|おし}えて あげました",
+                "{教|おし}えて もらいました",
+                "{教|おし}えて やりました"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Nhưng các thành viên câu lạc bộ đã dạy cho tôi một cách dịu dàng (tận tình).",
+              "explanation": "Chủ ngữ của câu là 「クラブの人たちが」 (người khác làm hành động cho người nói 'tôi'), nên phải dùng 「〜てくれました」. 「〜てもらいました」 yêu cầu chủ ngữ là 'tôi' và người dạy đi với 「に」; còn 「〜てあげました / やりました」 là 'tôi' làm cho người khác."
+            },
+            {
+              "id": "n4-2021-07-g-20",
+              "number": 20,
+              "prompt": "[ 20 ] に入る ものは どれですか。",
+              "promptRuby": "[ 20 ] に{入|はい}る ものは どれですか。",
+              "choices": [
+                "たとえば",
+                "それに",
+                "けれども",
+                "それで"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Vì thế, tôi đã quyết định gia nhập câu lạc bộ.",
+              "explanation": "Câu trước nêu lý do (「野球はやはりおもしろいスポーツだと思いました」 — thấy bóng chày thú vị), câu sau nêu kết quả/quyết định (「クラブに入ることにしました」 — quyết định vào CLB), nên dùng liên từ chỉ nguyên nhân - kết quả 「それで」 (vì thế, do đó). Các từ khác: たとえば (ví dụ), それに (hơn nữa), けれども (nhưng mà)."
+            },
+            {
+              "id": "n4-2021-07-g-21",
+              "number": 21,
+              "prompt": "[ 21 ] に入る ものは どれですか。",
+              "promptRuby": "[ 21 ] に{入|はい}る ものは どれですか。",
+              "choices": [
+                "出るからです",
+                "出るためです",
+                "出て みたいです",
+                "出て みることです"
+              ],
+              "choicesRuby": [
+                "{出|で}るからです",
+                "{出|で}るためです",
+                "{出|で}て みたいです",
+                "{出|で}て みることです"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Và một ngày nào đó, tôi muốn thử ra sân thi đấu.",
+              "explanation": "Với 「いつか」 (một ngày nào đó trong tương lai) ở câu kết bài văn thể hiện mong ước của tác giả, cấu trúc 「Vてみたいです」 (muốn thử làm gì — muốn thử tham gia trận đấu 「試合に出てみたいです」) là tự nhiên nhất. Đáp án 1 (vì), 2 (để), 4 (là việc thử...) đều không hợp mạch câu."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-4-1",
+          "label": "問題4 (1)",
+          "instructionJa": "次の文章を読んで、質問に答えなさい。答えは、1・2・3・4から、いちばんよいものを一つえらびなさい。",
+          "instructionVi": "Đọc đoạn văn sau và trả lời câu hỏi. Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "passage": "嫌なことがあったら、私の友達は日記に書くそうです。嫌な気持ちを外に出せるから忘れられると言っています。でも、私はカラオケに行って、好きな歌を歌います。書いているときに嫌なことを思い出してしまうので、日記には書きません。",
+          "passageRuby": "{嫌|いや}なことがあったら、{私|わたし}の{友達|ともだち}は{日記|にっき}に{書|か}くそうです。{嫌|いや}な{気持|きも}ちを{外|そと}に{出|だ}せるから{忘|わす}れられると{言|い}っています。でも、{私|わたし}はカラオケに{行|い}って、{好|す}きな{歌|うた}を{歌|うた}います。{書|か}いているときに{嫌|いや}なことを{思|おも}い{出|だ}してしまうので、{日記|にっき}には{書|か}きません。",
+          "passageTranslation": "Nghe nói khi có chuyện không vui, bạn của tôi sẽ viết vào nhật ký. Bạn ấy nói vì có thể giải tỏa cảm xúc khó chịu ra ngoài nên có thể quên đi được. Tuy nhiên, tôi thì đi karaoke và hát những bài mình thích. Vì trong lúc viết sẽ lại nhớ ra chuyện khó chịu nên tôi không viết vào nhật ký.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-22",
+              "number": 22,
+              "prompt": "「私」の友達は、嫌なことがあったとき、どうしますか。",
+              "promptRuby": "「{私|わたし}」の{友達|ともだち}は、{嫌|いや}なことがあったとき、どうしますか。",
+              "choices": [
+                "忘れるために、友達に話します。",
+                "忘れるために、カラオケで歌います。",
+                "忘れるために、日記に書きます。",
+                "覚えておくために、日記に書きます。"
+              ],
+              "choicesRuby": [
+                "{忘|わす}れるために、{友達|ともだち}に{話|はな}します。",
+                "{忘|わす}れるために、カラオケで{歌|うた}います。",
+                "{忘|わす}れるために、{日記|にっき}に{書|か}きます。",
+                "{覚|おぼ}えておくために、{日記|にっき}に{書|か}きます。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bạn của 'tôi' sẽ làm gì khi có chuyện không vui?",
+              "explanation": "Hai câu đầu bài nêu rõ: 「私の友達は日記に書くそうです。嫌な気持ちを外に出せるから忘れられると言っています」 (Bạn của tôi viết vào nhật ký vì có thể trút cảm xúc khó chịu ra ngoài để quên đi). Do đó đáp án 3 (viết vào nhật ký để quên) là chính xác. Đáp án 2 là cách làm của 'tôi', không phải của bạn 'tôi'."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-4-2",
+          "label": "問題4 (2)",
+          "instructionJa": "次の文章を読んで、質問に答えなさい。答えは、1・2・3・4から、いちばんよいものを一つえらびなさい。",
+          "instructionVi": "Đọc thông báo sau và trả lời câu hỏi. Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "passage": "お知らせ\n\n「日本語会話」（月曜日から金曜日の1時から2時半まで）は、来週の火曜日と木曜日だけ授業時間がかわります。\n\n火曜日：1時半から2時半まで\n木曜日：12時半から2時半まで\n\n木曜日は昼休みが短くなりますが、おくれないで来てください。",
+          "passageRuby": "お{知|し}らせ\n\n「{日本語会話|にほんごかいわ}」（{月曜日|げつようび}から{金曜日|きんようび}の1{時|じ}から2{時半|じはん}まで）は、{来週|らいしゅう}の{火曜日|かようび}と{木曜日|もくようび}だけ{授業時間|じゅぎょうじかん}がかわります。\n\n{火曜日|かようび}：1{時半|じはん}から2{時半|じはん}まで\n{木曜日|もくようび}：12{時半|じはん}から2{時半|じはん}まで\n\n{木曜日|もくようび}は{昼休|ひるやす}みが{短|みじか}くなりますが、おくれないで{来|き}てください。",
+          "passageTranslation": "Thông báo\n\nLớp 'Hội thoại tiếng Nhật' (từ 1 giờ đến 2 giờ rưỡi, từ thứ Hai đến thứ Sáu) sẽ thay đổi giờ học duy nhất vào thứ Ba và thứ Năm tuần tới.\n\nThứ Ba: từ 1 giờ rưỡi đến 2 giờ rưỡi\nThứ Năm: từ 12 giờ rưỡi đến 2 giờ rưỡi\n\nThứ Năm giờ nghỉ trưa sẽ ngắn đi nhưng xin mọi người đừng đến muộn.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-23",
+              "number": 23,
+              "prompt": "来週の授業について、正しいものはどれですか。",
+              "promptRuby": "{来週|らいしゅう}の{授業|じゅぎょう}について、{正|ただ}しいものはどれですか。",
+              "choices": [
+                "来週の火曜日は、いつもより長く授業を受けます。",
+                "来週の木曜日は、いつもより早く授業に行きます。",
+                "来週の火曜日と木曜日は、いつもより長く授業を受けます。",
+                "来週の火曜日と木曜日は、いつもより早く授業に行きます。"
+              ],
+              "choicesRuby": [
+                "{来週|らいしゅう}の{火曜日|かようび}は、いつもより{長|なが}く{授業|じゅぎょう}を{受|う}けます。",
+                "{来週|らいしゅう}の{木曜日|もくようび}は、いつもより{早|はや}く{授業|じゅぎょう}に{行|い}きます。",
+                "{来週|らいしゅう}の{火曜日|かようび}と{木曜日|もくようび}は、いつもより{長|なが}く{授業|じゅぎょう}を{受|う}けます。",
+                "{来週|らいしゅう}の{火曜日|かようび}と{木曜日|もくようび}は、いつもより{早|はや}く{授業|じゅぎょう}に{行|い}きます。"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Về giờ học tuần sau, câu nào là đúng?",
+              "explanation": "Bình thường lớp học từ 1:00 đến 2:30 (1 tiếng rưỡi). Tuần sau: thứ Ba học 1:30–2:30 (bắt đầu muộn hơn và ngắn hơn, chỉ 1 tiếng → loại 1, 3, 4); thứ Năm học 12:30–2:30 (bắt đầu sớm hơn thường lệ 30 phút và dài hơn). Do đó đáp án 2 ('Thứ Năm tuần sau sẽ đi học sớm hơn thường lệ') là đúng."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-4-3",
+          "label": "問題4 (3)",
+          "instructionJa": "次の文章を読んで、質問に答えなさい。答えは、1・2・3・4から、いちばんよいものを一つえらびなさい。",
+          "instructionVi": "Đọc lời nhắn sau và trả lời câu hỏi. Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "passage": "（会社で）\n石田さんの机の上に、このメモが置いてあります。\n\n石田さん\n\n青木部長によばれて、今から部長会議に出ることになりました。\n部長会議の弁当は、私が11時半に「こま屋」に取りに行く予定でしたが、行けなくなったので、行ってきてください。お金は払ってあります。\n弁当は、私の机に置いておいてください。\nすみませんが、よろしくお願いします。\n\n10月4日 10:30\nロン",
+          "passageRuby": "（{会社|かいしゃ}で）\n{石田|いしだ}さんの{机|つくえ}の{上|うえ}に、このメモが{置|お}いてあります。\n\n{石田|いしだ}さん\n\n{青木部長|あおきぶちょう}によばれて、{今|いま}から{部長会議|ぶちょうかいぎ}に{出|で}ることになりました。\n{部長会議|ぶちょうかいぎ}の{弁当|べんとう}は、{私|わたし}が11{時半|じはん}に「こま{屋|や}」に{取|と}りに{行|い}く{予定|よてい}でしたが、{行|い}けなくなったので、{行|い}ってきてください。お{金|かね}は{払|はら}ってあります。\n{弁当|べんとう}は、{私|わたし}の{机|つくえ}に{置|お}いておいてください。\nすみませんが、よろしくお{願|ねが}いします。\n\n10{月|がつ}4{日|か} 10:30\nロン",
+          "passageTranslation": "(Ở công ty) Trên bàn anh Ishida có đặt tờ giấy nhắn này.\n\nAnh Ishida ơi,\n\nTôi được trưởng phòng Aoki gọi và từ bây giờ phải tham dự cuộc họp trưởng phòng.\nCơm hộp cho cuộc họp trưởng phòng vốn dự định tôi sẽ đi lấy ở tiệm 'Komaya' lúc 11 giờ rưỡi, nhưng vì không đi được nữa nên nhờ anh đi lấy giúp. Tiền đã trả sẵn rồi.\nCơm hộp nhờ anh đặt sẵn trên bàn của tôi nhé.\nXin lỗi vì làm phiền, nhờ anh giúp đỡ.\n\nNgày 4 tháng 10, 10:30 — Long",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-24",
+              "number": 24,
+              "prompt": "ロンさんは石田さんに何を頼みましたか。",
+              "promptRuby": "ロンさんは{石田|いしだ}さんに{何|なに}を{頼|たの}みましたか。",
+              "choices": [
+                "ロンさんと一緒に、部長会議に出ること。",
+                "11時半に、弁当を部長会議に持って行くこと。",
+                "「こま屋」が弁当を持ってきたら、弁当代を払うこと。",
+                "弁当を「こま屋」に取りに行って、ロンさんの机に置くこと。"
+              ],
+              "choicesRuby": [
+                "ロンさんと{一緒|いっしょ}に、{部長会議|ぶちょうかいぎ}に{出|で}ること。",
+                "11{時半|じはん}に、{弁当|べんとう}を{部長会議|ぶちょうかいぎ}に{持|も}って{行|い}くこと。",
+                "「こま{屋|や}」が{弁当|べんとう}を{持|も}ってきたら、{弁当代|べんとうだい}を{払|はら}うこと。",
+                "{弁当|べんとう}を「こま{屋|や}」に{取|と}りに{行|い}って、ロンさんの{机|つくえ}に{置|お}くこと。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Anh Long đã nhờ anh Ishida việc gì?",
+              "explanation": "Trong lời nhắn, anh Long viết hai việc nhờ anh Ishida làm: (1) đi lấy cơm hộp ở 'Komaya' lúc 11:30 (「『こま屋』に取りに行く…行ってきてください」) và (2) đặt lên bàn của anh Long (「私の机に置いておいてください」). Tiền đã trả sẵn rồi (loại 3), không phải mang vào phòng họp (loại 2) và không phải cùng đi họp (loại 1). Chọn đáp án 4."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-5",
+          "label": "問題5",
+          "instructionJa": "次の文章を読んで、質問に答えなさい。答えは、1・2・3・4から、いちばんよいものを一つえらびなさい。",
+          "instructionVi": "Đọc đoạn văn sau và trả lời các câu hỏi từ 25 đến 27. Hãy chọn 1 đáp án đúng nhất trong 1・2・3・4.",
+          "passage": "私の趣味は山に登ることです。山のいちばん上で景色を見ながら昼ご飯を食べるのが、私の楽しみです。\n先週、会社の先輩の内村さんと話していて、内村さんも山が好きなことがわかりました。それで、私がよく行く山に、一緒に行くことになりました。\n週末、私たちは山の近くの駅で会って、山に向かいました。1時間ぐらい登ったとき、内村さんが止まって、「珍しい花が咲いていますね。ここで少し休みませんか。」と言ったので、休むことにしました。\n内村さんは「少し」と言ったのに、ずっと花の写真を撮っていて、12時になってしまいました。それで、私たちは弁当を食べました。私は①[[ちょっと残念でした]]。山の上で食べたかったからです。弁当を食べながら、内村さんは撮った写真を見せてくれました。とてもきれいだったので、私も撮ってみたくなりました。\n昼ご飯のあとで、内村さんは山の花の上手な撮り方を教えてくれました。私も少し撮ってみて、楽しくなりました。そして、2時間ぐらい写真を撮って、山をおりました。山に行って、上まで登らないで帰ったのは初めてでした。でも、とてもいい一日でした。\n内村さんと山に行って、私は②[[山の新しい楽しみ]]を知りました。また一緒に山に行きたいと思います。",
+          "passageRuby": "{私|わたし}の{趣味|しゅみ}は{山|やま}に{登|のぼ}ることです。{山|やま}のいちばん{上|うえ}で{景色|けしき}を{見|み}ながら{昼|ひる}ご{飯|はん}を{食|た}べるのが、{私|わたし}の{楽|たの}しみです。\n{先週|せんしゅう}、{会社|かいしゃ}の{先輩|せんぱい}の{内村|うちむら}さんと{話|はな}していて、{内村|うちむら}さんも{山|やま}が{好|す}きなことがわかりました。それで、{私|わたし}がよく{行|い}く{山|やま}に、{一緒|いっしょ}に{行|い}くことになりました。\n{週末|しゅうまつ}、{私|わたし}たちは{山|やま}の{近|ちか}くの{駅|えき}で{会|あ}って、{山|やま}に{向|む}かいました。1{時間|じかん}ぐらい{登|のぼ}ったとき、{内村|うちむら}さんが{止|と}まって、「{珍|めずら}しい{花|はな}が{咲|さ}いていますね。ここで{少|すこ}し{休|やす}みませんか。」と{言|い}ったので、{休|やす}むことにしました。\n{内村|うちむら}さんは「{少|すこ}し」と{言|い}ったのに、ずっと{花|はな}の{写真|しゃしん}を{撮|と}っていて、12{時|じ}になってしまいました。それで、{私|わたし}たちは{弁当|べんとう}を{食|た}べました。{私|わたし}は①[[ちょっと{残念|ざんねん}でした]]。{山|やま}の{上|うえ}で{食|た}べたかったからです。{弁当|べんとう}を{食|た}べながら、{内村|うちむら}さんは{撮|と}った{写真|しゃしん}を{見|み}せてくれました。とてもきれいだったので、{私|わたし}も{撮|と}ってみたくなりました。\n{昼|ひる}ご{飯|はん}のあとで、{内村|うちむら}さんは{山|やま}の{花|はな}の{上手|じょうず}な{撮|と}り{方|かた}を{教|おし}えてくれました。{私|わたし}も{少|すこ}し{撮|と}ってみて、{楽|たの}しくなりました。そして、2{時間|じかん}ぐらい{写真|しゃしん}を{撮|と}って、{山|やま}をおりました。{山|やま}に{行|い}って、{上|うえ}まで{登|のぼ}らないで{帰|かえ}ったのは{初|はじ}めてでした。でも、とてもいい{一日|いちにち}でした。\n{内村|うちむら}さんと{山|やま}に{行|い}って、{私|わたし}は②[[{山|やま}の{新|あたら}しい{楽|たの}しみ]]を{知|し}りました。また{一緒|いっしょ}に{山|やま}に{行|い}きたいと{思|おも}います。",
+          "passageTranslation": "Sở thích của tôi là leo núi. Niềm vui của tôi là vừa ngắm cảnh vừa ăn cơm trưa trên đỉnh núi cao nhất.\nTuần trước, khi nói chuyện với anh Uchimura — tiền bối ở công ty — tôi biết anh ấy cũng thích leo núi. Vì thế, chúng tôi quyết định cùng nhau đi đến ngọn núi mà tôi hay đi.\nCuối tuần, chúng tôi gặp nhau ở nhà ga gần núi rồi hướng về phía ngọn núi. Khi leo được khoảng 1 tiếng, anh Uchimura dừng lại nói: 'Có bông hoa hiếm đang nở kìa. Mình nghỉ ở đây một chút nhé?', nên chúng tôi quyết định dừng nghỉ.\nAnh Uchimura nói 'một chút' thế mà cứ chụp ảnh hoa mãi đến tận 12 giờ. Thế là chúng tôi ăn cơm hộp luôn ở đó. Tôi ① hơi thấy tiếc một chút. Vì tôi đã muốn ăn trên đỉnh núi cơ. Vừa ăn cơm hộp, anh Uchimura vừa cho tôi xem những bức ảnh anh ấy chụp. Vì chúng đẹp quá nên tôi cũng muốn chụp thử.\nSau bữa trưa, anh Uchimura chỉ cho tôi cách chụp hoa núi cho đẹp. Tôi cũng thử chụp một ít và thấy rất vui. Rồi chúng tôi chụp ảnh khoảng 2 tiếng rồi xuống núi. Đây là lần đầu tiên tôi đi leo núi mà không leo lên đỉnh đã về. Nhưng đó là một ngày thật tuyệt vời.\nĐi leo núi cùng anh Uchimura, tôi đã biết đến ② một niềm vui mới của việc đi núi. Tôi muốn lại được cùng anh ấy đi leo núi lần nữa.",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-25",
+              "number": 25,
+              "prompt": "どうして「私」は内村さんと一緒に山に行くことにしましたか。",
+              "promptRuby": "どうして「{私|わたし}」は{内村|うちむら}さんと{一緒|いっしょ}に{山|やま}に{行|い}くことにしましたか。",
+              "choices": [
+                "内村さんが山で昼ご飯を作ってくれると言ったから。",
+                "内村さんに山を好きになってもらいたかったから。",
+                "内村さんも山が好きなことがわかったから。",
+                "内村さんの好きな山に登ってみたかったから。"
+              ],
+              "choicesRuby": [
+                "{内村|うちむら}さんが{山|やま}で{昼|ひる}ご{飯|はん}を{作|つく}ってくれると{言|い}ったから。",
+                "{内村|うちむら}さんに{山|やま}を{好|す}きになってもらいたかったから。",
+                "{内村|うちむら}さんも{山|やま}が{好|す}きなことがわかったから。",
+                "{内村|うちむら}さんの{好|す}きな{山|やま}に{登|のぼ}ってみたかったから。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Tại sao 'tôi' đã quyết định đi leo núi cùng anh Uchimura?",
+              "explanation": "Đoạn 2 viết rõ: 「内村さんも山が好きなことがわかりました。それで、私がよく行く山に、一緒に行くことになりました」 (Biết anh Uchimura cũng thích núi nên quyết định cùng đi đến ngọn núi mà tôi hay đi). Do đó đáp án 3 là đúng (lưu ý họ đi núi 'tôi' hay đi, không phải núi anh Uchimura thích nên loại 4)."
+            },
+            {
+              "id": "n4-2021-07-g-26",
+              "number": 26,
+              "prompt": "どうして①[[ちょっと残念でした]]か。",
+              "promptRuby": "どうして①[[ちょっと{残念|ざんねん}でした]]か。",
+              "choices": [
+                "山のいちばん上で弁当が食べられなかったから。",
+                "持ってきた弁当がおいしくなかったから。",
+                "咲いていた花があまりきれいではなかったから。",
+                "花の写真を撮る時間が短かったから。"
+              ],
+              "choicesRuby": [
+                "{山|やま}のいちばん{上|うえ}で{弁当|べんとう}が{食|た}べられなかったから。",
+                "{持|も}ってきた{弁当|べんとう}がおいしくなかったから。",
+                "{咲|さ}いていた{花|はな}があまりきれいではなかったから。",
+                "{花|はな}の{写真|しゃしん}を{撮|と}る{時間|じかん}が{短|みじか}かったから。"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Tại sao ① tác giả lại 'hơi thấy tiếc một chút'?",
+              "explanation": "Ngay sau câu 「私は①ちょっと残念でした」 tác giả giải thích trực tiếp: 「山の上で食べたかったからです」 (Vì đã muốn ăn trên đỉnh núi cơ — do mải chụp hoa giữa chừng nên 12 giờ phải ăn luôn ở đó, không ăn được trên đỉnh núi). Chọn đáp án 1."
+            },
+            {
+              "id": "n4-2021-07-g-27",
+              "number": 27,
+              "prompt": "②[[山の新しい楽しみ]]とありますが、どんな楽しみですか。",
+              "promptRuby": "②[[{山|やま}の{新|あたら}しい{楽|たの}しみ]]とありますが、どんな{楽|たの}しみですか。",
+              "choices": [
+                "山の上で景色を見る楽しみ。",
+                "山の上で昼ご飯を食べる楽しみ。",
+                "山の登り方を人に教える楽しみ。",
+                "山に咲いている花の写真を撮る楽しみ。"
+              ],
+              "choicesRuby": [
+                "{山|やま}の{上|うえ}で{景色|けしき}を{見|み}る{楽|たの}しみ。",
+                "{山|やま}の{上|うえ}で{昼|ひる}ご{飯|はん}を{食|た}べる{楽|たの}しみ。",
+                "{山|やま}の{登|のぼ}り{方|かた}を{人|ひと}に{教|おし}える{楽|たの}しみ。",
+                "{山|やま}に{咲|さ}いている{花|はな}の{写真|しゃしん}を{撮|と}る{楽|たの}しみ。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Trong bài có viết ② 'niềm vui mới của việc đi núi', đó là niềm vui như thế nào?",
+              "explanation": "Trước đây niềm vui quen thuộc của tác giả là ngắm cảnh và ăn trưa trên đỉnh núi (đáp án 1, 2 — không phải niềm vui 'mới'). Lần này nhờ anh Uchimura dạy chụp ảnh hoa trên núi, tác giả thử chụp và thấy rất vui (「私も少し撮ってみて、楽しくなりました」). Vậy niềm vui mới là đáp án 4 (chụp ảnh hoa nở trên núi)."
+            }
+          ]
+        },
+        {
+          "id": "g-mondai-6",
+          "label": "問題6",
+          "instructionJa": "つぎの山川市の「国際教室のお知らせ」を見て、下の質問に答えてください。答えは、1・2・3・4から、いちばんよいものを一つえらびなさい。",
+          "instructionVi": "Xem tờ 'Thông báo các lớp học quốc tế' của thành phố Yamakawa dưới đây và trả lời các câu hỏi 28, 29. Hãy chọn 1 đáp án đúng nhất.",
+          "passage": "山川市 国際教室のお知らせ\n\n【おべんとうを作りましょう！】\n外国人と日本人。30人以内。\n子供を連れて来てもいいです。\n・時間：毎週（火）10:00〜12:30\n・場所：スーパー「みどり」4階\n・お金：1回500円\n\n【テニスをしましょう！】\n18歳以上の人。外国人15人以内、日本人15人以内。\n・時間：毎週（水）15:00〜18:00\n・場所：山川運動場\n・お金：1か月500円\n\n【ジョギングをしましょう！】\n15歳以上の外国人と日本人。\n子供を連れて来てもいいです。\n・時間：毎週（土）10:30〜12:00\n・集まる場所：山川公園入口\n・お金：ただです。\n\n【日本語で話しましょう！】\n15歳以上の人。外国人30人以内、日本人30人以内。\n・時間：毎週（日）14:00〜16:00\n・場所：山川市図書館3階\n・お金：1回100円",
+          "passageRuby": "{山川市|やまかわし} {国際教室|こくさいきょうしつ}のお{知|し}らせ\n\n【おべんとうを{作|つく}りましょう！】\n{外国人|がいこくじん}と{日本人|にほんじん}。30{人以内|にんいない}。\n{子供|こども}を{連|つ}れて{来|き}てもいいです。\n・{時間|じかん}：{毎週|まいしゅう}（{火|か}）10:00〜12:30\n・{場所|ばしょ}：スーパー「みどり」4{階|かい}\n・お{金|かね}：1{回|かい}500{円|えん}\n\n【テニスをしましょう！】\n18{歳以上|さいいじょう}の{人|ひと}。{外国人|がいこくじん}15{人以内|にんいない}、{日本人|にほんじん}15{人以内|にんいない}。\n・{時間|じかん}：{毎週|まいしゅう}（{水|すい}）15:00〜18:00\n・{場所|ばしょ}：{山川運動場|やまかわうんどうじょう}\n・お{金|かね}：1か{月|げつ}500{円|えん}\n\n【ジョギングをしましょう！】\n15{歳以上|さいいじょう}の{外国人|がいこくじん}と{日本人|にほんじん}。\n{子供|こども}を{連|つ}れて{来|き}てもいいです。\n・{時間|じかん}：{毎週|まいしゅう}（{土|ど}）10:30〜12:00\n・{集|あつ}まる{場所|ばしょ}：{山川公園入口|やまかわこうえんいりぐち}\n・お{金|かね}：ただです。\n\n【{日本語|にほんご}で{話|はな}しましょう！】\n15{歳以上|さいいじょう}の{人|ひと}。{外国人|がいこくじん}30{人以内|にんいない}、{日本人|にほんじん}30{人以内|にんいない}。\n・{時間|じかん}：{毎週|まいしゅう}（{日|にち}）14:00〜16:00\n・{場所|ばしょ}：{山川市図書館|やまかわしとしょかん}3{階|かい}\n・お{金|かね}：1{回|かい}100{円|えん}",
+          "passageTranslation": "Thông báo các lớp học quốc tế thành phố Yamakawa\n\n【Cùng làm cơm hộp nào!】\nNgười nước ngoài và người Nhật. Trong vòng 30 người. Có thể dẫn theo trẻ em.\n・Thời gian: Thứ Ba hàng tuần 10:00〜12:30\n・Địa điểm: Tầng 4 siêu thị 'Midori'\n・Chi phí: 500 yên / 1 buổi\n\n【Cùng chơi tennis nào!】\nNgười từ 18 tuổi trở lên. Trong vòng 15 người nước ngoài, 15 người Nhật.\n・Thời gian: Thứ Tư hàng tuần 15:00〜18:00\n・Địa điểm: Sân vận động Yamakawa\n・Chi phí: 500 yên / 1 tháng\n\n【Cùng chạy bộ nào!】\nNgười nước ngoài và người Nhật từ 15 tuổi trở lên. Có thể dẫn theo trẻ em.\n・Thời gian: Thứ Bảy hàng tuần 10:30〜12:00\n・Địa điểm tập trung: Cổng công viên Yamakawa\n・Chi phí: Miễn phí.\n\n【Cùng nói chuyện bằng tiếng Nhật nào!】\nNgười từ 15 tuổi trở lên. Trong vòng 30 người nước ngoài, 30 người Nhật.\n・Thời gian: Chủ Nhật hàng tuần 14:00〜16:00\n・Địa điểm: Tầng 3 Thư viện thành phố Yamakawa\n・Chi phí: 100 yên / 1 buổi",
+          "questions": [
+            {
+              "id": "n4-2021-07-g-28",
+              "number": 28,
+              "prompt": "料理の教室はいくらかかりますか。",
+              "promptRuby": "{料理|りょうり}の{教室|きょうしつ}はいくらかかりますか。",
+              "choices": [
+                "1か月500円",
+                "1回500円",
+                "1回100円",
+                "ただ"
+              ],
+              "choicesRuby": [
+                "1か{月|げつ}500{円|えん}",
+                "1{回|かい}500{円|えん}",
+                "1{回|かい}100{円|えん}",
+                "ただ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Lớp học nấu ăn mất bao nhiêu tiền?",
+              "explanation": "Lớp học nấu ăn tương ứng với mục 「おべんとうを作りましょう！」 (Cùng làm cơm hộp nào!). Ở dòng chi phí ghi rõ: 「お金：1回500円」 (500 yên / 1 lần). Chọn đáp án 2."
+            },
+            {
+              "id": "n4-2021-07-g-29",
+              "number": 29,
+              "prompt": "リーさんは、朝9時から夕方5時まではたらいています。休みは水曜日と日曜日です。いつもすわって仕事をしているので、運動したいと思っています。リーさんは、どの教室に行きますか。",
+              "promptRuby": "リーさんは、{朝|あさ}9{時|じ}から{夕方|ゆうがた}5{時|じ}まではたらいています。{休|やす}みは{水曜日|すいようび}と{日曜日|にちようび}です。いつもすわって{仕事|しごと}をしているので、{運動|うんどう}したいと{思|おも}っています。リーさんは、どの{教室|きょうしつ}に{行|い}きますか。",
+              "choices": [
+                "料理",
+                "テニス",
+                "ジョギング",
+                "日本語"
+              ],
+              "choicesRuby": [
+                "{料理|りょうり}",
+                "テニス",
+                "ジョギング",
+                "{日本語|にほんご}"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Bạn Lee làm việc từ 9 giờ sáng đến 5 giờ chiều. Ngày nghỉ là thứ Tư và Chủ Nhật. Vì lúc nào cũng ngồi làm việc nên bạn ấy muốn vận động. Bạn Lee sẽ đi lớp học nào?",
+              "explanation": "Điều kiện của bạn Lee: (1) muốn vận động (運動したい) → chỉ còn lớp テニス (thứ Tư 15:00–18:00) hoặc ジョギング (thứ Bảy 10:30–12:00); (2) rảnh vào thứ Tư và Chủ Nhật (thứ Bảy 9:00–17:00 phải đi làm nên loại ジョギング). Lớp テニス học vào thứ Tư đúng ngày nghỉ của bạn Lee nên chọn đáp án 2."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "listening",
+      "title": "Nghe hiểu",
+      "titleJa": "聴解",
+      "durationSeconds": 2100,
+      "audioAvailable": false,
+      "audioNote": "Đề tháng 7/2021 có file audio .mp3 trong bộ dữ liệu gốc nhưng chưa có script văn bản và không đóng gói audio để giữ gọn dung lượng app.",
+      "groups": []
+    }
+  ]
+}

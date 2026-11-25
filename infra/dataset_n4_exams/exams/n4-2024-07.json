@@ -1,0 +1,2122 @@
+{
+  "id": "n4-2024-07",
+  "level": "n4",
+  "year": 2024,
+  "month": 7,
+  "code": "2024-07",
+  "title": "Đề thi JLPT N4 — Tháng 7/2024",
+  "answerSourceSummary": "official_key",
+  "hasListeningScript": true,
+  "hasSourceAudio": true,
+  "sections": [
+    {
+      "key": "vocab",
+      "title": "Từ vựng & Chữ Hán",
+      "titleJa": "言語知識（文字・語彙）",
+      "durationSeconds": 1500,
+      "audioAvailable": false,
+      "groups": [
+        {
+          "id": "n4-2024-07-v-m1",
+          "label": "問題1 — Cách đọc chữ Hán",
+          "instructionJa": "＿＿＿＿＿ の ことばは ひらがなで どう かきますか。1・2・3・4 から いちばん いいものを ひとつ えらんで ください。",
+          "instructionVi": "Từ được gạch chân viết bằng Hiragana như thế nào? Hãy chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-v-01",
+              "number": 1,
+              "prompt": "ちょっと[[待って]]ください。",
+              "promptRuby": "ちょっと[[{待|ま}って]]ください。",
+              "choices": [
+                "さわって",
+                "のこって",
+                "たって",
+                "まって"
+              ],
+              "choicesRuby": [
+                "さわって",
+                "のこって",
+                "たって",
+                "まって"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Xin vui lòng đợi một chút.",
+              "explanation": "Chữ Hán 待 (ĐÃI — đợi) trong động từ 待つ đọc là まつ, chia thể て thành まって (đáp án 4). Các phương án khác: さわって (触って: chạm), のこって (残って: còn lại), たって (立って: đứng)."
+            },
+            {
+              "id": "n4-2024-07-v-02",
+              "number": 2,
+              "prompt": "そこの[[薬]]をとってください。",
+              "promptRuby": "そこの[[{薬|くすり}]]をとってください。",
+              "choices": [
+                "しお",
+                "いと",
+                "くすり",
+                "ふくろ"
+              ],
+              "choicesRuby": [
+                "しお",
+                "いと",
+                "くすり",
+                "ふくろ"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Hãy lấy giúp tôi lọ thuốc ở chỗ đó.",
+              "explanation": "Chữ Hán 薬 (DƯỢC — thuốc) đọc là くすり (đáp án 3). Các phương án khác: しお (塩: muối), いと (糸: sợi chỉ), ふくろ (袋: túi)."
+            },
+            {
+              "id": "n4-2024-07-v-03",
+              "number": 3,
+              "prompt": "もう少し[[早い]]ほうがいいです。",
+              "promptRuby": "もう{少|すこ}し[[{早|はや}い]]ほうがいいです。",
+              "choices": [
+                "ながい",
+                "おそい",
+                "はやい",
+                "みじかい"
+              ],
+              "choicesRuby": [
+                "ながい",
+                "おそい",
+                "はやい",
+                "みじかい"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Sớm hơn một chút thì tốt hơn.",
+              "explanation": "Chữ Hán 早 (TẢO — sớm) trong tính từ 早い đọc là はやい (đáp án 3). Các phương án khác: ながい (長い: dài), おそい (遅い: muộn), みじかい (短い: ngắn)."
+            },
+            {
+              "id": "n4-2024-07-v-04",
+              "number": 4,
+              "prompt": "きれいな[[海]]ですね。",
+              "promptRuby": "きれいな[[{海|うみ}]]ですね。",
+              "choices": [
+                "そら",
+                "うみ",
+                "ほし",
+                "とり"
+              ],
+              "choicesRuby": [
+                "そら",
+                "うみ",
+                "ほし",
+                "とり"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Biển đẹp quá nhỉ.",
+              "explanation": "Chữ Hán 海 (HẢI — biển) đọc là うみ (đáp án 2). Các phương án khác: そら (空: bầu trời), ほし (星: ngôi sao), とり (鳥: chim)."
+            },
+            {
+              "id": "n4-2024-07-v-05",
+              "number": 5,
+              "prompt": "とうきょうに[[一度]]行ったことがあります。",
+              "promptRuby": "とうきょうに[[{一度|いちど}]]{行|い}ったことがあります。",
+              "choices": [
+                "いっか",
+                "いっかい",
+                "いちどう",
+                "いちど"
+              ],
+              "choicesRuby": [
+                "いっか",
+                "いっかい",
+                "いちどう",
+                "いちど"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Tôi đã từng đi Tokyo một lần.",
+              "explanation": "Từ ghép 一度 (NHẤT ĐỘ — một lần) đọc là いちど (đáp án 4). Chú ý phân biệt với 一回 (いっかい: một lần) và tránh nhầm trường âm いちどう."
+            },
+            {
+              "id": "n4-2024-07-v-06",
+              "number": 6,
+              "prompt": "あとで[[教えて]]ください。",
+              "promptRuby": "あとで[[{教|おし}えて]]ください。",
+              "choices": [
+                "かぞえて",
+                "おしえて",
+                "かんがえて",
+                "こたえて"
+              ],
+              "choicesRuby": [
+                "かぞえて",
+                "おしえて",
+                "かんがえて",
+                "こたえて"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Lát nữa hãy chỉ/nói cho tôi biết nhé.",
+              "explanation": "Chữ Hán 教 (GIÁO — dạy, chỉ bảo) trong 教える đọc là おしえる, thể て là おしえて (đáp án 2). Các phương án khác: かぞえて (数えて: đếm), かんがえて (考えて: suy nghĩ), こたえて (答えて: trả lời)."
+            },
+            {
+              "id": "n4-2024-07-v-07",
+              "number": 7,
+              "prompt": "けさは天気[[予報]]を見ませんでした。",
+              "promptRuby": "けさは{天気|てんき}[[{予報|よほう}]]を{見|み}ませんでした。",
+              "choices": [
+                "よほう",
+                "ようほう",
+                "ようぼう",
+                "よぼう"
+              ],
+              "choicesRuby": [
+                "よほう",
+                "ようほう",
+                "ようぼう",
+                "よぼう"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Sáng nay tôi đã không xem dự báo thời tiết.",
+              "explanation": "Từ ghép 予報 (DỰ BÁO — dự báo) đọc là よほう (đáp án 1), trong cụm 天気予報 (てんきよほう: dự báo thời tiết). Không có trường âm ở chữ 予 (よ) và chữ 報 đọc là ほう (không có âm đục)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-v-m2",
+          "label": "問題2 — Chọn chữ Hán đúng",
+          "instructionJa": "＿＿＿＿＿ の ことばを どう かきますか。1・2・3・4 から いちばん いいものを ひとつ えらんで ください。",
+          "instructionVi": "Từ được gạch chân viết bằng chữ Hán như thế nào? Hãy chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-v-08",
+              "number": 8,
+              "prompt": "このへやは[[あつい]]ですね。",
+              "promptRuby": "このへやは[[あつい]]ですね。",
+              "choices": [
+                "寒い",
+                "暑い",
+                "明るい",
+                "暗い"
+              ],
+              "choicesRuby": [
+                "{寒|さむ}い",
+                "{暑|あつ}い",
+                "{明|あか}るい",
+                "{暗|くら}い"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Căn phòng này nóng quá nhỉ.",
+              "explanation": "あつい mang nghĩa nóng (nhiệt độ không khí, căn phòng) viết là 暑い (THỬ — nóng) (đáp án 2). Các phương án khác: 寒い (さむい: lạnh), 明るい (あかるい: sáng), 暗い (くらい: tối)."
+            },
+            {
+              "id": "n4-2024-07-v-09",
+              "number": 9,
+              "prompt": "ロボットがこわれて[[うごかなく]]なった。",
+              "promptRuby": "ロボットがこわれて[[うごかなく]]なった。",
+              "choices": [
+                "動かなく",
+                "働かなく",
+                "助かなく",
+                "勤かなく"
+              ],
+              "choicesRuby": [
+                "{動|うご}かなく",
+                "{働|はたら}かなく",
+                "{助|たす}かなく",
+                "{勤|つと}かなく"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Con rô-bốt bị hỏng nên không còn cử động được nữa.",
+              "explanation": "うごく (di chuyển, hoạt động) viết là 動く (ĐỘNG), dạng phủ định うごかなく viết là 動かなく (đáp án 1). Phân biệt với 働く (はたらく: làm việc), 助ける (たすける: giúp đỡ), 勤める (つとめる: công tác)."
+            },
+            {
+              "id": "n4-2024-07-v-10",
+              "number": 10,
+              "prompt": "100グラム[[いか]]ならだいじょうぶです。",
+              "promptRuby": "100グラム[[いか]]ならだいじょうぶです。",
+              "choices": [
+                "意上",
+                "以上",
+                "意下",
+                "以下"
+              ],
+              "choicesRuby": [
+                "{意上|いじょう}",
+                "{以上|いじょう}",
+                "{意下|いか}",
+                "{以下|いか}"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Nếu từ 100 gam trở xuống thì không sao.",
+              "explanation": "いか (trở xuống, không quá) viết là 以下 (DĨ HẠ) (đáp án 4). 以上 (いじょう: trở lên), còn 意上 và 意下 không phải là từ đúng."
+            },
+            {
+              "id": "n4-2024-07-v-11",
+              "number": 11,
+              "prompt": "どんな[[おと]]でしたか。",
+              "promptRuby": "どんな[[おと]]でしたか。",
+              "choices": [
+                "音",
+                "色",
+                "声",
+                "味"
+              ],
+              "choicesRuby": [
+                "{音|おと}",
+                "{色|いろ}",
+                "{声|こえ}",
+                "{味|あじ}"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Đó là âm thanh như thế nào?",
+              "explanation": "おと (âm thanh, tiếng động) viết là 音 (ÂM) (đáp án 1). Các phương án khác: 色 (いろ: màu sắc), 声 (こえ: giọng nói), 味 (あじ: mùi vị)."
+            },
+            {
+              "id": "n4-2024-07-v-12",
+              "number": 12,
+              "prompt": "このまちは[[こうつう]]がふべんです。",
+              "promptRuby": "このまちは[[こうつう]]がふべんです。",
+              "choices": [
+                "交道",
+                "公通",
+                "交通",
+                "公道"
+              ],
+              "choicesRuby": [
+                "{交道|こうどう}",
+                "{公通|こうつう}",
+                "{交通|こうつう}",
+                "{公道|こうどう}"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Thị trấn này giao thông bất tiện.",
+              "explanation": "こうつう (giao thông) viết là 交通 (GIAO THÔNG) (đáp án 3). Công thức thường gặp ở N4: 交通が便利 / 不便 (giao thông thuận tiện / bất tiện)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-v-m3",
+          "label": "問題3 — Điền từ thích hợp theo ngữ cảnh",
+          "instructionJa": "（　）に なにを いれますか。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Điền từ nào vào chỗ trống ( )? Hãy chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-v-13",
+              "number": 13,
+              "prompt": "なくしたかぎを（　）けど、どこにもないんです。",
+              "promptRuby": "なくしたかぎを（　）けど、どこにもないんです。",
+              "choices": [
+                "しらべた",
+                "さがした",
+                "みつけた",
+                "あつめた"
+              ],
+              "choicesRuby": [
+                "しらべた",
+                "さがした",
+                "みつけた",
+                "あつめた"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Tôi đã tìm chiếc chìa khóa bị mất nhưng chẳng thấy ở đâu cả.",
+              "explanation": "さがす (探す — tìm kiếm) là từ phù hợp nhất khi đi tìm đồ vật bị mất (đáp án 2). Các phương án khác: しらべた (tra cứu/kiểm tra), みつけた (đã tìm thấy — mâu thuẫn với 'どこにもない'), あつめた (thu thập)."
+            },
+            {
+              "id": "n4-2024-07-v-14",
+              "number": 14,
+              "prompt": "父は（　）ので、わたしがべんきょうをしないときは、いつもおこります。",
+              "promptRuby": "{父|ちち}は（　）ので、わたしがべんきょうをしないときは、いつもおこります。",
+              "choices": [
+                "にがい",
+                "きびしい",
+                "はずかしい",
+                "めずらしい"
+              ],
+              "choicesRuby": [
+                "にがい",
+                "きびしい",
+                "はずかしい",
+                "めずらしい"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Bố tôi rất nghiêm khắc nên mỗi khi tôi không học bài là ông luôn tức giận.",
+              "explanation": "きびしい (厳しい — nghiêm khắc) hợp nghĩa với vế sau 'không học bài thì luôn giận' (đáp án 2). Các phương án khác: にがい (đắng), はずかしい (xấu hổ), めずらしい (hiếm lạ)."
+            },
+            {
+              "id": "n4-2024-07-v-15",
+              "number": 15,
+              "prompt": "外国に行くときはパスポートが（　）です。",
+              "promptRuby": "{外国|がいこく}に{行|い}くときはパスポートが（　）です。",
+              "choices": [
+                "ひつよう",
+                "あんぜん",
+                "じゅうぶん",
+                "ていねい"
+              ],
+              "choicesRuby": [
+                "ひつよう",
+                "あんぜん",
+                "じゅうぶん",
+                "ていねい"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Khi đi nước ngoài thì cần phải có hộ chiếu.",
+              "explanation": "ひつよう (必要 — cần thiết) phù hợp với ngữ cảnh cần hộ chiếu khi ra nước ngoài (đáp án 1). Các phương án khác: あんぜん (an toàn), じゅうぶん (đầy đủ), ていねい (lịch sự, cẩn thận)."
+            },
+            {
+              "id": "n4-2024-07-v-16",
+              "number": 16,
+              "prompt": "このまんがは、わたしの国でもわかい人に（　）があります。",
+              "promptRuby": "このまんがは、わたしの{国|くに}でもわかい{人|ひと}に（　）があります。",
+              "choices": [
+                "きぶん",
+                "しゅみ",
+                "きょうみ",
+                "にんき"
+              ],
+              "choicesRuby": [
+                "きぶん",
+                "しゅみ",
+                "きょうみ",
+                "にんき"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Bộ truyện tranh này ở nước tôi cũng rất được giới trẻ yêu thích.",
+              "explanation": "Cụm từ cố định ～に人気（にんき）がある nghĩa là 'được ai đó yêu thích / nổi tiếng đối với ai đó' (đáp án 4). Chú ý: きょうみがある dùng với chủ ngữ là người (～に興味がある: có hứng thú với cái gì)."
+            },
+            {
+              "id": "n4-2024-07-v-17",
+              "number": 17,
+              "prompt": "ふうとうが小さいので、しりょうのかみは半分に（　）いれてください。",
+              "promptRuby": "ふうとうが{小|ちい}さいので、しりょうのかみは{半分|はんぶん}に（　）いれてください。",
+              "choices": [
+                "わって",
+                "かえて",
+                "おって",
+                "こわして"
+              ],
+              "choicesRuby": [
+                "わって",
+                "かえて",
+                "おって",
+                "こわして"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Vì phong bì nhỏ nên hãy gấp đôi tờ tài liệu lại rồi cho vào.",
+              "explanation": "おる (折る — gấp, bẻ) dùng trong cụm 半分に折る (gấp làm đôi) (đáp án 3). Các phương án khác: わって (làm vỡ/chia), かえて (thay đổi), こわして (làm hỏng)."
+            },
+            {
+              "id": "n4-2024-07-v-18",
+              "number": 18,
+              "prompt": "このレストランはりょうりの（　）が多いので、いろいろたべられます。",
+              "promptRuby": "このレストランはりょうりの（　）が{多|おお}いので、いろいろたべられます。",
+              "choices": [
+                "ぎじゅつ",
+                "かんけい",
+                "しゅるい",
+                "けいけん"
+              ],
+              "choicesRuby": [
+                "ぎじゅつ",
+                "かんけい",
+                "しゅるい",
+                "けいけん"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Nhà hàng này có nhiều loại món ăn nên có thể ăn đủ thứ.",
+              "explanation": "しゅるい (種類 — chủng loại, loại) đi với 料理の種類が多い (có nhiều loại món ăn) nên hợp nghĩa với 'いろいろたべられます' (đáp án 3). Các phương án khác: ぎじゅつ (kỹ thuật), かんけい (quan hệ), けいけん (kinh nghiệm)."
+            },
+            {
+              "id": "n4-2024-07-v-19",
+              "number": 19,
+              "prompt": "サッカーをしたいのに、一人（　）、できません。",
+              "promptRuby": "サッカーをしたいのに、{一人|ひとり}（　）、できません。",
+              "choices": [
+                "くらべなくて",
+                "すぎなくて",
+                "つづかなくて",
+                "たりなくて"
+              ],
+              "choicesRuby": [
+                "くらべなくて",
+                "すぎなくて",
+                "つづかなくて",
+                "たりなくて"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Dù muốn chơi bóng đá nhưng vì thiếu một người nên không chơi được.",
+              "explanation": "たりる (足りる — đủ), thể phủ định nối nguyên nhân là たりなくて (vì thiếu/không đủ) (đáp án 4). Các phương án khác: くらべる (so sánh), すぎる (quá), つづく (tiếp tục)."
+            },
+            {
+              "id": "n4-2024-07-v-20",
+              "number": 20,
+              "prompt": "としょかんでさわいでいる子どもたちを（　）しました。",
+              "promptRuby": "としょかんでさわいでいる{子|こ}どもたちを（　）しました。",
+              "choices": [
+                "ちゅうい",
+                "こうじ",
+                "じゅんび",
+                "そうだん"
+              ],
+              "choicesRuby": [
+                "ちゅうい",
+                "こうじ",
+                "じゅんび",
+                "そうだん"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Tôi đã nhắc nhở những đứa trẻ đang làm ồn trong thư viện.",
+              "explanation": "ちゅういする (注意する — nhắc nhở, cảnh báo) dùng với trợ từ を khi nhắc nhở ai đó (子どもたちを注意しました) (đáp án 1). Các phương án khác: こうじ (công trình/thi công), じゅんび (chuẩn bị), そうだん (bàn bạc/tư vấn)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-v-m4",
+          "label": "問題4 — Tìm câu đồng nghĩa",
+          "instructionJa": "＿＿＿＿＿ の ぶんと だいたい おなじ いみの ぶんが あります。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Có câu có nghĩa gần giống với câu gạch chân. Hãy chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-v-21",
+              "number": 21,
+              "prompt": "[[いつぬすまれたんですか。]]",
+              "promptRuby": "[[いつぬすまれたんですか。]]",
+              "choices": [
+                "いつわたされたんですか。",
+                "いつおされたんですか。",
+                "いつよばれたんですか。",
+                "いつとられたんですか。"
+              ],
+              "choicesRuby": [
+                "いつわたされたんですか。",
+                "いつおされたんですか。",
+                "いつよばれたんですか。",
+                "いつとられたんですか。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Bạn bị lấy trộm khi nào vậy?",
+              "explanation": "ぬすまれる (盗まれる — bị trộm) đồng nghĩa gần nhất với とられる (取られる — bị lấy mất) (đáp án 4). Các phương án khác: わたされる (được trao cho), おされる (bị đẩy/ấn), よばれる (bị/được gọi)."
+            },
+            {
+              "id": "n4-2024-07-v-22",
+              "number": 22,
+              "prompt": "[[じょせいは一人もいませんでした。]]",
+              "promptRuby": "[[じょせいは{一人|ひとり}もいませんでした。]]",
+              "choices": [
+                "おとこのひとは一人もいませんでした。",
+                "おんなのひとは一人もいませんでした。",
+                "おとなは一人もいませんでした。",
+                "子どもは一人もいませんでした。"
+              ],
+              "choicesRuby": [
+                "おとこのひとは{一人|ひとり}もいませんでした。",
+                "おんなのひとは{一人|ひとり}もいませんでした。",
+                "おとなは{一人|ひとり}もいませんでした。",
+                "{子|こ}どもは{一人|ひとり}もいませんでした。"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Đã không có lấy một người phụ nữ nào cả.",
+              "explanation": "じょせい (女性 — nữ giới, phụ nữ) đồng nghĩa với おんなのひと (女の人) (đáp án 2). Các phương án khác: おとこのひと (đàn ông), おとな (người lớn), 子ども (trẻ em)."
+            },
+            {
+              "id": "n4-2024-07-v-23",
+              "number": 23,
+              "prompt": "[[おしゃべりはやめてください。]]",
+              "promptRuby": "[[おしゃべりはやめてください。]]",
+              "choices": [
+                "話をするのはやめてください。",
+                "しゃしんをとるのはやめてください。",
+                "ものを食べるのはやめてください。",
+                "たばこをすうのはやめてください。"
+              ],
+              "choicesRuby": [
+                "{話|はなし}をするのはやめてください。",
+                "しゃしんをとるのはやめてください。",
+                "ものを{食|た}べるのはやめてください。",
+                "たばこをすうのはやめてください。"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Xin hãy ngừng nói chuyện phiếm.",
+              "explanation": "おしゃべり nghĩa là nói chuyện, tán gẫu, đồng nghĩa với 話をする (nói chuyện) (đáp án 1). Các phương án khác: しゃしんをとる (chụp ảnh), ものを食べる (ăn uống), たばこをすう (hút thuốc)."
+            },
+            {
+              "id": "n4-2024-07-v-24",
+              "number": 24,
+              "prompt": "[[ここではいろいろなものをせいさんしています。]]",
+              "promptRuby": "[[ここではいろいろなものをせいさんしています。]]",
+              "choices": [
+                "ここではいろいろなものをかしています。",
+                "ここではいろいろなものをうっています。",
+                "ここではいろいろなものをつくっています。",
+                "ここではいろいろなものをつかっています。"
+              ],
+              "choicesRuby": [
+                "ここではいろいろなものをかしています。",
+                "ここではいろいろなものをうっています。",
+                "ここではいろいろなものをつくっています。",
+                "ここではいろいろなものをつかっています。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Ở đây đang sản xuất nhiều loại sản phẩm khác nhau.",
+              "explanation": "せいさんする (生産する — sản xuất) đồng nghĩa với つくる (作る — làm ra, chế tạo) (đáp án 3). Các phương án khác: かす (cho mượn), うる (bán), つかう (sử dụng)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-v-m5",
+          "label": "問題5 — Cách dùng từ đúng",
+          "instructionJa": "つぎの ことばの つかいかたで いちばん いい ものを 1・2・3・4 から ひとつ えらんで ください。",
+          "instructionVi": "Hãy chọn 1 câu sử dụng từ đã cho đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-v-25",
+              "number": 25,
+              "prompt": "じんこう",
+              "promptRuby": "じんこう",
+              "choices": [
+                "日よう日のどうぶつえんは[[じんこう]]がとても多いです。",
+                "わたしの会社は大きくて、[[じんこう]]がとても多いです。",
+                "このまちは、マンションがたくさんあって、[[じんこう]]が多いです。",
+                "わたしのかぞくは[[じんこう]]が多くて、いつもにぎやかです。"
+              ],
+              "choicesRuby": [
+                "{日|にち}よう{日|び}のどうぶつえんは[[じんこう]]がとても{多|おお}いです。",
+                "わたしの{会社|かいしゃ}は{大|おお}きくて、[[じんこう]]がとても{多|おお}いです。",
+                "このまちは、マンションがたくさんあって、[[じんこう]]が{多|おお}いです。",
+                "わたしのかぞくは[[じんこう]]が{多|おお}くて、いつもにぎやかです。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "じんこう (dân số) — Đáp án 3: Thị trấn này có nhiều chung cư nên dân số đông.",
+              "explanation": "じんこう (人口 — dân số) chỉ số lượng người sinh sống trong một khu vực hành chính như đất nước, thành phố, thị trấn (đáp án 3). Không dùng cho số khách ở sở thú, nhân viên công ty hay thành viên gia đình (những trường hợp đó dùng 人 hoặc 人数)."
+            },
+            {
+              "id": "n4-2024-07-v-26",
+              "number": 26,
+              "prompt": "こむ",
+              "promptRuby": "こむ",
+              "choices": [
+                "みちが[[こんで]]いたので、時間がかかります。",
+                "りょこうのにもつが多くて、かばんが[[こんで]]います。",
+                "いろいろないけんを聞いたので、あたまが[[こんで]]います。",
+                "おかしを食べすぎて、おなかが[[こんで]]います。"
+              ],
+              "choicesRuby": [
+                "みちが[[こんで]]いたので、{時間|じかん}がかかります。",
+                "りょこうのにもつが{多|おお}くて、かばんが[[こんで]]います。",
+                "いろいろないけんを{聞|き}いたので、あたまが[[こんで]]います。",
+                "おかしを{食|た}べすぎて、おなかが[[こんで]]います。"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "こむ (đông đúc, tắc nghẽn) — Đáp án 1: Vì đường tắc/đông xe nên tốn thời gian.",
+              "explanation": "こむ (込む/混む — đông đúc, kẹt xe) dùng cho đường sá, tàu điện, cửa hàng có nhiều người hoặc xe cộ (đáp án 1). Không dùng cho túi đầy đồ (いっぱい), đầu rối hay bụng no."
+            },
+            {
+              "id": "n4-2024-07-v-27",
+              "number": 27,
+              "prompt": "にげる",
+              "promptRuby": "にげる",
+              "choices": [
+                "かぜがふいて、ぼうしが[[にげて]]しまいました。",
+                "けいさつが来ましたが、どろぼうは[[にげて]]しまいました。",
+                "コップがたおれて、なかの水が[[にげて]]しまいました。",
+                "バスていについたとき、バスは[[にげて]]しまいました。"
+              ],
+              "choicesRuby": [
+                "かぜがふいて、ぼうしが[[にげて]]しまいました。",
+                "けいさつが{来|き}ましたが、どろぼうは[[にげて]]しまいました。",
+                "コップがたおれて、なかの{水|みず}が[[にげて]]しまいました。",
+                "バスていについたとき、バスは[[にげて]]しまいました。"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "にげる (chạy trốn, bỏ trốn) — Đáp án 2: Cảnh sát đã đến nhưng tên trộm đã bỏ trốn mất rồi.",
+              "explanation": "にげる (逃げる — chạy trốn) dùng cho người hoặc động vật có ý chí tự bỏ chạy khỏi nguy hiểm/sự truy đuổi (đáp án 2). Không dùng cho đồ vật vô tri như mũ bị gió thổi bay (飛ぶ), nước đổ (こぼれる) hay xe buýt chạy mất (行ってしまう)."
+            },
+            {
+              "id": "n4-2024-07-v-28",
+              "number": 28,
+              "prompt": "ふべん",
+              "promptRuby": "ふべん",
+              "choices": [
+                "このスポーツはルールが[[ふべん]]で、おぼえられません。",
+                "しゅくだいがたくさんありましたから、[[ふべん]]です。",
+                "先生の話はせんもんのことばが多くて、[[ふべん]]で、わかりにくいです。",
+                "ぎんこうはいえからとおいので、いくのは[[ふべん]]です。"
+              ],
+              "choicesRuby": [
+                "このスポーツはルールが[[ふべん]]で、おぼえられません。",
+                "しゅくだいがたくさんありましたから、[[ふべん]]です。",
+                "{先生|せんせい}の{話|はなし}はせんもんのことばが{多|おお}くて、[[ふべん]]で、わかりにくいです。",
+                "ぎんこうはいえからとおいので、いくのは[[ふべん]]です。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "ふべん (bất tiện) — Đáp án 4: Vì ngân hàng ở xa nhà nên việc đi đến đó rất bất tiện.",
+              "explanation": "ふべん (不便 — bất tiện) chỉ sự không thuận tiện trong đi lại, sinh hoạt, sử dụng đồ vật (đáp án 4). Không dùng để mô tả luật lệ phức tạp (ふくざつ), bài tập nhiều (たいへん) hay lời nói khó hiểu (むずかしい)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grammar_reading",
+      "title": "Ngữ pháp & Đọc hiểu",
+      "titleJa": "言語知識（文法）・読解",
+      "durationSeconds": 3300,
+      "audioAvailable": false,
+      "groups": [
+        {
+          "id": "n4-2024-07-g-m1",
+          "label": "問題1 — Chọn ngữ pháp đúng",
+          "instructionJa": "（　）に 何を 入れますか。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Điền từ/cấu trúc nào vào chỗ trống ( )? Hãy chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-01",
+              "number": 1,
+              "prompt": "うでにつける時計を「うでどけい」（　）いいます。",
+              "promptRuby": "うでにつける{時計|とけい}を「うでどけい」（　）いいます。",
+              "choices": [
+                "が",
+                "に",
+                "で",
+                "と"
+              ],
+              "choicesRuby": [
+                "が",
+                "に",
+                "で",
+                "と"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Loại đồng hồ đeo ở cổ tay gọi là \"đồng hồ đeo tay\".",
+              "explanation": "Cấu trúc A を B といいます (gọi A là B) dùng trợ từ trích dẫn と trước động từ いう (đáp án 4)."
+            },
+            {
+              "id": "n4-2024-07-g-02",
+              "number": 2,
+              "prompt": "このかばんは軽いから、旅行（　）便利です。",
+              "promptRuby": "このかばんは{軽|かる}いから、{旅行|りょこう}（　）{便利|べんり}です。",
+              "choices": [
+                "と",
+                "を",
+                "に",
+                "の"
+              ],
+              "choicesRuby": [
+                "と",
+                "を",
+                "に",
+                "の"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Chiếc túi này nhẹ nên rất tiện lợi cho việc đi du lịch.",
+              "explanation": "Cấu trúc N に便利（べんり）です nghĩa là 'tiện lợi cho việc N / mục đích N', sử dụng trợ từ に (đáp án 3)."
+            },
+            {
+              "id": "n4-2024-07-g-03",
+              "number": 3,
+              "prompt": "父はネクタイを30本以上持っていますが、私は2本（　）持っていません。",
+              "promptRuby": "{父|ちち}はネクタイを30{本以上|ほんいじょう}{持|も}っていますが、{私|わたし}は2{本|ほん}（　）{持|も}っていません。",
+              "choices": [
+                "が",
+                "ずつ",
+                "しか",
+                "ぐらい"
+              ],
+              "choicesRuby": [
+                "が",
+                "ずつ",
+                "しか",
+                "ぐらい"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bố tôi có hơn 30 chiếc cà vạt, còn tôi chỉ có 2 chiếc thôi.",
+              "explanation": "Trợ từ しか luôn đi với thể phủ định (～しか～ない) mang nghĩa 'chỉ có ~ thôi' (nhấn mạnh sự ít ỏi so với 30 chiếc của bố) (đáp án 3)."
+            },
+            {
+              "id": "n4-2024-07-g-04",
+              "number": 4,
+              "prompt": "きのう読んだ本（　）、赤は元気が出る色だそうです。",
+              "promptRuby": "きのう{読|よ}んだ{本|ほん}（　）、{赤|あか}は{元気|げんき}が{出|で}る{色|いろ}だそうです。",
+              "choices": [
+                "について",
+                "からは",
+                "より",
+                "によると"
+              ],
+              "choicesRuby": [
+                "について",
+                "からは",
+                "より",
+                "によると"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Theo cuốn sách tôi đọc hôm qua, nghe nói màu đỏ là màu giúp có thêm năng lượng.",
+              "explanation": "Cấu trúc N によると、～そうです (theo nguồn tin N thì nghe nói là ~) dùng để dẫn nguồn thông tin truyền đạt (đáp án 4). Các phương án khác: について (về chủ đề), からは (từ ~), より (so với)."
+            },
+            {
+              "id": "n4-2024-07-g-05",
+              "number": 5,
+              "prompt": "毎週日曜日の朝は、（　）10時ごろまで寝ています。",
+              "promptRuby": "{毎週|まいしゅう}{日曜日|にちようび}の{朝|あさ}は、（　）10{時|じ}ごろまで{寝|ね}ています。",
+              "choices": [
+                "だいたい",
+                "だんだん",
+                "なかなか",
+                "ひじょうに"
+              ],
+              "choicesRuby": [
+                "だいたい",
+                "だんだん",
+                "なかなか",
+                "ひじょうに"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Sáng Chủ nhật hằng tuần, tôi thường ngủ đến khoảng 10 giờ.",
+              "explanation": "Phó từ だいたい (đại khái, thường thì, khoảng chừng) phù hợp với mốc ước lượng '10時ごろまで' (đáp án 1). Các phương án khác: だんだん (dần dần), なかなか (mãi mà không — đi với phủ định), ひじょうに (vô cùng)."
+            },
+            {
+              "id": "n4-2024-07-g-06",
+              "number": 6,
+              "prompt": "青木「石川さん、きのう（　）パーティーにこなかったんですか。」\n石川「ようじがあったんです。」",
+              "promptRuby": "{青木|あおき}「{石川|いしかわ}さん、きのう（　）パーティーにこなかったんですか。」\n{石川|いしかわ}「ようじがあったんです。」",
+              "choices": [
+                "どの",
+                "どうして",
+                "どのぐらい",
+                "どうやって"
+              ],
+              "choicesRuby": [
+                "どの",
+                "どうして",
+                "どのぐらい",
+                "どうやって"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Aoki: \"Anh Ishikawa, hôm qua tại sao anh không đến bữa tiệc vậy?\"\nIshikawa: \"Vì tôi có việc bận.\"",
+              "explanation": "Câu trả lời nêu lý do 'ようじがあったんです' (vì có việc bận) nên câu hỏi phải dùng từ để hỏi lý do どうして (tại sao) (đáp án 2)."
+            },
+            {
+              "id": "n4-2024-07-g-07",
+              "number": 7,
+              "prompt": "うちのむすこはいつもそうじ（　）ほかのことを始めてしまうので、そうじがぜんぜん終わらない。",
+              "promptRuby": "うちのむすこはいつもそうじ（　）ほかのことを{始|はじ}めてしまうので、そうじがぜんぜん{終|お}わらない。",
+              "choices": [
+                "あいだ",
+                "ときに",
+                "のとちゅうで",
+                "のあと"
+              ],
+              "choicesRuby": [
+                "あいだ",
+                "ときに",
+                "のとちゅうで",
+                "のあと"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Con trai nhà tôi lúc nào cũng đang dọn dẹp dở chừng thì lại bắt đầu làm việc khác nên dọn mãi chẳng xong.",
+              "explanation": "Cấu trúc N のとちゅうで (đang giữa chừng việc N thì...) đúng về cả ngữ pháp (danh từ そうじ nối bằng の) lẫn ngữ nghĩa khiến việc dọn dẹp không thể hoàn thành (đáp án 3). Phương án 1 và 2 thiếu の trước あいだ/とき."
+            },
+            {
+              "id": "n4-2024-07-g-08",
+              "number": 8,
+              "prompt": "山下「チンさんは京都に（　）ことがありますか。」\nチン「はい、あります。」",
+              "promptRuby": "{山下|やました}「チンさんは{京都|きょうと}に（　）ことがありますか。」\nチン「はい、あります。」",
+              "choices": [
+                "行き",
+                "行った",
+                "行こう",
+                "行って"
+              ],
+              "choicesRuby": [
+                "{行|い}き",
+                "{行|い}った",
+                "{行|い}こう",
+                "{行|い}って"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Yamashita: \"Bạn Chin đã từng đi Kyoto chưa?\"\nChin: \"Vâng, tôi đi rồi ạ.\"",
+              "explanation": "Mẫu câu hỏi về trải nghiệm trong quá khứ Vた + ことがありますか (đã từng làm V chưa?), nên động từ 行く chia thể た thành 行った (đáp án 2)."
+            },
+            {
+              "id": "n4-2024-07-g-09",
+              "number": 9,
+              "prompt": "私が山田さんに初めて（　）3年前です。",
+              "promptRuby": "{私|わたし}が{山田|やまだ}さんに{初|はじ}めて（　）3{年前|ねんまえ}です。",
+              "choices": [
+                "会って",
+                "会ってから",
+                "会ったまま",
+                "会ったのは"
+              ],
+              "choicesRuby": [
+                "{会|あ}って",
+                "{会|あ}ってから",
+                "{会|あ}ったまま",
+                "{会|あ}ったのは"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Lần đầu tiên tôi gặp anh Yamada là 3 năm trước.",
+              "explanation": "Cấu trúc danh từ hóa mệnh đề nhấn mạnh thời điểm: [Mệnh đề thể thông thường] + のは + [Thời điểm] + です (đáp án 4: 会ったのは 3年前です). Nếu dùng 会ってから thì vế sau phải diễn tả khoảng thời gian đã trôi qua như '3年になります'."
+            },
+            {
+              "id": "n4-2024-07-g-10",
+              "number": 10,
+              "prompt": "（大学）\nA「今日いっしょにカラオケに行かない？」\nB「ごめん。あした中に（　）しゅくだいがまだ終わっていないから、今日は行けないんだ。」",
+              "promptRuby": "（{大学|だいがく}）\nA「{今日|きょう}いっしょにカラオケに{行|い}かない？」\nB「ごめん。あした{中|じゅう}に（　）しゅくだいがまだ{終|お}わっていないから、{今日|きょう}は{行|い}けないんだ。」",
+              "choices": [
+                "出してはいない",
+                "出さないといけない",
+                "出さなくてもいい",
+                "出さないほうがいい"
+              ],
+              "choicesRuby": [
+                "{出|だ}してはいない",
+                "{出|だ}さないといけない",
+                "{出|だ}さなくてもいい",
+                "{出|だ}さないほうがいい"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "(Ở trường đại học)\nA: \"Hôm nay đi karaoke cùng nhau không?\"\nB: \"Xin lỗi nhé. Bài tập phải nộp trong ngày mai vẫn chưa làm xong nên hôm nay mình không đi được.\"",
+              "explanation": "Cấu trúc Vないといけない nghĩa là 'phải làm V'. Ở đây bổ nghĩa cho danh từ しゅくだい: あした中に出さないといけないしゅくだい (bài tập phải nộp trong ngày mai) (đáp án 2)."
+            },
+            {
+              "id": "n4-2024-07-g-11",
+              "number": 11,
+              "prompt": "田中さんは花をプレゼントして、かのじょを（　）。",
+              "promptRuby": "{田中|たなか}さんは{花|はな}をプレゼントして、かのじょを（　）。",
+              "choices": [
+                "よろこんだ",
+                "よろこべた",
+                "よろこばせた",
+                "よろこばれた"
+              ],
+              "choicesRuby": [
+                "よろこんだ",
+                "よろこべた",
+                "よろこばせた",
+                "よろこばれた"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Anh Tanaka đã tặng hoa và làm cho bạn gái mình rất vui.",
+              "explanation": "Động từ よろこぶ (喜ぶ — vui mừng) là tự động từ chỉ cảm xúc. Để diễn tả 'làm cho ai đó vui' dùng thể sai khiến [Người] を + よろこばせる -> quá khứ よろこばせた (đáp án 3)."
+            },
+            {
+              "id": "n4-2024-07-g-12",
+              "number": 12,
+              "prompt": "西川「林さん、遅くなってすみません。」\n林「いいえ、私も今（　）。」",
+              "promptRuby": "{西川|にしかわ}「{林|はやし}さん、{遅|おそ}くなってすみません。」\n{林|はやし}「いいえ、{私|わたし}も{今|いま}（　）。」",
+              "choices": [
+                "来たところです",
+                "来るところです",
+                "来ていました",
+                "来ています"
+              ],
+              "choicesRuby": [
+                "{来|き}たところです",
+                "{来|く}るところです",
+                "{来|き}ていました",
+                "{来|き}ています"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Nishikawa: \"Anh Hayashi, xin lỗi vì tôi đến muộn.\"\nHayashi: \"Không sao đâu, tôi cũng vừa mới đến thôi.\"",
+              "explanation": "Cấu trúc 今 + Vたところです diễn tả hành động vừa mới xảy ra tức thì ('tôi cũng vừa mới đến xong') (đáp án 1). 来るところです là 'sắp sửa đến'."
+            },
+            {
+              "id": "n4-2024-07-g-13",
+              "number": 13,
+              "prompt": "（レストランで）\n中山「木村さんは何を食べる？」\n木村「私はカレーに（　）。」",
+              "promptRuby": "（レストランで）\n{中山|なかやま}「{木村|きむら}さんは{何|なに}を{食|た}べる？」\n{木村|きむら}「{私|わたし}はカレーに（　）。」",
+              "choices": [
+                "する",
+                "いい",
+                "ください",
+                "食べよう"
+              ],
+              "choicesRuby": [
+                "する",
+                "いい",
+                "ください",
+                "{食|た}べよう"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "(Ở nhà hàng)\nNakayama: \"Kimura ăn gì thế?\"\nKimura: \"Mình chọn món cà ri.\"",
+              "explanation": "Cấu trúc N にする dùng khi quyết định chọn một món đồ/món ăn nào đó (đáp án 1: 私はカレーにする = tôi chọn cà ri)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m2",
+          "label": "問題2 — Sắp xếp câu (dấu ★)",
+          "instructionJa": "つぎの文の ＿＿＿ ★ ＿＿＿ に入る ものは どれですか。1・2・3・4 から いちばん いい ものを 一つ えらんで ください。",
+          "instructionVi": "Từ nào điền vào vị trí dấu ★ trong câu sau? Hãy sắp xếp 4 phương án 1, 2, 3, 4 thành câu hoàn chỉnh rồi chọn từ ở vị trí ★.",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-14",
+              "number": 14,
+              "prompt": "（電話で）\nA「はい、さくら旅館です。」\nB「すみません、今日は3人でとまれる ＿＿＿ [[★]] ＿＿＿ ＿＿＿。」\nA「はい、空いています。」",
+              "promptRuby": "（{電話|でんわ}で）\nA「はい、さくら{旅館|りょかん}です。」\nB「すみません、{今日|きょう}は3{人|にん}でとまれる ＿＿＿ [[★]] ＿＿＿ ＿＿＿。」\nA「はい、{空|あ}いています。」",
+              "choices": [
+                "を",
+                "が",
+                "へや",
+                "予約したいのです"
+              ],
+              "choicesRuby": [
+                "を",
+                "が",
+                "へや",
+                "{予約|よやく}したいのです"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "(Qua điện thoại)\nA: \"Vâng, lữ quán Sakura xin nghe.\"\nB: \"Xin lỗi, hôm nay tôi muốn đặt phòng mà 3 người có thể ở được...\"\nA: \"Vâng, chúng tôi có phòng trống ạ.\"",
+              "explanation": "Thứ tự đúng: 3(へや) → 1(を) [★] → 4(予約したいのです) → 2(が). Câu hoàn chỉnh: 「今日は3人でとまれる へや を 予約したいのですが。」 (Hôm nay tôi muốn đặt phòng cho 3 người ở...). Cụm 3人でとまれる bổ nghĩa cho danh từ へや, rồi へやを予約したいのですが (tôi muốn đặt phòng...). Vị trí ★ là 1 (を)."
+            },
+            {
+              "id": "n4-2024-07-g-15",
+              "number": 15,
+              "prompt": "ともだちに ＿＿＿ [[★]] ＿＿＿ ＿＿＿ のに、家に忘れてきてしまった。",
+              "promptRuby": "ともだちに ＿＿＿ [[★]] ＿＿＿ ＿＿＿ のに、{家|いえ}に{忘|わす}れてきてしまった。",
+              "choices": [
+                "借りた",
+                "と思っていた",
+                "返そう",
+                "本を"
+              ],
+              "choicesRuby": [
+                "{借|か}りた",
+                "と{思|おも}っていた",
+                "{返|かえ}そう",
+                "{本|ほん}を"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Tôi đã định trả cuốn sách mượn của bạn, thế mà lại để quên ở nhà mất rồi.",
+              "explanation": "Thứ tự đúng: 1(借りた) → 4(本を) [★] → 3(返そう) → 2(と思っていた). Câu hoàn chỉnh: 「ともだちに 借りた 本を 返そう と思っていた のに、家に忘れてきてしまった。」 Cụm ともだちに借りた bổ nghĩa cho 本, tiếp theo là cấu trúc ý định Vようと思っていた (đã định làm V). Vị trí ★ là 4 (本を)."
+            },
+            {
+              "id": "n4-2024-07-g-16",
+              "number": 16,
+              "prompt": "電車が遅れて、コンサートが始まる ＿＿＿ ＿＿＿ [[★]] ＿＿＿ が、間に合った。",
+              "promptRuby": "{電車|でんしゃ}が{遅|おく}れて、コンサートが{始|はじ}まる ＿＿＿ ＿＿＿ [[★]] ＿＿＿ が、{間|ま}に{合|あ}った。",
+              "choices": [
+                "までに",
+                "かどうか",
+                "心配した",
+                "会場に着く"
+              ],
+              "choicesRuby": [
+                "までに",
+                "かどうか",
+                "{心配|しんぱい}した",
+                "{会場|かいじょう}に{着|つ}く"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Tàu bị trễ nên tôi đã lo không biết có kịp đến hội trường trước khi buổi hòa nhạc bắt đầu hay không, nhưng cuối cùng vẫn kịp.",
+              "explanation": "Thứ tự đúng: 1(までに) → 4(会場に着く) → 2(かどうか) [★] → 3(心配した). Câu hoàn chỉnh: 「コンサートが始まる までに 会場に着く かどうか 心配した が、間に合った。」 Cấu trúc ～までに (trước thời hạn ~) kết hợp với [Thể thông thường] + かどうか心配した (lo lắng không biết có ~ hay không). Vị trí ★ là 2 (かどうか)."
+            },
+            {
+              "id": "n4-2024-07-g-17",
+              "number": 17,
+              "prompt": "最近、弟は、私が ＿＿＿ ＿＿＿ [[★]] ＿＿＿ なりました。",
+              "promptRuby": "{最近|さいきん}、{弟|おとうと}は、{私|わたし}が ＿＿＿ ＿＿＿ [[★]] ＿＿＿ なりました。",
+              "choices": [
+                "ように",
+                "アニメに",
+                "きょうみをもつ",
+                "見ている"
+              ],
+              "choicesRuby": [
+                "ように",
+                "アニメに",
+                "きょうみをもつ",
+                "{見|み}ている"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Gần đây, em trai tôi bắt đầu có hứng thú với bộ anime mà tôi đang xem.",
+              "explanation": "Thứ tự đúng: 4(見ている) → 2(アニメに) → 3(きょうみをもつ) [★] → 1(ように). Câu hoàn chỉnh: 「最近、弟は、私が 見ている アニメに きょうみをもつ ように なりました。」 Cụm 私が見ている bổ nghĩa cho アニメ, kết hợp mẫu câu ～に興味を持つようになる (trở nên có hứng thú với ~). Vị trí ★ là 3 (きょうみをもつ)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m3",
+          "label": "問題3 — Điền ngữ pháp vào đoạn văn",
+          "instructionJa": "（18）から（21）に 何を 入れますか。ぶんしょうの いみを 考えて、1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Điền gì vào các chỗ trống (18) đến (21)? Hãy suy nghĩ ý nghĩa của đoạn văn và chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "passage": "以下の文章は、留学生の作文です。\n\nさくら美術館のきっさてん\nコギールス ケイト\n\n　先日、南駅の近くを歩いていたとき、美術館を見つけました。さくら美術館（18）小さな美術館で、白くてきれいな建物でした。時間があったので、私は美術館に入ってみました。\n　さくら美術館には花の絵がたくさんありました。私は絵を見たあとで、美術館の中にきっさてんがあるのに気がつきました。それで、きっさてんで少し（19）。大きな窓がある明るいきっさてんでした。窓から見える庭にはいろいろな花がさいていました。（20）喫茶店の中にも花の絵がたくさんありました。コーヒーもおいしくて、とてもいい店でした。\n　美術館に入る料金を払わなくても、きっさてんには（21）。それで、最近よく行っています。今、私がいちばん好きな場所です。",
+          "passageRuby": "{以下|いか}の{文章|ぶんしょう}は、{留学生|りゅうがくせい}の{作文|さくぶん}です。\n\nさくら{美術館|びじゅつかん}のきっさてん\nコギールス ケイト\n\n　{先日|せんじつ}、{南駅|みなみえき}の{近|ちか}くを{歩|ある}いていたとき、{美術館|びじゅつかん}を{見|み}つけました。さくら{美術館|びじゅつかん}（18）{小|ちい}さな{美術館|びじゅつかん}で、{白|しろ}くてきれいな{建物|たてもの}でした。{時間|じかん}があったので、{私|わたし}は{美術館|びじゅつかん}に{入|はい}ってみました。\n　さくら{美術館|びじゅつかん}には{花|はな}の{絵|え}がたくさんありました。{私|わたし}は{絵|え}を{見|み}たあとで、{美術館|びじゅつかん}の{中|なか}にきっさてんがあるのに{気|き}がつきました。それで、きっさてんで{少|すこ}し（19）。{大|おお}きな{窓|まど}がある{明|あか}るいきっさてんでした。{窓|まど}から{見|み}える{庭|にわ}にはいろいろな{花|はな}がさいていました。（20）{喫茶店|きっさてん}の{中|なか}にも{花|はな}の{絵|え}がたくさんありました。コーヒーもおいしくて、とてもいい{店|みせ}でした。\n　{美術館|びじゅつかん}に{入|はい}る{料金|りょうきん}を{払|はら}わなくても、きっさてんには（21）。それで、{最近|さいきん}よく{行|い}っています。{今|いま}、{私|わたし}がいちばん{好|す}きな{場所|ばしょ}です。",
+          "passageTranslation": "Bài viết dưới đây là bài tập làm văn của một du học sinh.\n\nQuán cà phê của Bảo tàng mỹ thuật Sakura\nKate Kogiels\n\nHôm trước, khi đang đi bộ gần ga Minami, tôi đã tình cờ thấy một bảo tàng mỹ thuật. Đó là một bảo tàng nhỏ tên là Bảo tàng mỹ thuật Sakura, là một tòa nhà màu trắng rất đẹp. Vì có thời gian nên tôi đã thử vào bảo tàng xem.\nTrong Bảo tàng mỹ thuật Sakura có rất nhiều tranh vẽ hoa. Sau khi xem tranh xong, tôi nhận ra bên trong bảo tàng có một quán cà phê. Vì vậy, tôi đã quyết định nghỉ ngơi một chút ở quán cà phê. Đó là một quán cà phê sáng sủa với khung cửa sổ lớn. Trong khu vườn nhìn thấy từ cửa sổ có nhiều loài hoa đang nở. Và bên trong quán cà phê cũng có rất nhiều tranh hoa. Cà phê cũng ngon nữa, thật là một quán tuyệt vời.\nDù không cần trả phí vào cửa bảo tàng, bạn vẫn có thể vào quán cà phê. Vì thế gần đây tôi rất hay đến đó. Hiện tại, đó là nơi tôi thích nhất.",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-18",
+              "number": 18,
+              "prompt": "さくら美術館（18）小さな美術館で、白くてきれいな建物でした。",
+              "promptRuby": "さくら{美術館|びじゅつかん}（18）{小|ちい}さな{美術館|びじゅつかん}で、{白|しろ}くてきれいな{建物|たてもの}でした。",
+              "choices": [
+                "が",
+                "という",
+                "より",
+                "なら"
+              ],
+              "choicesRuby": [
+                "が",
+                "という",
+                "より",
+                "なら"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Đó là một bảo tàng mỹ thuật nhỏ tên là Bảo tàng mỹ thuật Sakura, là một tòa nhà màu trắng đẹp đẽ.",
+              "explanation": "Cấu trúc [Tên riêng] という [Danh từ] dùng để giới thiệu tên gọi ('một bảo tàng mỹ thuật nhỏ có tên là Bảo tàng mỹ thuật Sakura') (đáp án 2)."
+            },
+            {
+              "id": "n4-2024-07-g-19",
+              "number": 19,
+              "prompt": "それで、きっさてんで少し（19）。",
+              "promptRuby": "それで、きっさてんで{少|すこ}し（19）。",
+              "choices": [
+                "休みそうです",
+                "休んだほうがよかったです",
+                "休んでおきました",
+                "休むことにしました"
+              ],
+              "choicesRuby": [
+                "{休|やす}みそうです",
+                "{休|やす}んだほうがよかったです",
+                "{休|やす}んでおきました",
+                "{休|やす}むことにしました"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Vì vậy, tôi đã quyết định nghỉ ngơi một chút ở quán cà phê.",
+              "explanation": "Mẫu câu Vることにしました diễn tả quyết định của bản thân ('tôi đã quyết định nghỉ một chút ở quán cà phê') (đáp án 4). 休みそうです (có vẻ sắp nghỉ — không dùng cho ý chí bản thân), 休んだほうがよかったです (lẽ ra nên nghỉ), 休んでおきました (nghỉ sẵn từ trước để chuẩn bị cho việc gì)."
+            },
+            {
+              "id": "n4-2024-07-g-20",
+              "number": 20,
+              "prompt": "窓から見える庭にはいろいろな花がさいていました。（20）喫茶店の中にも花の絵がたくさんありました。",
+              "promptRuby": "{窓|まど}から{見|み}える{庭|にわ}にはいろいろな{花|はな}がさいていました。（20）{喫茶店|きっさてん}の{中|なか}にも{花|はな}の{絵|え}がたくさんありました。",
+              "choices": [
+                "たとえば",
+                "だから",
+                "そして",
+                "とくに"
+              ],
+              "choicesRuby": [
+                "たとえば",
+                "だから",
+                "そして",
+                "とくに"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Trong khu vườn nhìn từ cửa sổ có nhiều loài hoa đang nở. Và bên trong quán cà phê cũng có rất nhiều tranh hoa.",
+              "explanation": "Hai câu liệt kê song song thêm đặc điểm đẹp của quán (ngoài vườn có hoa, bên trong quán cũng có tranh hoa — chú ý trợ từ も), nên dùng liên từ bổ sung そして (và, thêm vào đó) (đáp án 3)."
+            },
+            {
+              "id": "n4-2024-07-g-21",
+              "number": 21,
+              "prompt": "美術館に入る料金を払わなくても、きっさてんには（21）。",
+              "promptRuby": "{美術館|びじゅつかん}に{入|はい}る{料金|りょうきん}を{払|はら}わなくても、きっさてんには（21）。",
+              "choices": [
+                "入ることができます",
+                "入ってもらいます",
+                "入るつもりです",
+                "入っていきます"
+              ],
+              "choicesRuby": [
+                "{入|はい}ることができます",
+                "{入|はい}ってもらいます",
+                "{入|はい}るつもりです",
+                "{入|はい}っていきます"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Dù không trả tiền vé vào bảo tàng thì vẫn có thể vào quán cà phê.",
+              "explanation": "Vế trước '料金を払わなくても' (cho dù không trả tiền vé) kết hợp tự nhiên nhất với mẫu câu chỉ khả năng/sự cho phép Vることができます (có thể vào quán cà phê) (đáp án 1), giải thích lý do câu sau 'それで、最近よく行っています'."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m4-1",
+          "label": "問題4 (1) — Đọc hiểu đoạn văn ngắn",
+          "instructionJa": "つぎの ぶんしょうを よんで、しつもんに こたえて ください。こたえは、1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Hãy đọc đoạn văn sau và trả lời câu hỏi. Chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "passage": "（会社で）\nこれはなかむらさんがヤンさんに書いたメールです。\n\nヤンさん\n　大会議室の予約のことですが、来週の木曜日で2時間使えるのは、10時からと14時からの2回です。どちらがいいでしょうか。会議の時間が決まったら、知らせてください。すぐに予約します。\n\n中村",
+          "passageRuby": "（{会社|かいしゃ}で）\nこれはなかむらさんがヤンさんに{書|か}いたメールです。\n\nヤンさん\n　{大会議室|だいかいぎしつ}の{予約|よやく}のことですが、{来週|らいしゅう}の{木曜日|もくようび}で2{時間|じかん}{使|つか}えるのは、10{時|じ}からと14{時|じ}からの2{回|かい}です。どちらがいいでしょうか。{会議|かいぎ}の{時間|じかん}が{決|き}まったら、{知|し}らせてください。すぐに{予約|よやく}します。\n\n{中村|なかむら}",
+          "passageTranslation": "(Ở công ty)\nĐây là email anh Nakamura gửi cho anh Yang.\n\nAnh Yang,\nVề việc đặt phòng họp lớn, vào thứ Năm tuần tới khung giờ có thể sử dụng trong 2 tiếng chỉ có 2 khung là từ 10 giờ và từ 14 giờ. Khung giờ nào thì phù hợp hơn ạ? Khi nào quyết định được giờ họp, anh hãy báo cho tôi biết nhé. Tôi sẽ đặt phòng ngay.\n\nNakamura",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-22",
+              "number": 22,
+              "prompt": "このメールを読んで、ヤンさんは何をしなければなりませんか。",
+              "promptRuby": "このメールを{読|よ}んで、ヤンさんは{何|なに}をしなければなりませんか。",
+              "choices": [
+                "来週の木曜日に大会議室が使える時間を調べます。",
+                "来週の木曜日に会議が2回あることを、みんなに知らせます。",
+                "会議の時間は10時と14時のどちらがいいか、中村さんに知らせます。",
+                "会議の時間を決めて、自分で会議室を予約します。"
+              ],
+              "choicesRuby": [
+                "{来週|らいしゅう}の{木曜日|もくようび}に{大会議室|だいかいぎしつ}が{使|つか}える{時間|じかん}を{調|しら}べます。",
+                "{来週|らいしゅう}の{木曜日|もくようび}に{会議|かいぎ}が2{回|かい}あることを、みんなに{知|し}らせます。",
+                "{会議|かいぎ}の{時間|じかん}は10{時|じ}と14{時|じ}のどちらがいいか、{中村|なかむら}さんに{知|し}らせます。",
+                "{会議|かいぎ}の{時間|じかん}を{決|き}めて、{自分|じぶん}で{会議室|かいぎしつ}を{予約|よやく}します。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Sau khi đọc email này, anh Yang phải làm gì?",
+              "explanation": "Trong email, Nakamura đã kiểm tra sẵn 2 khung giờ trống là từ 10 giờ và 14 giờ, và nhắn Yang: 「どちらがいいでしょうか。会議の時間が決まったら、知らせてください。すぐに予約します。」(Chọn giờ nào? Quyết định xong thì báo tôi, tôi sẽ đặt ngay). Vì vậy Yang cần báo cho Nakamura biết chọn 10 giờ hay 14 giờ (đáp án 3)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m4-2",
+          "label": "問題4 (2) — Đọc hiểu đoạn văn ngắn",
+          "instructionJa": "つぎの ぶんしょうを よんで、しつもんに こたえて ください。こたえは、1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Hãy đọc đoạn văn sau và trả lời câu hỏi. Chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "passage": "　「[[①今日は、新聞は休みだから、ないよ。]]」\n　昨日コンビニで、店員さんがお客さんに言った言葉を聞いて、私は[[②びっくりしました。]]\n　先週の日本語の授業で、先生が「質問がありますか。」と聞いたとき、友達が「ないよ。」と答えました。すると、先生は「『ありません』と答えましょう。先生は友達ではないので、失礼な言い方ですよ。」と注意したからです。\n　でも、店員さんは次のお客さんには「新聞は休みなので、ありません。」と答えていました。最初のお客さんは店員の友達だったのかもしれません。",
+          "passageRuby": "　「[[①{今日|きょう}は、{新聞|しんぶん}は{休|やす}みだから、ないよ。]]」\n　{昨日|きのう}コンビニで、{店員|てんいん}さんがお{客|きゃく}さんに{言|い}った{言葉|ことば}を{聞|き}いて、{私|わたし}は[[②びっくりしました。]]\n　{先週|せんしゅう}の{日本語|にほんご}の{授業|じゅぎょう}で、{先生|せんせい}が「{質問|しつもん}がありますか。」と{聞|き}いたとき、{友達|ともだち}が「ないよ。」と{答|こた}えました。すると、{先生|せんせい}は「『ありません』と{答|こた}えましょう。{先生|せんせい}は{友達|ともだち}ではないので、{失礼|しつれい}な{言|い}い{方|かた}ですよ。」と{注意|ちゅうい}したからです。\n　でも、{店員|てんいん}さんは{次|つぎ}のお{客|きゃく}さんには「{新聞|しんぶん}は{休|やす}みなので、ありません。」と{答|こた}えていました。{最初|さいしょ}のお{客|きゃく}さんは{店員|てんいん}の{友達|ともだち}だったのかもしれません。",
+          "passageTranslation": "\"①Hôm nay báo nghỉ phát hành nên không có đâu nhé.\"\nHôm qua ở cửa hàng tiện lợi, nghe câu nhân viên nói với khách hàng, tôi ②đã rất ngạc nhiên.\nĐó là vì trong giờ học tiếng Nhật tuần trước, khi cô giáo hỏi \"Có câu hỏi nào không?\", bạn tôi đã trả lời \"ないよ (Không có đâu)\". Thế là cô giáo đã nhắc nhở: \"Hãy trả lời là 'ありません'. Cô không phải bạn bè nên nói như vậy là thất lễ đấy.\"\nThế nhưng, với vị khách tiếp theo thì nhân viên lại trả lời là \"Vì hôm nay báo nghỉ nên không có ạ (ありません)\". Có lẽ vị khách đầu tiên là bạn của người nhân viên đó chăng.",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-23",
+              "number": 23,
+              "prompt": "「[[①今日は、新聞は休みだから、ないよ。]]」といったのは誰ですか。",
+              "promptRuby": "「[[①{今日|きょう}は、{新聞|しんぶん}は{休|やす}みだから、ないよ。]]」といったのは{誰|だれ}ですか。",
+              "choices": [
+                "「私」",
+                "店員",
+                "先生",
+                "友達"
+              ],
+              "choicesRuby": [
+                "「{私|わたし}」",
+                "{店員|てんいん}",
+                "{先生|せんせい}",
+                "{友達|ともだち}"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Người đã nói câu \"①Hôm nay báo nghỉ nên không có đâu nhé\" là ai?",
+              "explanation": "Ngay câu thứ hai trong bài viết rõ: 「昨日コンビニで、店員さんがお客さんに言った言葉を聞いて、私はびっくりしました。」(Nghe câu nhân viên cửa hàng tiện lợi nói với khách hàng...). Vậy người nói là nhân viên (店員 — đáp án 2)."
+            },
+            {
+              "id": "n4-2024-07-g-24",
+              "number": 24,
+              "prompt": "[[②びっくりしました]]とありますが、なぜですか。",
+              "promptRuby": "[[②びっくりしました]]とありますが、なぜですか。",
+              "choices": [
+                "店員が失礼な言い方をしたと思ったから",
+                "店員が言ったことがわからなかったから",
+                "店員が先生に注意されているのを見たから",
+                "店員が友達と話していると思ったから"
+              ],
+              "choicesRuby": [
+                "{店員|てんいん}が{失礼|しつれい}な{言|い}い{方|かた}をしたと{思|おも}ったから",
+                "{店員|てんいん}が{言|い}ったことがわからなかったから",
+                "{店員|てんいん}が{先生|せんせい}に{注意|ちゅうい}されているのを{見|み}たから",
+                "{店員|てんいん}が{友達|ともだち}と{話|はな}していると{思|おも}ったから"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Bài viết có câu \"②tôi đã rất ngạc nhiên\", tại sao vậy?",
+              "explanation": "Đoạn 3 giải thích nguyên nhân bằng 「～からです」: tuần trước thầy/cô giáo đã nhắc nói 「ないよ」 với người không phải bạn bè là cách nói thất lễ (失礼な言い方). Do đó khi nghe nhân viên nói 「ないよ」 với khách, tác giả nghĩ nhân viên đã nói một cách thất lễ nên ngạc nhiên (đáp án 1)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m5",
+          "label": "問題5 — Đọc hiểu đoạn văn trung bình",
+          "instructionJa": "つぎの ぶんしょうを よんで、しつもんに こたえて ください。こたえは、1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Hãy đọc đoạn văn sau và trả lời các câu hỏi. Chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "passage": "　日本の大学に入学して半年が過ぎました。日本に来たら、たくさん旅行をしたかったのですが、[[①なかなか行けません]]。日本の電車や飛行機は便利ですが、りょきんが高いのです。だから、普通の旅行には行けませんが、最近いいやり方を見つけました。私だけの小さな「バス旅行」です。\n　私の「バス旅行」は、町を走る普通のバスに乗って、最後のバス停まで行ってみる旅行です。東京の町の中を走る普通のバスは、最後まで乗っても210円ですし、片道は長くても1時間ぐらいです。私はいつも、窓から外の景色を見たり、乗っている人の会話を聞いたりしています。最後のバス停に着いたら、近くをゆっくり散歩します。そして、またバスに乗って戻ってきます。変な旅行ですが、日本のことがいろいろわかって、楽しいです。\n　先週の「バス旅行」では、バスの中で寝てしまいました。最後のバス停に着いたとき、運転手が起こしてくれたので、急いでバスを降りました。降りるとき、運転手が心配して「大丈夫ですか。これからどこへ行くんですか。」と聞いてくれました。特に行く場所を考えていない私は、質問にうまく答えられませんでした。[[②困ってしまって]]、自分でちょっと笑ってしまいました。",
+          "passageRuby": "　{日本|にほん}の{大学|だいがく}に{入学|にゅうがく}して{半年|はんとし}が{過|す}ぎました。{日本|にほん}に{来|き}たら、たくさん{旅行|りょこう}をしたかったのですが、[[①なかなか{行|い}けません]]。{日本|にほん}の{電車|でんしゃ}や{飛行機|ひこうき}は{便利|べんり}ですが、りょきんが{高|たか}いのです。だから、{普通|ふつう}の{旅行|りょこう}には{行|い}けませんが、{最近|さいきん}いいやり{方|かた}を{見|み}つけました。{私|わたし}だけの{小|ちい}さな「バス{旅行|りょこう}」です。\n　{私|わたし}の「バス{旅行|りょこう}」は、{町|まち}を{走|はし}る{普通|ふつう}のバスに{乗|の}って、{最後|さいご}のバス{停|てい}まで{行|い}ってみる{旅行|りょこう}です。{東京|とうきょう}の{町|まち}の{中|なか}を{走|はし}る{普通|ふつう}のバスは、{最後|さいご}まで{乗|の}っても210{円|えん}ですし、{片道|かたみち}は{長|なが}くても1{時間|じかん}ぐらいです。{私|わたし}はいつも、{窓|まど}から{外|そと}の{景色|けしき}を{見|み}たり、{乗|の}っている{人|ひと}の{会話|かいわ}を{聞|き}いたりしています。{最後|さいご}のバス{停|てい}に{着|つ}いたら、{近|ちか}くをゆっくり{散歩|さんぽ}します。そして、またバスに{乗|の}って{戻|もど}ってきます。{変|へん}な{旅行|りょこう}ですが、{日本|にほん}のことがいろいろわかって、{楽|たの}しいです。\n　{先週|せんしゅう}の「バス{旅行|りょこう}」では、バスの{中|なか}で{寝|ね}てしまいました。{最後|さいご}のバス{停|てい}に{着|つ}いたとき、{運転手|うんてんしゅ}が{起|お}こしてくれたので、{急|いそ}いでバスを{降|お}りました。{降|お}りるとき、{運転手|うんてんしゅ}が{心配|しんぱい}して「{大丈夫|だいじょうぶ}ですか。これからどこへ{行|い}くんですか。」と{聞|き}いてくれました。{特|とく}に{行|い}く{場所|ばしょ}を{考|かんが}えていない{私|わたし}は、{質問|しつもん}にうまく{答|こた}えられませんでした。[[②{困|こま}ってしまって]]、{自分|じぶん}でちょっと{笑|わら}ってしまいました。",
+          "passageTranslation": "Đã nửa năm trôi qua kể từ khi tôi nhập học tại một trường đại học ở Nhật Bản. Tôi từng muốn đi du lịch thật nhiều khi sang Nhật, nhưng ①mãi chẳng thể đi được. Tàu điện và máy bay ở Nhật tuy tiện lợi nhưng giá vé lại đắt. Vì vậy tôi không thể đi du lịch bình thường, nhưng gần đây tôi đã tìm ra một cách hay. Đó là \"chuyến du lịch bằng xe buýt\" nho nhỏ của riêng tôi.\n\"Chuyến du lịch bằng xe buýt\" của tôi là chuyến đi lên một chiếc xe buýt thường chạy trong thành phố và đi thử đến tận bến cuối cùng. Xe buýt thường chạy trong nội thành Tokyo có đi đến tận bến cuối cũng chỉ mất 210 yên, mà một chiều dài nhất cũng chỉ khoảng 1 tiếng. Tôi luôn ngắm cảnh bên ngoài qua cửa sổ hoặc lắng nghe cuộc trò chuyện của những hành khách trên xe. Khi đến bến cuối, tôi thong thả đi dạo quanh đó. Rồi tôi lại lên xe buýt quay về. Tuy là một kiểu du lịch kỳ lạ nhưng tôi biết thêm được nhiều điều về Nhật Bản và thấy rất vui.\nTrong \"chuyến du lịch bằng xe buýt\" tuần trước, tôi lỡ ngủ quên trên xe. Khi đến bến cuối, bác tài xế đánh thức tôi dậy nên tôi vội vàng xuống xe. Lúc xuống, bác tài lo lắng hỏi: \"Bạn có sao không? Giờ bạn định đi đâu thế?\". Vì vốn dĩ chẳng nghĩ trước nơi nào để đi, tôi đã không trả lời trôi chảy được câu hỏi đó. ②Tôi lúng túng quá, rồi tự bật cười một chút.",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-25",
+              "number": 25,
+              "prompt": "どうして[[①なかなか行けません]]か。",
+              "promptRuby": "どうして[[①なかなか{行|い}けません]]か。",
+              "choices": [
+                "大学の勉強が忙しくて時間がないから。",
+                "日本の電車や飛行機があまり便利ではないから。",
+                "日本の電車や飛行機は乗り方が難しいから。",
+                "日本の電車や飛行機は料金が高いから。"
+              ],
+              "choicesRuby": [
+                "{大学|だいがく}の{勉強|べんきょう}が{忙|いそが}しくて{時間|じかん}がないから。",
+                "{日本|にほん}の{電車|でんしゃ}や{飛行機|ひこうき}があまり{便利|べんり}ではないから。",
+                "{日本|にほん}の{電車|でんしゃ}や{飛行機|ひこうき}は{乗|の}り{方|かた}が{難|むずか}しいから。",
+                "{日本|にほん}の{電車|でんしゃ}や{飛行機|ひこうき}は{料金|りょうきん}が{高|たか}いから。"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Tại sao tác giả ①mãi chẳng thể đi du lịch được?",
+              "explanation": "Ngay câu kế tiếp câu gạch chân ① viết rõ lý do: 「日本の電車や飛行機は便利ですが、りょきんが高いのです。」(Tàu điện và máy bay ở Nhật tiện lợi nhưng giá vé đắt) (đáp án 4)."
+            },
+            {
+              "id": "n4-2024-07-g-26",
+              "number": 26,
+              "prompt": "「私」は、いつもどんな「バス旅行」をしていますか。",
+              "promptRuby": "「{私|わたし}」は、いつもどんな「バス{旅行|りょこう}」をしていますか。",
+              "choices": [
+                "バスに乗っている人たちと会話を楽しむ旅行。",
+                "バスに乗って、降りたくなった所で降りて、散歩を楽しむ旅行。",
+                "バスに乗っている時間や、最後のバス停の近くの散歩を楽しむ旅行。",
+                "行きたい場所を調べてバスで行って、バスを降りて散歩を楽しむ旅行。"
+              ],
+              "choicesRuby": [
+                "バスに{乗|の}っている{人|ひと}たちと{会話|かいわ}を{楽|たの}しむ{旅行|りょこう}。",
+                "バスに{乗|の}って、{降|お}りたくなった{所|ところ}で{降|お}りて、{散歩|さんぽ}を{楽|たの}しむ{旅行|りょこう}。",
+                "バスに{乗|の}っている{時間|じかん}や、{最後|さいご}のバス{停|てい}の{近|ちか}くの{散歩|さんぽ}を{楽|たの}しむ{旅行|りょこう}。",
+                "{行|い}きたい{場所|ばしょ}を{調|しら}べてバスで{行|い}って、バスを{降|お}りて{散歩|さんぽ}を{楽|たの}しむ{旅行|りょこう}。"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "\"Tôi\" thường thực hiện \"chuyến du lịch bằng xe buýt\" như thế nào?",
+              "explanation": "Đoạn 2 miêu tả: tác giả đi đến tận bến cuối (最後のバス停まで), trên xe ngắm cảnh và nghe (chứ không nói chuyện cùng) mọi người, đến bến cuối thì đi dạo gần đó rồi quay về. Do đó đáp án 3 là chính xác nhất. Phương án 1 sai vì tác giả chỉ 'nghe' chứ không 'nói chuyện với hành khách'; phương án 2 sai vì đi đến tận bến cuối; phương án 4 sai vì không tìm trước nơi muốn đi."
+            },
+            {
+              "id": "n4-2024-07-g-27",
+              "number": 27,
+              "prompt": "[[②困ってしまって]]とありますが、どうして「私」は困りましたか。",
+              "promptRuby": "[[②{困|こま}ってしまって]]とありますが、どうして「{私|わたし}」は{困|こま}りましたか。",
+              "choices": [
+                "寝てしまって、最後のバス停まで来てしまったから。",
+                "行く場所を決めない旅行をしているので、質問に答えられなかったから。",
+                "運転手の質問の意味が分からなくて、答えられなかったから。",
+                "行きたい場所の名前が思い出せなくて、質問に答えられなかったから。"
+              ],
+              "choicesRuby": [
+                "{寝|ね}てしまって、{最後|さいご}のバス{停|てい}まで{来|き}てしまったから。",
+                "{行|い}く{場所|ばしょ}を{決|き}めない{旅行|りょこう}をしているので、{質問|しつもん}に{答|こた}えられなかったから。",
+                "{運転手|うんてんしゅ}の{質問|しつもん}の{意味|いみ}が{分|わ}からなくて、{答|こた}えられなかったから。",
+                "{行|い}きたい{場所|ばしょ}の{名前|なまえ}が{思|おも}い{出|だ}せなくて、{質問|しつもん}に{答|こた}えられなかったから。"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Bài viết có câu \"②tôi đã lúng túng\", tại sao \"tôi\" lại lúng túng?",
+              "explanation": "Ngay trước ② bài viết nêu: 「特に行く場所を考えていない私は、質問にうまく答えられませんでした。」(Vì không nghĩ trước nơi nào cụ thể để đi nên tôi không trả lời trôi chảy được câu hỏi của tài xế) (đáp án 2)."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-g-m6",
+          "label": "問題6 — Tìm kiếm thông tin (Thông báo)",
+          "instructionJa": "下のピザ教室のお知らせを見て、質問に答えてください。答えは、1・2・3・4 から、いちばんいいものを一つえらんでください。",
+          "instructionVi": "Hãy xem thông báo lớp học làm pizza dưới đây và trả lời câu hỏi. Chọn 1 đáp án đúng nhất trong 1, 2, 3, 4.",
+          "passage": "ピザ教室のお知らせ\nレストラン「アラセ」\n\nレストラン「アラセ」では、店が休みの日に、ピザ教室を開いています。おいしいピザを一緒に作りませんか。作ったピザは、お店で食べることも、持って帰ることもできます。\n\n【作るピザ】 20cmのピザ（一人1枚作ります。）\n\n【料金】\n・大人：1,500円\n・中学生・高校生：1,200円\n・小学生以下：1,000円\n※小学生以下のお子様は、大人の方と一緒に来てください。\n※エプロンが必要です。店のエプロンを借りることもできます（一人200円）。\n\n【サービス】\n・店で食べるお客様：\n　- 飲み物とサラダ\n　- アイスクリーム（5人以上のお客様）\n・持って帰るお客様：\n　- 500円チケット（今度、お店に来たときに使ってください。）\n\n【教室の日と予約】\n・ピザ教室は、1か月に1回、午後3時から5時までです。\n・ピザ教室の日は、ホームページで見てください。\n・予約は、1週間前までに電話でお願いします。\n\nレストラン「アラセ」\n花山市南町1-6　電話 051-818-9723",
+          "passageRuby": "ピザ{教室|きょうしつ}のお{知|し}らせ\nレストラン「アラセ」\n\nレストラン「アラセ」では、{店|みせ}が{休|やす}みの{日|ひ}に、ピザ{教室|きょうしつ}を{開|ひら}いています。おいしいピザを{一緒|いっしょ}に{作|つく}りませんか。{作|つく}ったピザは、お{店|みせ}で{食|た}べることも、{持|も}って{帰|かえ}ることもできます。\n\n【{作|つく}るピザ】 20cmのピザ（{一人|ひとり}1{枚|まい}{作|つく}ります。）\n\n【{料金|りょうきん}】\n・{大人|おとな}：1,500{円|えん}\n・{中学生|ちゅうがくせい}・{高校生|こうこうせい}：1,200{円|えん}\n・{小学生以下|しょうがくせいいか}：1,000{円|えん}\n※{小学生以下|しょうがくせいいか}のお{子様|こさま}は、{大人|おとな}の{方|かた}と{一緒|いっしょ}に{来|き}てください。\n※エプロンが{必要|ひつよう}です。{店|みせ}のエプロンを{借|か}りることもできます（{一人|ひとり}200{円|えん}）。\n\n【サービス】\n・{店|みせ}で{食|た}べるお{客様|きゃくさま}：\n　- {飲|の}み{物|もの}とサラダ\n　- アイスクリーム（5{人以上|にんいじょう}のお{客様|きゃくさま}）\n・{持|も}って{帰|かえ}るお{客様|きゃくさま}：\n　- 500{円|えん}チケット（{今度|こんど}、お{店|みせ}に{来|き}たときに{使|つか}ってください。）\n\n【{教室|きょうしつ}の{日|ひ}と{予約|よやく}】\n・ピザ{教室|きょうしつ}は、1か{月|げつ}に1{回|かい}、{午後|ごご}3{時|じ}から5{時|じ}までです。\n・ピザ{教室|きょうしつ}の{日|ひ}は、ホームページで{見|み}てください。\n・{予約|よやく}は、1{週間前|しゅうかんまえ}までに{電話|でんわ}でお{願|ねが}いします。\n\nレストラン「アラセ」\n{花山市|はなやまし}{南町|みなみまち}1-6　{電話|でんわ} 051-818-9723",
+          "passageTranslation": "THÔNG BÁO LỚP HỌC LÀM PIZZA\nNhà hàng \"Arase\"\n\nTại nhà hàng \"Arase\", vào ngày quán nghỉ chúng tôi có mở lớp học làm pizza. Hãy cùng nhau làm những chiếc pizza thơm ngon nhé. Pizza làm xong có thể ăn ngay tại quán hoặc mang về.\n\n[Pizza sẽ làm] Pizza cỡ 20cm (mỗi người làm 1 chiếc).\n\n[Học phí]\n• Người lớn: 1.500 yên\n• Học sinh THCS・THPT: 1.200 yên\n• Học sinh tiểu học trở xuống: 1.000 yên\n* Trẻ từ tiểu học trở xuống vui lòng đi cùng người lớn.\n* Cần mang theo tạp dề. Có thể thuê tạp dề của quán (200 yên/người).\n\n[Ưu đãi tặng kèm]\n• Khách ăn tại quán:\n  - Đồ uống và salad\n  - Kem (dành cho nhóm khách từ 5 người trở lên)\n• Khách mang về:\n  - Phiếu giảm giá 500 yên (dùng cho lần tới đến quán).\n\n[Lịch học và đặt chỗ]\n• Lớp học pizza tổ chức 1 tháng 1 lần, từ 3 giờ đến 5 giờ chiều.\n• Vui lòng xem ngày tổ chức trên trang web.\n• Vui lòng gọi điện đặt chỗ chậm nhất 1 tuần trước ngày học.\n\nNhà hàng \"Arase\"\n1-6 Minamimachi, thành phố Hanayama — ĐT: 051-818-9723",
+          "questions": [
+            {
+              "id": "n4-2024-07-g-28",
+              "number": 28,
+              "prompt": "ジェイさんは、小学生の娘と二人でピザを作りに行きたいです。ジェイさんのエプロンは持っていきますが、娘のものは借りるつもりです。ジェイさんたちが、ピザ教室に払う料金はどうなりますか。",
+              "promptRuby": "ジェイさんは、{小学生|しょうがくせい}の{娘|むすめ}と{二人|ふたり}でピザを{作|つく}りに{行|い}きたいです。ジェイさんのエプロンは{持|も}っていきますが、{娘|むすめ}のものは{借|か}りるつもりです。ジェイさんたちが、ピザ{教室|きょうしつ}に{払|はら}う{料金|りょうきん}はどうなりますか。",
+              "choices": [
+                "ジェイさん 1,000円だけ、娘 1,000円と200円",
+                "ジェイさん 1,500円だけ、娘 1,000円だけ",
+                "ジェイさん 1,500円だけ、娘 1,000円と200円",
+                "ジェイさん 1,500円と200円、娘 1,000円と200円"
+              ],
+              "choicesRuby": [
+                "ジェイさん 1,000{円|えん}だけ、{娘|むすめ} 1,000{円|えん}と200{円|えん}",
+                "ジェイさん 1,500{円|えん}だけ、{娘|むすめ} 1,000{円|えん}だけ",
+                "ジェイさん 1,500{円|えん}だけ、{娘|むすめ} 1,000{円|えん}と200{円|えん}",
+                "ジェイさん 1,500{円|えん}と200{円|えん}、{娘|むすめ} 1,000{円|えん}と200{円|えん}"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Anh Jay muốn đi làm pizza cùng con gái học tiểu học. Anh Jay mang theo tạp dề của mình, còn tạp dề của con gái sẽ thuê tại quán. Chi phí anh Jay và con gái phải trả cho lớp học pizza là bao nhiêu?",
+              "explanation": "Đối chiếu mục 【料金】: Anh Jay là người lớn (大人) nên mất 1.500 yên và tự mang tạp dề nên không mất phí thuê. Con gái là học sinh tiểu học (小学生以下) mất 1.000 yên + phí thuê tạp dề của quán 200 yên. Vậy đáp án đúng là 3."
+            },
+            {
+              "id": "n4-2024-07-g-29",
+              "number": 29,
+              "prompt": "ナムさんは、大学の友達と3人で、ピザ教室の予約をしました。ナムさんたちはピザ教室のあと、作ったピザを食べて帰ろうと思っています。ピザを食べるときに、何をサービスしてもらえますか。",
+              "promptRuby": "ナムさんは、{大学|だいがく}の{友達|ともだち}と3{人|にん}で、ピザ{教室|きょうしつ}の{予約|よやく}をしました。ナムさんたちはピザ{教室|きょうしつ}のあと、{作|つく}ったピザを{食|た}べて{帰|かえ}ろうと{思|おも}っています。ピザを{食|た}べるときに、{何|なに}をサービスしてもらえますか。",
+              "choices": [
+                "飲み物とサラダ",
+                "飲み物とサラダとアイスクリーム",
+                "アイスクリーム",
+                "500円チケット"
+              ],
+              "choicesRuby": [
+                "{飲|の}み{物|もの}とサラダ",
+                "{飲|の}み{物|もの}とサラダとアイスクリーム",
+                "アイスクリーム",
+                "500{円|えん}チケット"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Nam cùng bạn đại học (tổng cộng 3 người) đã đặt chỗ lớp học làm pizza. Sau lớp học, nhóm Nam định ăn pizza vừa làm xong tại quán rồi mới về. Khi ăn pizza, họ sẽ được quán tặng kèm món gì?",
+              "explanation": "Đối chiếu mục 【サービス】: Nhóm Nam ăn ngay tại quán (店で食べるお客様) nên được tặng 「飲み物とサラダ」 (đồ uống và salad). Riêng kem (アイスクリーム) chỉ tặng cho nhóm từ 5 người trở lên (5人以上), còn nhóm Nam chỉ có 3 người nên không được tặng kem. Đáp án đúng là 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "listening",
+      "title": "Nghe hiểu",
+      "titleJa": "聴解",
+      "durationSeconds": 2100,
+      "audioAvailable": false,
+      "audioNote": "File nghe .mp3 gốc chưa được đóng gói để giữ gọn dung lượng app; bạn có thể luyện phần này bằng Script nghe.",
+      "groups": [
+        {
+          "id": "n4-2024-07-l-m1",
+          "label": "問題1 — Hiểu nhiệm vụ (Nghe hiểu)",
+          "instructionJa": "もんだい1では、まず しつもんを きいて ください。それから はなしを きいて、もんだいようしの 1から4の なかから、いちばん いい ものを ひとつ えらんで ください。",
+          "instructionVi": "Ở Mondai 1, trước tiên hãy nghe câu hỏi. Sau đó nghe đoạn hội thoại rồi chọn 1 đáp án đúng nhất trong 1 đến 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-l-01",
+              "number": 1,
+              "prompt": "授業の後で女の留学生と先生が話しています。女の留学生はいつ先生の部屋に行きますか。",
+              "promptRuby": "{授業|じゅぎょう}の{後|あと}で{女|おんな}の{留学生|りゅうがくせい}と{先生|せんせい}が{話|はな}しています。{女|おんな}の{留学生|りゅうがくせい}はいつ{先生|せんせい}の{部屋|へや}に{行|い}きますか。",
+              "choices": [
+                "今日のひる休み",
+                "今日のゆうがた",
+                "あしたのひる休み",
+                "あしたのゆうがた"
+              ],
+              "choicesRuby": [
+                "{今日|きょう}のひる{休|やす}み",
+                "{今日|きょう}のゆうがた",
+                "あしたのひる{休|やす}み",
+                "あしたのゆうがた"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Sau giờ học, nữ du học sinh và thầy giáo đang nói chuyện. Nữ du học sinh sẽ đến phòng của thầy khi nào?",
+              "explanation": "Nữ sinh bận về nhà lấy giáo trình vào giờ nghỉ trưa hôm nay (昼休み), còn ngày mai thầy không có thời gian (明日はちょっと時間がない). Cuối cùng thầy hẹn: 「夕方、今日午後の授業の後で私の部屋に来られますか。」và nữ sinh đồng ý -> chiều tối hôm nay (今日のゆうがた, đáp án 2).",
+              "script": "女：先生、昨日習った文法について質問があります。\n男：あ、これからすぐ次の授業があるんです。昼休みでもいいですか。\n女：すみません、午後の授業のテキストを家に忘れてしまって、昼休みに取りに帰るんです。あ、明日でも大丈夫です。\n男：明日はちょっと時間がないので、夕方、今日午後の授業の後で私の部屋に来られますか。\n女：はい、よろしくお願いします。",
+              "scriptRuby": "{女|おんな}：{先生|せんせい}、{昨日|きのう}{習|なら}った{文法|ぶんぽう}について{質問|しつもん}があります。\n{男|おとこ}：あ、これからすぐ{次|つぎ}の{授業|じゅぎょう}があるんです。{昼休|ひるやす}みでもいいですか。\n{女|おんな}：すみません、{午後|ごご}の{授業|じゅぎょう}のテキストを{家|いえ}に{忘|わす}れてしまって、{昼休|ひるやす}みに{取|と}りに{帰|かえ}るんです。あ、{明日|あした}でも{大丈夫|だいじょうぶ}です。\n{男|おとこ}：{明日|あした}はちょっと{時間|じかん}がないので、{夕方|ゆうがた}、{今日|きょう}{午後|ごご}の{授業|じゅぎょう}の{後|あと}で{私|わたし}の{部屋|へや}に{来|こ}られますか。\n{女|おんな}：はい、よろしくお{願|ねが}いします。",
+              "scriptTranslation": "Nữ: Thầy ơi, em có câu hỏi về ngữ pháp học hôm qua ạ.\nNam: À, bây giờ thầy có tiết học tiếp theo ngay. Giờ nghỉ trưa có được không?\nNữ: Xin lỗi thầy, em quên giáo trình tiết chiều ở nhà nên giờ nghỉ trưa em phải về lấy ạ. À, ngày mai cũng được ạ.\nNam: Ngày mai thầy hơi bận không có thời gian, vậy chiều tối nay sau tiết học buổi chiều em đến phòng thầy được không?\nNữ: Vâng, nhờ thầy giúp em ạ."
+            },
+            {
+              "id": "n4-2024-07-l-02",
+              "number": 2,
+              "prompt": "大学で女の学生と男の学生が話しています。男の学生は研究会でどんな服を着ますか。",
+              "promptRuby": "{大学|だいがく}で{女|おんな}の{学生|がくせい}と{男|おとこ}の{学生|がくせい}が{話|はな}しています。{男|おとこ}の{学生|がくせい}は{研究会|けんきゅうかい}でどんな{服|ふく}を{着|き}ますか。",
+              "choices": [
+                "ジャケットとネクタイ",
+                "ジャケット（ネクタイなし）",
+                "カーディガンとネクタイ",
+                "カーディガン（ネクタイなし）"
+              ],
+              "choicesRuby": [
+                "ジャケットとネクタイ",
+                "ジャケット（ネクタイなし）",
+                "カーディガンとネクタイ",
+                "カーディガン（ネクタイなし）"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Ở trường đại học, nữ sinh và nam sinh đang nói chuyện. Nam sinh sẽ mặc trang phục như thế nào trong buổi hội thảo nghiên cứu?",
+              "explanation": "Nữ sinh dặn: 「ネクタイは必要ないです」(không cần cà vạt) và 「ジャケットじゃなくて、動きやすいカーディガンがいいですよ」(không phải áo khoác vest mà mặc áo len cardigan dễ cử động thì tốt hơn). Do đó chọn hình 4: áo cardigan, không đeo cà vạt (đáp án 4).",
+              "imageHint": "Đề gốc gồm 4 hình minh họa trang phục của nam sinh: (1) Áo khoác vest + cà vạt; (2) Áo khoác vest, không cà vạt; (3) Áo cardigan + cà vạt; (4) Áo cardigan, không cà vạt.",
+              "script": "女：山本さん、明日の研究会では受付の係をお願いします。\n男：はい。あのう、係をするのが初めてなんですが、服はスーツがいいですか。ネクタイは持っていないんですが、しなくても大丈夫でしょうか。\n女：ネクタイは必要ないです。寒いから上着はいるけど、荷物を運ぶのも手伝ってもらうから、ジャケットじゃなくて、動きやすいカーディガンがいいですよ。\n男：わかりました。そうします。",
+              "scriptRuby": "{女|おんな}：{山本|やまもと}さん、{明日|あした}の{研究会|けんきゅうかい}では{受付|うけつけ}の{係|かかり}をお{願|ねが}いします。\n{男|おとこ}：はい。あのう、{係|かかり}をするのが{初|はじ}めてなんですが、{服|ふく}はスーツがいいですか。ネクタイは{持|も}っていないんですが、しなくても{大丈夫|だいじょうぶ}でしょうか。\n{女|おんな}：ネクタイは{必要|ひつよう}ないです。{寒|さむ}いから{上着|うわぎ}はいるけど、{荷物|にもつ}を{運|はこ}ぶのも{手伝|てつだ}ってもらうから、ジャケットじゃなくて、{動|うご}きやすいカーディガンがいいですよ。\n{男|おとこ}：わかりました。そうします。",
+              "scriptTranslation": "Nữ: Anh Yamamoto, ngày mai ở buổi hội thảo nghiên cứu nhờ anh phụ trách bàn tiếp tân nhé.\nNam: Vâng. À, đây là lần đầu tôi làm phụ trách, về trang phục thì mặc vest có được không? Tôi không có cà vạt, không đeo có ổn không?\nNữ: Không cần cà vạt đâu. Trời lạnh nên cần áo khoác ngoài, nhưng vì còn nhờ anh phụ khuân đồ nữa nên đừng mặc áo khoác vest mà mặc áo cardigan dễ vận động thì tốt hơn đấy.\nNam: Tôi hiểu rồi. Tôi sẽ mặc như vậy."
+            },
+            {
+              "id": "n4-2024-07-l-03",
+              "number": 3,
+              "prompt": "スポーツクラブで受付の女の人と男の人が話しています。女の人はこの後どこにパーティーのお知らせを貼りますか。",
+              "promptRuby": "スポーツクラブで{受付|うけつけ}の{女|おんな}の{人|ひと}と{男|おとこ}の{人|ひと}が{話|はな}しています。{女|おんな}の{人|ひと}はこの{後|あと}どこにパーティーのお{知|し}らせを{貼|は}りますか。",
+              "choices": [
+                "うけつけ",
+                "プール",
+                "エレベーターの中",
+                "ダンスのきょうしつ"
+              ],
+              "choicesRuby": [
+                "うけつけ",
+                "プール",
+                "エレベーターの{中|なか}",
+                "ダンスのきょうしつ"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Tại câu lạc bộ thể thao, nữ nhân viên lễ tân và nam nhân viên đang nói chuyện. Sau đây, người phụ nữ sẽ dán thông báo bữa tiệc ở đâu?",
+              "explanation": "Thông báo đã dán ở quầy lễ tân (受付) và cửa hồ bơi (プールの入り口) rồi. Người đàn ông gợi ý: 「エレベーターの中に貼ってみない？」và người phụ nữ trả lời 「貼ってみます」(Để tôi dán thử). Phòng nhảy (ダンスの教室) là nơi người đàn ông sẽ trực tiếp nói chuyện mời khách. Vậy đáp án đúng là 3 (エレベーターの中).",
+              "script": "女：先週から受付にお花見パーティーのお知らせが貼ってあるんですが、パーティーがあることを知らないお客様が多いようなんです。それで、プールの入り口にも貼ったんですが、まだ人が集まらないんです。\n男：受付は他のお知らせも多いから、気がつきにくいかもしれないね。エレベーターの中に貼ってみない？\n女：あっ、乗っている時に見てもらえそうですね。貼ってみます。\n男：僕も今日、ダンスの教室でお客様に声をかけてみるね。",
+              "scriptRuby": "{女|おんな}：{先週|せんしゅう}から{受付|うけつけ}にお{花見|はなみ}パーティーのお{知|し}らせが{貼|は}ってあるんですが、パーティーがあることを{知|し}らないお{客様|きゃくさま}が{多|おお}いようなんです。それで、プールの{入|い}り{口|ぐち}にも{貼|は}ったんですが、まだ{人|ひと}が{集|あつ}まらないんです。\n{男|おとこ}：{受付|うけつけ}は{他|ほか}のお{知|し}らせも{多|おお}いから、{気|き}がつきにくいかもしれないね。エレベーターの{中|なか}に{貼|は}ってみない？\n{女|おんな}：あっ、{乗|の}っている{時|とき}に{見|み}てもらえそうですね。{貼|は}ってみます。\n{男|おとこ}：{僕|ぼく}も{今日|きょう}、ダンスの{教室|きょうしつ}でお{客様|きゃくさま}に{声|こえ}をかけてみるね。",
+              "scriptTranslation": "Nữ: Từ tuần trước tôi đã dán thông báo tiệc ngắm hoa ở quầy lễ tân rồi, nhưng có vẻ nhiều khách vẫn không biết có bữa tiệc. Vì vậy tôi đã dán thêm ở cửa hồ bơi mà vẫn chưa đủ người.\nNam: Ở lễ tân có nhiều thông báo khác nên chắc khó nhận ra. Hay thử dán trong thang máy xem?\nNữ: À, lúc đi thang máy chắc khách sẽ để ý thấy đấy. Để tôi đi dán thử.\nNam: Hôm nay tôi cũng sẽ thử gọi mời khách ở lớp học nhảy nhé."
+            },
+            {
+              "id": "n4-2024-07-l-04",
+              "number": 4,
+              "prompt": "学校で先生が話しています。学生は何で書きますか。",
+              "promptRuby": "{学校|がっこう}で{先生|せんせい}が{話|はな}しています。{学生|がくせい}は{何|なん}で{書|か}きますか。",
+              "choices": [
+                "くろのえんぴつ",
+                "くろのペン",
+                "あかのペン",
+                "あおのペン"
+              ],
+              "choicesRuby": [
+                "くろのえんぴつ",
+                "くろのペン",
+                "あかのペン",
+                "あおのペン"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Ở trường học, giáo viên đang nói chuyện. Học sinh sẽ viết bằng cái gì?",
+              "explanation": "Giáo viên dặn: 「黒の鉛筆やペンではわかりにくいですから、必ず赤のペンを使ってください。」(Bút chì đen hay bút mực đen khó nhìn nên nhất định hãy dùng bút đỏ). Còn bút xanh (青のペン) là để giáo viên chấm lại sau. Đáp án đúng là 3 (あかのペン).",
+              "script": "皆さん、漢字の宿題は持って来ましたか。いつもは私が見ていますが、今日はみんなでチェックしましょう。隣の人の漢字を見てあげてください。正しく書けていますか。間違っているところがあったら、直しましょう。黒の鉛筆やペンではわかりにくいですから、必ず赤のペンを使ってください。持っていない人はここにありますから、使ってください。後で私が青のペンを使ってチェックします。じゃ、自分の宿題を隣の人に渡してください。",
+              "scriptRuby": "{皆|みな}さん、{漢字|かんじ}の{宿題|しゅくだい}は{持|も}って{来|き}ましたか。いつもは{私|わたし}が{見|み}ていますが、{今日|きょう}はみんなでチェックしましょう。{隣|となり}の{人|ひと}の{漢字|かんじ}を{見|み}てあげてください。{正|ただ}しく{書|か}けていますか。{間違|まちが}っているところがあったら、{直|なお}しましょう。{黒|くろ}の{鉛筆|えんぴつ}やペンではわかりにくいですから、{必|かなら}ず{赤|あか}のペンを{使|つか}ってください。{持|も}っていない{人|ひと}はここにありますから、{使|つか}ってください。{後|あと}で{私|わたし}が{青|あお}のペンを{使|つか}ってチェックします。じゃ、{自分|じぶん}の{宿題|しゅくだい}を{隣|となり}の{人|ひと}に{渡|わた}してください。",
+              "scriptTranslation": "Các em đã mang bài tập chữ Hán đến chưa? Mọi khi cô kiểm tra, nhưng hôm nay cả lớp hãy cùng nhau kiểm tra nhé. Hãy xem chữ Hán của bạn bên cạnh. Các bạn ấy đã viết đúng chưa? Nếu có chỗ sai hãy sửa lại. Dùng bút chì đen hay bút đen thì khó thấy nên các em nhất định hãy dùng bút đỏ nhé. Ai không mang thì ở đây có sẵn, cứ lấy dùng. Sau đó cô sẽ dùng bút xanh để kiểm tra lại. Nào, hãy đưa bài tập của mình cho bạn bên cạnh."
+            },
+            {
+              "id": "n4-2024-07-l-05",
+              "number": 5,
+              "prompt": "お土産屋で男の人と女の人が話しています。男の人は何を買いますか。",
+              "promptRuby": "お{土産屋|みやげや}で{男|おとこ}の{人|ひと}と{女|おんな}の{人|ひと}が{話|はな}しています。{男|おとこ}の{人|ひと}は{何|なに}を{買|か}いますか。",
+              "choices": [
+                "ア（りんご）",
+                "イ（りんごクッキー）",
+                "ア・ウ（りんごとTシャツ）",
+                "イ・ウ（りんごクッキーとTシャツ）"
+              ],
+              "choicesRuby": [
+                "ア（りんご）",
+                "イ（りんごクッキー）",
+                "ア・ウ（りんごとTシャツ）",
+                "イ・ウ（りんごクッキーとTシャツ）"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Tại cửa hàng quà lưu niệm, một người đàn ông và một người phụ nữ đang nói chuyện. Người đàn ông sẽ mua gì?",
+              "explanation": "Người phụ nữ gợi ý bánh quy táo của cửa hàng (クッキー — hình イ) và người đàn ông đồng ý: 「いいね。じゃ、それを買って…」(Hay đấy, vậy mua cái đó...). Tiếp theo người phụ nữ gợi ý áo phông in nhiều quả táo cho trẻ em (りんごがたくさん書いてあるTシャツ — hình ウ) và anh ấy chốt: 「ありがとう、あれにするよ」(Cảm ơn, tôi chọn cái kia). Vậy mua イ và ウ (đáp án 4).",
+              "imageHint": "Đề gốc có hình minh họa 3 món quà: ア = túi táo tươi; イ = hộp bánh quy táo (りんごクッキー); ウ = áo phông in nhiều hình quả táo. Các lựa chọn: 1 ア, 2 イ, 3 ア ウ, 4 イ ウ.",
+              "script": "男：友達のうちにお土産を買って行きたいんだ。6歳の女の子がいるんだけど、何がいいと思う？\n女：この辺りはりんごが有名だから、りんごのお菓子はどう？前に、この店のクッキーをもらったんだけど、美味しかったよ。\n男：いいね。じゃ、それを買って…子供には他にも何かあげたいなあ。\n女：私はあそこにあるりんごがたくさん書いてあるTシャツを妹に買ったよ。同じので子供のも売っていて、可愛かったよ。\n男：子供が喜びそうだね。ありがとう、あれにするよ。",
+              "scriptRuby": "{男|おとこ}：{友達|ともだち}のうちにお{土産|みやげ}を{買|か}って{行|い}きたいんだ。6{歳|さい}の{女|おんな}の{子|こ}がいるんだけど、{何|なに}がいいと{思|おも}う？\n{女|おんな}：この{辺|あた}りはりんごが{有名|ゆうめい}だから、りんごのお{菓子|かし}はどう？{前|まえ}に、この{店|みせ}のクッキーをもらったんだけど、{美味|おい}しかったよ。\n{男|おとこ}：いいね。じゃ、それを{買|か}って…{子供|こども}には{他|ほか}にも{何|なに}かあげたいなあ。\n{女|おんな}：{私|わたし}はあそこにあるりんごがたくさん{書|か}いてあるTシャツを{妹|いもうと}に{買|か}ったよ。{同|おな}じので{子供|こども}のも{売|う}っていて、{可愛|かわい}かったよ。\n{男|おとこ}：{子供|こども}が{喜|よろこ}びそうだね。ありがとう、あれにするよ。",
+              "scriptTranslation": "Nam: Tôi muốn mua quà mang đến nhà bạn. Nhà bạn có bé gái 6 tuổi, bạn thấy mua gì thì hay?\nNữ: Vùng này nổi tiếng về táo nên bánh kẹo làm từ táo thì sao? Trước tôi từng được tặng bánh quy của tiệm này, ngon lắm đấy.\nNam: Hay đấy. Vậy mua hộp bánh đó... Với bé con tôi muốn tặng thêm món gì khác nữa.\nNữ: Tôi từng mua chiếc áo phông in nhiều hình quả táo ở đằng kia cho em gái. Cũng có bán cỡ trẻ em y hệt, dễ thương lắm.\nNam: Chắc bé sẽ thích lắm đây. Cảm ơn nhé, tôi sẽ mua cái đó."
+            },
+            {
+              "id": "n4-2024-07-l-06",
+              "number": 6,
+              "prompt": "うちでお母さんと子供が話しています。子供は、お客さんのところにどれを持って行きますか。",
+              "promptRuby": "うちでお{母|かあ}さんと{子供|こども}が{話|はな}しています。{子供|こども}は、お{客|きゃく}さんのところにどれを{持|も}って{行|い}きますか。",
+              "choices": [
+                "1（小さい四角のケーキ）",
+                "2（大きい四角のケーキ）",
+                "3（大きい丸いケーキ）",
+                "4（小さい丸いケーキ）"
+              ],
+              "choicesRuby": [
+                "1（{小|ちい}さい{四角|しかく}のケーキ）",
+                "2（{大|おお}きい{四角|しかく}のケーキ）",
+                "3（{大|おお}きい{丸|まる}いケーキ）",
+                "4（{小|ちい}さい{丸|まる}いケーキ）"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Ở nhà, người mẹ và con trai đang nói chuyện. Người con sẽ mang chiếc bánh nào ra cho khách?",
+              "explanation": "Người mẹ nói rõ: 「丸いのじゃなくて、その四角のを出して。小さいほうだよ。」(Không phải cái tròn đâu, lấy cái hình vuông kia kìa. Cái nhỏ hơn ấy). Trong hình minh họa, bánh hình vuông nhỏ là số 1 (đáp án 1).",
+              "imageHint": "Đề gốc có hình một hộp bánh mở nắp gồm 4 chiếc bánh: (1) bánh hình vuông nhỏ ở góc trên trái; (2) bánh hình chữ nhật lớn ở góc trên phải; (3) bánh hình tròn lớn ở góc dưới trái; (4) bánh hình tròn nhỏ ở góc dưới phải.",
+              "script": "母：一郎、今お客さんが来ているんだけど、そこにあるケーキをお客さんに出してくれる？\n子ども：うん、いいよ。どれを持って行く？この大きくて丸いの？\n母：あ、丸いのじゃなくて、その四角のを出して。小さいほうだよ。それは美味しいから、お客さんに出しましょう。\n子ども：うん、わかった。あとで、この大きくて丸いのを食べてもいい？\n母：いいよ。",
+              "scriptRuby": "{母|はは}：{一郎|いちろう}、{今|いま}お{客|きゃく}さんが{来|き}ているんだけど、そこにあるケーキをお{客|きゃく}さんに{出|だ}してくれる？\n{子|こ}ども：うん、いいよ。どれを{持|も}って{行|い}く？この{大|おお}きくて{丸|まる}いの？\n{母|はは}：あ、{丸|まる}いのじゃなくて、その{四角|しかく}のを{出|だ}して。{小|ちい}さいほうだよ。それは{美味|おい}しいから、お{客|きゃく}さんに{出|だ}しましょう。\n{子|こ}ども：うん、わかった。あとで、この{大|おお}きくて{丸|まる}いのを{食|た}べてもいい？\n{母|はは}：いいよ。",
+              "scriptTranslation": "Mẹ: Ichiro ơi, giờ đang có khách đến, con mang bánh ở chỗ đó ra mời khách giúp mẹ nhé?\nCon: Vâng, được ạ. Con mang cái nào ra ạ? Cái to và tròn này ạ?\nMẹ: À, không phải cái tròn, mang cái hình vuông kia ra. Cái nhỏ hơn ấy nhé. Cái đó ngon nên mình mời khách.\nCon: Vâng, con hiểu rồi. Lát nữa con ăn cái to và tròn này có được không ạ?\nMẹ: Được con."
+            },
+            {
+              "id": "n4-2024-07-l-07",
+              "number": 7,
+              "prompt": "ラーメン屋で店員と男の人が話しています。男の人はこの後、まず何をしますか。",
+              "promptRuby": "ラーメン{屋|や}で{店員|てんいん}と{男|おとこ}の{人|ひと}が{話|はな}しています。{男|おとこ}の{人|ひと}はこの{後|あと}、まず{何|なに}をしますか。",
+              "choices": [
+                "外の機械でラーメンのチケットを買う",
+                "店の中で1万円で払う",
+                "店の中でクレジットカードで払う",
+                "みなみ銀行のATMに行く"
+              ],
+              "choicesRuby": [
+                "{外|そと}の{機械|きかい}でラーメンのチケットを{買|か}う",
+                "{店|みせ}の{中|なか}で1{万円|まんえん}で{払|はら}う",
+                "{店|みせ}の{中|なか}でクレジットカードで{払|はら}う",
+                "みなみ{銀行|ぎんこう}のATMに{行|い}く"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Ở quán mì ramen, nhân viên và một người đàn ông đang nói chuyện. Sau đây, trước tiên người đàn ông sẽ làm gì?",
+              "explanation": "Máy bán vé bên ngoài không nhận tờ 10.000 yên, mà trong quán cũng không trả tiền mặt 10.000 yên hay thẻ tín dụng được (できないんですよ). Nhân viên chỉ có ATM ngân hàng Minami cách đó 2 căn nhà, và người đàn ông đáp 「いえ、大丈夫です。そうします」(Không sao đâu, tôi sẽ làm vậy). Vậy trước tiên anh ấy đi đến ATM ngân hàng Minami (đáp án 4).",
+              "imageHint": "Đề gốc có 4 tranh: (1) Người đàn ông bấm máy bán vé tự động ngoài quán; (2) Người đàn ông đưa tờ 10.000 yên cho nhân viên trong quán; (3) Người đàn ông đưa thẻ tín dụng cho nhân viên; (4) Người đàn ông bước vào cây ATM của ngân hàng Minami (みなみ銀行).",
+              "script": "女：いらっしゃいませ。\n男：あのう、醤油ラーメンをお願いしたいんですが。\n女：店の外にある機械で、ラーメンのチケットを買って出してもらえますか。\n男：いえ、外の機械は1万円が使えないようなので、店の中で1万円かクレジットカードで払えませんか。\n女：できないんですよ。南銀行のATMなら、2軒隣にあるんですが。でも他の銀行のキャッシュカードを使うと、少し料金がかかってしまいますね。\n男：いえ、大丈夫です。そうします。",
+              "scriptRuby": "{女|おんな}：いらっしゃいませ。\n{男|おとこ}：あのう、{醤油|しょうゆ}ラーメンをお{願|ねが}いしたいんですが。\n{女|おんな}：{店|みせ}の{外|そと}にある{機械|きかい}で、ラーメンのチケットを{買|か}って{出|だ}してもらえますか。\n{男|おとこ}：いえ、{外|そと}の{機械|きかい}は1{万円|まんえん}が{使|つか}えないようなので、{店|みせ}の{中|なか}で1{万円|まんえん}かクレジットカードで{払|はら}えませんか。\n{女|おんな}：できないんですよ。{南銀行|みなみぎんこう}のATMなら、2{軒隣|けんどなり}にあるんですが。でも{他|ほか}の{銀行|ぎんこう}のキャッシュカードを{使|つか}うと、{少|すこ}し{料金|りょうきん}がかかってしまいますね。\n{男|おとこ}：いえ、{大丈夫|だいじょうぶ}です。そうします。",
+              "scriptTranslation": "Nữ: Xin kính chào quý khách.\nNam: À, tôi muốn gọi mì ramen vị nước tương ạ.\nNữ: Anh vui lòng mua phiếu ăn ở máy bán vé bên ngoài quán rồi đưa cho tôi được không ạ?\nNam: À, máy bên ngoài hình như không nhận tờ 10.000 yên nên tôi trả bằng tờ 10.000 yên hoặc thẻ tín dụng ở trong quán được không?\nNữ: Rất tiếc không được ạ. Nếu cần ATM ngân hàng Minami thì cách đây 2 căn nhà có đấy ạ. Nhưng dùng thẻ ngân hàng khác thì sẽ mất một chút phí nhé.\nNam: Không sao đâu. Tôi sẽ đi rút ngay."
+            },
+            {
+              "id": "n4-2024-07-l-08",
+              "number": 8,
+              "prompt": "男の人と女の人が話しています。女の人は係の人をどこに立たせますか。",
+              "promptRuby": "{男|おとこ}の{人|ひと}と{女|おんな}の{人|ひと}が{話|はな}しています。{女|おんな}の{人|ひと}は{係|かかり}の{人|ひと}をどこに{立|た}たせますか。",
+              "choices": [
+                "ア・ウ",
+                "ア・エ",
+                "イ・ウ",
+                "イ・エ"
+              ],
+              "choicesRuby": [
+                "ア・ウ",
+                "ア・エ",
+                "イ・ウ",
+                "イ・エ"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Một người đàn ông và một người phụ nữ đang nói chuyện. Người phụ nữ sẽ bố trí hai nhân viên hướng dẫn đứng ở những vị trí nào?",
+              "explanation": "Vị trí thứ nhất: 「コンビニの前は人が多いから、コンビニがない方の角にしよう」(Trước cửa hàng tiện lợi đông người nên chọn góc đường bên không có cửa hàng tiện lợi -> vị trí ア). Vị trí thứ hai: 「それから、次の角にも1人立ってもらう」(Sau đó cho 1 người đứng ở góc đường tiếp theo -> vị trí ウ). Còn trước bưu điện (エ) đã có tấm bản đồ lớn rồi nên không cần. Vậy đáp án là ア・ウ (đáp án 1).",
+              "imageHint": "Đề gốc có bản đồ từ nhà ga (えき) đi thẳng lên sân vận động (うんどうじょう): Ngay trước ga có 2 góc đường là ア (bên trái, không có cửa hàng tiện lợi) và イ (bên phải, ngay trước コンビニ). Đi thẳng tiếp lên ngã ba kế tiếp là góc ウ (bên phải). Đi thẳng lên nữa là bưu điện (ゆうびんきょく) có vị trí エ ở bên trái, đối diện sân vận động ở bên phải.",
+              "script": "男：来週の会社の運動会、駅から運動場まで道に立って案内してくれる係の人はもう見つかった？\n女：はい、係は2人なんですが、どこに立ってもらいましょうか。\n男：まず、駅を出てすぐ違う道に行ってしまったら、運動場に着けないから、駅の前には必要だね。コンビニの前は人が多いから、コンビニがない方の角にしよう。\n女：はい。\n男：それから、次の角にも1人立ってもらう。角を曲がってしまう人がいるかもしれないからね。\n女：わかりました。そこからは、まっすぐ行けば右手に運動場が見えますし、郵便局の前に大きな地図があるので大丈夫ですね。そうします。",
+              "scriptRuby": "{男|おとこ}：{来週|らいしゅう}の{会社|かいしゃ}の{運動会|うんどうかい}、{駅|えき}から{運動場|うんどうじょう}まで{道|みち}に{立|た}って{案内|あんない}してくれる{係|かかり}の{人|ひと}はもう{見|み}つかった？\n{女|おんな}：はい、{係|かかり}は2{人|にん}なんですが、どこに{立|た}ってもらいましょうか。\n{男|おとこ}：まず、{駅|えき}を{出|で}てすぐ{違|ちが}う{道|みち}に{行|い}ってしまったら、{運動場|うんどうじょう}に{着|つ}けないから、{駅|えき}の{前|まえ}には{必要|ひつよう}だね。コンビニの{前|まえ}は{人|ひと}が{多|おお}いから、コンビニがない{方|ほう}の{角|かど}にしよう。\n{女|おんな}：はい。\n{男|おとこ}：それから、{次|つぎ}の{角|かど}にも1{人|ひとり}{立|た}ってもらう。{角|かど}を{曲|ま}がってしまう{人|ひと}がいるかもしれないからね。\n{女|おんな}：わかりました。そこからは、まっすぐ{行|い}けば{右手|みぎて}に{運動場|うんどうじょう}が{見|み}えますし、{郵便局|ゆうびんきょく}の{前|まえ}に{大|おお}きな{地図|ちず}があるので{大丈夫|だいじょうぶ}ですね。そうします。",
+              "scriptTranslation": "Nam: Hội thao công ty tuần tới đã tìm được người đứng dọc đường từ ga đến sân vận động để chỉ đường chưa?\nNữ: Rồi ạ, có 2 nhân viên phụ trách, nhưng mình nên bố trí họ đứng ở đâu ạ?\nNam: Trước hết, nếu vừa ra khỏi ga mà đi nhầm đường thì sẽ không tới được sân vận động, nên cần đứng trước ga. Trước cửa hàng tiện lợi đông người nên chọn góc đường bên không có cửa hàng tiện lợi nhé.\nNữ: Vâng.\nNam: Tiếp theo, cho 1 người đứng ở góc ngã rẽ kế tiếp nữa. Vì sợ có người sẽ rẽ nhầm ở góc đó.\nNữ: Em hiểu rồi. Từ đó cứ đi thẳng là thấy sân vận động ở bên phải, mà trước bưu điện cũng có bản đồ lớn nên ổn rồi ạ. Em sẽ sắp xếp như vậy."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-l-m2",
+          "label": "問題2 — Hiểu điểm chính (Nghe hiểu)",
+          "instructionJa": "もんだい2では、まず しつもんを きいて ください。そのあと、もんだいようしを 見て ください。読む 時間 が あります。それから 話を 聞いて、もんだいようしの 1から4の中から、いちばん いい ものを 一つ えらんで ください。",
+          "instructionVi": "Ở Mondai 2, trước tiên hãy nghe câu hỏi, sau đó xem trước các phương án. Tiếp theo nghe đoạn hội thoại và chọn 1 đáp án đúng nhất trong 1 đến 4.",
+          "questions": [
+            {
+              "id": "n4-2024-07-l-09",
+              "number": 9,
+              "prompt": "電話で電気屋の人と女の人が話しています。クーラーの工事はいつになりましたか。",
+              "promptRuby": "{電話|でんわ}で{電気屋|でんきや}の{人|ひと}と{女|おんな}の{人|ひと}が{話|はな}しています。クーラーの{工事|こうじ}はいつになりましたか。",
+              "choices": [
+                "5日の午後2時から",
+                "5日の午後5時から",
+                "12日の午後2時から",
+                "12日の午後5時から"
+              ],
+              "choicesRuby": [
+                "5{日|か}の{午後|ごご}2{時|じ}から",
+                "5{日|か}の{午後|ごご}5{時|じ}から",
+                "12{日|にち}の{午後|ごご}2{時|じ}から",
+                "12{日|にち}の{午後|ごご}5{時|じ}から"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Qua điện thoại, nhân viên cửa hàng điện máy và một người phụ nữ đang nói chuyện. Lịch lắp đặt điều hòa đã được đổi sang khi nào?",
+              "explanation": "Lịch ban đầu là 2 giờ chiều ngày 5 (5日の午後2時) nhưng chị Morita bận nên xin đổi. Nhân viên đề xuất 2 giờ hoặc 5 giờ chiều ngày 12 (12日の午後2時か5時), và chị chọn 5 giờ (「じゃ、5時にお願いできますか」). Vậy lịch mới là 5 giờ chiều ngày 12 (đáp án 4).",
+              "script": "男：はい、西川電機です。\n女：今月5日の午後2時にクーラーの工事を予約している森田です。すみませんが、都合が悪くなってしまったので、違う日に変えてもらうことはできますか。\n男：そうですか。次の週になりますが、12日の午後2時か5時はいかがでしょうか。\n女：じゃ、5時にお願いできますか。\n男：わかりました。",
+              "scriptRuby": "{男|おとこ}：はい、{西川電機|にしかわでんき}です。\n{女|おんな}：{今月|こんげつ}5{日|か}の{午後|ごご}2{時|じ}にクーラーの{工事|こうじ}を{予約|よやく}している{森田|もりた}です。すみませんが、{都合|つごう}が{悪|わる}くなってしまったので、{違|ちが}う{日|ひ}に{変|か}えてもらうことはできますか。\n{男|おとこ}：そうですか。{次|つぎ}の{週|しゅう}になりますが、12{日|にち}の{午後|ごご}2{時|じ}か5{時|じ}はいかがでしょうか。\n{女|おんな}：じゃ、5{時|じ}にお{願|ねが}いできますか。\n{男|おとこ}：わかりました。",
+              "scriptTranslation": "Nam: Vâng, Điện máy Nishikawa xin nghe.\nNữ: Tôi là Morita, có đặt lịch lắp điều hòa vào 2 giờ chiều ngày mùng 5 tháng này. Xin lỗi nhưng tôi có việc bận đột xuất, anh có thể đổi sang ngày khác giúp tôi được không?\nNam: Vậy ạ. Sang tuần sau, 2 giờ chiều hoặc 5 giờ chiều ngày 12 thì chị thấy thế nào ạ?\nNữ: Vậy nhờ anh sắp xếp lúc 5 giờ chiều nhé.\nNam: Vâng, tôi hiểu rồi ạ."
+            },
+            {
+              "id": "n4-2024-07-l-10",
+              "number": 10,
+              "prompt": "家で息子とお母さんが話しています。息子はどうして、また図書館へ行きますか。",
+              "promptRuby": "{家|いえ}で{息子|むすこ}とお{母|かあ}さんが{話|はな}しています。{息子|むすこ}はどうして、また{図書館|としょかん}へ{行|い}きますか。",
+              "choices": [
+                "よやくした本がとどいたから",
+                "マフラーをさがしたいから",
+                "かりるのをわすれた本があるから",
+                "しりょうをおいてきたから"
+              ],
+              "choicesRuby": [
+                "よやくした{本|ほん}がとどいたから",
+                "マフラーをさがしたいから",
+                "かりるのをわすれた{本|ほん}があるから",
+                "しりょうをおいてきたから"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Ở nhà, cậu con trai và mẹ đang nói chuyện. Tại sao người con trai lại đi đến thư viện một lần nữa?",
+              "explanation": "Cậu con trai nói: 「今気がついたんだけど、マフラーを置いて来たかもしれない。... ちょっと見て来る。」(Con vừa mới nhận ra có thể đã để quên khăn quàng cổ ở đó... Con đi xem thử). Do đó đáp án đúng là 2 (マフラーをさがしたいから).",
+              "script": "息子：もう一度図書館に行ってくる。\n母：えっ、予約した本を取りに行って、今帰ってきたところなのに、また？\n息子：うん。今気がついたんだけど、マフラーを置いて来たかもしれない。図書館に着いて、初めはしていたんだけど、冬休みの宿題に使う資料をいろいろ探していて、暑くなって、椅子かどこかに置いたと思う。ちょっと見て来る。\n母：そう。じゃ、いってらっしゃい、気をつけてね。",
+              "scriptRuby": "{息子|むすこ}：もう{一度|いちど}{図書館|としょかん}に{行|い}ってくる。\n{母|はは}：えっ、{予約|よやく}した{本|ほん}を{取|と}りに{行|い}って、{今帰|いまかえ}ってきたところなのに、また？\n{息子|むすこ}：うん。{今気|いまき}がついたんだけど、マフラーを{置|お}いて{来|き}たかもしれない。{図書館|としょかん}に{着|つ}いて、{初|はじ}めはしていたんだけど、{冬休|ふゆやす}みの{宿題|しゅくだい}に{使|つか}う{資料|しりょう}をいろいろ{探|さが}していて、{暑|あつ}くなって、{椅子|いす}かどこかに{置|お}いたと{思|おも}う。ちょっと{見|み}て{来|く}る。\n{母|はは}：そう。じゃ、いってらっしゃい、{気|き}をつけてね。",
+              "scriptTranslation": "Con trai: Con ra thư viện thêm một lần nữa đây.\nMẹ: Ủa, con vừa mới đi lấy sách đặt trước về xong mà lại đi nữa à?\nCon trai: Vâng. Con mới chợt nhớ ra hình như con để quên khăn quàng cổ rồi. Lúc mới tới thư viện con vẫn đeo, nhưng lúc tìm tài liệu làm bài tập nghỉ đông nóng quá nên chắc con để trên ghế hay đâu đó. Con ra xem thử.\nMẹ: Thế à. Vậy con đi cẩn thận nhé."
+            },
+            {
+              "id": "n4-2024-07-l-11",
+              "number": 11,
+              "prompt": "大学で女の学生と男の留学生が話しています。男の留学生は大学を卒業した後、初めに何をしたいと言っていますか。",
+              "promptRuby": "{大学|だいがく}で{女|おんな}の{学生|がくせい}と{男|おとこ}の{留学生|りゅうがくせい}が{話|はな}しています。{男|おとこ}の{留学生|りゅうがくせい}は{大学|だいがく}を{卒業|そつぎょう}した{後|あと}、{初|はじ}めに{何|なに}をしたいと{言|い}っていますか。",
+              "choices": [
+                "日本のだいがくいんでべんきょうする",
+                "じぶんの国でべんきょうをつづける",
+                "じぶんの国で会社をつくる",
+                "日本の会社ではたらく"
+              ],
+              "choicesRuby": [
+                "{日本|にほん}のだいがくいんでべんきょうする",
+                "じぶんの{国|くに}でべんきょうをつづける",
+                "じぶんの{国|くに}で{会社|かいしゃ}をつくる",
+                "{日本|にほん}の{会社|かいしゃ}ではたらく"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Ở trường đại học, nữ sinh và nam du học sinh đang nói chuyện. Nam du học sinh nói sau khi tốt nghiệp đại học, việc đầu tiên anh ấy muốn làm là gì?",
+              "explanation": "Thứ tự kế hoạch của nam sinh: (1) Tốt nghiệp đại học xong học cao học ở Nhật (日本の大学院へ行って貿易について勉強するつもりです), (2) Học xong cao học thì làm việc tại công ty thương mại Nhật, (3) Về nước lập công ty. Câu hỏi hỏi việc đầu tiên sau khi tốt nghiệp đại học -> học cao học ở Nhật (đáp án 1).",
+              "script": "女：ワンさんは大学を卒業したらどうするんですか。国に帰るんですか。\n男：あ、大学を卒業したら、日本の大学院へ行って貿易について勉強するつもりです。将来、国に帰って貿易の会社を作りたいので、たくさん勉強しておきたいんです。\n女：ああ、そうですか。\n男：大学院を出た後は、日本の貿易会社で働いて、いろいろな経験をしてから国へ帰ろうと思っています。\n女：そうですか、楽しみですね。",
+              "scriptRuby": "{女|おんな}：ワンさんは{大学|だいがく}を{卒業|そつぎょう}したらどうするんですか。{国|くに}に{帰|かえ}るんですか。\n{男|おとこ}：あ、{大学|だいがく}を{卒業|そつぎょう}したら、{日本|にほん}の{大学院|だいがくいん}へ{行|い}って{貿易|ぼうえき}について{勉強|べんきょう}するつもりです。{将来|しょうらい}、{国|くに}に{帰|かえ}って{貿易|ぼうえき}の{会社|かいしゃ}を{作|つく}りたいので、たくさん{勉強|べんきょう}しておきたいんです。\n{女|おんな}：ああ、そうですか。\n{男|おとこ}：{大学院|だいがくいん}を{出|で}た{後|あと}は、{日本|にほん}の{貿易会社|ぼうえきがいしゃ}で{働|はたら}いて、いろいろな{経験|けいけん}をしてから{国|くに}へ{帰|かえ}ろうと{思|おも}っています。\n{女|おんな}：そうですか、{楽|たの}しみですね。",
+              "scriptTranslation": "Nữ: Anh Vương sau khi tốt nghiệp đại học sẽ làm gì? Anh có về nước không?\nNam: À, tốt nghiệp đại học xong tôi dự định học lên cao học ở Nhật để nghiên cứu về thương mại. Tương lai tôi muốn về nước mở công ty thương mại nên muốn học thật nhiều trước.\nNữ: À, ra vậy.\nNam: Sau khi tốt nghiệp cao học, tôi định làm việc ở một công ty thương mại của Nhật, tích lũy nhiều kinh nghiệm rồi mới về nước.\nNữ: Vậy à, thật đáng mong đợi đấy."
+            },
+            {
+              "id": "n4-2024-07-l-12",
+              "number": 12,
+              "prompt": "会社で男の人と女の先輩が話しています。男の人はどうしていつもの店に髪を切りに行かないと言っていますか。",
+              "promptRuby": "{会社|かいしゃ}で{男|おとこ}の{人|ひと}と{女|おんな}の{先輩|せんぱい}が{話|はな}しています。{男|おとこ}の{人|ひと}はどうしていつもの{店|みせ}に{髪|かみ}を{切|き}りに{行|い}かないと{言|い}っていますか。",
+              "choices": [
+                "ほかの店にも行ってみたいから",
+                "店のばしょがとおくなったから",
+                "こんでいてよやくがとれないから",
+                "りょうきんが高くなったから"
+              ],
+              "choicesRuby": [
+                "ほかの{店|みせ}にも{行|い}ってみたいから",
+                "{店|みせ}のばしょがとおくなったから",
+                "こんでいてよやくがとれないから",
+                "りょうきんが{高|たか}くなったから"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Ở công ty, một người đàn ông và chị đồng nghiệp khóa trên đang nói chuyện. Tại sao người đàn ông nói không đến tiệm cắt tóc quen thuộc nữa?",
+              "explanation": "Người đàn ông giải thích: 「最近全然予約が取れなくなってしまったんです。... それで人気が出て、昼も夜もお客さんがいっぱいなんですよ。」(Gần đây không thể đặt lịch được nữa... nổi tiếng quá nên cả trưa lẫn tối đều đông kín khách). Vậy đáp án đúng là 3 (こんでいてよやくがとれないから).",
+              "script": "男：先輩、髪を切りたいんですけど、どこかいい店を知りませんか。\n女：えっ、いつも行っている店は？\n男：学生の時からずっと家の近くの店に行っていたんですけど、最近全然予約が取れなくなってしまったんです。\n女：どうして？\n男：切るのがすごく上手で、料金も高くないから、テレビで紹介されたんです。それで人気が出て、昼も夜もお客さんがいっぱいなんですよ。\n女：そう。じゃ、私がよく行く店の名刺をあげるね。",
+              "scriptRuby": "{男|おとこ}：{先輩|せんぱい}、{髪|かみ}を{切|き}りたいんですけど、どこかいい{店|みせ}を{知|し}りませんか。\n{女|おんな}：えっ、いつも{行|い}っている{店|みせ}は？\n{男|おとこ}：{学生|がくせい}の{時|とき}からずっと{家|いえ}の{近|ちか}くの{店|みせ}に{行|い}っていたんですけど、{最近|さいきん}{全然|ぜんぜん}{予約|よやく}が{取|と}れなくなってしまったんです。\n{女|おんな}：どうして？\n{男|おとこ}：{切|き}るのがすごく{上手|じょうず}で、{料金|りょうきん}も{高|たか}くないから、テレビで{紹介|しょうかい}されたんです。それで{人気|にんき}が{出|で}て、{昼|ひる}も{夜|よる}もお{客|きゃく}さんがいっぱいなんですよ。\n{女|おんな}：そう。じゃ、{私|わたし}がよく{行|い}く{店|みせ}の{名刺|めいし}をあげるね。",
+              "scriptTranslation": "Nam: Chị ơi, em muốn đi cắt tóc, chị có biết tiệm nào tốt không ạ?\nNữ: Ủa, thế tiệm em hay đi thì sao?\nNam: Từ thời sinh viên em vẫn luôn cắt ở tiệm gần nhà, nhưng gần đây hoàn toàn không đặt lịch được nữa ạ.\nNữ: Sao vậy?\nNam: Vì tiệm cắt rất đẹp mà giá lại không đắt nên được giới thiệu trên ti vi. Thế là nổi tiếng, cả trưa lẫn tối lúc nào cũng đông kín khách.\nNữ: Ra vậy. Thế để chị đưa danh thiếp tiệm chị hay đi cho nhé."
+            },
+            {
+              "id": "n4-2024-07-l-13",
+              "number": 13,
+              "prompt": "バスの中で、男の人と女の人が話しています。男の人はどのバス停で降りますか。",
+              "promptRuby": "バスの{中|なか}で、{男|おとこ}の{人|ひと}と{女|おんな}の{人|ひと}が{話|はな}しています。{男|おとこ}の{人|ひと}はどのバス{停|てい}で{降|お}りますか。",
+              "choices": [
+                "びじゅつかん前",
+                "しみんびょういん",
+                "さくら小学校前",
+                "あさひやデパート"
+              ],
+              "choicesRuby": [
+                "びじゅつかん{前|まえ}",
+                "しみんびょういん",
+                "さくら{小学校前|しょうがっこうまえ}",
+                "あさひやデパート"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Trên xe buýt, một người đàn ông và một người phụ nữ đang nói chuyện. Người đàn ông sẽ xuống ở bến xe buýt nào?",
+              "explanation": "Bến hiện tại là 美術館前. Người đàn ông muốn đi Bệnh viện Nhân dân (市民病院), nhưng không có bến tên đó. Người phụ nữ chỉ: 「桜小学校前のバス停が近いですね。次止まるのがあさひやデパートなんですが、その次です。」(Bến Trước trường tiểu học Sakura là gần nhất — ngay sau bến Asahiya Department). Vậy anh ấy xuống ở さくら小学校前 (đáp án 3).",
+              "script": "男：あのう、すみません、今止まったのはどこですか。\n女：美術館前のバス停です。\n男：あ、そうですか。市民病院へ行きたいんですが。\n女：市民病院というバス停はないんですよ。\n男：あ、そうですか。\n女：ええ、桜小学校前のバス停が近いですね。次止まるのがあさひやデパートなんですが、その次です。ここから2つ目のバス停です。\n男：あさひやデパートの次ですね。ありがとうございます。",
+              "scriptRuby": "{男|おとこ}：あのう、すみません、{今止|いまと}まったのはどこですか。\n{女|おんな}：{美術館前|びじゅつかんまえ}のバス{停|てい}です。\n{男|おとこ}：あ、そうですか。{市民病院|しみんびょういん}へ{行|い}きたいんですが。\n{女|おんな}：{市民病院|しみんびょういん}というバス{停|てい}はないんですよ。\n{男|おとこ}：あ、そうですか。\n{女|おんな}：ええ、{桜小学校前|さくらしょうがっこうまえ}のバス{停|てい}が{近|ちか}いですね。{次止|つぎと}まるのがあさひやデパートなんですが、その{次|つぎ}です。ここから2つ{目|め}のバス{停|てい}です。\n{男|おとこ}：あさひやデパートの{次|つぎ}ですね。ありがとうございます。",
+              "scriptTranslation": "Nam: Xin lỗi cho hỏi, bến xe vừa dừng là ở đâu ạ?\nNữ: Là bến Trước bảo tàng mỹ thuật ạ.\nNam: À thế ạ. Tôi muốn đi Bệnh viện Nhân dân.\nNữ: Không có bến xe buýt nào tên là Bệnh viện Nhân dân đâu anh.\nNam: Ồ, vậy sao ạ.\nNữ: Vâng, bến Trước trường tiểu học Sakura gần đó nhất đấy. Bến kế tiếp là Trung tâm thương mại Asahiya, bến sau đó nữa. Tức là bến thứ 2 kể từ đây.\nNam: Ngay sau Trung tâm thương mại Asahiya đúng không ạ. Cảm ơn chị nhiều."
+            },
+            {
+              "id": "n4-2024-07-l-14",
+              "number": 14,
+              "prompt": "ラジオでアナウンサーが話しています。明日の天気はどうなると言っていますか。明日です。",
+              "promptRuby": "ラジオでアナウンサーが{話|はな}しています。{明日|あした}の{天気|てんき}はどうなると{言|い}っていますか。{明日|あした}です。",
+              "choices": [
+                "一日中雨",
+                "一日中はれ",
+                "午前ははれ、午後は雨",
+                "午前は雨、午後ははれ"
+              ],
+              "choicesRuby": [
+                "{一日中|いちにちじゅう}{雨|あめ}",
+                "{一日中|いちにちじゅう}はれ",
+                "{午前|ごぜん}ははれ、{午後|ごご}は{雨|あめ}",
+                "{午前|ごぜん}は{雨|あめ}、{午後|ごご}ははれ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Phát thanh viên đang nói trên đài phát thanh. Người đó nói thời tiết ngày mai sẽ như thế nào? (Lưu ý: ngày mai).",
+              "explanation": "Phát thanh viên nói: 「明日金曜日は1日中、青い空が見られるでしょう。」(Ngày mai thứ Sáu sẽ thấy bầu trời xanh suốt cả ngày — tức là nắng cả ngày). Còn sáng nắng chiều mưa là ngày kia (thứ Bảy), sáng mưa chiều nắng là Chủ nhật. Đáp án đúng là 2 (一日中はれ).",
+              "script": "天気予報です。今日は雨が降って、昨日より寒い1日でしたが、雨は今晩には止むでしょう。明日金曜日は1日中、青い空が見られるでしょう。晴れの天気は明後日、土曜日の午前中までで、午後からは雨が降るでしょう。雨は日曜日の午前まで続きますが、午後は晴れるでしょう。",
+              "scriptRuby": "{天気予報|てんきよほう}です。{今日|きょう}は{雨|あめ}が{降|ふ}って、{昨日|きのう}より{寒|さむ}い1{日|にち}でしたが、{雨|あめ}は{今晩|こんばん}には{止|や}むでしょう。{明日|あした}{金曜日|きんようび}は1{日中|にちじゅう}、{青|あお}い{空|そら}が{見|み}られるでしょう。{晴|は}れの{天気|てんき}は{明後日|あさって}、{土曜日|どようび}の{午前中|ごぜんちゅう}までで、{午後|ごご}からは{雨|あめ}が{降|ふ}るでしょう。{雨|あめ}は{日曜日|にちようび}の{午前|ごぜん}まで{続|つづ}きますが、{午後|ごご}は{晴|は}れるでしょう。",
+              "scriptTranslation": "Sau đây là dự báo thời tiết. Hôm nay trời mưa và là một ngày lạnh hơn hôm qua, nhưng mưa sẽ tạnh vào tối nay. Ngày mai thứ Sáu sẽ có bầu trời trong xanh suốt cả ngày. Thời tiết nắng đẹp sẽ kéo dài đến hết buổi sáng ngày kia tức thứ Bảy, còn từ chiều trời sẽ đổ mưa. Mưa sẽ tiếp tục đến sáng Chủ nhật nhưng buổi chiều trời sẽ hửng nắng."
+            },
+            {
+              "id": "n4-2024-07-l-15",
+              "number": 15,
+              "prompt": "日本語のクラスで先生が話しています。本の読み方についてダメなことは何ですか。ダメなことです。",
+              "promptRuby": "{日本語|にほんご}のクラスで{先生|せんせい}が{話|はな}しています。{本|ほん}の{読|よ}み{方|かた}についてダメなことは{何|なん}ですか。ダメなことです。",
+              "choices": [
+                "読みたい本だけ読むこと",
+                "やさしい本をえらんで読むこと",
+                "とちゅうでべつの本を読むこと",
+                "ことばのいみをしらべながら読むこと"
+              ],
+              "choicesRuby": [
+                "{読|よ}みたい{本|ほん}だけ{読|よ}むこと",
+                "やさしい{本|ほん}をえらんで{読|よ}むこと",
+                "とちゅうでべつの{本|ほん}を{読|よ}むこと",
+                "ことばのいみをしらべながら{読|よ}むこと"
+              ],
+              "answerIndex": 3,
+              "answerSource": "official_key",
+              "translation": "Giáo viên đang phát biểu trong lớp tiếng Nhật. Điều gì là không được phép làm khi đọc sách?",
+              "explanation": "Giáo viên nêu rõ quy tắc: 「途中でわからない言葉があっても意味を調べないで進んでください。」(Dù giữa chừng gặp từ không hiểu cũng đừng tra nghĩa mà hãy cứ đọc tiếp). Các việc chọn sách mình muốn đọc, chọn sách dễ, đổi sang sách khác giữa chừng đều được phép. Vậy điều không được làm là 4 (ことばのいみをしらべながら読むこと).",
+              "script": "この授業では、私がいろいろな本をたくさん持って行きます。皆さんは自分が読みたい本を1冊ずつ選んでください。易しい本から読みましょう。話がつまらなかったら、途中で別の本に移ってもいいです。でも、この授業では読む時のルールがあります。途中でわからない言葉があっても意味を調べないで進んでください。大事な言葉は繰り返されるので、だんだんわかるようになりますから。",
+              "scriptRuby": "この{授業|じゅぎょう}では、{私|わたし}がいろいろな{本|ほん}をたくさん{持|も}って{行|い}きます。{皆|みな}さんは{自分|じぶん}が{読|よ}みたい{本|ほん}を1{冊|さつ}ずつ{選|えら}んでください。{易|やさ}しい{本|ほん}から{読|よ}みましょう。{話|はなし}がつまらなかったら、{途中|とちゅう}で{別|べつ}の{本|ほん}に{移|うつ}ってもいいです。でも、この{授業|じゅぎょう}では{読|よ}む{時|とき}のルールがあります。{途中|とちゅう}でわからない{言葉|ことば}があっても{意味|いみ}を{調|しら}べないで{進|すす}んでください。{大事|だいじ}な{言葉|ことば}は{繰|く}り{返|かえ}されるので、だんだんわかるようになりますから。",
+              "scriptTranslation": "Trong tiết học này, cô sẽ mang đến thật nhiều sách đủ thể loại. Mỗi bạn hãy chọn 1 cuốn mình muốn đọc. Hãy bắt đầu đọc từ những cuốn dễ nhé. Nếu câu chuyện thấy chán, các em có thể chuyển sang cuốn khác giữa chừng cũng được. Tuy nhiên, tiết học này có một quy tắc khi đọc: dù giữa chừng có từ không hiểu, các em đừng tra nghĩa mà cứ đọc tiếp nhé. Những từ quan trọng sẽ lặp lại nhiều lần nên dần dần các em sẽ tự hiểu ra thôi."
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-l-m3",
+          "label": "問題3 — Cách diễn đạt tình huống (Nghe hiểu)",
+          "instructionJa": "もんだい3では、えを みながら しつもんを きいて ください。やじるし（→）の ひとは なんと いいますか。1から3の なかから、いちばん いいものを ひとつ えらんで ください。",
+          "instructionVi": "Ở Mondai 3, hãy nhìn tranh (hoặc đọc mô tả tình huống) và nghe câu hỏi. Người có mũi tên (→) sẽ nói gì? Hãy chọn 1 đáp án đúng nhất trong 1 đến 3.",
+          "questions": [
+            {
+              "id": "n4-2024-07-l-16",
+              "number": 16,
+              "prompt": "スープを作っています。友達に味をチェックしてもらいます。何と言いますか。",
+              "promptRuby": "スープを{作|つく}っています。{友達|ともだち}に{味|あじ}をチェックしてもらいます。{何|なん}と{言|い}いますか。",
+              "choices": [
+                "ちょっと飲んでみて？",
+                "少しスープをもらおう",
+                "美味しくしてね"
+              ],
+              "choicesRuby": [
+                "ちょっと{飲|の}んでみて？",
+                "{少|すこ}しスープをもらおう",
+                "{美味|おい}しくしてね"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Bạn đang nấu súp và muốn nhờ bạn mình nếm thử xem vị thế nào. Bạn sẽ nói gì?",
+              "explanation": "Cấu trúc Vてみて (thử làm V xem) dùng để nhờ bạn nếm thử súp: 「ちょっと飲んでみて？」(Cậu uống thử một chút xem?) (đáp án 1). Phương án 2 nghĩa là 'để tớ xin ít súp nhé', phương án 3 là 'hãy làm cho ngon nhé'.",
+              "imageHint": "Tranh minh họa trong bếp: Người phụ nữ có mũi tên (→) đeo tạp dề đang múc súp từ nồi trên bếp ra bát nhỏ và đưa cho bạn nữ đứng cạnh để nhờ nếm thử.",
+              "script": "スープを作っています。友達に味をチェックしてもらいます。何と言いますか。\n1 ちょっと飲んでみて？\n2 少しスープをもらおう\n3 美味しくしてね",
+              "scriptRuby": "スープを{作|つく}っています。{友達|ともだち}に{味|あじ}をチェックしてもらいます。{何|なん}と{言|い}いますか。\n1 ちょっと{飲|の}んでみて？\n2 {少|すこ}しスープをもらおう\n3 {美味|おい}しくしてね",
+              "scriptTranslation": "Bạn đang nấu súp. Bạn nhờ bạn mình kiểm tra vị. Bạn sẽ nói gì?\n1 Cậu uống thử một chút xem?\n2 Để mình lấy một ít súp nhé.\n3 Hãy làm cho ngon nhé."
+            },
+            {
+              "id": "n4-2024-07-l-17",
+              "number": 17,
+              "prompt": "用事があるので、先に帰ります。友達に何と言いますか。",
+              "promptRuby": "{用事|ようじ}があるので、{先|さき}に{帰|かえ}ります。{友達|ともだち}に{何|なん}と{言|い}いますか。",
+              "choices": [
+                "今帰ったところです",
+                "えっ、もう行くんですか",
+                "そろそろ、出ないといけないんです"
+              ],
+              "choicesRuby": [
+                "{今帰|いまかえ}ったところです",
+                "えっ、もう{行|い}くんですか",
+                "そろそろ、{出|で}ないといけないんです"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Vì có việc bận nên bạn phải về trước. Bạn sẽ nói gì với bạn bè?",
+              "explanation": "Khi xin phép rời đi trước vì có việc, cách nói tự nhiên là 「そろそろ、出ないといけないんです」(Chắc mình sắp phải đi rồi / đến lúc mình phải rời đi rồi) (đáp án 3). Phương án 1 là 'mình vừa mới về nhà xong', phương án 2 là câu hỏi người khác 'ủa, bạn đi luôn rồi à?'.",
+              "imageHint": "Tranh minh họa tại quán cà phê: Ba người bạn đang ngồi trò chuyện quanh bàn. Cô gái ngồi giữa có mũi tên (→) đang cầm quai túi xách và nhìn đồng hồ đeo tay, chuẩn bị đứng dậy về trước.",
+              "script": "用事があるので、先に帰ります。友達に何と言いますか。\n1 今帰ったところです\n2 えっ、もう行くんですか\n3 そろそろ、出ないといけないんです",
+              "scriptRuby": "{用事|ようじ}があるので、{先|さき}に{帰|かえ}ります。{友達|ともだち}に{何|なん}と{言|い}いますか。\n1 {今帰|いまかえ}ったところです\n2 えっ、もう{行|い}くんですか\n3 そろそろ、{出|で}ないといけないんです",
+              "scriptTranslation": "Vì có việc bận nên bạn về trước. Bạn sẽ nói gì với bạn bè?\n1 Mình vừa mới về xong.\n2 Ủa, bạn đi luôn rồi à?\n3 Đến lúc mình phải rời đi rồi."
+            },
+            {
+              "id": "n4-2024-07-l-18",
+              "number": 18,
+              "prompt": "席に座りたいです。何と言いますか。",
+              "promptRuby": "{席|せき}に{座|すわ}りたいです。{何|なん}と{言|い}いますか。",
+              "choices": [
+                "そちらの席に座ってください",
+                "そちらの席はいかがですか",
+                "そちらの席は空いていますか"
+              ],
+              "choicesRuby": [
+                "そちらの{席|せき}に{座|すわ}ってください",
+                "そちらの{席|せき}はいかがですか",
+                "そちらの{席|せき}は{空|あ}いていますか"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bạn muốn ngồi vào chiếc ghế trống đó. Bạn sẽ nói gì?",
+              "explanation": "Khi muốn hỏi xem chiếc ghế bên cạnh người khác có trống không để xin ngồi, ta nói: 「そちらの席は空いていますか」(Chỗ ngồi đó có trống không ạ?) (đáp án 3). Phương án 1 và 2 đều là mời người kia ngồi.",
+              "imageHint": "Tranh minh họa trong phòng chờ/hội trường: Có một chiếc ghế trống nằm giữa hai người đang ngồi. Người đàn ông đứng bên cạnh có mũi tên (→) đang đưa tay chỉ về phía chiếc ghế trống để hỏi xin ngồi.",
+              "script": "席に座りたいです。何と言いますか。\n1 そちらの席に座ってください\n2 そちらの席はいかがですか\n3 そちらの席は空いていますか",
+              "scriptRuby": "{席|せき}に{座|すわ}りたいです。{何|なん}と{言|い}いますか。\n1 そちらの{席|せき}に{座|すわ}ってください\n2 そちらの{席|せき}はいかがですか\n3 そちらの{席|せき}は{空|あ}いていますか",
+              "scriptTranslation": "Bạn muốn ngồi vào chỗ đó. Bạn sẽ nói gì?\n1 Xin hãy ngồi vào chỗ đó.\n2 Chỗ ngồi đó thế nào ạ?\n3 Chỗ ngồi đó có trống không ạ?"
+            },
+            {
+              "id": "n4-2024-07-l-19",
+              "number": 19,
+              "prompt": "友達が暗い教室で本を読んでいます。何と言いますか。",
+              "promptRuby": "{友達|ともだち}が{暗|くら}い{教室|きょうしつ}で{本|ほん}を{読|よ}んでいます。{何|なん}と{言|い}いますか。",
+              "choices": [
+                "電気、消してもいい？",
+                "電気、つけようか？",
+                "電気、つけたままだよ"
+              ],
+              "choicesRuby": [
+                "{電気|でんき}、{消|け}してもいい？",
+                "{電気|でんき}、つけようか？",
+                "{電気|でんき}、つけたままだよ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Bạn của bạn đang đọc sách trong lớp học tối. Bạn sẽ nói gì?",
+              "explanation": "Mẫu câu Vようか？ dùng để chủ động đề nghị làm giúp điều gì: 「電気、つけようか？」(Để mình bật đèn lên cho nhé?) (đáp án 2). Phương án 1 là 'tắt đèn nhé', phương án 3 là 'đèn vẫn đang bật đấy'.",
+              "imageHint": "Tranh minh họa lớp học tối: Một bạn nữ đang ngồi đọc sách trong phòng chưa bật đèn. Nam sinh có mũi tên (→) vừa bước vào cửa, tay chạm vào công tắc đèn trên tường.",
+              "script": "友達が暗い教室で本を読んでいます。何と言いますか。\n1 電気、消してもいい？\n2 電気、つけようか？\n3 電気、つけたままだよ",
+              "scriptRuby": "{友達|ともだち}が{暗|くら}い{教室|きょうしつ}で{本|ほん}を{読|よ}んでいます。{何|なん}と{言|い}いますか。\n1 {電気|でんき}、{消|け}してもいい？\n2 {電気|でんき}、つけようか？\n3 {電気|でんき}、つけたままだよ",
+              "scriptTranslation": "Bạn của bạn đang đọc sách trong phòng học tối. Bạn sẽ nói gì?\n1 Mình tắt đèn có được không?\n2 Để mình bật đèn lên nhé?\n3 Đèn vẫn đang bật đấy."
+            },
+            {
+              "id": "n4-2024-07-l-20",
+              "number": 20,
+              "prompt": "机の上に置いておいたメモがありません。何と言いますか。",
+              "promptRuby": "{机|つくえ}の{上|うえ}に{置|お}いておいたメモがありません。{何|なん}と{言|い}いますか。",
+              "choices": [
+                "ここにあったメモを知らない？",
+                "メモすることがある？",
+                "私のメモのどこを見た？"
+              ],
+              "choicesRuby": [
+                "ここにあったメモを{知|し}らない？",
+                "メモすることがある？",
+                "{私|わたし}のメモのどこを{見|み}た？"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Tờ giấy ghi chú bạn để sẵn trên bàn đã biến mất. Bạn sẽ nói gì với đồng nghiệp ngồi bên cạnh?",
+              "explanation": "Khi hỏi ai đó có biết đồ vật vốn ở đây đi đâu không, ta nói: 「ここにあったメモを知らない？」(Cậu có biết tờ ghi chú từng để ở đây không?) (đáp án 1). Phương án 2 là 'có gì cần ghi chú không?', phương án 3 là 'cậu đã xem chỗ nào trong ghi chú của tôi?'.",
+              "imageHint": "Tranh minh họa văn phòng: Người phụ nữ có mũi tên (→) đứng cạnh bàn làm việc của mình, chỉ tay vào chỗ trống trên bàn cạnh máy tính và hỏi nam đồng nghiệp đang ngồi bàn bên cạnh.",
+              "script": "机の上に置いておいたメモがありません。何と言いますか。\n1 ここにあったメモを知らない？\n2 メモすることがある？\n3 私のメモのどこを見た？",
+              "scriptRuby": "{机|つくえ}の{上|うえ}に{置|お}いておいたメモがありません。{何|なん}と{言|い}いますか。\n1 ここにあったメモを{知|し}らない？\n2 メモすることがある？\n3 {私|わたし}のメモのどこを{見|み}た？",
+              "scriptTranslation": "Tờ giấy ghi chú đặt sẵn trên bàn không thấy đâu nữa. Bạn sẽ nói gì?\n1 Cậu có biết tờ giấy ghi chú vốn ở đây đâu không?\n2 Có chuyện gì cần ghi chú à?\n3 Cậu đã xem phần nào trong tờ ghi chú của tôi?"
+            }
+          ]
+        },
+        {
+          "id": "n4-2024-07-l-m4",
+          "label": "問題4 — Phản hồi nhanh (Nghe hiểu)",
+          "instructionJa": "もんだい4では、えなどが ありません。まず ぶんを きいて ください。それから、その へんじを きいて、1から3の なかから、いちばん いいものを ひとつ えらんで ください。",
+          "instructionVi": "Ở Mondai 4 không có tranh minh họa. Trước tiên hãy nghe một câu nói, sau đó nghe 3 câu đáp lại rồi chọn 1 câu phản hồi phù hợp nhất trong 1 đến 3.",
+          "questions": [
+            {
+              "id": "n4-2024-07-l-21",
+              "number": 21,
+              "prompt": "昼ご飯、食堂で一緒にどうですか。",
+              "promptRuby": "{昼|ひる}ご{飯|はん}、{食堂|しょくどう}で{一緒|いっしょ}にどうですか。",
+              "choices": [
+                "どういたしまして",
+                "美味しいです",
+                "ええ、行きましょう"
+              ],
+              "choicesRuby": [
+                "どういたしまして",
+                "{美味|おい}しいです",
+                "ええ、{行|い}きましょう"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bữa trưa cùng đi ăn ở nhà ăn nhé?",
+              "explanation": "Đối phương rủ đi ăn trưa cùng nhau (～どうですか). Câu đáp đồng ý tự nhiên nhất là 「ええ、行きましょう」(Vâng, chúng ta đi thôi) (đáp án 3).",
+              "script": "昼ご飯、食堂で一緒にどうですか。\n1 どういたしまして\n2 美味しいです\n3 ええ、行きましょう",
+              "scriptRuby": "{昼|ひる}ご{飯|はん}、{食堂|しょくどう}で{一緒|いっしょ}にどうですか。\n1 どういたしまして\n2 {美味|おい}しいです\n3 ええ、{行|い}きましょう",
+              "scriptTranslation": "Bữa trưa cùng đi ăn ở nhà ăn nhé?\n1 Không có gì đâu.\n2 Ngon lắm.\n3 Vâng, đi thôi."
+            },
+            {
+              "id": "n4-2024-07-l-22",
+              "number": 22,
+              "prompt": "りんさん、りんさんの字は丁寧で読みやすいね。",
+              "promptRuby": "りんさん、りんさんの{字|じ}は{丁寧|ていねい}で{読|よ}みやすいね。",
+              "choices": [
+                "すみません、気をつけます",
+                "そうですか、ありがとうございます",
+                "本当に読めませんか"
+              ],
+              "choicesRuby": [
+                "すみません、{気|き}をつけます",
+                "そうですか、ありがとうございます",
+                "{本当|ほんとう}に{読|よ}めませんか"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Rin ơi, chữ viết của Rin nắn nót và dễ đọc quá nhỉ.",
+              "explanation": "Đây là lời khen chữ đẹp, dễ đọc (読みやすい). Cách đáp lại lời khen lịch sự là 「そうですか、ありがとうございます」(Vậy ạ, cảm ơn bạn nhiều) (đáp án 2).",
+              "script": "りんさん、りんさんの字は丁寧で読みやすいね。\n1 すみません、気をつけます\n2 そうですか、ありがとうございます\n3 本当に読めませんか",
+              "scriptRuby": "りんさん、りんさんの{字|じ}は{丁寧|ていねい}で{読|よ}みやすいね。\n1 すみません、{気|き}をつけます\n2 そうですか、ありがとうございます\n3 {本当|ほんとう}に{読|よ}めませんか",
+              "scriptTranslation": "Rin à, chữ của Rin cẩn thận và dễ đọc quá nhỉ.\n1 Xin lỗi, tôi sẽ chú ý.\n2 Vậy ạ, cảm ơn bạn.\n3 Thật sự không đọc được sao?"
+            },
+            {
+              "id": "n4-2024-07-l-23",
+              "number": 23,
+              "prompt": "日本に来たのは初めてですか。",
+              "promptRuby": "{日本|にほん}に{来|き}たのは{初|はじ}めてですか。",
+              "choices": [
+                "もう一度来たいです",
+                "日本語を勉強するためです",
+                "いいえ、2回目です"
+              ],
+              "choicesRuby": [
+                "もう{一度|いちど}{来|き}たいです",
+                "{日本語|にほんご}を{勉強|べんきょう}するためです",
+                "いいえ、2{回目|かいめ}です"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Đây có phải là lần đầu tiên bạn đến Nhật không?",
+              "explanation": "Câu hỏi Có/Không về việc có phải lần đầu tiên (初めて) hay không. Đáp án khớp nhất là 「いいえ、2回目です」(Không, đây là lần thứ 2 rồi) (đáp án 3).",
+              "script": "日本に来たのは初めてですか。\n1 もう一度来たいです\n2 日本語を勉強するためです\n3 いいえ、2回目です",
+              "scriptRuby": "{日本|にほん}に{来|き}たのは{初|はじ}めてですか。\n1 もう{一度|いちど}{来|き}たいです\n2 {日本語|にほんご}を{勉強|べんきょう}するためです\n3 いいえ、2{回目|かいめ}です",
+              "scriptTranslation": "Bạn đến Nhật lần đầu phải không?\n1 Tôi muốn đến thêm một lần nữa.\n2 Là để học tiếng Nhật.\n3 Không, đây là lần thứ 2 rồi."
+            },
+            {
+              "id": "n4-2024-07-l-24",
+              "number": 24,
+              "prompt": "昨日、道で乗っていた自転車が壊れて、歩いて帰ったんだよ。",
+              "promptRuby": "{昨日|きのう}、{道|みち}で{乗|の}っていた{自転車|じてんしゃ}が{壊|こわ}れて、{歩|ある}いて{帰|かえ}ったんだよ。",
+              "choices": [
+                "大変だったね",
+                "難しかったね",
+                "悪そうだったね"
+              ],
+              "choicesRuby": [
+                "{大変|たいへん}だったね",
+                "{難|むずか}しかったね",
+                "{悪|わる}そうだったね"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Hôm qua, chiếc xe đạp đang đi trên đường bỗng bị hỏng nên mình phải đi bộ về đấy.",
+              "explanation": "Khi nghe bạn kể chuyện gặp rắc rối vất vả, câu chia sẻ cảm thông tự nhiên nhất là 「大変だったね」(Vất vả quá nhỉ / Khổ thân cậu quá) (đáp án 1).",
+              "script": "昨日、道で乗っていた自転車が壊れて、歩いて帰ったんだよ。\n1 大変だったね\n2 難しかったね\n3 悪そうだったね",
+              "scriptRuby": "{昨日|きのう}、{道|みち}で{乗|の}っていた{自転車|じてんしゃ}が{壊|こわ}れて、{歩|ある}いて{帰|かえ}ったんだよ。\n1 {大変|たいへん}だったね\n2 {難|むずか}しかったね\n3 {悪|わる}そうだったね",
+              "scriptTranslation": "Hôm qua xe đạp đang đi trên đường thì bị hỏng, mình phải đi bộ về đấy.\n1 Vất vả quá nhỉ.\n2 Khó quá nhỉ.\n3 Trông có vẻ tệ nhỉ."
+            },
+            {
+              "id": "n4-2024-07-l-25",
+              "number": 25,
+              "prompt": "大学を卒業して何年ですか。",
+              "promptRuby": "{大学|だいがく}を{卒業|そつぎょう}して{何年|なんねん}ですか。",
+              "choices": [
+                "四年間行きました",
+                "はい、卒業しました",
+                "ちょうど10年です"
+              ],
+              "choicesRuby": [
+                "{四年間|よねんかん}{行|い}きました",
+                "はい、{卒業|そつぎょう}しました",
+                "ちょうど10{年|ねん}です"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Bạn đã tốt nghiệp đại học được bao nhiêu năm rồi?",
+              "explanation": "Câu hỏi hỏi khoảng thời gian đã trôi qua kể từ lúc tốt nghiệp (何年ですか). Câu trả lời chính xác là 「ちょうど10年です」(Vừa tròn 10 năm rồi) (đáp án 3). Phương án 1 trả lời số năm đã đi học (4 năm).",
+              "script": "大学を卒業して何年ですか。\n1 四年間行きました\n2 はい、卒業しました\n3 ちょうど10年です",
+              "scriptRuby": "{大学|だいがく}を{卒業|そつぎょう}して{何年|なんねん}ですか。\n1 {四年間|よねんかん}{行|い}きました\n2 はい、{卒業|そつぎょう}しました\n3 ちょうど10{年|ねん}です",
+              "scriptTranslation": "Bạn tốt nghiệp đại học được mấy năm rồi?\n1 Tôi đã học 4 năm.\n2 Vâng, tôi tốt nghiệp rồi.\n3 Đúng tròn 10 năm rồi."
+            },
+            {
+              "id": "n4-2024-07-l-26",
+              "number": 26,
+              "prompt": "私が風邪で休んでいる間、日本語の授業で宿題が出た？",
+              "promptRuby": "{私|わたし}が{風邪|かぜ}で{休|やす}んでいる{間|あいだ}、{日本語|にほんご}の{授業|じゅぎょう}で{宿題|しゅくだい}が{出|で}た？",
+              "choices": [
+                "それはできないよ",
+                "何もなかったよ",
+                "僕は授業に出たよ"
+              ],
+              "choicesRuby": [
+                "それはできないよ",
+                "{何|なに}もなかったよ",
+                "{僕|ぼく}は{授業|じゅぎょう}に{出|で}たよ"
+              ],
+              "answerIndex": 1,
+              "answerSource": "official_key",
+              "translation": "Trong thời gian mình nghỉ ốm vì cảm cúm, tiết tiếng Nhật có ra bài tập về nhà không?",
+              "explanation": "Câu hỏi hỏi có bài tập nào được giao không (宿題が出た？). Câu trả lời đúng trọng tâm là 「何もなかったよ」(Chẳng có bài tập nào đâu) (đáp án 2).",
+              "script": "私が風邪で休んでいる間、日本語の授業で宿題が出た？\n1 それはできないよ\n2 何もなかったよ\n3 僕は授業に出たよ",
+              "scriptRuby": "{私|わたし}が{風邪|かぜ}で{休|やす}んでいる{間|あいだ}、{日本語|にほんご}の{授業|じゅぎょう}で{宿題|しゅくだい}が{出|で}た？\n1 それはできないよ\n2 {何|なに}もなかったよ\n3 {僕|ぼく}は{授業|じゅぎょう}に{出|で}たよ",
+              "scriptTranslation": "Trong lúc mình nghỉ vì bị cảm, giờ tiếng Nhật có giao bài tập không?\n1 Việc đó không làm được đâu.\n2 Chẳng có gì cả đâu.\n3 Mình đã đi học đấy."
+            },
+            {
+              "id": "n4-2024-07-l-27",
+              "number": 27,
+              "prompt": "部長に午後の会議の資料を渡して来てくれませんか。",
+              "promptRuby": "{部長|ぶちょう}に{午後|ごご}の{会議|かいぎ}の{資料|しりょう}を{渡|わた}して{来|き}てくれませんか。",
+              "choices": [
+                "はい、すぐに届けます",
+                "資料がいるかどうか、聞くんですね",
+                "じゃ、部長にもらって来ます"
+              ],
+              "choicesRuby": [
+                "はい、すぐに{届|とど}けます",
+                "{資料|しりょう}がいるかどうか、{聞|き}くんですね",
+                "じゃ、{部長|ぶちょう}にもらって{来|き}ます"
+              ],
+              "answerIndex": 0,
+              "answerSource": "official_key",
+              "translation": "Bạn có thể mang tài liệu cuộc họp buổi chiều sang đưa cho trưởng phòng giúp tôi được không?",
+              "explanation": "Đây là lời nhờ mang tài liệu đi giao cho trưởng phòng (渡して来てくれませんか). Câu nhận lời chuẩn xác là 「はい、すぐに届けます」(Vâng, tôi sẽ mang đi gửi ngay ạ) (đáp án 1). Chú ý 届ける = mang đi giao/gửi tới.",
+              "script": "部長に午後の会議の資料を渡して来てくれませんか。\n1 はい、すぐに届けます\n2 資料がいるかどうか、聞くんですね\n3 じゃ、部長にもらって来ます",
+              "scriptRuby": "{部長|ぶちょう}に{午後|ごご}の{会議|かいぎ}の{資料|しりょう}を{渡|わた}して{来|き}てくれませんか。\n1 はい、すぐに{届|とど}けます\n2 {資料|しりょう}がいるかどうか、{聞|き}くんですね\n3 じゃ、{部長|ぶちょう}にもらって{来|き}ます",
+              "scriptTranslation": "Bạn có thể mang tài liệu cuộc họp chiều nay đưa cho trưởng phòng giúp tôi được không?\n1 Vâng, tôi sẽ mang đi gửi ngay.\n2 Tức là hỏi xem có cần tài liệu không đúng không ạ?\n3 Vậy để tôi đi xin trưởng phòng về."
+            },
+            {
+              "id": "n4-2024-07-l-28",
+              "number": 28,
+              "prompt": "今から買い物に行くけど、冷蔵庫にまだ卵ある？",
+              "promptRuby": "{今|いま}から{買|か}い{物|もの}に{行|い}くけど、{冷蔵庫|れいぞうこ}にまだ{卵|たまご}ある？",
+              "choices": [
+                "食べたこと、ないよ",
+                "まだないよ",
+                "ひとつしかないよ"
+              ],
+              "choicesRuby": [
+                "{食|た}べたこと、ないよ",
+                "まだないよ",
+                "ひとつしかないよ"
+              ],
+              "answerIndex": 2,
+              "answerSource": "official_key",
+              "translation": "Giờ mình đi mua đồ đây, trong tủ lạnh vẫn còn trứng không?",
+              "explanation": "Hỏi xem trong tủ lạnh còn trứng không để biết đường mua thêm. Câu trả lời tự nhiên và hợp ngữ cảnh nhất là 「ひとつしかないよ」(Chỉ còn có một quả thôi) (đáp án 3). Phương án 2 'まだないよ' (vẫn chưa có) không hợp với câu hỏi 'まだある？' (vẫn còn không -> nếu hết phải nói 'もうないよ').",
+              "script": "今から買い物に行くけど、冷蔵庫にまだ卵ある？\n1 食べたこと、ないよ\n2 まだないよ\n3 ひとつしかないよ",
+              "scriptRuby": "{今|いま}から{買|か}い{物|もの}に{行|い}くけど、{冷蔵庫|れいぞうこ}にまだ{卵|たまご}ある？\n1 {食|た}べたこと、ないよ\n2 まだないよ\n3 ひとつしかないよ",
+              "scriptTranslation": "Giờ mình đi mua sắm đây, trong tủ lạnh vẫn còn trứng không?\n1 Mình chưa từng ăn bao giờ.\n2 Vẫn chưa có đâu.\n3 Chỉ còn một quả thôi."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,30 @@
-import { readFileSync, rmSync } from "node:fs";
+import { existsSync, readFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
-import { PACK_TABLES } from "../../../frontend/src/core/content/types";
+import { buildComparisonLinks } from "../../../frontend/src/core/content/comparisonLinks";
+import {
+  type GrammarComparison,
+  type GrammarPattern,
+  PACK_TABLES,
+} from "../../../frontend/src/core/content/types";
 import { isVersion } from "../../../frontend/src/core/content/validate";
-import { buildPack, writeIndex } from "./build-packs";
+import {
+  buildPack,
+  formatComparisonLinkReport,
+  writeIndex,
+} from "./build-packs";
+import { buildExams, verifyExams } from "./exams";
 import { removedIds, verifyN4AgainstDataset, verifyPack } from "./verify-packs";
 import { tableFilename } from "./write-table";
 
 const sample = { level: "n3", version: "1.0.0", path: "n3/1.0.0" } as const;
 const tableFiles = PACK_TABLES.map(tableFilename);
 const packFiles = [...tableFiles, "manifest.json"];
+
+function hasExamDataset(root: string): boolean {
+  return existsSync(join(root, "infra/dataset_n4_exams/exams"));
+}
 
 function contentDir(root: string, level: "n4" | "n3"): string {
   return join(root, "infra/content", level === "n4" ? "n4" : "n3-sample");
@@ -32,6 +46,17 @@ export function buildPacks(root: string, experimental: boolean): void {
   for (const release of releases) {
     const content = contentDir(root, release.level);
     buildPack(release.level, content, output, release.version, published);
+    const comparisons = JSON.parse(
+      readFileSync(join(content, tableFilename("comparisons")), "utf8"),
+    ) as GrammarComparison[];
+    const grammar = JSON.parse(
+      readFileSync(join(content, tableFilename("grammar")), "utf8"),
+    ) as GrammarPattern[];
+    const linkReport = formatComparisonLinkReport(
+      release.level,
+      buildComparisonLinks(comparisons, grammar),
+    );
+    if (linkReport) console.warn(linkReport);
   }
   for (const dir of [output, published]) {
     writeIndex(dir, releases);
@@ -40,6 +65,7 @@ export function buildPacks(root: string, experimental: boolean): void {
         rmSync(join(dir, sample.path, file), { force: true });
     }
   }
+  if (hasExamDataset(root)) buildExams(root);
 }
 
 export function verifyPacks(root: string, previousN4?: string): void {
@@ -113,6 +139,13 @@ export function verifyPacks(root: string, previousN4?: string): void {
     }
     const missing = removedIds(previousN4, pack);
     if (missing.length) errors.push(`Removed N4 IDs: ${missing.join(", ")}`);
+  }
+  if (hasExamDataset(root)) {
+    try {
+      verifyExams(root);
+    } catch (error) {
+      errors.push(error instanceof Error ? error.message : String(error));
+    }
   }
   if (errors.length) throw new Error(errors.join("\n"));
 }

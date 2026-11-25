@@ -138,6 +138,29 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              <div
+                data-home-reveal=""
+                className="mt-6 flex flex-col gap-4 rounded-xl border bg-card p-5 shadow-card sm:flex-row sm:items-center sm:justify-between md:p-6"
+              >
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Đề thi thử JLPT {level}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Làm đề mô phỏng 3 phần có bấm giờ chuẩn, tự động khóa đáp án
+                    khi hết giờ và xem lời giải chi tiết.
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  className="min-h-11 shrink-0 rounded-md transition-smooth"
+                >
+                  <Link to="/luyen-de" data-ocid="home.exam.link">
+                    Luyện đề JLPT {level}
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             <div data-home-reveal="" className="lg:sticky lg:top-32">

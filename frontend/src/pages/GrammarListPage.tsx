@@ -1,3 +1,4 @@
+import { GrammarSubNav } from "@/components/grammar/GrammarSubNav";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -153,7 +154,9 @@ export default function GrammarListPage() {
         </div>
       </header>
 
-      <div className="mt-8 grid gap-3 md:mt-10 md:grid-cols-[minmax(0,1fr)_14rem]">
+      <GrammarSubNav />
+
+      <div className="mt-6 grid gap-3 md:mt-8 md:grid-cols-[minmax(0,1fr)_14rem]">
         <div className="relative">
           <label htmlFor="grammar-search" className="sr-only">
             Tìm mẫu ngữ pháp

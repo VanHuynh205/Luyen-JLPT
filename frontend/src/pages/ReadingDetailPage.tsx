@@ -2,6 +2,7 @@ import { HankoStamp } from "@/components/motion/HankoStamp";
 import { QuestionCard } from "@/components/reading/QuestionCard";
 import { StudyAids } from "@/components/reading/StudyAids";
 import { Button } from "@/components/ui/button";
+import type { Level, ReadingPassage } from "@/core/content/types";
 import { useReadyPack } from "@/hooks/useContent";
 import { useMotionPreference } from "@/hooks/useMotionPreference";
 import { useRecordReadingResult } from "@/hooks/useProgress";
@@ -22,39 +23,17 @@ function BackLink() {
   );
 }
 
-export default function ReadingDetailPage() {
-  const { reading: readingPassages, manifest } = useReadyPack();
-  const { passageId } = useParams({ from: "/doc-hieu/$passageId" });
+function ReadingDetailContent({
+  passage,
+  level,
+}: {
+  passage: ReadingPassage;
+  level: Level;
+}) {
   const { mode } = useMotionPreference();
-  const passage = readingPassages.find((p) => p.id === passageId);
   const recordResult = useRecordReadingResult();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
-
-  if (!passage) {
-    return (
-      <section
-        data-ocid="reading_detail.empty_state"
-        className="mx-auto flex max-w-xl flex-col items-center px-4 py-20 text-center"
-      >
-        <FileQuestion
-          className="mb-4 size-12 text-muted-foreground"
-          aria-hidden="true"
-        />
-        <h1 className="font-display text-2xl font-semibold">
-          Không tìm thấy bài đọc
-        </h1>
-        <p className="mt-2 text-muted-foreground">
-          Bài đọc này không tồn tại hoặc đã bị gỡ. Hãy chọn một bài khác.
-        </p>
-        <Button asChild className="mt-6 min-h-11 rounded-md">
-          <Link to="/doc-hieu" data-ocid="reading_detail.back.primary_button">
-            Xem danh sách bài đọc
-          </Link>
-        </Button>
-      </section>
-    );
-  }
 
   const total = passage.questions.length;
   const answeredCount = Object.keys(answers).length;
@@ -88,7 +67,7 @@ export default function ReadingDetailPage() {
       <BackLink />
       <header className="mb-6 mt-2">
         <p className="text-xs font-medium uppercase tracking-wider text-primary">
-          Đọc hiểu {manifest.level.toUpperCase()} ·{" "}
+          Đọc hiểu {level.toUpperCase()} ·{" "}
           {passage.length === "short" ? "Đoạn ngắn" : "Đoạn vừa"}
         </p>
         <h1 className="mt-1 font-display text-3xl font-semibold md:text-4xl">
@@ -197,5 +176,44 @@ export default function ReadingDetailPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function ReadingDetailPage() {
+  const { reading: readingPassages, manifest } = useReadyPack();
+  const { passageId } = useParams({ from: "/doc-hieu/$passageId" });
+  const passage = readingPassages.find((p) => p.id === passageId);
+
+  if (!passage) {
+    return (
+      <section
+        data-ocid="reading_detail.empty_state"
+        className="mx-auto flex max-w-xl flex-col items-center px-4 py-20 text-center"
+      >
+        <FileQuestion
+          className="mb-4 size-12 text-muted-foreground"
+          aria-hidden="true"
+        />
+        <h1 className="font-display text-2xl font-semibold">
+          Không tìm thấy bài đọc
+        </h1>
+        <p className="mt-2 text-muted-foreground">
+          Bài đọc này không tồn tại hoặc đã bị gỡ. Hãy chọn một bài khác.
+        </p>
+        <Button asChild className="mt-6 min-h-11 rounded-md">
+          <Link to="/doc-hieu" data-ocid="reading_detail.back.primary_button">
+            Xem danh sách bài đọc
+          </Link>
+        </Button>
+      </section>
+    );
+  }
+
+  return (
+    <ReadingDetailContent
+      key={passage.id}
+      passage={passage}
+      level={manifest.level}
+    />
   );
 }
