@@ -35,7 +35,12 @@ Bạn bè nhận file `.exe`/`.apk`, cài được và học được khi không
 
 ## Nghiệm thu
 
-Chưa đóng epic. Run `45130724256` đã qua Windows, Android và iOS Simulator trên revision `9f6a06e` (trước thay đổi UI 3D, sửa callback Auth và đồng nhất app ID `vn.luyenjlpt.app`). Bản QA `0.1.2` đã cài đè trên Windows và Android thật: xác nhận Google, đăng ký/xác nhận email, đặt lại mật khẩu và đồng bộ hai chiều giữa hai tài khoản QA Windows–Android. Còn mở: kiểm cập nhật từ bản ký cũ sang bản ký mới qua feed công khai, CI native trên revision `0.2.0`, phát hành bản đầu `0.2.0` trên `VanHuynh205/Luyen-JLPT-Releases`, xác nhận sao lưu khóa và quyền phân phối dataset. Xem [bằng chứng và checkpoint phát hành](../../../superpowers/plans/2026-11-22-epic-ung-dung-tauri.md#bản-nghiệm-thu-nội-bộ-không-phát-công-khai).
+Đã hoàn tất nghiệm thu và phát hành bản công khai đầu tiên **`v0.2.0`** ngày 25-11-2026 tại [VanHuynh205/Luyen-JLPT-Releases v0.2.0](https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/tag/v0.2.0) (tag `v0.2.0` trên `master` `7cbea40`).
+
+- **CI trên revision phát hành (`d610e78`, PR #2):** `CI` (`45561612272`) và `Native apps` (`45561612418` — Windows NSIS smoke, Android build + offline smoke API 34, iOS Simulator + Maestro N4 smoke) đều PASS.
+- **Auth và đồng bộ trên thiết bị thật (QA `0.1.2`):** Xác nhận Google OAuth, đăng ký/xác nhận email, đặt lại mật khẩu và đồng bộ hai chiều Windows–Android với hai tài khoản QA.
+- **Cập nhật qua feed HTTPS công khai:** Windows `0.1.2` → `0.2.0` tự tải, xác minh chữ ký Ed25519 + `requireSignedVersion` và cài đè đúng chỗ giữ nguyên dữ liệu người dùng; Android `0.1.1` (`1001`) → `0.2.0` (`2000`, multi-ABI `arm64-v8a` + `x86_64`) nhận toast từ `android-latest.json` và cài đè trên AVD giữ nguyên `userId`, `dataDir` và tiến độ `1/1182`.
+- **Ghi chú vận hành:** Chủ dự án duy trì bản sao phục hồi độc lập của khóa ký ngoài máy tạo khóa; tùy chọn kiểm thêm cài đè trực tiếp trên điện thoại ARM64 thật. Xem chi tiết tại [plan Epic 3](../../../superpowers/plans/2026-11-22-epic-ung-dung-tauri.md#phát-hành-công-khai-đầu-tiên-v020-25-11-2026) và [biên bản nghiệm thu](../../../2026-11-23-nghiem-thu-auth-staging-native.md).
 
 ## References
 

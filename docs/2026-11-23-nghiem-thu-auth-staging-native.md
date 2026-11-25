@@ -1,12 +1,16 @@
-# Nghiệm thu Auth staging và đồng bộ Windows–Android
+# Nghiệm thu Auth staging, đồng bộ Windows–Android và cập nhật feed công khai
 
-Ngày 23–25-11-2026 (Asia/Bangkok). Phạm vi theo [mục Nghiệm thu Auth trên staging của Epic 3](superpowers/plans/2026-11-22-epic-ung-dung-tauri.md#nghiệm-thu-auth-trên-staging). **Đã hoàn tất nghiệm thu Auth và đồng bộ hai chiều trên thiết bị thật với bản QA `0.1.2`.** Còn mở: kiểm cập nhật từ bản ký cũ sang bản ký mới qua feed công khai và phát hành bản đầu `0.2.0`.
+Ngày 23–25-11-2026 (Asia/Bangkok). Phạm vi theo [mục Nghiệm thu Auth trên staging của Epic 3](superpowers/plans/2026-11-22-epic-ung-dung-tauri.md#nghiệm-thu-auth-trên-staging). **Đã hoàn tất toàn bộ hạng mục nghiệm thu Epic 3** (QA `0.1.2` trên thiết bị thật, CI PR #2 gồm Windows/Android/iOS, phát hành công khai `v0.2.0`, và kiểm cập nhật qua feed HTTPS công khai trên Windows và Android).
 
-## Kết quả trên thiết bị thật (QA `0.1.2`)
+## Kết quả nghiệm thu cuối (`0.1.2` → `v0.2.0`)
 
-- **Cài đè `0.1.2` và Auth:** Đã cài đè bản QA `0.1.2` trên Windows và Android thật, xác nhận Google, đăng ký/xác nhận email và đặt lại mật khẩu hoạt động trên thiết bị thật.
+- **Cài đè `0.1.2` và Auth trên thiết bị thật:** Đã cài đè bản QA `0.1.2` trên Windows và Android thật, xác nhận Google OAuth, đăng ký/xác nhận email và đặt lại mật khẩu hoạt động.
 - **Đồng bộ hai chiều:** Đã xác nhận đồng bộ hai chiều Windows–Android với hai tài khoản QA.
-- **Còn mở cho phát hành bản đầu `0.2.0`:** Kiểm cập nhật từ bản ký cũ (`0.1.2`) sang bản ký mới (`0.2.0`) qua feed HTTPS công khai (`latest.json` và `android-latest.json`), chạy xanh CI native trên revision `0.2.0` và phát hành trên `VanHuynh205/Luyen-JLPT-Releases`.
+- **CI trên revision phát hành (`d610e78`, PR #2):** `CI` (`45561612272`) và `Native apps` (`45561612418` — Windows NSIS + smoke, Android build + offline smoke API 34, iOS Simulator build + Maestro N4 smoke) đều PASS.
+- **Phát hành công khai `v0.2.0`:** Tag `v0.2.0` (`7cbea40`) trên `VanHuynh205/Luyen-JLPT`; release công khai [v0.2.0](https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/tag/v0.2.0) đủ 6 asset (`Luyen-JLPT-windows-x64-setup.exe`, `.sig`, `latest.json`, `Luyen-JLPT-android.apk` multi-ABI `arm64-v8a`+`x86_64`, `android-latest.json`, `SHA256SUMS.txt`), kiểm chứng tải trực tiếp qua HTTPS khớp 100% SHA-256.
+- **Cập nhật qua feed công khai — Windows (`0.1.2` → `0.2.0`):** Bản `0.1.2` tự phát hiện `Có bản Windows 0.2.0` và nút `Cài cập nhật` từ `latest.json` sau 2 giây; kích hoạt cập nhật tải `Luyen-JLPT-windows-x64-setup.exe`, xác minh chữ ký Ed25519 + `requireSignedVersion` và cài đè đúng thư mục cài cũ (không tạo bản trùng). Sau nâng cấp: binary và Registry Uninstall HKCU đều là `0.2.0`, protocol `luyenjlpt` trỏ đúng binary mới, giữ nguyên `%LOCALAPPDATA%\vn.luyenjlpt.app` và trạng thái đồng bộ/tiến độ, không còn hiện toast `0.2.0`.
+- **Cập nhật qua feed công khai — Android (`0.1.1` → `0.2.0` trên AVD API 34):** Bản `0.1.1` (`1001`) gọi live `android-latest.json` và hiển thị toast `Có bản Android 0.2.0` cùng nút `Tải APK`. Tạo tiến độ khách `1/1182` (`見ます`) trên `0.1.1`, cài đè APK tải từ URL release công khai (`adb install -r`): lên `0.2.0` (`2000`), giữ nguyên `userId`, `dataDir`, `firstInstallTime` và tiến độ `1/1182`, không còn hiện toast cập nhật.
+- **Lưu ý hậu phát hành (tùy chọn & vận hành):** Có thể kiểm thêm thao tác bấm `Tải APK` và cài đè trên điện thoại ARM64 thật nếu muốn; chủ dự án cần duy trì bản sao phục hồi độc lập của hai khóa ký (`updater.key`, `android-release.p12`) và mật khẩu ngoài máy tạo khóa.
 
 ## Kết quả kiểm tra trước đó (23-11-2026)
 
@@ -57,8 +61,8 @@ Endpoint Auth settings read-only của ref này trả `google=true`, `email=true
 - Chỉ định người vận hành Windows và Android, thiết bị thử riêng và một khung giờ chung. Ghi Android là giả lập hay thiết bị thật, API/ABI và phiên bản app. Cần bộ cài đã duyệt phù hợp thiết bị; không mặc định dùng APK debug x86_64 cho điện thoại.
 - Chỉ định hai tài khoản QA A/B đã được duyệt, một hộp thư thử và tài khoản Google thử phù hợp. Người giữ tài khoản nhập thông tin trực tiếp trên thiết bị. Ca xác nhận email cần người phụ trách chuẩn bị danh tính QA chưa xác nhận hoặc duyệt một lượt đăng ký QA theo plan; không chạy ca xóa.
 
-## Tiêu chí còn mở
+## Trạng thái cuối
 
-- **Đã hoàn tất trên bản QA `0.1.2` (Windows và Android thật):** Google OAuth, xác nhận email, đặt lại mật khẩu, cài đè `0.1.2` và đồng bộ hai chiều Windows–Android với hai tài khoản QA.
-- **Còn mở trước phát hành `0.2.0`:** Kiểm cập nhật từ bản ký cũ (`0.1.2`) sang bản ký mới (`0.2.0`) qua feed HTTPS công khai (`latest.json` và `android-latest.json`), chạy xanh CI native trên revision `0.2.0` và phát hành bản đầu trên `VanHuynh205/Luyen-JLPT-Releases`.
+- **Đã hoàn tất:** Google OAuth, xác nhận email, đặt lại mật khẩu, cài đè `0.1.2` và đồng bộ hai chiều Windows–Android với hai tài khoản QA trên thiết bị thật; CI PR #2 (`45561612272`, `45561612418`); release công khai `v0.2.0`; kiểm cập nhật qua feed HTTPS công khai Windows (`0.1.2` → `0.2.0`) và Android (`0.1.1` → `0.2.0` trên AVD).
+- **Ghi chú vận hành:** Tùy chọn kiểm thêm thao tác cài đè trên điện thoại ARM64 thật; đảm bảo sao lưu khóa ký (`updater.key`, `android-release.p12`) và mật khẩu độc lập ngoài máy tạo khóa.
 - Quy ước ghi nhận: không ghi email, mật khẩu, token, mã PKCE hoặc URL callback có tham số xác thực.
