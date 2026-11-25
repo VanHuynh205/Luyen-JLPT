@@ -2,6 +2,7 @@ import { useAuth } from "@/adapters/auth/session";
 import { LevelSwitcher } from "@/components/LevelSwitcher";
 import { SignInPrompt } from "@/components/SignInPrompt";
 import { SyncIndicator } from "@/components/SyncIndicator";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,7 +14,15 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { useContent } from "@/hooks/useContent";
 import { Link, Outlet, useMatch } from "@tanstack/react-router";
-import { LogIn, Menu } from "lucide-react";
+import {
+  BarChart3,
+  BookOpen,
+  Home,
+  Languages,
+  Layers,
+  LogIn,
+  Menu,
+} from "lucide-react";
 import { useState } from "react";
 
 const NAV_ITEMS = [
@@ -25,13 +34,39 @@ const NAV_ITEMS = [
   { to: "/tien-do", label: "Tiến độ của tôi", id: "progress", exact: false },
 ] as const;
 
+const MOBILE_TABS = [
+  { to: "/", label: "Trang chủ", id: "home", exact: true, icon: Home },
+  {
+    to: "/tu-vung",
+    label: "Từ vựng",
+    id: "vocabulary",
+    exact: false,
+    icon: Layers,
+  },
+  { to: "/kanji", label: "Kanji", id: "kanji", exact: false, icon: Languages },
+  {
+    to: "/ngu-phap",
+    label: "Ngữ pháp",
+    id: "grammar",
+    exact: false,
+    icon: BookOpen,
+  },
+  {
+    to: "/tien-do",
+    label: "Tiến độ",
+    id: "progress",
+    exact: false,
+    icon: BarChart3,
+  },
+] as const;
+
 function Logo() {
   const { level } = useContent();
   return (
     <Link
       to="/"
       data-ocid="nav.logo.link"
-      className="flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <span className="font-display text-xl font-semibold tracking-tight text-foreground">
         Ôn JLPT
@@ -64,7 +99,10 @@ function AuthButton({
 const linkBase =
   "rounded-md px-3 py-2 text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
-export function Layout() {
+const mobileTabBase =
+  "flex min-h-12 min-w-0 flex-col items-center justify-center gap-0.5 px-1 py-1.5 text-[0.6875rem] leading-tight font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
+
+export function Layout({ routeKey = "" }: { routeKey?: string }) {
   const { level, pack, status, retry } = useContent();
   const { session } = useAuth();
   const accountRoute = useMatch({ from: "/tai-khoan", shouldThrow: false });
@@ -75,9 +113,9 @@ export function Layout() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex min-h-screen flex-col bg-background pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] supports-[height:100dvh]:min-h-dvh">
-      <header className="sticky top-0 z-40 border-b bg-card pt-[env(safe-area-inset-top)] shadow-subtle">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-background pl-safe pr-safe supports-[height:100dvh]:min-h-dvh">
+      <header className="sticky top-0 z-40 border-b bg-card/95 pt-safe shadow-subtle backdrop-blur-sm">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 md:h-16 md:gap-4 md:px-6">
           <Logo />
           <nav aria-label="Điều hướng chính" className="hidden lg:block">
             <ul className="flex items-center gap-1">
@@ -99,7 +137,7 @@ export function Layout() {
               ))}
             </ul>
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-2">
             <SyncIndicator />
             <AuthButton className="hidden sm:inline-flex" />
             <Sheet open={open} onOpenChange={setOpen}>
@@ -108,7 +146,7 @@ export function Layout() {
                   type="button"
                   variant="ghost"
                   size="icon"
-                  className="size-11 lg:hidden"
+                  className="min-h-11 min-w-11 lg:hidden"
                   aria-label="Mở menu"
                   data-ocid="nav.menu.open_modal_button"
                 >
@@ -147,7 +185,7 @@ export function Layout() {
                   </ul>
                   <div className="mt-6 sm:hidden">
                     <AuthButton
-                      className="w-full min-h-11"
+                      className="min-h-11 w-full"
                       onClick={() => setOpen(false)}
                     />
                   </div>
@@ -181,15 +219,21 @@ export function Layout() {
           </section>
         )}
         {standaloneRoute ? (
-          <Outlet />
+          <PageTransition routeKey={routeKey}>
+            <Outlet />
+          </PageTransition>
         ) : (
           pack && (
-            <Outlet key={`${pack.manifest.level}/${pack.manifest.version}`} />
+            <PageTransition
+              routeKey={`${routeKey}:${pack.manifest.level}/${pack.manifest.version}`}
+            >
+              <Outlet key={`${pack.manifest.level}/${pack.manifest.version}`} />
+            </PageTransition>
           )
         )}
       </main>
 
-      <footer className="border-t bg-muted/50 pb-[env(safe-area-inset-bottom)]">
+      <footer className="border-t bg-muted/50 pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-safe">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between md:px-6">
           <p>
             Ôn JLPT {level.toUpperCase()} · Từ vựng, kanji, ngữ pháp và đọc
@@ -203,6 +247,35 @@ export function Layout() {
           </p>
         </div>
       </footer>
+
+      <nav
+        aria-label="Điều hướng nhanh"
+        data-ocid="nav.bottom_bar"
+        className="fixed inset-x-0 bottom-0 z-40 border-t bg-card/95 pb-safe shadow-subtle backdrop-blur-sm md:hidden"
+      >
+        <ul className="mx-auto grid max-w-lg grid-cols-5">
+          {MOBILE_TABS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.id} className="min-w-0">
+                <Link
+                  to={item.to}
+                  data-ocid={`nav.tab.${item.id}.link`}
+                  activeOptions={{ exact: item.exact }}
+                  className={`${mobileTabBase} text-muted-foreground`}
+                  activeProps={{
+                    className: `${mobileTabBase} text-primary font-semibold`,
+                    "aria-current": "page",
+                  }}
+                >
+                  <Icon className="size-5 shrink-0" aria-hidden="true" />
+                  <span className="max-w-full truncate">{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </div>
   );
 }

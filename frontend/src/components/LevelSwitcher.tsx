@@ -6,11 +6,11 @@ export function LevelSwitcher() {
   const { level, available, setLevel } = useContent();
 
   return (
-    <fieldset className="mx-auto grid max-w-6xl grid-cols-5 items-center gap-1 px-4 pb-2 sm:flex sm:flex-wrap sm:gap-1.5 md:px-6">
+    <fieldset className="mx-auto flex max-w-6xl min-w-0 items-center gap-1.5 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:overflow-visible md:px-6">
       <legend className="sr-only">Cấp độ JLPT</legend>
       <span
         aria-hidden="true"
-        className="mr-1 hidden text-xs font-medium text-muted-foreground sm:inline"
+        className="mr-1 hidden shrink-0 text-xs font-medium text-muted-foreground sm:inline"
       >
         Cấp độ
       </span>
@@ -32,12 +32,12 @@ export function LevelSwitcher() {
                 : `${label}, ${available.length ? "Sắp ra mắt" : "Đang tải"}`
             }
             data-ocid={`level.switcher.${option}`}
-            className="min-h-11 min-w-0 flex-col gap-0 rounded-xl px-1 text-xs sm:min-h-9 sm:flex-row sm:gap-2 sm:rounded-full sm:px-3"
+            className="min-h-11 shrink-0 gap-1.5 rounded-full px-3 text-xs sm:min-h-8 sm:px-3"
             onClick={() => setLevel(option)}
           >
-            {label}
+            <span>{label}</span>
             {!ready && available.length > 0 && (
-              <span className="whitespace-normal text-center text-[0.625rem] leading-tight">
+              <span className="text-[0.625rem] leading-none opacity-80">
                 Sắp ra mắt
               </span>
             )}

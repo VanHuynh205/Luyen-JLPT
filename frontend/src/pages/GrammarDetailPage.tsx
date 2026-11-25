@@ -37,7 +37,7 @@ function PatternNavLink({
       to="/ngu-phap/$patternId"
       params={{ patternId: target.id }}
       data-ocid={ocid}
-      className={`group flex min-w-0 items-center gap-3 rounded-lg border bg-card p-4 transition-smooth hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isNext ? "flex-row-reverse text-right sm:col-start-2" : ""}`}
+      className={`hover-lift group flex min-h-11 min-w-0 items-center gap-3 rounded-xl border bg-card p-4 shadow-subtle hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isNext ? "flex-row-reverse text-right sm:col-start-2" : ""}`}
     >
       {isNext ? (
         <ArrowRight
@@ -70,7 +70,7 @@ function BackLink() {
     <Link
       to="/ngu-phap"
       data-ocid="grammar_detail.back_link"
-      className="inline-flex items-center gap-1.5 rounded-md text-sm text-muted-foreground transition-smooth hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="inline-flex min-h-11 items-center gap-1.5 rounded-md text-sm text-muted-foreground transition-smooth hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <ArrowLeft className="size-4" aria-hidden="true" />
       Quay lại danh sách ngữ pháp
@@ -119,7 +119,7 @@ export default function GrammarDetailPage() {
           </p>
           <Button
             asChild
-            className="mt-6 rounded-md transition-smooth"
+            className="mt-6 min-h-11 rounded-md transition-smooth"
             data-ocid="grammar_detail.primary_button"
           >
             <Link to="/ngu-phap">Xem danh sách ngữ pháp</Link>
@@ -133,12 +133,12 @@ export default function GrammarDetailPage() {
     <article
       key={pattern.id}
       data-ocid="grammar_detail.page"
-      className="mx-auto max-w-4xl px-4 py-10 md:px-6 md:py-14"
+      className="mx-auto max-w-4xl px-4 py-6 md:px-6 md:py-12"
     >
       <BackLink />
 
-      <header className="mt-6 border-b pb-8">
-        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+      <header className="mt-4 border-b pb-8">
+        <p className="text-xs font-semibold uppercase tracking-wider text-primary">
           Bài {pattern.lesson} · Mẫu {index + 1}/{grammarPatterns.length}
         </p>
         <h1

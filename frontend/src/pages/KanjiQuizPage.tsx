@@ -75,9 +75,9 @@ export default function KanjiQuizPage() {
   return (
     <section
       data-ocid="kanji_quiz.page"
-      className="mx-auto max-w-4xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-4xl px-4 py-8 md:px-6 md:py-14"
     >
-      <header className="mb-8">
+      <header className="mb-6 md:mb-8">
         <p
           lang="ja"
           className="font-jp text-sm tracking-widest text-muted-foreground"

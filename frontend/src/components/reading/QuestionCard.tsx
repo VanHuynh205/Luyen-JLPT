@@ -59,7 +59,7 @@ export function QuestionCard({
               key={choice}
               data-ocid={`reading_detail.choice.radio.${n}.${ci + 1}`}
               className={cn(
-                "flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border px-3.5 py-2.5 text-sm transition-smooth focus-within:ring-2 focus-within:ring-ring",
+                "flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border px-3.5 py-2.5 text-base transition-smooth focus-within:ring-2 focus-within:ring-ring",
                 !submitted && "hover:border-primary/50 hover:bg-muted/50",
                 !submitted && isSelected && "border-primary bg-primary/5",
                 submitted && "cursor-default",
@@ -118,7 +118,7 @@ export function QuestionCard({
           className="mt-4 flex gap-2.5 rounded-lg bg-muted/60 p-3.5 text-sm leading-relaxed text-foreground"
         >
           <Lightbulb
-            className="mt-0.5 size-4 shrink-0 text-accent"
+            className="mt-0.5 size-4 shrink-0 text-primary"
             aria-hidden="true"
           />
           <p className="min-w-0">{question.explanation}</p>

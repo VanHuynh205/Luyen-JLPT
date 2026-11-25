@@ -1,3 +1,4 @@
+import { HankoStamp } from "@/components/motion/HankoStamp";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Settings2 } from "lucide-react";
 import { Explanation } from "./Explanation";
@@ -22,8 +23,10 @@ export function QuizResult({
   onChangeMode: () => void;
 }) {
   const wrong = questions.filter((q, i) => answers[i] !== q.correctIndex);
-  const score = questions.length - wrong.length;
-  const ratio = questions.length ? score / questions.length : 0;
+  const total = questions.length;
+  const score = total - wrong.length;
+  const ratio = total ? score / total : 0;
+  const percent = Math.round(ratio * 100);
   const verdict =
     ratio >= 0.8
       ? "Xuất sắc!"
@@ -33,43 +36,54 @@ export function QuizResult({
 
   return (
     <div data-ocid="kanji_quiz.result.panel" className="space-y-6">
-      <div className="ink-rule flex flex-col gap-5 rounded-lg border bg-card p-6 shadow-subtle sm:flex-row sm:items-center sm:justify-between md:p-8">
-        <div>
-          <p className="text-sm text-muted-foreground">Kết quả của bạn</p>
-          <p
-            data-ocid="kanji_quiz.result.score"
-            className="font-display text-6xl font-semibold tabular-nums text-foreground"
-          >
-            {score}/{questions.length}
-          </p>
-          <p className="mt-1 text-foreground">{verdict}</p>
-          <p className="mt-2 text-sm text-muted-foreground" aria-live="polite">
-            {saveState === "saving" && "Đang lưu kết quả…"}
-            {saveState === "saved" && "Đã lưu kết quả trên máy."}
-            {saveState === "error" && (
-              <span
-                data-ocid="kanji_quiz.save.error_state"
-                className="text-destructive"
-              >
-                Chưa lưu được kết quả.{" "}
-                <button
-                  type="button"
-                  onClick={onRetrySave}
-                  data-ocid="kanji_quiz.save.retry_button"
-                  className="font-semibold underline underline-offset-2"
+      <div className="flex flex-col gap-5 rounded-xl border bg-card p-6 shadow-subtle sm:flex-row sm:items-center sm:justify-between md:p-8">
+        <div className="flex items-center gap-5">
+          <HankoStamp
+            label={`${percent}%`}
+            sublabel={`${score}/${total}`}
+            size="lg"
+            className="shrink-0"
+          />
+          <div>
+            <p className="text-sm text-muted-foreground">Kết quả của bạn</p>
+            <p
+              data-ocid="kanji_quiz.result.score"
+              className="font-display text-5xl font-semibold tabular-nums text-foreground md:text-6xl"
+            >
+              {score}/{total}
+            </p>
+            <p className="mt-1 text-foreground">{verdict}</p>
+            <p
+              className="mt-2 text-sm text-muted-foreground"
+              aria-live="polite"
+            >
+              {saveState === "saving" && "Đang lưu kết quả…"}
+              {saveState === "saved" && "Đã lưu kết quả trên máy."}
+              {saveState === "error" && (
+                <span
+                  data-ocid="kanji_quiz.save.error_state"
+                  className="text-destructive"
                 >
-                  Thử lưu lại
-                </button>
-              </span>
-            )}
-          </p>
+                  Chưa lưu được kết quả.{" "}
+                  <button
+                    type="button"
+                    onClick={onRetrySave}
+                    data-ocid="kanji_quiz.save.retry_button"
+                    className="inline-flex min-h-11 items-center font-semibold underline underline-offset-2"
+                  >
+                    Thử lưu lại
+                  </button>
+                </span>
+              )}
+            </p>
+          </div>
         </div>
         <div className="flex flex-wrap gap-3">
           <Button
             type="button"
             variant="outline"
             onClick={onChangeMode}
-            className="rounded-md transition-smooth"
+            className="min-h-11 rounded-md transition-smooth"
             data-ocid="kanji_quiz.change_mode.secondary_button"
           >
             <Settings2 className="size-4" aria-hidden="true" />
@@ -78,7 +92,7 @@ export function QuizResult({
           <Button
             type="button"
             onClick={onRetry}
-            className="rounded-md transition-smooth"
+            className="min-h-11 rounded-md transition-smooth"
             data-ocid="kanji_quiz.retry.primary_button"
           >
             <RotateCcw className="size-4" aria-hidden="true" />

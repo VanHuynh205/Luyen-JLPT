@@ -79,9 +79,9 @@ export default function ReadingListPage() {
   return (
     <section
       data-ocid="reading_list.page"
-      className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16"
+      className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-14"
     >
-      <header className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <header className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <p className="mb-2 text-sm font-medium tracking-wider text-primary">
             <span className="font-jp mr-2" lang="ja">
@@ -99,7 +99,7 @@ export default function ReadingListPage() {
         </div>
         <div
           data-ocid="reading_list.summary.panel"
-          className="rounded-lg border border-border bg-card px-4 py-3 text-sm"
+          className="rounded-xl border border-border bg-card px-4 py-3 text-sm shadow-subtle"
         >
           {statusLoading ? (
             <Skeleton className="h-5 w-32" />
@@ -125,7 +125,7 @@ export default function ReadingListPage() {
                 to="/doc-hieu/$passageId"
                 params={{ passageId: passage.id }}
                 data-ocid={`reading_list.item.${index}`}
-                className="group flex h-full flex-col gap-4 rounded-lg border border-border border-l-4 border-l-primary bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="hover-lift group flex h-full flex-col gap-4 rounded-xl border border-border bg-card p-5 shadow-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">

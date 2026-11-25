@@ -27,17 +27,14 @@ export function ProgressPanel({
     <section
       aria-labelledby="home-progress-title"
       data-ocid="home.progress.panel"
-      className="rounded-xl border bg-card p-5 shadow-subtle md:p-6"
+      className="rounded-xl border bg-card p-5 shadow-card md:p-6"
     >
       <div className="flex items-center justify-between gap-3">
-        <h2 id="home-progress-title" className="text-xl">
+        <h2 id="home-progress-title" className="text-xl font-semibold">
           Tiến độ học tập
         </h2>
-        <span
-          className="hanko size-8 text-[0.6rem] leading-none"
-          aria-hidden="true"
-        >
-          {level}
+        <span className="inline-flex items-center rounded-md border border-primary/20 bg-secondary px-2.5 py-1 text-xs font-semibold tracking-wider text-primary">
+          JLPT {level}
         </span>
       </div>
 
@@ -101,7 +98,7 @@ export function ProgressPanel({
                   aria-hidden="true"
                 >
                   <div
-                    className="h-full origin-left rounded-full bg-primary transition-transform duration-700 ease-out"
+                    className="h-full origin-left rounded-full bg-primary transition-transform duration-700 ease-out motion-reduce:transition-none"
                     style={{ transform: `scaleX(${pct / 100})` }}
                   />
                 </div>
@@ -113,8 +110,7 @@ export function ProgressPanel({
 
       {stats && !isLoading && !isError && (
         <p className="mt-4 text-xs text-muted-foreground">
-          Thống kê Kanji chỉ tính bài có mã câu sai thuộc gói này. Bài đúng hết
-          không có mã để xác định cấp độ.
+          Tiến độ được lưu riêng theo cấp độ JLPT {level}.
         </p>
       )}
 
@@ -122,7 +118,7 @@ export function ProgressPanel({
         <Link
           to="/tien-do"
           data-ocid="home.progress.link"
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-smooth hover:gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+          className="inline-flex min-h-11 items-center gap-1 rounded px-2 text-sm font-medium text-primary transition-smooth hover:gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-0"
         >
           Xem chi tiết
           <ArrowRight className="size-4" aria-hidden="true" />
