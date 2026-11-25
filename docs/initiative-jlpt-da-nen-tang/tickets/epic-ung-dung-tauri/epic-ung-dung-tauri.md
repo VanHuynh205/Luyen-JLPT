@@ -35,7 +35,7 @@ Bạn bè nhận file `.exe`/`.apk`, cài được và học được khi không
 
 ## Nghiệm thu
 
-Windows NSIS và APK Android debug đã qua kiểm ngoại tuyến cục bộ. Chưa đóng epic: cần CI native trên ba runner, iOS Simulator, bản phát hành ký và xác nhận đăng nhập, Đồng bộ, cập nhật trên staging. Xem [plan Epic 3](../../../superpowers/plans/2026-11-22-epic-ung-dung-tauri.md).
+Chưa đóng epic. Run `45130724256` đã qua Windows, Android và iOS Simulator trên revision `9f6a06e` (trước thay đổi UI 3D, sửa callback Auth và đồng nhất app ID `vn.luyenjlpt.app`). Bản QA `0.1.2` đã cài đè trên Windows và Android thật: xác nhận Google, đăng ký/xác nhận email, đặt lại mật khẩu và đồng bộ hai chiều giữa hai tài khoản QA Windows–Android. Còn mở: kiểm cập nhật từ bản ký cũ sang bản ký mới qua feed công khai, CI native trên revision `0.2.0`, phát hành bản đầu `0.2.0` trên `VanHuynh205/Luyen-JLPT-Releases`, xác nhận sao lưu khóa và quyền phân phối dataset. Xem [bằng chứng và checkpoint phát hành](../../../superpowers/plans/2026-11-22-epic-ung-dung-tauri.md#bản-nghiệm-thu-nội-bộ-không-phát-công-khai).
 
 ## References
 
