@@ -301,7 +301,7 @@ jobs:
       cancel-in-progress: false
     environment: native-publish
     permissions:
-      contents: read
+      contents: write
     steps:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
@@ -310,15 +310,14 @@ jobs:
           path: release
       - name: Publish Windows and Android together
         env:
-          GH_TOKEN: ${{ secrets.PUBLIC_RELEASES_TOKEN }}
-          DISTRIBUTION_REPO: VanHuynh205/Luyen-JLPT-Releases
+          GH_TOKEN: ${{ github.token }}
+          DISTRIBUTION_REPO: VanHuynh205/Luyen-JLPT
           VERSION: ${{ needs.prepare.outputs.version }}
         working-directory: release
         run: |
           set -euo pipefail
           test -n "$GH_TOKEN"
-          target="$(gh api "repos/$DISTRIBUTION_REPO" --jq 'select(.private == false) | .default_branch')"
-          test -n "$target"
+          gh api "repos/$DISTRIBUTION_REPO" --jq 'select(.private == false)' >/dev/null
           tag="v$VERSION"
           previous="$(gh api "repos/$DISTRIBUTION_REPO/releases?per_page=100" --paginate \
             --jq '.[] | select(.draft == false and .prerelease == false) | .tag_name' \
@@ -329,7 +328,7 @@ jobs:
           fi
           assets=(Luyen-JLPT-windows-x64-setup.exe Luyen-JLPT-windows-x64-setup.exe.sig latest.json Luyen-JLPT-android.apk android-latest.json)
           sha256sum -- "${assets[@]}" > SHA256SUMS.txt
-          gh release create "$tag" "${assets[@]}" SHA256SUMS.txt --repo "$DISTRIBUTION_REPO" --target "$target" --title "Luyện JLPT $VERSION" --notes "Bộ cài Windows và Android. Đối chiếu SHA256SUMS.txt trước khi cài." --latest
+          gh release create "$tag" "${assets[@]}" SHA256SUMS.txt --repo "$DISTRIBUTION_REPO" --verify-tag --title "Luyện JLPT $VERSION" --notes "Bộ cài Windows và Android. Đối chiếu SHA256SUMS.txt trước khi cài." --latest
 
   ios:
     needs: prepare

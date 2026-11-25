@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const releaseBase = "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/download";
+const releaseBase = "https://github.com/VanHuynh205/Luyen-JLPT/releases/download";
 
 export function readConfig() {
   return JSON.parse(readFileSync(new URL("../src-tauri/tauri.conf.json", import.meta.url), "utf8"));

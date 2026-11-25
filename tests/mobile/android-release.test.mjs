@@ -41,7 +41,7 @@ test("generates the frontend metadata contract and canonical APK URL", () => {
   assert.deepEqual(createMetadata(settings), {
     version: "1.4.23",
     versionCode: 1004023,
-    url: "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/download/v1.4.23/Luyen-JLPT-android.apk",
+    url: "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v1.4.23/Luyen-JLPT-android.apk",
   });
 });
 
@@ -78,7 +78,7 @@ test("opens only the approved About links on Android and iOS", () => {
   assert.deepEqual(opener.allow.map(({ url }) => url).slice(1), [
     "https://www.edrdg.org/wiki/KANJIDIC_Project.html",
     "https://creativecommons.org/licenses/by-sa/4.0/",
-    "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases",
+    "https://github.com/VanHuynh205/Luyen-JLPT/releases",
   ]);
 });
 

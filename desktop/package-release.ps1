@@ -10,12 +10,13 @@ $signaturePath = "$($bundle[0].FullName).sig"
 $signature = (Get-Content -LiteralPath $signaturePath -Raw).Trim()
 if (!$signature) { throw 'Missing NSIS updater signature' }
 Copy-Item -LiteralPath $signaturePath -Destination (Join-Path $output "$asset.sig")
-@{
+$json = @{
   version = $env:APP_VERSION
   platforms = @{
     'windows-x86_64-nsis' = @{
       signature = $signature
-      url = "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/download/v$env:APP_VERSION/$asset"
+      url = "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v$env:APP_VERSION/$asset"
     }
   }
-} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $output 'latest.json') -Encoding utf8
+} | ConvertTo-Json -Depth 5
+[System.IO.File]::WriteAllText((Join-Path $output 'latest.json'), "$json`n", [System.Text.UTF8Encoding]::new($false))

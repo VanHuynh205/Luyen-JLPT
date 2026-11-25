@@ -4,7 +4,7 @@ import { availableAndroidUpdate } from "./androidUpdate";
 const update = {
   version: "0.2.0",
   versionCode: 2000,
-  url: "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/download/v0.2.0/Luyen-JLPT-android.apk",
+  url: "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v0.2.0/Luyen-JLPT-android.apk",
 };
 
 describe("Android update metadata", () => {

@@ -6,7 +6,7 @@
   "plugins": {
     "updater": {
       "endpoints": [
-        "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/latest/download/latest.json"
+        "https://github.com/VanHuynh205/Luyen-JLPT/releases/latest/download/latest.json"
       ],
       "requireSignedVersion": true
     }

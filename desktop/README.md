@@ -35,7 +35,7 @@ try {
 }
 ```
 
-Release CI owns `latest.json`: use the release version and, for `windows-x86_64-nsis`, the installer download URL and the matching `.sig` contents. The update client reads `latest.json` from the latest release in the separate public distribution repository `VanHuynh205/Luyen-JLPT-Releases`. It rejects installer signatures that do not bind the manifest version. Keep the private key and the materialized config out of Git.
+Release CI owns `latest.json`: use the release version and, for `windows-x86_64-nsis`, the installer download URL and the matching `.sig` contents. The update client reads `latest.json` from the latest release in `VanHuynh205/Luyen-JLPT`. It rejects installer signatures that do not bind the manifest version. Keep the private key and the materialized config out of Git.
 
 ## Desktop smoke contract
 

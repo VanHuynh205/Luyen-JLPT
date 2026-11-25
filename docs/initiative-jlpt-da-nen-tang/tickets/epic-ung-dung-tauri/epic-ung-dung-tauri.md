@@ -35,7 +35,7 @@ Bạn bè nhận file `.exe`/`.apk`, cài được và học được khi không
 
 ## Nghiệm thu
 
-Đã hoàn tất nghiệm thu và phát hành bản công khai đầu tiên **`v0.2.0`** ngày 25-11-2026 tại [VanHuynh205/Luyen-JLPT-Releases v0.2.0](https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases/tag/v0.2.0) (tag `v0.2.0` trên `master` `7cbea40`).
+Đã hoàn tất nghiệm thu và phát hành bản công khai đầu tiên **`v0.2.0`** ngày 25-11-2026 (tag `v0.2.0` trên `master` `7cbea40`), sau đó hợp nhất toàn bộ Releases và feed cập nhật trực tiếp vào repo public **`VanHuynh205/Luyen-JLPT`** từ bản **`v0.2.1`** ([VanHuynh205/Luyen-JLPT Releases](https://github.com/VanHuynh205/Luyen-JLPT/releases)).
 
 - **CI trên revision phát hành (`d610e78`, PR #2):** `CI` (`45561612272`) và `Native apps` (`45561612418` — Windows NSIS smoke, Android build + offline smoke API 34, iOS Simulator + Maestro N4 smoke) đều PASS.
 - **Auth và đồng bộ trên thiết bị thật (QA `0.1.2`):** Xác nhận Google OAuth, đăng ký/xác nhận email, đặt lại mật khẩu và đồng bộ hai chiều Windows–Android với hai tài khoản QA.

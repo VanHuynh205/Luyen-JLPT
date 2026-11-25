@@ -1,5 +1,5 @@
 export const nativeReleases =
-  "https://github.com/VanHuynh205/Luyen-JLPT-Releases/releases";
+  "https://github.com/VanHuynh205/Luyen-JLPT/releases";
 const metadataUrl = `${nativeReleases}/latest/download/android-latest.json`;
 const metadataLimit = 8192;
 
