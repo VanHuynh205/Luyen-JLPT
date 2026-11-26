@@ -1,3 +1,4 @@
+import type { Page } from "@playwright/test";
 import { expect, test } from "./fixtures";
 
 const EXPECTED_EXAMS = [
@@ -7,9 +8,24 @@ const EXPECTED_EXAMS = [
   ["2023-07", 57, "115 phút · 3 phần"],
   ["2021-12", 85, "115 phút · 3 phần"],
   ["2021-07", 57, "115 phút · 3 phần"],
+  ["2018-12", 98, "125 phút · 3 phần"],
+  ["2017-07", 97, "125 phút · 3 phần"],
+  ["2013-07", 98, "125 phút · 3 phần"],
 ] as const;
 
-test("exam list renders all 6 JLPT N4 exams with counts and durations", async ({
+async function completeExamWithoutListening(page: Page) {
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+
+  await page.locator('[data-ocid="exam_runner.skip_listening_button"]').click();
+}
+
+test("exam list renders all 9 JLPT N4 exams with counts and durations", async ({
   page,
 }) => {
   await page.goto("/luyen-de");
@@ -224,7 +240,7 @@ test("360px mobile layout fits without horizontal overflow and keeps primary exa
   );
 
   const startLinks = page.locator('[data-ocid^="exam_list.start."]');
-  await expect(startLinks).toHaveCount(6);
+  await expect(startLinks).toHaveCount(9);
   for (const link of await startLinks.all()) {
     expect((await link.boundingBox())?.height).toBeGreaterThanOrEqual(44);
   }
@@ -269,5 +285,59 @@ test("360px mobile layout fits without horizontal overflow and keeps primary exa
   await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
     360,
+  );
+});
+
+test("pre-2020 exam uses 30-minute section 1 and 60-minute section 2 timers", async ({
+  page,
+}) => {
+  await page.goto("/luyen-de/n4-2018-12");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await expect(
+    page.locator('[data-ocid="exam_runner.timer_value"]'),
+  ).toHaveText(/^(30:00|29:59)$/);
+
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await expect(
+    page.locator('[data-ocid="exam_runner.timer_value"]'),
+  ).toHaveText(/^(60:00|59:59)$/);
+});
+
+test("retake flow resets exam runner and updates attempt count on exam list", async ({
+  page,
+}) => {
+  await page.goto("/luyen-de/n4-2023-07");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  await completeExamWithoutListening(page);
+
+  const summary = page.locator('[data-ocid="exam_runner.summary"]');
+  await expect(summary).toBeVisible();
+  await expect(summary).toContainText("Đã lưu kết quả làm đề trên máy.");
+
+  const retryButton = page.locator('[data-ocid="exam_runner.retry_button"]');
+  await expect(retryButton).toBeVisible();
+  await retryButton.click();
+
+  await expect(
+    page.locator('[data-ocid="exam_runner.section_intro"]'),
+  ).toContainText("Phần 1: Từ vựng & Chữ Hán");
+  await expect(page.locator('[data-ocid="exam_runner.step.2"]')).toBeDisabled();
+
+  await completeExamWithoutListening(page);
+  await expect(summary).toBeVisible();
+  await expect(summary).toContainText("Đã lưu kết quả làm đề trên máy.");
+
+  await page.goto("/luyen-de");
+  const card = page.locator('[data-ocid="exam_list.item.4"]');
+  await expect(card).toContainText("Mã đề: 2023-07");
+  await expect(card).toContainText("Đã làm 2 lần");
+  await expect(page.locator('[data-ocid="exam_list.start.4"]')).toContainText(
+    "Làm lại đề",
   );
 });

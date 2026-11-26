@@ -1,8 +1,8 @@
 {
  "level": "n4",
  "version": "1.0.0",
- "examCount": 6,
- "totalQuestions": 426,
+ "examCount": 9,
+ "totalQuestions": 719,
  "exams": [
   {
    "id": "n4-2025-07",
@@ -111,6 +111,60 @@
    "totalQuestions": 57,
    "totalDurationSeconds": 6900,
    "sha256": "b11bd5342828eb9fc3f22ed71e296c13fd6a9cb8ef279114d68f5333652feb38"
+  },
+  {
+   "id": "n4-2018-12",
+   "year": 2018,
+   "month": 12,
+   "code": "2018-12",
+   "title": "Đề thi JLPT N4 — Tháng 12/2018",
+   "answerSourceSummary": "mixed",
+   "hasListeningScript": true,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 35,
+    "grammar_reading": 35,
+    "listening": 28
+   },
+   "totalQuestions": 98,
+   "totalDurationSeconds": 7500,
+   "sha256": "fe9bb150d327c6d253fd1f090745549156da673111f3fae071b319a271315de9"
+  },
+  {
+   "id": "n4-2017-07",
+   "year": 2017,
+   "month": 7,
+   "code": "2017-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2017",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": true,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 34,
+    "grammar_reading": 35,
+    "listening": 28
+   },
+   "totalQuestions": 97,
+   "totalDurationSeconds": 7500,
+   "sha256": "7d182415516153cbd2463c5724c1bada393511049c68a114e2c28681085450c2"
+  },
+  {
+   "id": "n4-2013-07",
+   "year": 2013,
+   "month": 7,
+   "code": "2013-07",
+   "title": "Đề thi JLPT N4 — Tháng 7/2013",
+   "answerSourceSummary": "official_key",
+   "hasListeningScript": true,
+   "hasSourceAudio": true,
+   "questionCounts": {
+    "vocab": 35,
+    "grammar_reading": 35,
+    "listening": 28
+   },
+   "totalQuestions": 98,
+   "totalDurationSeconds": 7500,
+   "sha256": "69905a47a5aa0f673ea8405431b3204a697dd40063108e5cea2d0a51d7b45c52"
   }
  ]
 }

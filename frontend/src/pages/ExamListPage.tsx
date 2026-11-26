@@ -71,9 +71,10 @@ export default function ExamListPage() {
           Luyện đề JLPT {levelLabel}
         </h1>
         <p className="mt-3 text-base text-muted-foreground">
-          Bộ đề thi mô phỏng 3 phần theo cấu trúc chuẩn JLPT (Từ vựng &amp; Chữ
-          Hán 25 phút, Ngữ pháp &amp; Đọc hiểu 55 phút, Nghe hiểu 35 phút), tự
-          động khóa đáp án khi hết giờ kèm furigana và lời giải chi tiết.
+          Bộ đề thi mô phỏng 3 phần theo cấu trúc chuẩn JLPT N4, gồm chuẩn hiện
+          hành (25/55/35 phút — 115 phút) và trước 2020 (30/60/35 phút — 125
+          phút), tự động khóa đáp án khi hết giờ kèm furigana và lời giải chi
+          tiết.
         </p>
       </header>
 
