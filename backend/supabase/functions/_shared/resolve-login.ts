@@ -37,16 +37,15 @@ async function readCredentials(request: Request) {
   }
 }
 
-const denied = (status: number) =>
-  json({ error: "invalid_credentials" }, status);
-
 export async function resolveLogin(
   request: Request,
   config: Config,
   fetcher = fetch,
 ): Promise<Response> {
-  const methodError = checkMethod(request);
+  const methodError = checkMethod(request, config.allowedOrigins);
   if (methodError) return methodError;
+  const denied = (status: number) =>
+    json({ error: "invalid_credentials" }, status, request, config.allowedOrigins);
   const credentials = await readCredentials(request);
   if (!credentials) return denied(401);
 
@@ -85,7 +84,12 @@ export async function resolveLogin(
         access_token &&
         typeof refresh_token === "string" && refresh_token
       ) {
-        return json({ access_token, refresh_token });
+        return json(
+          { access_token, refresh_token },
+          200,
+          request,
+          config.allowedOrigins,
+        );
       }
     } else {
       await result.body?.cancel();

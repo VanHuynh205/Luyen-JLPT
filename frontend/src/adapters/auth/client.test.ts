@@ -128,6 +128,46 @@ describe("web auth callbacks", () => {
     );
   });
 
+  it("normalizes trailing slash on /tai-khoan/ and rejects mixed error+fragment params", async () => {
+    const { parseWebAuthCallback } = await import("./client");
+    expect(
+      parseWebAuthCallback("https://app.example.test/tai-khoan/?code=pkce123"),
+    ).toEqual({
+      code: "pkce123",
+      flowId: undefined,
+      cleanUrl: "https://app.example.test/tai-khoan/",
+    });
+
+    const bad = parseWebAuthCallback(
+      "https://app.example.test/tai-khoan?code=fake&error=access_denied#access_token=leaked",
+    );
+    expect(bad?.code).toBeNull();
+    expect(bad?.cleanUrl).toBe("https://app.example.test/tai-khoan");
+  });
+
+  it("calls exchangeCodeForSession without flowId when web callback omits sb_flow_id", async () => {
+    const location = new URL("https://jlpt.test/tai-khoan/?code=pkce123");
+    const history = { state: null, replaceState: vi.fn() };
+    vi.stubGlobal("window", { location, history });
+    sdk.auth.exchangeCodeForSession.mockResolvedValue({ error: null });
+    const { completeWebAuthCallback } = await import("./client");
+    expect(await completeWebAuthCallback()).toBe(false);
+    expect(sdk.auth.exchangeCodeForSession).toHaveBeenCalledExactlyOnceWith(
+      "pkce123",
+    );
+    expect(history.replaceState).toHaveBeenCalledExactlyOnceWith(
+      null,
+      "",
+      "https://jlpt.test/tai-khoan/",
+    );
+  });
+
+  it("does not crash module initialization when VITE_SUPABASE_URL is malformed", async () => {
+    vi.stubEnv("VITE_SUPABASE_URL", "not a valid url");
+    const mod = await import("./client");
+    expect(mod.supabase).toBeNull();
+  });
+
   it.each([
     [false, "/tai-khoan"],
     [false, "/tai-khoan?type=recovery"],
@@ -197,18 +237,111 @@ describe("account login", () => {
   });
 
   it("returns one error without exposing the failing credential", async () => {
-    const { LOGIN_ERROR, login } = await import("./client");
+    const { AuthLoginError, LOGIN_ERROR, login } = await import("./client");
     sdk.functions.invoke.mockResolvedValue({
-      error: new Error("unknown username"),
+      error: {
+        name: "FunctionsHttpError",
+        message: "Edge Function returned a non-2xx status code",
+        context: new Response(
+          JSON.stringify({ error: "invalid_credentials" }),
+          {
+            status: 401,
+          },
+        ),
+      },
     });
     sdk.auth.signInWithPassword.mockResolvedValue({
-      error: new Error("wrong password"),
+      error: { code: "invalid_credentials", status: 400, message: "Invalid" },
     });
-    await expect(login("unknown", "secret")).rejects.toThrow(LOGIN_ERROR);
-    await expect(login("learner@example.test", "wrong")).rejects.toThrow(
-      LOGIN_ERROR,
+    await expect(login("unknown", "secret")).rejects.toMatchObject({
+      kind: "invalid_credentials",
+      message: LOGIN_ERROR,
+    });
+    await expect(login("learner@example.test", "wrong")).rejects.toSatisfy(
+      (err: unknown) =>
+        err instanceof AuthLoginError &&
+        err.kind === "invalid_credentials" &&
+        err.message === LOGIN_ERROR,
     );
     expect(sdk.auth.setSession).not.toHaveBeenCalled();
+  });
+
+  it("classifies email_not_confirmed, 429, 503/404, offline and storage_blocked separately", async () => {
+    const { AuthLoginError, login } = await import("./client");
+
+    sdk.auth.signInWithPassword.mockResolvedValueOnce({
+      error: {
+        code: "email_not_confirmed",
+        status: 400,
+        message: "Not confirmed",
+      },
+    });
+    await expect(login("learner@example.test", "secret")).rejects.toMatchObject(
+      {
+        kind: "email_not_confirmed",
+      },
+    );
+
+    sdk.functions.invoke.mockResolvedValueOnce({
+      error: {
+        name: "FunctionsHttpError",
+        message: "Too many requests",
+        context: new Response(null, { status: 429 }),
+      },
+    });
+    await expect(login("learner", "secret")).rejects.toMatchObject({
+      kind: "rate_limited",
+    });
+
+    sdk.functions.invoke.mockResolvedValueOnce({
+      error: {
+        name: "FunctionsHttpError",
+        message: "Service unavailable",
+        context: new Response(null, { status: 503 }),
+      },
+    });
+    await expect(login("learner", "secret")).rejects.toMatchObject({
+      kind: "service_unavailable",
+    });
+
+    sdk.functions.invoke.mockResolvedValueOnce({
+      error: {
+        name: "FunctionsFetchError",
+        message: "Failed to send a request to the Edge Function",
+      },
+    });
+    await expect(login("learner", "secret")).rejects.toMatchObject({
+      kind: "service_unavailable",
+    });
+
+    vi.stubGlobal("navigator", { onLine: false });
+    await expect(login("learner@example.test", "secret")).rejects.toMatchObject(
+      {
+        kind: "network_offline",
+      },
+    );
+
+    vi.stubGlobal("navigator", { onLine: true });
+    const quotaError = Object.assign(new Error("Quota exceeded"), {
+      name: "QuotaExceededError",
+    });
+    sdk.auth.signInWithPassword.mockRejectedValueOnce(quotaError);
+    await expect(login("learner@example.test", "secret")).rejects.toSatisfy(
+      (err: unknown) =>
+        err instanceof AuthLoginError && err.kind === "storage_blocked",
+    );
+  });
+
+  it("handles corrupted JSON in local session storage safely without crashing", async () => {
+    vi.stubGlobal("navigator", { onLine: false });
+    const { sessionStorage, offlineSession, clearDeletedSession } =
+      await import("./client");
+    const key = "sb-127-auth-token";
+    await expect(
+      sessionStorage.setItem(key, "{not-valid-json"),
+    ).resolves.toBeUndefined();
+    expect(await offlineSession()).toBeNull();
+    await expect(clearDeletedSession("owner-a")).resolves.toBeUndefined();
   });
 
   it("persists and clears the session using namespaced IndexedDB keys", async () => {

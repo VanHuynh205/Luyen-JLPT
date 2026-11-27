@@ -1,4 +1,5 @@
 import {
+  AuthLoginError,
   LOGIN_ERROR,
   clearDeletedSession,
   deleteAccount,
@@ -98,8 +99,8 @@ export default function AccountPage() {
     clearCallbackError();
     try {
       await action();
-    } catch {
-      setNotice(failure);
+    } catch (error) {
+      setNotice(error instanceof AuthLoginError ? error.message : failure);
     } finally {
       setBusy(false);
     }

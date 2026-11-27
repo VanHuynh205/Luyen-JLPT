@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { deleteAccount } from "../functions/_shared/delete-account.ts";
+import { corsHeadersFor } from "../functions/_shared/http.ts";
 import { resolveLogin } from "../functions/_shared/resolve-login.ts";
 
 const config = {
@@ -212,4 +213,99 @@ Deno.test("a bearer for a different account cannot confirm deletion", async () =
     },
   );
   assert.equal(response.status, 401);
+});
+
+Deno.test("CORS reflects only allowlisted web and Tauri origins with Vary: Origin and never *", async () => {
+  const allowed = ["https://luyen-jlpt.example.com"];
+  const allowedReq = new Request("http://example.test", {
+    method: "OPTIONS",
+    headers: { origin: "https://luyen-jlpt.example.com" },
+  });
+  const allowedHeaders = corsHeadersFor(allowedReq, allowed);
+  assert.equal(
+    allowedHeaders["access-control-allow-origin"],
+    "https://luyen-jlpt.example.com",
+  );
+  assert.equal(allowedHeaders.vary, "Origin");
+
+  const tauriReq = new Request("http://example.test", {
+    method: "OPTIONS",
+    headers: { origin: "tauri://localhost" },
+  });
+  assert.equal(
+    corsHeadersFor(tauriReq, allowed)["access-control-allow-origin"],
+    "tauri://localhost",
+  );
+
+  const foreignReq = new Request("http://example.test", {
+    method: "OPTIONS",
+    headers: { origin: "https://evil.example.net" },
+  });
+  const foreignHeaders = corsHeadersFor(foreignReq, allowed);
+  assert.equal(foreignHeaders["access-control-allow-origin"], undefined);
+  assert.equal(foreignHeaders.vary, "Origin");
+
+  const preflight = await resolveLogin(
+    allowedReq,
+    { ...config, allowedOrigins: allowed },
+    unexpectedFetch,
+  );
+  assert.equal(preflight.status, 204);
+  assert.equal(
+    preflight.headers.get("access-control-allow-origin"),
+    "https://luyen-jlpt.example.com",
+  );
+  assert.equal(preflight.headers.get("vary"), "Origin");
+
+  const foreignDelete = await deleteAccount(
+    new Request("http://example.test", {
+      method: "POST",
+      headers: { origin: "https://evil.example.net" },
+    }),
+    { ...config, allowedOrigins: allowed },
+    unexpectedFetch,
+  );
+  assert.equal(foreignDelete.status, 401);
+  assert.equal(foreignDelete.headers.get("access-control-allow-origin"), null);
+  assert.equal(foreignDelete.headers.get("vary"), "Origin");
+});
+
+Deno.test("resolve-login works with sb_publishable_* apikey header and no Authorization header", async () => {
+  const allowed = ["https://luyen-jlpt.example.com"];
+  const req = new Request("http://example.test", {
+    method: "POST",
+    headers: {
+      origin: "https://luyen-jlpt.example.com",
+      apikey: "sb_publishable_test_key_123",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ username: "learner_one", password: "test-password" }),
+  });
+  let calls = 0;
+  const response = await resolveLogin(
+    req,
+    { ...config, allowedOrigins: allowed },
+    async () => {
+      if (++calls === 1) {
+        return Response.json([
+          { allowed: true, user_id: userId, email: "learner@example.test" },
+        ]);
+      }
+      return Response.json({
+        access_token: "access-token",
+        refresh_token: "refresh-token",
+        user: { id: userId },
+      });
+    },
+  );
+  assert.equal(response.status, 200);
+  assert.equal(
+    response.headers.get("access-control-allow-origin"),
+    "https://luyen-jlpt.example.com",
+  );
+  assert.equal(response.headers.get("vary"), "Origin");
+  assert.deepEqual(await response.json(), {
+    access_token: "access-token",
+    refresh_token: "refresh-token",
+  });
 });

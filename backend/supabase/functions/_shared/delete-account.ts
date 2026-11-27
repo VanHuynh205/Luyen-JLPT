@@ -5,13 +5,15 @@ export async function deleteAccount(
   config: Config,
   fetcher = fetch,
 ): Promise<Response> {
-  const methodError = checkMethod(request);
+  const methodError = checkMethod(request, config.allowedOrigins);
   if (methodError) return methodError;
   const token = /^Bearer ([^\s,]{1,8192})$/i.exec(
     request.headers.get("authorization") ?? "",
   )?.[1];
-  const unauthorized = () => json({ error: "unauthorized" }, 401);
-  const failure = () => json({ error: "delete_failed" }, 503);
+  const unauthorized = () =>
+    json({ error: "unauthorized" }, 401, request, config.allowedOrigins);
+  const failure = () =>
+    json({ error: "delete_failed" }, 503, request, config.allowedOrigins);
   if (!token) return unauthorized();
 
   try {
@@ -42,7 +44,9 @@ export async function deleteAccount(
       config.serviceKey,
       { should_soft_delete: false },
     );
-    return deleted.ok ? json({ deleted: true }) : failure();
+    return deleted.ok
+      ? json({ deleted: true }, 200, request, config.allowedOrigins)
+      : failure();
   } catch {
     return failure();
   }
