@@ -98,6 +98,8 @@ function OwnerProgress({
       },
       onChange: () => {
         void cache.invalidateQueries({ queryKey: ["progress", owner] });
+        void cache.invalidateQueries({ queryKey: ["exam-attempts", owner] });
+        void cache.invalidateQueries({ queryKey: ["exam-draft", owner] });
       },
       onComplete: () => setPulled(true),
       onError: () => {
@@ -114,6 +116,8 @@ function OwnerProgress({
       subscription.unsubscribe();
       sync.stop();
       cache.removeQueries({ queryKey: ["progress", owner] });
+      cache.removeQueries({ queryKey: ["exam-attempts", owner] });
+      cache.removeQueries({ queryKey: ["exam-draft", owner] });
     };
   }, [owner, confirmed, cache]);
   const merge = async () => {
@@ -122,6 +126,8 @@ function OwnerProgress({
     try {
       await progressStore.mergeGuest(owner, true);
       await cache.invalidateQueries({ queryKey: ["progress"] });
+      await cache.invalidateQueries({ queryKey: ["exam-attempts"] });
+      await cache.invalidateQueries({ queryKey: ["exam-draft"] });
       setPrompt(false);
     } catch {
       toast.error("Chưa gộp được tiến độ. Vui lòng thử lại.");

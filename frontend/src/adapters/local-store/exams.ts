@@ -1,4 +1,5 @@
 import { LEVELS, type Level } from "../../core/content/types";
+import { mergeExamAttempts } from "../../core/exam/engine";
 import {
   EXAM_SECTION_KEYS,
   type ExamAttemptRecord,
@@ -10,12 +11,18 @@ import {
   validateExamDocument,
   validateExamIndex,
 } from "../../core/exam/validate";
-import { timestampKey } from "../../core/progress";
-import { db } from "./db";
+import {
+  GUEST_OWNER,
+  type ProgressRow,
+  timestampKey,
+  validateProgressRow,
+} from "../../core/progress";
+import { type ActiveExamDraft, db } from "./db";
 import { isOwnerRetired } from "./retirement";
 
 const SHA256 = /^[a-f\d]{64}$/i;
 const FINAL_STATUSES = new Set(["submitted", "timed_out", "skipped"]);
+const FORBIDDEN_KEYS = new Set(["__proto__", "constructor", "prototype"]);
 
 export type ExamAttemptInput = Omit<
   ExamAttemptRecord,
@@ -40,6 +47,47 @@ export type ExamAttemptInput = Omit<
   >;
 };
 
+export function toExamProgressRow(
+  record: ExamAttemptRecord,
+): Extract<ProgressRow, { kind: "exam_attempts" }> {
+  return {
+    kind: "exam_attempts",
+    id: record.id,
+    owner: record.owner,
+    level: record.level,
+    examId: record.examId,
+    status: record.status,
+    attemptNumber: record.attemptNumber,
+    startedAt: record.startedAt,
+    completedAt: record.completedAt,
+    totalScore: record.totalScore,
+    totalQuestions: record.totalQuestions,
+    sections: record.sections,
+    answers: record.answers,
+    updatedAt: record.updatedAt,
+  };
+}
+
+export function fromExamProgressRow(
+  row: Extract<ProgressRow, { kind: "exam_attempts" }>,
+): ExamAttemptRecord {
+  return {
+    id: row.id,
+    owner: row.owner,
+    level: row.level,
+    examId: row.examId,
+    status: row.status,
+    attemptNumber: row.attemptNumber,
+    startedAt: row.startedAt,
+    completedAt: row.completedAt,
+    updatedAt: row.updatedAt,
+    totalScore: row.totalScore,
+    totalQuestions: row.totalQuestions,
+    sections: row.sections,
+    answers: row.answers,
+  };
+}
+
 function newAttemptId(): string {
   if (crypto.randomUUID) return crypto.randomUUID();
   const bytes = crypto.getRandomValues(new Uint8Array(16));
@@ -59,6 +107,28 @@ function newAttemptId(): string {
 
 function isNonNegInt(value: unknown): value is number {
   return typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
+}
+
+function validateAnswersMap(answers: unknown): void {
+  if (
+    typeof answers !== "object" ||
+    answers === null ||
+    Array.isArray(answers)
+  ) {
+    throw new Error("Invalid exam answers");
+  }
+  for (const [questionId, choice] of Object.entries(answers)) {
+    if (
+      !questionId ||
+      questionId.length > 128 ||
+      FORBIDDEN_KEYS.has(questionId) ||
+      !Number.isInteger(choice) ||
+      choice < 0 ||
+      choice > 3
+    ) {
+      throw new Error(`Invalid answer for ${questionId}`);
+    }
+  }
 }
 
 function validateAttemptRecord(record: ExamAttemptRecord): void {
@@ -82,10 +152,26 @@ function validateAttemptRecord(record: ExamAttemptRecord): void {
   ) {
     throw new Error("Invalid examId");
   }
-  if (record.completedAt !== null) {
-    timestampKey(record.completedAt);
+  if (record.status !== "in_progress" && record.status !== "completed") {
+    throw new Error("Invalid exam attempt status");
   }
+  if (
+    !Number.isInteger(record.attemptNumber) ||
+    record.attemptNumber < 1 ||
+    record.attemptNumber > 10_000
+  ) {
+    throw new Error("Invalid exam attempt number");
+  }
+  timestampKey(record.startedAt);
   timestampKey(record.updatedAt);
+  if (record.status === "completed") {
+    if (typeof record.completedAt !== "string") {
+      throw new Error("Completed exam attempt requires completedAt");
+    }
+    timestampKey(record.completedAt);
+  } else if (record.completedAt !== null) {
+    throw new Error("In-progress exam attempt must have null completedAt");
+  }
   if (
     !isNonNegInt(record.totalQuestions) ||
     !isNonNegInt(record.totalScore) ||
@@ -103,10 +189,15 @@ function validateAttemptRecord(record: ExamAttemptRecord): void {
   let totalSum = 0;
   for (let i = 0; i < EXAM_SECTION_KEYS.length; i++) {
     const section = record.sections[i];
+    const isPending = section?.status === "pending";
+    const validStatus =
+      record.status === "completed"
+        ? FINAL_STATUSES.has(section?.status)
+        : isPending || FINAL_STATUSES.has(section?.status);
     if (
       !section ||
       section.key !== EXAM_SECTION_KEYS[i] ||
-      !FINAL_STATUSES.has(section.status) ||
+      !validStatus ||
       !isNonNegInt(section.score) ||
       !isNonNegInt(section.total) ||
       !isNonNegInt(section.elapsedSeconds) ||
@@ -114,30 +205,74 @@ function validateAttemptRecord(record: ExamAttemptRecord): void {
     ) {
       throw new Error(`Invalid exam section summary: ${EXAM_SECTION_KEYS[i]}`);
     }
+    if (isPending) {
+      if (section.score !== 0 || section.submittedAt !== null) {
+        throw new Error(
+          `Pending exam section must have score=0 and submittedAt=null: ${section.key}`,
+        );
+      }
+    } else if (section.submittedAt !== null) {
+      timestampKey(section.submittedAt);
+    } else if (record.status === "completed") {
+      throw new Error(`Completed section requires submittedAt: ${section.key}`);
+    }
     scoreSum += section.score;
     totalSum += section.total;
   }
   if (scoreSum !== record.totalScore || totalSum !== record.totalQuestions) {
     throw new Error("Exam attempt totals do not match section summaries");
   }
-  if (
-    typeof record.answers !== "object" ||
-    record.answers === null ||
-    Array.isArray(record.answers)
-  ) {
-    throw new Error("Invalid exam answers");
+  validateAnswersMap(record.answers);
+}
+
+function validateTimingRecord(value: unknown, label: string): void {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    throw new Error(`Invalid exam draft ${label}`);
   }
-  for (const [questionId, choice] of Object.entries(record.answers)) {
+  for (const [key, ts] of Object.entries(value)) {
     if (
-      !questionId ||
-      questionId.length > 128 ||
-      !Number.isInteger(choice) ||
-      choice < 0 ||
-      choice > 3
+      !EXAM_SECTION_KEYS.includes(key as (typeof EXAM_SECTION_KEYS)[number]) ||
+      (ts !== undefined && (typeof ts !== "number" || !Number.isFinite(ts)))
     ) {
-      throw new Error(`Invalid answer for ${questionId}`);
+      throw new Error(`Invalid exam draft ${label} entry: ${key}`);
     }
   }
+}
+
+function validateDraft(draft: ActiveExamDraft): void {
+  if (typeof draft.owner !== "string" || !draft.owner) {
+    throw new Error("Invalid exam draft owner");
+  }
+  if (!LEVELS.includes(draft.level)) {
+    throw new Error("Invalid exam draft level");
+  }
+  if (
+    typeof draft.examId !== "string" ||
+    draft.examId.length < 1 ||
+    draft.examId.length > 128
+  ) {
+    throw new Error("Invalid exam draft examId");
+  }
+  if (
+    typeof draft.attemptId !== "string" ||
+    draft.attemptId.length < 1 ||
+    draft.attemptId.length > 128
+  ) {
+    throw new Error("Invalid exam draft attemptId");
+  }
+  if (
+    !isNonNegInt(draft.activeIndex) ||
+    draft.activeIndex >= EXAM_SECTION_KEYS.length
+  ) {
+    throw new Error("Invalid exam draft activeIndex");
+  }
+  if (typeof draft.listeningScriptMode !== "boolean") {
+    throw new Error("Invalid exam draft listeningScriptMode");
+  }
+  timestampKey(draft.savedAt);
+  validateAnswersMap(draft.answers);
+  validateTimingRecord(draft.startedAtMs, "startedAtMs");
+  validateTimingRecord(draft.deadlineMs, "deadlineMs");
 }
 
 function indexKey(level: Level): string {
@@ -145,15 +280,57 @@ function indexKey(level: Level): string {
 }
 
 export const examStore = {
+  async saveAttemptProgress(
+    record: ExamAttemptRecord,
+  ): Promise<ExamAttemptRecord> {
+    validateAttemptRecord(record);
+    return db.transaction(
+      "rw",
+      [db.examAttempts, db.activeExamDrafts, db.progressOutbox, db.settings],
+      async () => {
+        if (await isOwnerRetired(record.owner)) {
+          throw new Error("Owner is retired");
+        }
+        const existing = await db.examAttempts.get(record.id);
+        const merged = existing ? mergeExamAttempts(existing, record) : record;
+        await db.examAttempts.put(merged);
+        if (merged.owner !== GUEST_OWNER && existing?.status !== "completed") {
+          const progressRow = toExamProgressRow(merged);
+          validateProgressRow(progressRow);
+          await db.progressOutbox.add({
+            opId: newAttemptId(),
+            owner: merged.owner,
+            row: progressRow,
+          });
+        }
+        if (merged.status === "completed") {
+          await db.activeExamDrafts.delete([
+            merged.owner,
+            merged.level,
+            merged.examId,
+          ]);
+        }
+        return merged;
+      },
+    );
+  },
+
   async recordAttempt(input: ExamAttemptInput): Promise<ExamAttemptRecord> {
     const now =
       input.updatedAt ?? input.completedAt ?? new Date().toISOString();
     const status = input.status ?? "completed";
+    const attemptNumber =
+      input.attemptNumber ??
+      (await examStore.nextAttemptNumber(
+        input.owner,
+        input.level,
+        input.examId,
+      ));
     const record: ExamAttemptRecord = {
       ...input,
       id: input.id ?? newAttemptId(),
       status,
-      attemptNumber: input.attemptNumber ?? 1,
+      attemptNumber,
       startedAt: input.startedAt ?? now,
       completedAt:
         input.completedAt !== undefined
@@ -172,14 +349,7 @@ export const examStore = {
               : now,
       })),
     };
-    validateAttemptRecord(record);
-    return db.transaction("rw", db.examAttempts, db.settings, async () => {
-      if (await isOwnerRetired(record.owner)) {
-        throw new Error("Owner is retired");
-      }
-      await db.examAttempts.put(record);
-      return record;
-    });
+    return examStore.saveAttemptProgress(record);
   },
 
   async listAttempts(
@@ -196,13 +366,79 @@ export const examStore = {
           .where("[owner+level]")
           .equals([owner, level])
           .toArray();
-    rows.sort(
-      (left, right) =>
+    rows.sort((left, right) => {
+      if (left.status !== right.status) {
+        return left.status === "in_progress" ? -1 : 1;
+      }
+      return (
         timestampKey(right.completedAt ?? right.updatedAt).localeCompare(
           timestampKey(left.completedAt ?? left.updatedAt),
-        ) || right.id.localeCompare(left.id),
-    );
+        ) ||
+        right.attemptNumber - left.attemptNumber ||
+        right.id.localeCompare(left.id)
+      );
+    });
     return rows;
+  },
+
+  async getActiveAttempt(
+    owner: string,
+    level: Level,
+    examId: string,
+  ): Promise<ExamAttemptRecord | null> {
+    const rows = await db.examAttempts
+      .where("[owner+level+examId+status]")
+      .equals([owner, level, examId, "in_progress"])
+      .toArray();
+    if (rows.length === 0) return null;
+    rows.sort(
+      (left, right) =>
+        timestampKey(right.updatedAt).localeCompare(
+          timestampKey(left.updatedAt),
+        ) ||
+        right.attemptNumber - left.attemptNumber ||
+        right.id.localeCompare(left.id),
+    );
+    return rows[0];
+  },
+
+  async nextAttemptNumber(
+    owner: string,
+    level: Level,
+    examId: string,
+  ): Promise<number> {
+    const rows = await db.examAttempts
+      .where("[owner+level+examId]")
+      .equals([owner, level, examId])
+      .toArray();
+    let max = 0;
+    for (const row of rows) {
+      if (row.attemptNumber > max) max = row.attemptNumber;
+    }
+    return max + 1;
+  },
+
+  async saveDraft(draft: ActiveExamDraft): Promise<void> {
+    validateDraft(draft);
+    await db.transaction("rw", db.activeExamDrafts, db.settings, async () => {
+      if (await isOwnerRetired(draft.owner)) {
+        throw new Error("Owner is retired");
+      }
+      await db.activeExamDrafts.put(draft);
+    });
+  },
+
+  async loadDraft(
+    owner: string,
+    level: Level,
+    examId: string,
+  ): Promise<ActiveExamDraft | null> {
+    const row = await db.activeExamDrafts.get([owner, level, examId]);
+    return row ?? null;
+  },
+
+  async clearDraft(owner: string, level: Level, examId: string): Promise<void> {
+    await db.activeExamDrafts.delete([owner, level, examId]);
   },
 
   async getCachedExam(

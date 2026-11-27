@@ -10,7 +10,7 @@ afterEach(() => db.delete());
 it("persists versions independently and keeps the selected level under its own key", async () => {
   await db.open();
   expect(db.name).toBe("luyen-jlpt");
-  expect(db.verno).toBe(3);
+  expect(db.verno).toBe(4);
   const next = structuredClone(miniPack);
   next.manifest.version = "1.1.0";
   for (const pack of [miniPack, next]) {
@@ -45,4 +45,5 @@ it("keeps version-one pack data and preferences when upgrading for progress", as
   expect(await db.progress.count()).toBe(0);
   expect(await db.examAttempts.count()).toBe(0);
   expect(await db.examPacks.count()).toBe(0);
+  expect(await db.activeExamDrafts.count()).toBe(0);
 });

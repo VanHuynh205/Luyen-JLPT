@@ -209,4 +209,97 @@ describe("examSource", () => {
     });
     expect(await db.examPacks.get(["n4", entry.id])).toBeUndefined();
   });
+
+  it("returns code not-found when exam index or document responds with HTTP 404", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("Not Found", { status: 404 })),
+    );
+
+    const indexResult = await loadExamIndex("n3", "/packs");
+    expect(indexResult).toMatchObject({
+      ok: false,
+      error: { code: "not-found" },
+    });
+
+    const { index } = makeFixture(sampleExam());
+    const docResult = await loadExamDocument("n4", index.exams[0], "/packs");
+    expect(docResult).toMatchObject({
+      ok: false,
+      error: { code: "not-found" },
+    });
+  });
+
+  it("returns code size-limit when exam index exceeds 1 MB or exam document exceeds 16 MB", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(
+        async () =>
+          new Response("{}", {
+            status: 200,
+            headers: { "Content-Length": String(1_048_577) },
+          }),
+      ),
+    );
+    const oversizedIndex = await loadExamIndex("n4", "/packs");
+    expect(oversizedIndex).toMatchObject({
+      ok: false,
+      error: { code: "size-limit" },
+    });
+
+    const { index } = makeFixture(sampleExam());
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        const chunk = new Uint8Array(4 * 1024 * 1024);
+        for (let i = 0; i < 5; i++) {
+          controller.enqueue(chunk);
+        }
+        controller.close();
+      },
+    });
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(stream, { status: 200 })),
+    );
+    const oversizedDoc = await loadExamDocument("n4", index.exams[0], "/packs");
+    expect(oversizedDoc).toMatchObject({
+      ok: false,
+      error: { code: "size-limit" },
+    });
+  });
+
+  it("aborts hung exam fetch via AbortSignal", async () => {
+    let seenSignal: AbortSignal | undefined;
+    const fetchSpy = vi.fn(
+      (_input: string | URL | Request, init?: RequestInit) =>
+        new Promise<Response>((_resolve, reject) => {
+          seenSignal = init?.signal ?? undefined;
+          if (init?.signal?.aborted) {
+            reject(
+              init.signal.reason ?? new DOMException("Aborted", "AbortError"),
+            );
+            return;
+          }
+          init?.signal?.addEventListener("abort", () => {
+            reject(
+              init.signal?.reason ?? new DOMException("Aborted", "AbortError"),
+            );
+          });
+        }),
+    );
+    vi.stubGlobal("fetch", fetchSpy);
+
+    const controller = new AbortController();
+    const pending = loadExamIndex("n4", "/packs", controller.signal);
+    controller.abort(new DOMException("Timed out", "TimeoutError"));
+
+    const result = await pending;
+    expect(seenSignal).toBeInstanceOf(AbortSignal);
+    expect(seenSignal?.aborted).toBe(true);
+    expect(result).toMatchObject({
+      ok: false,
+      error: { code: "network" },
+    });
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
 });
