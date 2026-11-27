@@ -1,6 +1,11 @@
 import { throwIfAborted } from "@/core/abort";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Level } from "../../core/content/types";
+import { mergeExamAttempts } from "../../core/exam/engine";
+import type {
+  ExamAttemptStatus,
+  ExamSectionAttemptSummary,
+} from "../../core/exam/types";
 import {
   PROGRESS_KINDS,
   type ProgressKind,
@@ -24,6 +29,18 @@ type WireRow = WireBase &
         wrong_item_ids: string[];
       }
     | { id: string; item_id: string; score: number; total: number }
+    | {
+        id: string;
+        exam_id: string;
+        status: ExamAttemptStatus;
+        attempt_number: number;
+        total_score: number;
+        total_questions: number;
+        sections: ExamSectionAttemptSummary[];
+        answers: Record<string, number>;
+        started_at: string;
+        completed_at: string | null;
+      }
   );
 type RemoteRow = WireRow & { server_updated_at: string };
 
@@ -32,10 +49,16 @@ const columns = {
   grammar_learned: "item_id,learned",
   kanji_quiz_attempts: "id,mode,score,total,wrong_item_ids",
   reading_attempts: "id,item_id,score,total",
+  exam_attempts:
+    "id,exam_id,status,attempt_number,total_score,total_questions,sections,answers,started_at,completed_at",
 } satisfies Record<ProgressKind, string>;
 
 function isStatus(kind: ProgressKind) {
   return kind === "card_status" || kind === "grammar_learned";
+}
+
+function cursorIdColumn(kind: ProgressKind): string {
+  return isStatus(kind) ? "item_id" : "id";
 }
 
 function toWire(row: ProgressRow): WireRow {
@@ -65,6 +88,20 @@ function toWire(row: ProgressRow): WireRow {
         item_id: row.passageId,
         score: row.score,
         total: row.total,
+      };
+    case "exam_attempts":
+      return {
+        ...base,
+        id: row.id,
+        exam_id: row.examId,
+        status: row.status,
+        attempt_number: row.attemptNumber,
+        total_score: row.totalScore,
+        total_questions: row.totalQuestions,
+        sections: row.sections,
+        answers: row.answers,
+        started_at: row.startedAt,
+        completed_at: row.completedAt,
       };
   }
 }
@@ -98,6 +135,21 @@ function fromWire(kind: ProgressKind, wire: RemoteRow): ProgressRow {
       score: wire.score,
       total: wire.total,
     };
+  if (kind === "exam_attempts" && "exam_id" in wire)
+    return {
+      ...base,
+      kind,
+      id: wire.id,
+      examId: wire.exam_id,
+      status: wire.status,
+      attemptNumber: wire.attempt_number,
+      totalScore: wire.total_score,
+      totalQuestions: wire.total_questions,
+      sections: wire.sections,
+      answers: wire.answers,
+      startedAt: wire.started_at,
+      completedAt: wire.completed_at,
+    };
   throw new Error("Unexpected progress row");
 }
 
@@ -119,17 +171,28 @@ export function createSupabaseProgressRemote(
       }
       for (const kind of PROGRESS_KINDS) {
         const status = isStatus(kind);
+        const isExamAttempt = kind === "exam_attempts";
         const batch = new Map<string, ProgressRow>();
         for (const { row } of entries) {
           if (row.kind !== kind) continue;
           const key = status ? `${row.level}:${row.id}` : row.id;
           const previous = batch.get(key);
-          if (
-            !previous ||
-            (status &&
-              timestampKey(row.updatedAt) > timestampKey(previous.updatedAt))
-          )
+          if (!previous) {
             batch.set(key, row);
+          } else if (
+            status &&
+            timestampKey(row.updatedAt) > timestampKey(previous.updatedAt)
+          ) {
+            batch.set(key, row);
+          } else if (
+            previous.kind === "exam_attempts" &&
+            row.kind === "exam_attempts"
+          ) {
+            batch.set(key, {
+              ...mergeExamAttempts(previous, row),
+              kind: "exam_attempts",
+            });
+          }
         }
         if (!batch.size) continue;
         throwIfAborted(signal);
@@ -137,7 +200,7 @@ export function createSupabaseProgressRemote(
           .from(kind)
           .upsert([...batch.values()].map(toWire), {
             onConflict: status ? "user_id,level,item_id" : "id",
-            ignoreDuplicates: !status,
+            ignoreDuplicates: !status && !isExamAttempt,
           })
           .abortSignal(signal);
         if (error) throw error;
@@ -145,7 +208,7 @@ export function createSupabaseProgressRemote(
     },
 
     async pull(owner, kind, after, limit, signal) {
-      const idColumn = isStatus(kind) ? "item_id" : "id";
+      const idColumn = cursorIdColumn(kind);
       const query = client
         .from(kind)
         .select(

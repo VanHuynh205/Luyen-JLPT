@@ -102,7 +102,11 @@ describe("ProgressPage", () => {
         owner: "guest",
         level: "n4",
         examId: "n4-2023-12",
+        status: "completed",
+        attemptNumber: 1,
+        startedAt: "2026-11-25T09:30:00.000Z",
         completedAt: "2026-11-25T10:30:00.000Z",
+        updatedAt: "2026-11-25T10:30:00.000Z",
         totalScore: 42,
         totalQuestions: 55,
         sections: [
@@ -112,6 +116,7 @@ describe("ProgressPage", () => {
             score: 18,
             total: 20,
             elapsedSeconds: 900,
+            submittedAt: "2026-11-25T09:45:00.000Z",
           },
           {
             key: "grammar_reading",
@@ -119,6 +124,7 @@ describe("ProgressPage", () => {
             score: 24,
             total: 35,
             elapsedSeconds: 2100,
+            submittedAt: "2026-11-25T10:20:00.000Z",
           },
           {
             key: "listening",
@@ -126,6 +132,7 @@ describe("ProgressPage", () => {
             score: 0,
             total: 0,
             elapsedSeconds: 0,
+            submittedAt: "2026-11-25T10:30:00.000Z",
           },
         ],
         answers: {},
@@ -135,7 +142,11 @@ describe("ProgressPage", () => {
         owner: "guest",
         level: "n4",
         examId: "n4-2022-07",
+        status: "completed",
+        attemptNumber: 1,
+        startedAt: "2026-11-24T07:00:00.000Z",
         completedAt: "2026-11-24T08:00:00.000Z",
+        updatedAt: "2026-11-24T08:00:00.000Z",
         totalScore: 30,
         totalQuestions: 50,
         sections: [
@@ -145,6 +156,7 @@ describe("ProgressPage", () => {
             score: 15,
             total: 20,
             elapsedSeconds: 900,
+            submittedAt: "2026-11-24T07:15:00.000Z",
           },
           {
             key: "grammar_reading",
@@ -152,6 +164,7 @@ describe("ProgressPage", () => {
             score: 15,
             total: 30,
             elapsedSeconds: 2000,
+            submittedAt: "2026-11-24T07:50:00.000Z",
           },
           {
             key: "listening",
@@ -159,6 +172,7 @@ describe("ProgressPage", () => {
             score: 0,
             total: 0,
             elapsedSeconds: 0,
+            submittedAt: "2026-11-24T08:00:00.000Z",
           },
         ],
         answers: {},

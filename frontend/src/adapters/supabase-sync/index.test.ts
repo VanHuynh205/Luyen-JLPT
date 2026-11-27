@@ -132,3 +132,137 @@ it("coalesces state upserts and sends immutable reading attempts with the SQL wi
     },
   ]);
 });
+
+it("pushes exam_attempts with merge-duplicates on id and pulls using id cursor column", async () => {
+  const examRow1: Extract<ProgressRow, { kind: "exam_attempts" }> = {
+    owner,
+    level: "n4",
+    id: attemptId,
+    kind: "exam_attempts",
+    examId: "n4-2024-12",
+    status: "in_progress",
+    attemptNumber: 1,
+    startedAt: "2026-11-27T07:45:00.000Z",
+    completedAt: null,
+    updatedAt: "2026-11-27T08:00:00.000Z",
+    totalScore: 24,
+    totalQuestions: 85,
+    sections: [
+      {
+        key: "vocab",
+        status: "submitted",
+        score: 24,
+        total: 28,
+        elapsedSeconds: 900,
+        submittedAt: "2026-11-27T08:00:00.000Z",
+      },
+      {
+        key: "grammar_reading",
+        status: "pending",
+        score: 0,
+        total: 29,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      {
+        key: "listening",
+        status: "pending",
+        score: 0,
+        total: 28,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+    ],
+    answers: { "q-1": 2 },
+  };
+  const examRow2: Extract<ProgressRow, { kind: "exam_attempts" }> = {
+    ...examRow1,
+    updatedAt: "2026-11-27T08:30:00.000Z",
+    totalScore: 44,
+    sections: [
+      examRow1.sections[0],
+      {
+        key: "grammar_reading",
+        status: "submitted",
+        score: 20,
+        total: 29,
+        elapsedSeconds: 1800,
+        submittedAt: "2026-11-27T08:30:00.000Z",
+      },
+      examRow1.sections[2],
+    ],
+    answers: { "q-1": 2, "q-2": 1 },
+  };
+
+  const { remote, requests } = setup([
+    {
+      id: attemptId,
+      user_id: owner,
+      level: "n4",
+      exam_id: "n4-2024-12",
+      status: "in_progress",
+      attempt_number: 1,
+      total_score: 44,
+      total_questions: 85,
+      sections: examRow2.sections,
+      answers: examRow2.answers,
+      started_at: examRow2.startedAt,
+      completed_at: null,
+      client_updated_at: examRow2.updatedAt,
+      server_updated_at: time,
+    },
+  ]);
+
+  const signal = new AbortController().signal;
+  await remote.push(
+    owner,
+    [
+      { opId: "op-1", owner, row: examRow1 },
+      { opId: "op-2", owner, row: examRow2 },
+    ],
+    signal,
+  );
+
+  const pushReq = requests.find((r) =>
+    new URL(r.url).pathname.endsWith("/exam_attempts"),
+  )!;
+  expect(new URL(pushReq.url).searchParams.get("on_conflict")).toBe("id");
+  expect(pushReq.headers.get("prefer")).toContain(
+    "resolution=merge-duplicates",
+  );
+  expect(await pushReq.json()).toEqual([
+    {
+      id: attemptId,
+      user_id: owner,
+      level: "n4",
+      exam_id: "n4-2024-12",
+      status: "in_progress",
+      attempt_number: 1,
+      total_score: 44,
+      total_questions: 85,
+      sections: examRow2.sections,
+      answers: examRow2.answers,
+      started_at: examRow2.startedAt,
+      completed_at: null,
+      client_updated_at: examRow2.updatedAt,
+    },
+  ]);
+
+  const pulled = await remote.pull(
+    owner,
+    "exam_attempts",
+    { id: attemptId, serverUpdatedAt: time },
+    10,
+    signal,
+  );
+  expect(pulled).toHaveLength(1);
+  expect(pulled[0].row).toEqual(examRow2);
+  expect(pulled[0].cursor).toEqual({ id: attemptId, serverUpdatedAt: time });
+  const pullUrl = new URL(requests[requests.length - 1].url);
+  expect(pullUrl.searchParams.get("order")).toBe(
+    "server_updated_at.asc,id.asc",
+  );
+  expect(pullUrl.searchParams.get("or")).toBe(
+    `(server_updated_at.gt."${time}",and(server_updated_at.eq."${time}",id.gt."${attemptId}"))`,
+  );
+});

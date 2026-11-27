@@ -91,12 +91,21 @@ export type ExamSectionStatus =
   | "timed_out"
   | "skipped";
 
+export type ExamSectionAttemptStatus =
+  | "pending"
+  | "submitted"
+  | "timed_out"
+  | "skipped";
+
+export type ExamAttemptStatus = "in_progress" | "completed";
+
 export interface ExamSectionAttemptSummary {
   key: ExamSectionKey;
-  status: "submitted" | "timed_out" | "skipped";
+  status: ExamSectionAttemptStatus;
   score: number;
   total: number;
   elapsedSeconds: number;
+  submittedAt: string | null;
 }
 
 export interface ExamAttemptRecord {
@@ -104,7 +113,11 @@ export interface ExamAttemptRecord {
   owner: string;
   level: Level;
   examId: string;
-  completedAt: string;
+  status: ExamAttemptStatus;
+  attemptNumber: number;
+  startedAt: string;
+  completedAt: string | null;
+  updatedAt: string;
   totalScore: number;
   totalQuestions: number;
   sections: ExamSectionAttemptSummary[];

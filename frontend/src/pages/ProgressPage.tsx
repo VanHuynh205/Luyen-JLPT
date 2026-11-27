@@ -74,7 +74,9 @@ function ExamAttemptsSection({
                   {titleById.get(attempt.examId) ?? attempt.examId}
                 </p>
                 <p className="mt-0.5 text-xs text-muted-foreground">
-                  {formatExamCompletedAt(attempt.completedAt)}
+                  {formatExamCompletedAt(
+                    attempt.completedAt ?? attempt.updatedAt,
+                  )}
                 </p>
               </div>
               <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">

@@ -47,13 +47,18 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-type FinalSectionStatus = ExamSectionAttemptSummary["status"];
+type FinalSectionStatus = Exclude<
+  ExamSectionAttemptSummary["status"],
+  "pending"
+>;
 
-const STATUS_BADGE_LABEL: Record<FinalSectionStatus, string> = {
-  submitted: "Đã nộp",
-  timed_out: "Hết giờ",
-  skipped: "Bỏ qua",
-};
+const STATUS_BADGE_LABEL: Record<ExamSectionAttemptSummary["status"], string> =
+  {
+    pending: "Chưa làm",
+    submitted: "Đã nộp",
+    timed_out: "Hết giờ",
+    skipped: "Bỏ qua",
+  };
 
 function createRunId(): string {
   if (

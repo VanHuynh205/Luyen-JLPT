@@ -1,10 +1,27 @@
 import { LEVELS, type Level } from "../content/types";
 import {
+  EXAM_SECTION_KEYS,
+  type ExamAttemptStatus,
+  type ExamSectionAttemptStatus,
+  type ExamSectionAttemptSummary,
+} from "../exam/types";
+import {
   KanjiQuizMode,
   type KanjiQuizResult,
   type ProgressSummary,
   type ReadingResult,
 } from "./types";
+
+const EXAM_SECTION_STATUSES: readonly ExamSectionAttemptStatus[] = [
+  "pending",
+  "submitted",
+  "timed_out",
+  "skipped",
+];
+const FORBIDDEN_KEYS = new Set(["__proto__", "constructor", "prototype"]);
+const MAX_EXAM_ANSWERS_BYTES = 65_536;
+const MAX_EXAM_SECTIONS_BYTES = 16_384;
+const textEncoder = new TextEncoder();
 
 export const GUEST_OWNER = "guest";
 
@@ -22,6 +39,18 @@ export type ReadingAttemptInput = {
   score: number;
   total: number;
 };
+export type ExamAttemptProgressInput = {
+  id?: string;
+  examId: string;
+  status: ExamAttemptStatus;
+  attemptNumber: number;
+  startedAt: string;
+  completedAt: string | null;
+  totalScore: number;
+  totalQuestions: number;
+  sections: ExamSectionAttemptSummary[];
+  answers: Record<string, number>;
+};
 
 type Base = ProgressScope & { id: string; updatedAt: string };
 export type ProgressRow = Base &
@@ -30,6 +59,7 @@ export type ProgressRow = Base &
     | { kind: "grammar_learned"; learned: boolean }
     | ({ kind: "kanji_quiz_attempts" } & Omit<KanjiQuizInput, "id">)
     | ({ kind: "reading_attempts" } & Omit<ReadingAttemptInput, "id">)
+    | ({ kind: "exam_attempts" } & Omit<ExamAttemptProgressInput, "id">)
   );
 
 export type ProgressKind = ProgressRow["kind"];
@@ -38,6 +68,7 @@ export const PROGRESS_KINDS: readonly ProgressKind[] = [
   "grammar_learned",
   "kanji_quiz_attempts",
   "reading_attempts",
+  "exam_attempts",
 ];
 
 export function isState(row: ProgressRow) {
@@ -82,6 +113,95 @@ export function validateProgressRow(row: ProgressRow) {
         "boolean"
     ) {
       throw new Error("Invalid progress state");
+    }
+    return;
+  }
+  if (row.kind === "exam_attempts") {
+    if (
+      !uuid.test(row.id) ||
+      !itemId(row.examId) ||
+      row.examId.includes("/") ||
+      row.examId.includes("..") ||
+      (row.status !== "in_progress" && row.status !== "completed") ||
+      !Number.isInteger(row.attemptNumber) ||
+      row.attemptNumber < 1 ||
+      row.attemptNumber > 10_000 ||
+      !Number.isInteger(row.totalQuestions) ||
+      row.totalQuestions < 1 ||
+      row.totalQuestions > 1000 ||
+      !Number.isInteger(row.totalScore) ||
+      row.totalScore < 0 ||
+      row.totalScore > row.totalQuestions
+    ) {
+      throw new Error("Invalid exam attempt");
+    }
+    timestampKey(row.startedAt);
+    if (row.status === "completed") {
+      if (typeof row.completedAt !== "string") {
+        throw new Error("Completed exam attempt requires completedAt");
+      }
+      timestampKey(row.completedAt);
+    } else if (row.completedAt !== null) {
+      throw new Error("In-progress exam attempt must have null completedAt");
+    }
+    if (
+      !Array.isArray(row.sections) ||
+      row.sections.length < 1 ||
+      row.sections.length > 10 ||
+      textEncoder.encode(JSON.stringify(row.sections)).byteLength >
+        MAX_EXAM_SECTIONS_BYTES
+    ) {
+      throw new Error("Invalid exam attempt sections");
+    }
+    const seenKeys = new Set<string>();
+    for (const section of row.sections) {
+      if (
+        !section ||
+        typeof section !== "object" ||
+        Array.isArray(section) ||
+        !EXAM_SECTION_KEYS.includes(section.key) ||
+        seenKeys.has(section.key) ||
+        !EXAM_SECTION_STATUSES.includes(section.status) ||
+        !Number.isInteger(section.total) ||
+        section.total < 0 ||
+        section.total > 1000 ||
+        !Number.isInteger(section.score) ||
+        section.score < 0 ||
+        section.score > section.total ||
+        !Number.isSafeInteger(section.elapsedSeconds) ||
+        section.elapsedSeconds < 0
+      ) {
+        throw new Error("Invalid exam section summary");
+      }
+      if (section.submittedAt !== null) {
+        if (typeof section.submittedAt !== "string" || !section.submittedAt) {
+          throw new Error("Invalid exam section submittedAt");
+        }
+        timestampKey(section.submittedAt);
+      }
+      seenKeys.add(section.key);
+    }
+    if (
+      typeof row.answers !== "object" ||
+      row.answers === null ||
+      Array.isArray(row.answers)
+    ) {
+      throw new Error("Invalid exam attempt answers");
+    }
+    for (const key of Object.keys(row.answers)) {
+      if (FORBIDDEN_KEYS.has(key) || !itemId(key)) {
+        throw new Error("Invalid exam answer key");
+      }
+      const value = row.answers[key];
+      if (!Number.isInteger(value) || value < 0 || value > 3) {
+        throw new Error("Invalid exam answer choice");
+      }
+    }
+    if (
+      textEncoder.encode(JSON.stringify(row.answers)).byteLength >
+      MAX_EXAM_ANSWERS_BYTES
+    ) {
+      throw new Error("Exam attempt answers exceed size limit");
     }
     return;
   }
@@ -167,6 +287,8 @@ export function summarizeProgress(rows: ProgressRow[]): ProgressSummary {
         }
         break;
       }
+      case "exam_attempts":
+        break;
     }
   }
   return {

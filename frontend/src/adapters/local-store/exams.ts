@@ -4,6 +4,7 @@ import {
   type ExamAttemptRecord,
   type ExamDocument,
   type ExamIndex,
+  type ExamSectionAttemptSummary,
 } from "../../core/exam/types";
 import {
   validateExamDocument,
@@ -16,9 +17,27 @@ import { isOwnerRetired } from "./retirement";
 const SHA256 = /^[a-f\d]{64}$/i;
 const FINAL_STATUSES = new Set(["submitted", "timed_out", "skipped"]);
 
-export type ExamAttemptInput = Omit<ExamAttemptRecord, "id" | "completedAt"> & {
+export type ExamAttemptInput = Omit<
+  ExamAttemptRecord,
+  | "id"
+  | "completedAt"
+  | "status"
+  | "attemptNumber"
+  | "startedAt"
+  | "updatedAt"
+  | "sections"
+> & {
   id?: string;
-  completedAt?: string;
+  status?: ExamAttemptRecord["status"];
+  attemptNumber?: number;
+  startedAt?: string;
+  completedAt?: string | null;
+  updatedAt?: string;
+  sections: Array<
+    Omit<ExamSectionAttemptSummary, "submittedAt"> & {
+      submittedAt?: string | null;
+    }
+  >;
 };
 
 function newAttemptId(): string {
@@ -63,7 +82,10 @@ function validateAttemptRecord(record: ExamAttemptRecord): void {
   ) {
     throw new Error("Invalid examId");
   }
-  timestampKey(record.completedAt);
+  if (record.completedAt !== null) {
+    timestampKey(record.completedAt);
+  }
+  timestampKey(record.updatedAt);
   if (
     !isNonNegInt(record.totalQuestions) ||
     !isNonNegInt(record.totalScore) ||
@@ -124,10 +146,31 @@ function indexKey(level: Level): string {
 
 export const examStore = {
   async recordAttempt(input: ExamAttemptInput): Promise<ExamAttemptRecord> {
+    const now =
+      input.updatedAt ?? input.completedAt ?? new Date().toISOString();
+    const status = input.status ?? "completed";
     const record: ExamAttemptRecord = {
       ...input,
       id: input.id ?? newAttemptId(),
-      completedAt: input.completedAt ?? new Date().toISOString(),
+      status,
+      attemptNumber: input.attemptNumber ?? 1,
+      startedAt: input.startedAt ?? now,
+      completedAt:
+        input.completedAt !== undefined
+          ? input.completedAt
+          : status === "completed"
+            ? now
+            : null,
+      updatedAt: now,
+      sections: input.sections.map((section) => ({
+        ...section,
+        submittedAt:
+          section.submittedAt !== undefined
+            ? section.submittedAt
+            : section.status === "pending"
+              ? null
+              : now,
+      })),
     };
     validateAttemptRecord(record);
     return db.transaction("rw", db.examAttempts, db.settings, async () => {
@@ -155,8 +198,8 @@ export const examStore = {
           .toArray();
     rows.sort(
       (left, right) =>
-        timestampKey(right.completedAt).localeCompare(
-          timestampKey(left.completedAt),
+        timestampKey(right.completedAt ?? right.updatedAt).localeCompare(
+          timestampKey(left.completedAt ?? left.updatedAt),
         ) || right.id.localeCompare(left.id),
     );
     return rows;

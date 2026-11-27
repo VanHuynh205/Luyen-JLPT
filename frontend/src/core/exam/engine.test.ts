@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   EXAM_SECTION_DURATIONS,
+  buildExamAttemptSnapshot,
   canAccessSection,
   computeRemainingSeconds,
   countSectionQuestions,
@@ -8,9 +9,16 @@ import {
   gradeSection,
   isSectionLocked,
   listSectionQuestions,
+  mergeExamAttempts,
   summarizeExamAttempt,
 } from "./engine";
-import type { ExamDocument, ExamQuestion, ExamSection } from "./types";
+import type {
+  ExamAttemptRecord,
+  ExamDocument,
+  ExamQuestion,
+  ExamSection,
+  ExamSectionAttemptSummary,
+} from "./types";
 
 function question(
   id: string,
@@ -178,7 +186,11 @@ describe("exam engine", () => {
       owner: "guest",
       level: "n4",
       examId: "n4-2024-12",
+      status: "completed",
+      attemptNumber: 1,
+      startedAt: "2026-11-25T12:00:00.000Z",
       completedAt: "2026-11-25T12:00:00.000Z",
+      updatedAt: "2026-11-25T12:00:00.000Z",
       totalScore: 2,
       totalQuestions: 4,
       sections: [
@@ -188,6 +200,7 @@ describe("exam engine", () => {
           score: 2,
           total: 3,
           elapsedSeconds: 900,
+          submittedAt: "2026-11-25T12:00:00.000Z",
         },
         {
           key: "grammar_reading",
@@ -195,6 +208,7 @@ describe("exam engine", () => {
           score: 0,
           total: 1,
           elapsedSeconds: 3300,
+          submittedAt: "2026-11-25T12:00:00.000Z",
         },
         {
           key: "listening",
@@ -202,9 +216,243 @@ describe("exam engine", () => {
           score: 0,
           total: 0,
           elapsedSeconds: 0,
+          submittedAt: "2026-11-25T12:00:00.000Z",
         },
       ],
       answers: { q1: 0, q2: 2, q4: 0 },
     });
+  });
+
+  it("builds a partial in_progress snapshot when sections remain pending", () => {
+    const exam = makeExam();
+    const snapshot = buildExamAttemptSnapshot({
+      id: "attempt-partial",
+      owner: "user-1",
+      exam,
+      attemptNumber: 2,
+      startedAt: "2026-11-27T07:45:00.000Z",
+      updatedAt: "2026-11-27T08:00:00.000Z",
+      answers: { q1: 0, q2: 2, q4: 3, foreign: 1 },
+      sectionMeta: {
+        vocab: {
+          status: "submitted",
+          elapsedSeconds: 900,
+          submittedAt: "2026-11-27T08:00:00.000Z",
+        },
+      },
+    });
+
+    expect(snapshot).toEqual({
+      id: "attempt-partial",
+      owner: "user-1",
+      level: "n4",
+      examId: "n4-2024-12",
+      status: "in_progress",
+      attemptNumber: 2,
+      startedAt: "2026-11-27T07:45:00.000Z",
+      completedAt: null,
+      updatedAt: "2026-11-27T08:00:00.000Z",
+      totalScore: 2,
+      totalQuestions: 4,
+      sections: [
+        {
+          key: "vocab",
+          status: "submitted",
+          score: 2,
+          total: 3,
+          elapsedSeconds: 900,
+          submittedAt: "2026-11-27T08:00:00.000Z",
+        },
+        {
+          key: "grammar_reading",
+          status: "pending",
+          score: 0,
+          total: 1,
+          elapsedSeconds: 0,
+          submittedAt: null,
+        },
+        {
+          key: "listening",
+          status: "pending",
+          score: 0,
+          total: 0,
+          elapsedSeconds: 0,
+          submittedAt: null,
+        },
+      ],
+      answers: { q1: 0, q2: 2 },
+    });
+  });
+
+  it("preserves submitted section 1 when merging a newer-clock stale pending snapshot (Review Focus #1)", () => {
+    const makeSnapshot = (opts: {
+      updatedAt: string;
+      vocab: Omit<ExamSectionAttemptSummary, "key">;
+      grammar_reading: Omit<ExamSectionAttemptSummary, "key">;
+      listening: Omit<ExamSectionAttemptSummary, "key">;
+      answers: Record<string, number>;
+      status?: "in_progress" | "completed";
+      completedAt?: string | null;
+    }): ExamAttemptRecord => ({
+      id: "attempt-sync-1",
+      owner: "user-1",
+      level: "n4",
+      examId: "n4-2024-12",
+      status: opts.status ?? "in_progress",
+      attemptNumber: 1,
+      startedAt: "2026-11-27T07:45:00.000Z",
+      completedAt: opts.completedAt ?? null,
+      updatedAt: opts.updatedAt,
+      totalScore:
+        opts.vocab.score + opts.grammar_reading.score + opts.listening.score,
+      totalQuestions:
+        opts.vocab.total + opts.grammar_reading.total + opts.listening.total,
+      sections: [
+        { key: "vocab", ...opts.vocab },
+        { key: "grammar_reading", ...opts.grammar_reading },
+        { key: "listening", ...opts.listening },
+      ],
+      answers: opts.answers,
+    });
+
+    const local = makeSnapshot({
+      updatedAt: "2026-11-27T08:00:00.000Z",
+      vocab: {
+        status: "submitted",
+        score: 24,
+        total: 28,
+        elapsedSeconds: 900,
+        submittedAt: "2026-11-27T08:00:00.000Z",
+      },
+      grammar_reading: {
+        status: "pending",
+        score: 0,
+        total: 29,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      listening: {
+        status: "pending",
+        score: 0,
+        total: 28,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      answers: { "q-1": 2 },
+    });
+    const staleRemote = makeSnapshot({
+      updatedAt: "2026-11-27T08:05:00.000Z",
+      vocab: {
+        status: "pending",
+        score: 0,
+        total: 28,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      grammar_reading: {
+        status: "pending",
+        score: 0,
+        total: 29,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      listening: {
+        status: "pending",
+        score: 0,
+        total: 28,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      answers: {},
+    });
+
+    const merged = mergeExamAttempts(local, staleRemote);
+    expect(merged.sections[0].status).toBe("submitted");
+    expect(merged.sections[0].score).toBe(24);
+    expect(merged.answers["q-1"]).toBe(2);
+    expect(merged.totalScore).toBe(24);
+    expect(merged.status).toBe("in_progress");
+    expect(merged.completedAt).toBeNull();
+  });
+
+  it("transitions attempt status to completed once all 3 sections are locked and keeps completed immutable", () => {
+    const base: ExamAttemptRecord = {
+      id: "attempt-sync-2",
+      owner: "user-1",
+      level: "n4",
+      examId: "n4-2024-12",
+      status: "in_progress",
+      attemptNumber: 1,
+      startedAt: "2026-11-27T07:45:00.000Z",
+      completedAt: null,
+      updatedAt: "2026-11-27T08:10:00.000Z",
+      totalScore: 40,
+      totalQuestions: 85,
+      sections: [
+        {
+          key: "vocab",
+          status: "submitted",
+          score: 20,
+          total: 28,
+          elapsedSeconds: 900,
+          submittedAt: "2026-11-27T08:00:00.000Z",
+        },
+        {
+          key: "grammar_reading",
+          status: "timed_out",
+          score: 20,
+          total: 29,
+          elapsedSeconds: 3300,
+          submittedAt: "2026-11-27T08:10:00.000Z",
+        },
+        {
+          key: "listening",
+          status: "pending",
+          score: 0,
+          total: 28,
+          elapsedSeconds: 0,
+          submittedAt: null,
+        },
+      ],
+      answers: { "q-1": 1, "q-2": 3 },
+    };
+
+    const finishListening: ExamAttemptRecord = {
+      ...base,
+      updatedAt: "2026-11-27T08:20:00.000Z",
+      sections: [
+        base.sections[0],
+        base.sections[1],
+        {
+          key: "listening",
+          status: "skipped",
+          score: 0,
+          total: 28,
+          elapsedSeconds: 0,
+          submittedAt: "2026-11-27T08:20:00.000Z",
+        },
+      ],
+      answers: { "q-1": 1, "q-2": 3 },
+    };
+
+    const completed = mergeExamAttempts(base, finishListening);
+    expect(completed.status).toBe("completed");
+    expect(completed.completedAt).toBe("2026-11-27T08:20:00.000Z");
+    expect(completed.totalScore).toBe(40);
+
+    const tamperAttempt: ExamAttemptRecord = {
+      ...completed,
+      updatedAt: "2026-11-27T09:00:00.000Z",
+      totalScore: 85,
+      sections: completed.sections.map((s) => ({
+        ...s,
+        status: "submitted",
+        score: s.total,
+      })),
+      answers: { "q-1": 0 },
+    };
+
+    const immutable = mergeExamAttempts(completed, tamperAttempt);
+    expect(immutable).toEqual(completed);
   });
 });
