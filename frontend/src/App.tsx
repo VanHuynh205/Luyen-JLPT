@@ -2,6 +2,7 @@ import { completeNativeSignIn } from "@/adapters/auth/client";
 import { listenForNativeAuth } from "@/adapters/auth/nativeAuth";
 import { Layout } from "@/components/Layout";
 import { NativeUpdates } from "@/components/NativeUpdates";
+import { PwaUpdatePrompt } from "@/components/PwaUpdatePrompt";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import { useThemePreference } from "@/hooks/useThemePreference";
@@ -44,6 +45,7 @@ function RootShell() {
       <Layout routeKey={pathname} />
       <Toaster theme={resolved} position="top-center" closeButton />
       <NativeUpdates />
+      <PwaUpdatePrompt />
     </>
   );
 }
