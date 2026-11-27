@@ -54,13 +54,54 @@ function candidateSources(baseUrl: string, hasCache: boolean): string[] {
   return isBundled || hasCache ? [baseUrl] : [baseUrl, BUNDLED];
 }
 
-function buildRequestSignal(externalSignal?: AbortSignal): AbortSignal {
-  const timeoutSignal = AbortSignal.timeout(FETCH_TIMEOUT_MS);
-  if (!externalSignal) return timeoutSignal;
-  if (typeof AbortSignal.any === "function") {
-    return AbortSignal.any([externalSignal, timeoutSignal]);
+function createRequestSignal(externalSignal?: AbortSignal): {
+  signal: AbortSignal;
+  cleanup: () => void;
+} {
+  if (!externalSignal) {
+    if (typeof AbortSignal.timeout === "function") {
+      return {
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+        cleanup: () => {},
+      };
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      controller.abort(new DOMException("Timed out", "TimeoutError"));
+    }, FETCH_TIMEOUT_MS);
+    return { signal: controller.signal, cleanup: () => clearTimeout(timer) };
   }
-  return externalSignal;
+
+  if (
+    typeof AbortSignal.any === "function" &&
+    typeof AbortSignal.timeout === "function"
+  ) {
+    return {
+      signal: AbortSignal.any([
+        externalSignal,
+        AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      ]),
+      cleanup: () => {},
+    };
+  }
+
+  const controller = new AbortController();
+  const forwardAbort = () => controller.abort(externalSignal.reason);
+  if (externalSignal.aborted) {
+    forwardAbort();
+    return { signal: controller.signal, cleanup: () => {} };
+  }
+  externalSignal.addEventListener("abort", forwardAbort, { once: true });
+  const timer = setTimeout(() => {
+    controller.abort(new DOMException("Timed out", "TimeoutError"));
+  }, FETCH_TIMEOUT_MS);
+  return {
+    signal: controller.signal,
+    cleanup: () => {
+      clearTimeout(timer);
+      externalSignal.removeEventListener("abort", forwardAbort);
+    },
+  };
 }
 
 async function readResponseBytesWithLimit(
@@ -150,10 +191,9 @@ export async function loadExamIndex(
 
   for (const source of candidateSources(baseUrl, cached !== null)) {
     const url = `${basePath(source)}/${level}/exams/index.json`;
+    const req = createRequestSignal(signal);
     try {
-      const response = await fetch(url, {
-        signal: buildRequestSignal(signal),
-      });
+      const response = await fetch(url, { signal: req.signal });
       if (!response.ok) {
         lastError = {
           code: response.status === 404 ? "not-found" : "network",
@@ -192,6 +232,9 @@ export async function loadExamIndex(
         code: "network",
         detail: error instanceof Error ? error.message : String(error),
       };
+      if (signal?.aborted) break;
+    } finally {
+      req.cleanup();
     }
   }
 
@@ -216,10 +259,9 @@ export async function loadExamDocument(
 
   for (const source of candidateSources(baseUrl, false)) {
     const url = `${basePath(source)}/${level}/exams/${entry.id}.json`;
+    const req = createRequestSignal(signal);
     try {
-      const response = await fetch(url, {
-        signal: buildRequestSignal(signal),
-      });
+      const response = await fetch(url, { signal: req.signal });
       if (!response.ok) {
         lastError = {
           code: response.status === 404 ? "not-found" : "network",
@@ -269,6 +311,9 @@ export async function loadExamDocument(
         code: "network",
         detail: error instanceof Error ? error.message : String(error),
       };
+      if (signal?.aborted) break;
+    } finally {
+      req.cleanup();
     }
   }
 

@@ -1,5 +1,5 @@
 import { throwIfAborted } from "@/core/abort";
-import type { SupabaseClient } from "@supabase/supabase-js";
+import type { PostgrestError, SupabaseClient } from "@supabase/supabase-js";
 import type { Level } from "../../core/content/types";
 import { mergeExamAttempts } from "../../core/exam/engine";
 import type {
@@ -157,6 +157,166 @@ function filterValue(value: string) {
   return `"${value.replace(/["\\]/g, "\\$&")}"`;
 }
 
+type ExamAttemptProgressRow = Extract<ProgressRow, { kind: "exam_attempts" }>;
+
+const MAX_CONFLICT_RETRIES = 3;
+
+function isExamAttemptRow(row: ProgressRow): row is ExamAttemptProgressRow {
+  return row.kind === "exam_attempts";
+}
+
+function isExamConflictError(
+  error: { code?: string } | null | undefined,
+): boolean {
+  return error?.code === "23514" || error?.code === "23505";
+}
+
+function isLockedExamSectionStatus(
+  status: ExamSectionAttemptSummary["status"],
+): boolean {
+  return (
+    status === "submitted" || status === "timed_out" || status === "skipped"
+  );
+}
+
+function mergeRemoteAndLocalExamAttempt(
+  remote: ExamAttemptProgressRow,
+  local: ExamAttemptProgressRow,
+): ExamAttemptProgressRow {
+  // Keep remote id, attemptNumber and locked sections so Postgres triggers never reject a regression.
+  const alignedLocal: ExamAttemptProgressRow = {
+    ...local,
+    id: remote.id,
+    attemptNumber: remote.attemptNumber,
+    sections: local.sections.map((localSec) => {
+      const remoteSec = remote.sections.find((s) => s.key === localSec.key);
+      if (remoteSec && isLockedExamSectionStatus(remoteSec.status)) {
+        return { ...remoteSec };
+      }
+      return localSec;
+    }),
+  };
+  return {
+    ...mergeExamAttempts(remote, alignedLocal),
+    kind: "exam_attempts",
+  };
+}
+
+function parseRemoteExamAttempt(
+  owner: string,
+  wire: RemoteRow | undefined,
+): ExamAttemptProgressRow | null {
+  if (!wire) return null;
+  const row = fromWire("exam_attempts", wire);
+  if (row.kind !== "exam_attempts" || row.owner !== owner) {
+    throw new Error("Progress pull scope mismatch");
+  }
+  validateProgressRow(row);
+  return row;
+}
+
+async function fetchExamAttemptById(
+  client: SupabaseClient,
+  owner: string,
+  id: string,
+  signal: AbortSignal,
+): Promise<ExamAttemptProgressRow | null> {
+  const { data, error } = await client
+    .from("exam_attempts")
+    .select(
+      `user_id,level,client_updated_at,server_updated_at,${columns.exam_attempts}`,
+    )
+    .eq("user_id", owner)
+    .eq("id", id)
+    .limit(1)
+    .abortSignal(signal)
+    .returns<RemoteRow[]>();
+  if (error) throw error;
+  return parseRemoteExamAttempt(owner, data[0]);
+}
+
+async function fetchInProgressExamAttempt(
+  client: SupabaseClient,
+  owner: string,
+  level: Level,
+  examId: string,
+  signal: AbortSignal,
+): Promise<ExamAttemptProgressRow | null> {
+  const { data, error } = await client
+    .from("exam_attempts")
+    .select(
+      `user_id,level,client_updated_at,server_updated_at,${columns.exam_attempts}`,
+    )
+    .eq("user_id", owner)
+    .eq("level", level)
+    .eq("exam_id", examId)
+    .eq("status", "in_progress")
+    .limit(1)
+    .abortSignal(signal)
+    .returns<RemoteRow[]>();
+  if (error) throw error;
+  return parseRemoteExamAttempt(owner, data[0]);
+}
+
+async function resolveExamAttemptConflict(
+  client: SupabaseClient,
+  owner: string,
+  localRow: ExamAttemptProgressRow,
+  initialError: PostgrestError,
+  signal: AbortSignal,
+): Promise<void> {
+  let targetId = localRow.id;
+  let lastError = initialError;
+
+  for (let attempt = 0; attempt < MAX_CONFLICT_RETRIES; attempt++) {
+    throwIfAborted(signal);
+    let remote = await fetchExamAttemptById(client, owner, targetId, signal);
+    if (!remote && lastError.code === "23505") {
+      remote = await fetchInProgressExamAttempt(
+        client,
+        owner,
+        localRow.level,
+        localRow.examId,
+        signal,
+      );
+      if (remote) {
+        targetId = remote.id;
+      } else {
+        const { error: retryError } = await client
+          .from("exam_attempts")
+          .upsert([toWire(localRow)], {
+            onConflict: "id",
+            ignoreDuplicates: false,
+          })
+          .abortSignal(signal);
+        if (!retryError) return;
+        if (!isExamConflictError(retryError)) throw retryError;
+        lastError = retryError;
+        continue;
+      }
+    }
+    if (!remote) {
+      throw lastError;
+    }
+    if (remote.status === "completed") {
+      return;
+    }
+
+    const merged = mergeRemoteAndLocalExamAttempt(remote, localRow);
+    const { error: updateError } = await client
+      .from("exam_attempts")
+      .update(toWire(merged))
+      .eq("user_id", owner)
+      .eq("id", remote.id)
+      .abortSignal(signal);
+    if (!updateError) return;
+    if (!isExamConflictError(updateError)) throw updateError;
+    lastError = updateError;
+  }
+
+  throw lastError;
+}
+
 export function createSupabaseProgressRemote(
   client: SupabaseClient,
 ): ProgressRemote {
@@ -203,7 +363,41 @@ export function createSupabaseProgressRemote(
             ignoreDuplicates: !status && !isExamAttempt,
           })
           .abortSignal(signal);
-        if (error) throw error;
+        if (error) {
+          if (!isExamAttempt || !isExamConflictError(error)) {
+            throw error;
+          }
+          const examRows = [...batch.values()].filter(isExamAttemptRow);
+          if (examRows.length === 1) {
+            await resolveExamAttemptConflict(
+              client,
+              owner,
+              examRows[0],
+              error,
+              signal,
+            );
+          } else {
+            for (const examRow of examRows) {
+              throwIfAborted(signal);
+              const { error: singleError } = await client
+                .from("exam_attempts")
+                .upsert([toWire(examRow)], {
+                  onConflict: "id",
+                  ignoreDuplicates: false,
+                })
+                .abortSignal(signal);
+              if (!singleError) continue;
+              if (!isExamConflictError(singleError)) throw singleError;
+              await resolveExamAttemptConflict(
+                client,
+                owner,
+                examRow,
+                singleError,
+                signal,
+              );
+            }
+          }
+        }
       }
     },
 

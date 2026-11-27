@@ -302,4 +302,47 @@ describe("examSource", () => {
     });
     expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
+
+  it("enforces fetch timeout even when AbortSignal.any is absent and an external signal is passed", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    const originalAny = AbortSignal.any;
+    Object.defineProperty(AbortSignal, "any", {
+      value: undefined,
+      configurable: true,
+    });
+    try {
+      let seenSignal: AbortSignal | undefined;
+      const fetchSpy = vi.fn(
+        (_input: string | URL | Request, init?: RequestInit) =>
+          new Promise<Response>((_resolve, reject) => {
+            seenSignal = init?.signal ?? undefined;
+            init?.signal?.addEventListener("abort", () => {
+              reject(
+                init.signal?.reason ??
+                  new DOMException("Timed out", "TimeoutError"),
+              );
+            });
+          }),
+      );
+      vi.stubGlobal("fetch", fetchSpy);
+
+      const external = new AbortController();
+      const pending = loadExamIndex("n4", "/packs", external.signal);
+      await vi.advanceTimersByTimeAsync(30_000);
+
+      const result = await pending;
+      expect(seenSignal?.aborted).toBe(true);
+      expect(external.signal.aborted).toBe(false);
+      expect(result).toMatchObject({
+        ok: false,
+        error: { code: "network" },
+      });
+    } finally {
+      Object.defineProperty(AbortSignal, "any", {
+        value: originalAny,
+        configurable: true,
+      });
+      vi.useRealTimers();
+    }
+  });
 });
