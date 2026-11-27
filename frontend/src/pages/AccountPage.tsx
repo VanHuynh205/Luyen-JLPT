@@ -15,7 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useMotionPreference } from "@/hooks/useMotionPreference";
+import {
+  type ThemePreference,
+  useThemePreference,
+} from "@/hooks/useThemePreference";
 import { isTauri } from "@tauri-apps/api/core";
+import { Monitor, Moon, Sun } from "lucide-react";
 import { type FormEvent, useState } from "react";
 
 type Mode = "login" | "signup" | "reset";
@@ -25,9 +30,21 @@ const modes: Record<Mode, string> = {
   reset: "Quên mật khẩu",
 };
 
+const THEME_OPTIONS: ReadonlyArray<{
+  value: ThemePreference;
+  label: string;
+  icon: typeof Sun;
+}> = [
+  { value: "light", label: "Sáng", icon: Sun },
+  { value: "dark", label: "Tối (Sumi đêm)", icon: Moon },
+  { value: "system", label: "Theo hệ thống", icon: Monitor },
+];
+
 function MotionSettingsCard() {
   const { setPreference, mode, osReduced, webglSupported, lowPerf } =
     useMotionPreference();
+  const { preference: themePreference, setPreference: setThemePreference } =
+    useThemePreference();
   const effectsEnabled = mode !== "reduced";
 
   const helperText = osReduced
@@ -49,7 +66,35 @@ function MotionSettingsCard() {
       >
         Giao diện &amp; hiệu ứng
       </h2>
-      <div className="mt-4 flex min-h-11 items-center justify-between gap-4">
+      <fieldset className="mt-4 space-y-2.5 border-0 p-0">
+        <legend className="text-sm font-medium text-foreground">
+          Chế độ màu
+        </legend>
+        <p className="text-xs text-muted-foreground">
+          Chọn nền giấy Washi sáng hoặc mực đêm Sumi dịu mắt.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {THEME_OPTIONS.map((option) => {
+            const Icon = option.icon;
+            const selected = themePreference === option.value;
+            return (
+              <Button
+                key={option.value}
+                type="button"
+                variant={selected ? "default" : "outline"}
+                aria-pressed={selected}
+                data-ocid={`account.theme.${option.value}.button`}
+                className="min-h-11 min-w-11 sm:min-h-11"
+                onClick={() => setThemePreference(option.value)}
+              >
+                <Icon className="size-4" aria-hidden="true" />
+                {option.label}
+              </Button>
+            );
+          })}
+        </div>
+      </fieldset>
+      <div className="mt-4 flex min-h-11 items-center justify-between gap-4 border-t pt-4">
         <div className="min-w-0 space-y-1">
           <Label
             htmlFor="account-motion-switch"

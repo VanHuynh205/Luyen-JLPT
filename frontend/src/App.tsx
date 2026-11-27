@@ -4,6 +4,7 @@ import { Layout } from "@/components/Layout";
 import { NativeUpdates } from "@/components/NativeUpdates";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
+import { useThemePreference } from "@/hooks/useThemePreference";
 import AboutPage from "@/pages/AboutPage";
 import AccountPage from "@/pages/AccountPage";
 import ExamListPage from "@/pages/ExamListPage";
@@ -37,10 +38,11 @@ import { toast } from "sonner";
 
 function RootShell() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { resolved } = useThemePreference();
   return (
     <>
       <Layout routeKey={pathname} />
-      <Toaster theme="light" position="top-center" closeButton />
+      <Toaster theme={resolved} position="top-center" closeButton />
       <NativeUpdates />
     </>
   );

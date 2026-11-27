@@ -1,22 +1,95 @@
+import {
+  type ResolvedTheme,
+  useThemePreference,
+} from "@/hooks/useThemePreference";
 import { cn } from "@/lib/utils";
 import type { JSX } from "react";
-import { MINCHO_FONT_FAMILY, SCENE_TOKENS, getKanjiForLevel } from "./tokens";
+import { MINCHO_FONT_FAMILY, getKanjiForLevel, getSceneTokens } from "./tokens";
 
 export interface DeskHeroFallbackProps {
   level: string;
+  theme?: ResolvedTheme;
   className?: string;
 }
 
 /** Immediate 0ms static Washi & Sumi desk illustration matching the 3D scene framing. */
 export function DeskHeroFallback({
   level,
+  theme,
   className,
 }: DeskHeroFallbackProps): JSX.Element {
+  const { resolved } = useThemePreference();
+  const activeTheme = theme ?? resolved;
+  const isDark = activeTheme === "dark";
+  const tokens = getSceneTokens(activeTheme);
   const kanji = getKanjiForLevel(level);
+
+  const palette = isDark
+    ? {
+        woodTop: "#5C4634",
+        woodBottom: "#3D2D20",
+        bevelStart: "#36271C",
+        bevelEnd: "#291D14",
+        deskEdge: "#765D46",
+        woodGrain: "#2A1F16",
+        plaqueStart: "#2A2E39",
+        plaqueEnd: "#20242E",
+        plaqueEdge: "#181B23",
+        plaqueStroke: "#3C4252",
+        card1Fill: "#20242E",
+        card1Stroke: "#333948",
+        card2Fill: "#242833",
+        card2Stroke: "#383E4F",
+        card3Fill: "#282D39",
+        card3Stroke: "#3D4457",
+        card4Stroke: "#464E64",
+        easelTop: "#3D2D20",
+        easelBottom: "#2C2016",
+        hankoStart: "#5E4634",
+        hankoEnd: "#2B1E16",
+        hankoBaseDark: "#A93B24",
+        hankoBaseTop: "#EF6D51",
+        hankoCollar: "#B89A6C",
+        hankoCap: "#5B4332",
+        hankoCapInner: "#6D523E",
+        shadowPeak: "0.34",
+        shadowMid: "0.14",
+      }
+    : {
+        woodTop: "#9A7957",
+        woodBottom: "#77593C",
+        bevelStart: "#6D5136",
+        bevelEnd: "#563E28",
+        deskEdge: "#B4936F",
+        woodGrain: "#6A4E34",
+        plaqueStart: tokens.card,
+        plaqueEnd: "#F3ECE1",
+        plaqueEdge: "#DED4C4",
+        plaqueStroke: "#D9CEBC",
+        card1Fill: "#EAE3D7",
+        card1Stroke: "#CFC4B4",
+        card2Fill: "#F3EDE3",
+        card2Stroke: "#D8CEC0",
+        card3Fill: "#FAF6EF",
+        card3Stroke: "#DFD6C8",
+        card4Stroke: "#DFD6C8",
+        easelTop: "#5B422C",
+        easelBottom: "#463220",
+        hankoStart: "#523C2C",
+        hankoEnd: "#261B14",
+        hankoBaseDark: "#A92E16",
+        hankoBaseTop: "#E05033",
+        hankoCollar: "#C7A97C",
+        hankoCap: "#5A4331",
+        hankoCapInner: "#6B513C",
+        shadowPeak: "0.16",
+        shadowMid: "0.06",
+      };
 
   return (
     <div
       aria-hidden="true"
+      data-scene-theme={activeTheme}
       className={cn(
         "relative h-full w-full select-none overflow-hidden",
         className,
@@ -39,9 +112,9 @@ export function DeskHeroFallback({
             y2="322"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor="#9A7957" />
-            <stop offset="0.55" stopColor={SCENE_TOKENS.deskWood} />
-            <stop offset="1" stopColor="#77593C" />
+            <stop offset="0" stopColor={palette.woodTop} />
+            <stop offset="0.55" stopColor={tokens.deskWood} />
+            <stop offset="1" stopColor={palette.woodBottom} />
           </linearGradient>
 
           <linearGradient
@@ -52,8 +125,8 @@ export function DeskHeroFallback({
             y2="316"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor="#6D5136" />
-            <stop offset="1" stopColor="#563E28" />
+            <stop offset="0" stopColor={palette.bevelStart} />
+            <stop offset="1" stopColor={palette.bevelEnd} />
           </linearGradient>
 
           <linearGradient
@@ -64,8 +137,8 @@ export function DeskHeroFallback({
             y2="226"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor={SCENE_TOKENS.card} />
-            <stop offset="1" stopColor="#F3ECE1" />
+            <stop offset="0" stopColor={palette.plaqueStart} />
+            <stop offset="1" stopColor={palette.plaqueEnd} />
           </linearGradient>
 
           <linearGradient
@@ -76,29 +149,43 @@ export function DeskHeroFallback({
             y2="254"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stopColor="#523C2C" />
-            <stop offset="0.5" stopColor={SCENE_TOKENS.hankoWood} />
-            <stop offset="1" stopColor="#261B14" />
+            <stop offset="0" stopColor={palette.hankoStart} />
+            <stop offset="0.5" stopColor={tokens.hankoWood} />
+            <stop offset="1" stopColor={palette.hankoEnd} />
           </linearGradient>
 
           <radialGradient id="soft-ink-shadow" cx="50%" cy="50%" r="50%">
             <stop
               offset="0"
-              stopColor={SCENE_TOKENS.inkShadow}
-              stopOpacity="0.16"
+              stopColor={tokens.inkShadow}
+              stopOpacity={palette.shadowPeak}
             />
             <stop
               offset="0.7"
-              stopColor={SCENE_TOKENS.inkShadow}
-              stopOpacity="0.06"
+              stopColor={tokens.inkShadow}
+              stopOpacity={palette.shadowMid}
             />
-            <stop
-              offset="1"
-              stopColor={SCENE_TOKENS.inkShadow}
-              stopOpacity="0"
-            />
+            <stop offset="1" stopColor={tokens.inkShadow} stopOpacity="0" />
           </radialGradient>
+
+          {isDark && (
+            <radialGradient id="desk-lamp-pool" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stopColor={tokens.lamp} stopOpacity="0.16" />
+              <stop offset="0.6" stopColor={tokens.lamp} stopOpacity="0.06" />
+              <stop offset="1" stopColor={tokens.lamp} stopOpacity="0" />
+            </radialGradient>
+          )}
         </defs>
+
+        {isDark && (
+          <ellipse
+            cx="424"
+            cy="194"
+            rx="210"
+            ry="136"
+            fill="url(#desk-lamp-pool)"
+          />
+        )}
 
         {/* Ground shadow beneath the wooden desk */}
         <ellipse
@@ -124,7 +211,7 @@ export function DeskHeroFallback({
           y1="187"
           x2="524"
           y2="187"
-          stroke="#B4936F"
+          stroke={palette.deskEdge}
           strokeOpacity="0.55"
           strokeWidth="1.5"
         />
@@ -133,8 +220,8 @@ export function DeskHeroFallback({
           y1="214"
           x2="538"
           y2="214"
-          stroke="#6A4E34"
-          strokeOpacity="0.18"
+          stroke={palette.woodGrain}
+          strokeOpacity="0.22"
           strokeWidth="1"
         />
         <line
@@ -142,8 +229,8 @@ export function DeskHeroFallback({
           y1="246"
           x2="554"
           y2="246"
-          stroke="#6A4E34"
-          strokeOpacity="0.16"
+          stroke={palette.woodGrain}
+          strokeOpacity="0.20"
           strokeWidth="1"
         />
         <line
@@ -151,8 +238,8 @@ export function DeskHeroFallback({
           y1="274"
           x2="566"
           y2="274"
-          stroke="#6A4E34"
-          strokeOpacity="0.15"
+          stroke={palette.woodGrain}
+          strokeOpacity="0.18"
           strokeWidth="1"
         />
 
@@ -189,8 +276,8 @@ export function DeskHeroFallback({
               width="174"
               height="96"
               rx="6"
-              fill="#EAE3D7"
-              stroke="#CFC4B4"
+              fill={palette.card1Fill}
+              stroke={palette.card1Stroke}
               strokeWidth="1"
             />
           </g>
@@ -202,8 +289,8 @@ export function DeskHeroFallback({
               width="174"
               height="96"
               rx="6"
-              fill="#F3EDE3"
-              stroke="#D8CEC0"
+              fill={palette.card2Fill}
+              stroke={palette.card2Stroke}
               strokeWidth="1"
             />
           </g>
@@ -215,8 +302,8 @@ export function DeskHeroFallback({
               width="174"
               height="96"
               rx="6"
-              fill="#FAF6EF"
-              stroke="#DFD6C8"
+              fill={palette.card3Fill}
+              stroke={palette.card3Stroke}
               strokeWidth="1"
             />
           </g>
@@ -228,8 +315,8 @@ export function DeskHeroFallback({
               width="174"
               height="96"
               rx="6"
-              fill={SCENE_TOKENS.card}
-              stroke="#DFD6C8"
+              fill={tokens.card}
+              stroke={palette.card4Stroke}
               strokeWidth="1"
             />
             {/* Indigo header and note lines */}
@@ -238,7 +325,7 @@ export function DeskHeroFallback({
               y1="26"
               x2="170"
               y2="26"
-              stroke={SCENE_TOKENS.primary}
+              stroke={tokens.primary}
               strokeOpacity="0.45"
               strokeWidth="1.5"
             />
@@ -248,7 +335,7 @@ export function DeskHeroFallback({
               width="58"
               height="6"
               rx="2"
-              fill={SCENE_TOKENS.foreground}
+              fill={tokens.foreground}
               fillOpacity="0.55"
             />
             <line
@@ -256,7 +343,7 @@ export function DeskHeroFallback({
               y1="44"
               x2="170"
               y2="44"
-              stroke={SCENE_TOKENS.primary}
+              stroke={tokens.primary}
               strokeOpacity="0.18"
               strokeWidth="1"
             />
@@ -266,7 +353,7 @@ export function DeskHeroFallback({
               width="90"
               height="4"
               rx="2"
-              fill={SCENE_TOKENS.foreground}
+              fill={tokens.foreground}
               fillOpacity="0.22"
             />
             <line
@@ -274,7 +361,7 @@ export function DeskHeroFallback({
               y1="62"
               x2="170"
               y2="62"
-              stroke={SCENE_TOKENS.primary}
+              stroke={tokens.primary}
               strokeOpacity="0.18"
               strokeWidth="1"
             />
@@ -284,7 +371,7 @@ export function DeskHeroFallback({
               width="76"
               height="4"
               rx="2"
-              fill={SCENE_TOKENS.foreground}
+              fill={tokens.foreground}
               fillOpacity="0.22"
             />
             <line
@@ -292,7 +379,7 @@ export function DeskHeroFallback({
               y1="80"
               x2="132"
               y2="80"
-              stroke={SCENE_TOKENS.primary}
+              stroke={tokens.primary}
               strokeOpacity="0.18"
               strokeWidth="1"
             />
@@ -302,7 +389,7 @@ export function DeskHeroFallback({
               width="62"
               height="4"
               rx="2"
-              fill={SCENE_TOKENS.foreground}
+              fill={tokens.foreground}
               fillOpacity="0.2"
             />
             {/* Small vermilion stamp impression */}
@@ -311,7 +398,7 @@ export function DeskHeroFallback({
                 cx="0"
                 cy="0"
                 r="10"
-                stroke={SCENE_TOKENS.accent}
+                stroke={tokens.accent}
                 strokeWidth="1.6"
                 strokeOpacity="0.88"
               />
@@ -319,7 +406,7 @@ export function DeskHeroFallback({
                 x="0"
                 y="4"
                 textAnchor="middle"
-                fill={SCENE_TOKENS.accent}
+                fill={tokens.accent}
                 fillOpacity="0.88"
                 fontSize="10"
                 fontWeight="700"
@@ -332,13 +419,30 @@ export function DeskHeroFallback({
         </g>
 
         {/* Wooden easel base for the Kanji plaque */}
-        <path d="M342 224 L496 224 L506 240 L332 240 Z" fill="#5B422C" />
-        <rect x="332" y="236" width="174" height="6" rx="2" fill="#463220" />
+        <path
+          d="M342 224 L496 224 L506 240 L332 240 Z"
+          fill={palette.easelTop}
+        />
+        <rect
+          x="332"
+          y="236"
+          width="174"
+          height="6"
+          rx="2"
+          fill={palette.easelBottom}
+        />
 
         {/* Elevated Kanji display plaque (center-right) */}
         <g transform="translate(342, 48)">
           {/* Plaque side thickness */}
-          <rect x="6" y="4" width="156" height="174" rx="8" fill="#DED4C4" />
+          <rect
+            x="6"
+            y="4"
+            width="156"
+            height="174"
+            rx="8"
+            fill={palette.plaqueEdge}
+          />
           {/* Plaque front washi face */}
           <rect
             x="0"
@@ -347,7 +451,7 @@ export function DeskHeroFallback({
             height="174"
             rx="8"
             fill="url(#plaque-surface)"
-            stroke="#D9CEBC"
+            stroke={palette.plaqueStroke}
             strokeWidth="1.2"
           />
           {/* Double indigo frame */}
@@ -357,7 +461,7 @@ export function DeskHeroFallback({
             width="134"
             height="152"
             rx="4"
-            stroke={SCENE_TOKENS.primary}
+            stroke={tokens.primary}
             strokeOpacity="0.34"
             strokeWidth="1.2"
           />
@@ -367,7 +471,7 @@ export function DeskHeroFallback({
             width="124"
             height="142"
             rx="2.5"
-            stroke={SCENE_TOKENS.primary}
+            stroke={tokens.primary}
             strokeOpacity="0.14"
             strokeWidth="1"
           />
@@ -376,7 +480,7 @@ export function DeskHeroFallback({
             x="80"
             y="118"
             textAnchor="middle"
-            fill={SCENE_TOKENS.foreground}
+            fill={tokens.foreground}
             fillOpacity="0.10"
             fontSize="94"
             fontWeight="600"
@@ -389,7 +493,7 @@ export function DeskHeroFallback({
             x="78"
             y="116"
             textAnchor="middle"
-            fill={SCENE_TOKENS.foreground}
+            fill={tokens.foreground}
             fontSize="94"
             fontWeight="600"
             fontFamily={MINCHO_FONT_FAMILY}
@@ -401,15 +505,21 @@ export function DeskHeroFallback({
         {/* Cylindrical dark-wood Hanko stamp with vermilion base */}
         <g transform="translate(502, 180)">
           {/* Vermilion base pad */}
-          <ellipse cx="22" cy="74" rx="19" ry="7" fill="#A92E16" />
-          <rect
-            x="3"
-            y="64"
-            width="38"
-            height="10"
-            fill={SCENE_TOKENS.accent}
+          <ellipse
+            cx="22"
+            cy="74"
+            rx="19"
+            ry="7"
+            fill={palette.hankoBaseDark}
           />
-          <ellipse cx="22" cy="64" rx="19" ry="6.5" fill="#E05033" />
+          <rect x="3" y="64" width="38" height="10" fill={tokens.accent} />
+          <ellipse
+            cx="22"
+            cy="64"
+            rx="19"
+            ry="6.5"
+            fill={palette.hankoBaseTop}
+          />
           {/* Dark wood shaft */}
           <rect
             x="5"
@@ -425,17 +535,17 @@ export function DeskHeroFallback({
             y="59"
             width="34"
             height="4"
-            fill="#C7A97C"
+            fill={palette.hankoCollar}
             fillOpacity="0.72"
           />
           {/* Top cap ellipse */}
-          <ellipse cx="22" cy="10" rx="17" ry="5.5" fill="#5A4331" />
+          <ellipse cx="22" cy="10" rx="17" ry="5.5" fill={palette.hankoCap} />
           <ellipse
             cx="22"
             cy="10"
             rx="12"
             ry="3.5"
-            fill="#6B513C"
+            fill={palette.hankoCapInner}
             fillOpacity="0.7"
           />
         </g>

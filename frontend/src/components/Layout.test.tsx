@@ -104,10 +104,14 @@ it("does not call an unknown outbox size synced", () => {
   expect(renderToStaticMarkup(<Layout />)).toContain("Chưa đồng bộ");
 });
 
-it("includes Luyện đề in desktop/sheet nav while keeping 5 mobile bottom tabs", () => {
+it("includes Luyện đề in desktop/sheet nav while keeping 5 FR-39 mobile bottom tabs", () => {
   const html = renderToStaticMarkup(<Layout />);
   expect(html).toContain("Luyện đề");
   const bottomBar = html.split('data-ocid="nav.bottom_bar"')[1] ?? "";
   expect(bottomBar).toContain("grid-cols-5");
-  expect(bottomBar).not.toContain("Luyện đề");
+  expect(bottomBar).toContain("Trang chủ");
+  expect(bottomBar).toContain("Ôn tập");
+  expect(bottomBar).toContain("Luyện đề");
+  expect(bottomBar).toContain("Tra cứu");
+  expect(bottomBar).toContain("Tiến độ");
 });

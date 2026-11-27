@@ -1,4 +1,8 @@
 import {
+  type ResolvedTheme,
+  useThemePreference,
+} from "@/hooks/useThemePreference";
+import {
   type ReconcilerRoot,
   createRoot,
   extend,
@@ -14,10 +18,11 @@ import {
   createWashiTexture,
   createWoodTexture,
 } from "./kanjiTexture";
-import { SCENE_TOKENS, getKanjiForLevel } from "./tokens";
+import { SCENE_TOKENS, getKanjiForLevel, getSceneTokens } from "./tokens";
 
 export interface DeskHeroCanvasProps {
   level: string;
+  theme?: ResolvedTheme;
   onReady: () => void;
   onLowPerf: () => void;
   onContextLost: () => void;
@@ -78,11 +83,17 @@ function createRoundedRectGeometry(
 
 interface DeskSceneProps {
   kanji: string;
+  theme: ResolvedTheme;
   onReady: () => void;
   onLowPerf: () => void;
 }
 
-function DeskScene({ kanji, onReady, onLowPerf }: DeskSceneProps): JSX.Element {
+function DeskScene({
+  kanji,
+  theme,
+  onReady,
+  onLowPerf,
+}: DeskSceneProps): JSX.Element {
   const invalidate = useThree((state) => state.invalidate);
   const canvas = useThree((state) => state.gl.domElement);
   const keyLightRef = useRef<THREE.DirectionalLight>(null);
@@ -228,6 +239,9 @@ function DeskScene({ kanji, onReady, onLowPerf }: DeskSceneProps): JSX.Element {
 
     return {
       textures: [woodTex, washiBlankTex, washiRuledTex, contactTex],
+      hasWoodTex: Boolean(woodTex),
+      hasWashiBlankTex: Boolean(washiBlankTex),
+      hasWashiRuledTex: Boolean(washiRuledTex),
       materials: {
         deskMat,
         shadowOverlayMat,
@@ -285,6 +299,46 @@ function DeskScene({ kanji, onReady, onLowPerf }: DeskSceneProps): JSX.Element {
       kanjiResources.frontMat.dispose();
     };
   }, [kanjiResources]);
+
+  const isDark = theme === "dark";
+  const tokens = getSceneTokens(theme);
+
+  // Sync material colors and shadow opacity cleanly whenever theme or plaque changes.
+  useEffect(() => {
+    const mats = staticResources.materials;
+    mats.deskMat.color.set(
+      staticResources.hasWoodTex
+        ? isDark
+          ? "#948476"
+          : "#ffffff"
+        : tokens.deskWood,
+    );
+    mats.shadowOverlayMat.color.set(tokens.inkShadow);
+    mats.shadowOverlayMat.opacity = isDark ? 0.28 : 0.11;
+    mats.contactMat.opacity = isDark ? 0.8 : 0.65;
+    mats.washiBlankMat.color.set(
+      staticResources.hasWashiBlankTex
+        ? isDark
+          ? "#A89E90"
+          : "#ffffff"
+        : tokens.card,
+    );
+    mats.washiEdgeMat.color.set(isDark ? "#8D8375" : "#EDE6DA");
+    mats.washiRuledMat.color.set(
+      staticResources.hasWashiRuledTex
+        ? isDark
+          ? "#C4BAA9"
+          : "#ffffff"
+        : tokens.card,
+    );
+    mats.easelMat.color.set(isDark ? "#3E2E20" : "#5C432D");
+    mats.plaqueEdgeMat.color.set(isDark ? "#9E9486" : "#EAE2D4");
+    mats.hankoWoodMat.color.set(tokens.hankoWood);
+    mats.hankoCollarMat.color.set(isDark ? "#A0855B" : "#C4A676");
+    mats.hankoVermilionMat.color.set(tokens.accent);
+    kanjiResources.frontMat.color.set(isDark ? "#D2C8B8" : "#ffffff");
+    invalidate();
+  }, [isDark, tokens, staticResources, kanjiResources, invalidate]);
 
   // Configure tight directional shadow camera bounds once mounted.
   useEffect(() => {
@@ -446,27 +500,34 @@ function DeskScene({ kanji, onReady, onLowPerf }: DeskSceneProps): JSX.Element {
 
   return (
     <>
-      {/* Calm warm studio daylight from upper-left; no neon or bloom */}
-      <ambientLight color="#FFF8EE" intensity={0.68} />
-      <hemisphereLight args={["#FFFDF8", SCENE_TOKENS.deskWood, 0.56]} />
+      {/* Calm daylight in light mode, warm desk lamp over Sumi night desk in dark mode */}
+      <ambientLight
+        color={isDark ? "#2E3548" : "#FFF8EE"}
+        intensity={isDark ? 0.28 : 0.68}
+      />
+      <hemisphereLight
+        color={isDark ? "#46526E" : "#FFFDF8"}
+        groundColor={tokens.deskWood}
+        intensity={isDark ? 0.34 : 0.56}
+      />
       <directionalLight
         ref={keyLightRef}
         position={[-4.0, 5.8, 3.6]}
-        color="#FFF4E4"
-        intensity={1.72}
+        color={isDark ? "#C7D4EE" : "#FFF4E4"}
+        intensity={isDark ? 0.56 : 1.72}
         castShadow
       />
       <directionalLight
         position={[3.8, 3.0, 2.8]}
-        color="#F5EFE6"
-        intensity={0.48}
+        color={isDark ? "#4E5C7C" : "#F5EFE6"}
+        intensity={isDark ? 0.24 : 0.48}
       />
       <pointLight
-        position={[2.0, 1.25, 1.35]}
-        color="#FFE2D4"
-        intensity={1.6}
-        distance={4.8}
-        decay={2}
+        position={isDark ? [1.45, 2.0, 1.55] : [2.0, 1.25, 1.35]}
+        color={tokens.lamp}
+        intensity={isDark ? 5.2 : 1.6}
+        distance={isDark ? 7.5 : 4.8}
+        decay={isDark ? 1.8 : 2}
       />
 
       {/* Beveled wooden desk plane */}
@@ -595,10 +656,13 @@ function DeskScene({ kanji, onReady, onLowPerf }: DeskSceneProps): JSX.Element {
 
 export default function DeskHeroCanvas({
   level,
+  theme,
   onReady,
   onLowPerf,
   onContextLost,
 }: DeskHeroCanvasProps): JSX.Element {
+  const { resolved } = useThemePreference();
+  const activeTheme = theme ?? resolved;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [root, setRoot] = useState<ReconcilerRoot<HTMLCanvasElement> | null>(
     null,
@@ -675,12 +739,13 @@ export default function DeskHeroCanvas({
       <ErrorBoundary3D fallback={null} onError={onContextLost}>
         <DeskScene
           kanji={getKanjiForLevel(level)}
+          theme={activeTheme}
           onReady={onReady}
           onLowPerf={onLowPerf}
         />
       </ErrorBoundary3D>,
     );
-  }, [root, level, onReady, onLowPerf, onContextLost]);
+  }, [root, level, activeTheme, onReady, onLowPerf, onContextLost]);
 
   return <canvas ref={canvasRef} className="block h-full w-full" />;
 }

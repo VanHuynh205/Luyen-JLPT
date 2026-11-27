@@ -6,9 +6,11 @@ import {
   createWoodTexture,
 } from "./kanjiTexture";
 import {
+  DARK_SCENE_TOKENS,
   LEVEL_KANJI,
   SCENE_TOKENS,
   getKanjiForLevel,
+  getSceneTokens,
   normalizeSceneLevel,
 } from "./tokens";
 
@@ -51,5 +53,23 @@ describe("scene tokens", () => {
     expect(createWoodTexture()).toBeNull();
     expect(createWashiTexture(true)).toBeNull();
     expect(createContactShadowTexture()).toBeNull();
+  });
+
+  it("returns dark sumi palette distinct from light washi palette and never pure #000000", () => {
+    expect(getSceneTokens("light")).toEqual(SCENE_TOKENS);
+
+    const dark = getSceneTokens("dark");
+    expect(dark).toEqual(DARK_SCENE_TOKENS);
+    expect(dark.background).toBe("#1D2028");
+    expect(dark.deskWood).toBe("#4E3B2B");
+    expect(dark.foreground).toBe("#F0ECE4");
+    expect(dark.lamp).toBe("#FFD7A8");
+    expect(dark.primary).toBe("#7B9CE2");
+    expect(dark.background).not.toBe(SCENE_TOKENS.background);
+    expect(dark.deskWood).not.toBe(SCENE_TOKENS.deskWood);
+
+    for (const value of Object.values(dark)) {
+      expect(value.toUpperCase()).not.toBe("#000000");
+    }
   });
 });
