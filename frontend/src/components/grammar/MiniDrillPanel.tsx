@@ -88,7 +88,7 @@ export function MiniDrillPanel({
               variant="outline"
               size="sm"
               data-ocid="grammar_mini_drill.regenerate_button"
-              className="min-h-11 shrink-0 rounded-md"
+              className="min-h-11 shrink-0 rounded-md sm:min-h-11"
               onClick={regenerate}
             >
               <Shuffle className="size-4" aria-hidden="true" />

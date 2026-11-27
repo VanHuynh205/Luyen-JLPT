@@ -6,7 +6,7 @@ test.use({
   },
   reducedMotion: "no-preference",
 });
-test.describe.configure({ timeout: 45_000 });
+test.describe.configure({ mode: "default", timeout: 45_000 });
 
 const sceneScript = /\/(?:scene-three|DeskHeroCanvas)-[^/]+\.js$/;
 const fallback = 'svg:has([id="desk-wood-surface"])';

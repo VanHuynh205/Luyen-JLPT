@@ -14,6 +14,38 @@ const RELEASE_SUFFIX: &str = "/Luyen-JLPT-android.apk";
 #[cfg(target_os = "android")]
 struct AndroidUpdaterHandle<R: Runtime>(PluginHandle<R>);
 
+fn is_valid_version_part(part: &str, max_len: usize) -> bool {
+    if part.is_empty() || part.len() > max_len || !part.bytes().all(|b| b.is_ascii_digit()) {
+        return false;
+    }
+    !(part.len() > 1 && part.starts_with('0'))
+}
+
+fn parse_release_version_code(version: &str) -> Result<u64, String> {
+    let parts: Vec<&str> = version.split('.').collect();
+    if parts.len() != 3
+        || !is_valid_version_part(parts[0], 4)
+        || !is_valid_version_part(parts[1], 3)
+        || !is_valid_version_part(parts[2], 3)
+    {
+        return Err("Phiên bản trong URL tải APK không hợp lệ.".into());
+    }
+    let major: u64 = parts[0]
+        .parse()
+        .map_err(|_| "Phiên bản trong URL tải APK không hợp lệ.".to_string())?;
+    let minor: u64 = parts[1]
+        .parse()
+        .map_err(|_| "Phiên bản trong URL tải APK không hợp lệ.".to_string())?;
+    let patch: u64 = parts[2]
+        .parse()
+        .map_err(|_| "Phiên bản trong URL tải APK không hợp lệ.".to_string())?;
+    let version_code = major * 1_000_000 + minor * 1_000 + patch;
+    if version_code == 0 || version_code > 2_100_000_000 {
+        return Err("Phiên bản trong URL tải APK không hợp lệ.".into());
+    }
+    Ok(version_code)
+}
+
 fn validate_apk_request(
     url: &str,
     expected_sha256: &str,
@@ -30,14 +62,7 @@ fn validate_apk_request(
         return Err("URL tải APK không khớp nguồn phát hành chính thức.".into());
     }
     let version = &url[RELEASE_PREFIX.len()..url.len() - RELEASE_SUFFIX.len()];
-    let parts: Vec<&str> = version.split('.').collect();
-    if parts.len() != 3
-        || parts
-            .iter()
-            .any(|part| part.is_empty() || !part.bytes().all(|b| b.is_ascii_digit()))
-    {
-        return Err("Phiên bản trong URL tải APK không hợp lệ.".into());
-    }
+    let version_code = parse_release_version_code(version)?;
     let normalized_sha = expected_sha256.trim().to_ascii_lowercase();
     if normalized_sha.len() != 64 || !normalized_sha.bytes().all(|b| b.is_ascii_hexdigit()) {
         return Err("Mã kiểm tra SHA-256 không hợp lệ.".into());
@@ -45,7 +70,10 @@ fn validate_apk_request(
     if expected_size_bytes == 0 || expected_size_bytes > MAX_ANDROID_APK_BYTES {
         return Err("Dung lượng APK vượt ngưỡng an toàn cho phép.".into());
     }
-    if expected_version_code == 0 || expected_version_code > 2_100_000_000 {
+    if expected_version_code == 0
+        || expected_version_code > 2_100_000_000
+        || version_code != expected_version_code
+    {
         return Err("Mã phiên bản Android không hợp lệ.".into());
     }
     Ok(normalized_sha)

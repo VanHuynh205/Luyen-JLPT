@@ -218,6 +218,11 @@ test("patch-android-manifest.mjs idempotently hardens manifest, writes XML confi
     assert.match(pluginKt, /FileProvider\.getUriForFile/);
     assert.match(pluginKt, /FLAG_GRANT_READ_URI_PERMISSION/);
     assert.match(pluginKt, /MessageDigest\.getInstance\("SHA-256"\)/);
+    assert.match(pluginKt, /!currentUrl\.userInfo\.isNullOrEmpty\(\)/);
+    assert.match(pluginKt, /"objects\.githubusercontent\.com"/);
+    assert.match(pluginKt, /"release-assets\.githubusercontent\.com"/);
+    assert.match(pluginKt, /"github-releases\.githubusercontent\.com"/);
+    assert.doesNotMatch(pluginKt, /endsWith\("\.githubusercontent\.com"\)/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -690,3 +690,254 @@ it("applies pulled exam_attempts via mergeExamAttempts and clears stale activeEx
     await examStore.loadDraft(account.owner, "n4", "n4-2024-12"),
   ).toBeNull();
 });
+
+it("reconciles stale cross-UUID in_progress attempts and bound drafts on pull while preserving unrelated attempts", async () => {
+  const uuidB = "11111111-1111-4111-8111-11111111111b";
+  const uuidA = "11111111-1111-4111-8111-11111111111a";
+  const otherExamDoneId = "22222222-2222-4222-8222-222222222222";
+  const otherOwnerActiveId = "33333333-3333-4333-8333-333333333333";
+
+  const makeInProgress = (
+    attemptId: string,
+    owner: string,
+    examId: string,
+    attemptNumber: number,
+  ): ExamAttemptRecord => ({
+    id: attemptId,
+    owner,
+    level: "n4",
+    examId,
+    status: "in_progress",
+    attemptNumber,
+    startedAt: "2026-11-27T08:00:00.000Z",
+    completedAt: null,
+    updatedAt: "2026-11-27T08:05:00.000Z",
+    totalScore: 0,
+    totalQuestions: 2,
+    sections: [
+      {
+        key: "vocab",
+        status: "pending",
+        score: 0,
+        total: 1,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      {
+        key: "grammar_reading",
+        status: "pending",
+        score: 0,
+        total: 1,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+      {
+        key: "listening",
+        status: "pending",
+        score: 0,
+        total: 0,
+        elapsedSeconds: 0,
+        submittedAt: null,
+      },
+    ],
+    answers: {},
+  });
+
+  // Stale local in_progress attempt uuidB + bound draft for account on n4-2024-12
+  await examStore.saveAttemptProgress(
+    makeInProgress(uuidB, account.owner, "n4-2024-12", 1),
+  );
+  await examStore.saveDraft({
+    owner: account.owner,
+    level: "n4",
+    examId: "n4-2024-12",
+    attemptId: uuidB,
+    activeIndex: 0,
+    answers: { q1: 1 },
+    startedAtMs: { vocab: 1_700_000_000_000 },
+    deadlineMs: { vocab: 1_700_001_500_000 },
+    listeningScriptMode: false,
+    savedAt: "2026-11-27T08:05:00.000Z",
+  });
+
+  // Unrelated completed attempt on another exam for account
+  await examStore.saveAttemptProgress({
+    id: otherExamDoneId,
+    owner: account.owner,
+    level: "n4",
+    examId: "n4-2024-07",
+    status: "completed",
+    attemptNumber: 1,
+    startedAt: "2026-11-26T08:00:00.000Z",
+    completedAt: "2026-11-26T08:30:00.000Z",
+    updatedAt: "2026-11-26T08:30:00.000Z",
+    totalScore: 1,
+    totalQuestions: 1,
+    sections: [
+      {
+        key: "vocab",
+        status: "submitted",
+        score: 1,
+        total: 1,
+        elapsedSeconds: 120,
+        submittedAt: "2026-11-26T08:10:00.000Z",
+      },
+      {
+        key: "grammar_reading",
+        status: "skipped",
+        score: 0,
+        total: 0,
+        elapsedSeconds: 0,
+        submittedAt: "2026-11-26T08:20:00.000Z",
+      },
+      {
+        key: "listening",
+        status: "skipped",
+        score: 0,
+        total: 0,
+        elapsedSeconds: 0,
+        submittedAt: "2026-11-26T08:30:00.000Z",
+      },
+    ],
+    answers: { q1: 0 },
+  });
+
+  // Other owner's in_progress attempt + draft on the same exam
+  await examStore.saveAttemptProgress(
+    makeInProgress(otherOwnerActiveId, "other-owner", "n4-2024-12", 1),
+  );
+  await examStore.saveDraft({
+    owner: "other-owner",
+    level: "n4",
+    examId: "n4-2024-12",
+    attemptId: otherOwnerActiveId,
+    activeIndex: 0,
+    answers: {},
+    startedAtMs: { vocab: 1_700_000_000_000 },
+    deadlineMs: { vocab: 1_700_001_500_000 },
+    listeningScriptMode: false,
+    savedAt: "2026-11-27T08:05:00.000Z",
+  });
+
+  // 1) Remote pulls uuidA (in_progress, attemptNumber 1) -> deletes stale uuidB and its draft
+  const appliedInProgress = await progressStore.applyPulledPage(
+    account.owner,
+    "exam_attempts",
+    null,
+    [
+      {
+        cursor: { serverUpdatedAt: "2026-11-27T08:10:00.000Z", id: uuidA },
+        row: {
+          kind: "exam_attempts",
+          ...makeInProgress(uuidA, account.owner, "n4-2024-12", 1),
+          updatedAt: "2026-11-27T08:10:00.000Z",
+        },
+      },
+    ],
+  );
+  expect(appliedInProgress).toBe(true);
+  expect(await db.examAttempts.get(uuidB)).toBeUndefined();
+  expect(await db.examAttempts.get(uuidA)).toMatchObject({
+    id: uuidA,
+    status: "in_progress",
+  });
+  expect(
+    await examStore.loadDraft(account.owner, "n4", "n4-2024-12"),
+  ).toBeNull();
+  expect(await db.examAttempts.get(otherExamDoneId)).toBeDefined();
+  expect(await db.examAttempts.get(otherOwnerActiveId)).toBeDefined();
+  expect(
+    await examStore.loadDraft("other-owner", "n4", "n4-2024-12"),
+  ).not.toBeNull();
+
+  // 2) Re-seed stale local uuidC (in_progress, attemptNumber 1) + draft, and newer uuidD (in_progress, attemptNumber 2)
+  const uuidC = "44444444-4444-4444-8444-44444444444c";
+  const uuidD = "55555555-5555-4555-8555-55555555555d";
+  const uuidDone = "44444444-4444-4444-8444-44444444444a";
+  await db.examAttempts.delete(uuidA);
+  await examStore.saveAttemptProgress(
+    makeInProgress(uuidC, account.owner, "n4-2024-12", 1),
+  );
+  await examStore.saveDraft({
+    owner: account.owner,
+    level: "n4",
+    examId: "n4-2024-12",
+    attemptId: uuidC,
+    activeIndex: 0,
+    answers: { q1: 2 },
+    startedAtMs: { vocab: 1_700_000_000_000 },
+    deadlineMs: { vocab: 1_700_001_500_000 },
+    listeningScriptMode: false,
+    savedAt: "2026-11-27T08:11:00.000Z",
+  });
+  await examStore.saveAttemptProgress(
+    makeInProgress(uuidD, account.owner, "n4-2024-12", 2),
+  );
+
+  // Remote pulls uuidDone (completed, attemptNumber 1) -> deletes uuidC & draft, keeps newer uuidD
+  const appliedCompleted = await progressStore.applyPulledPage(
+    account.owner,
+    "exam_attempts",
+    { serverUpdatedAt: "2026-11-27T08:10:00.000Z", id: uuidA },
+    [
+      {
+        cursor: { serverUpdatedAt: "2026-11-27T08:20:00.000Z", id: uuidDone },
+        row: {
+          kind: "exam_attempts",
+          id: uuidDone,
+          owner: account.owner,
+          level: "n4",
+          examId: "n4-2024-12",
+          status: "completed",
+          attemptNumber: 1,
+          startedAt: "2026-11-27T08:00:00.000Z",
+          completedAt: "2026-11-27T08:20:00.000Z",
+          updatedAt: "2026-11-27T08:20:00.000Z",
+          totalScore: 2,
+          totalQuestions: 2,
+          sections: [
+            {
+              key: "vocab",
+              status: "submitted",
+              score: 1,
+              total: 1,
+              elapsedSeconds: 100,
+              submittedAt: "2026-11-27T08:10:00.000Z",
+            },
+            {
+              key: "grammar_reading",
+              status: "submitted",
+              score: 1,
+              total: 1,
+              elapsedSeconds: 100,
+              submittedAt: "2026-11-27T08:15:00.000Z",
+            },
+            {
+              key: "listening",
+              status: "skipped",
+              score: 0,
+              total: 0,
+              elapsedSeconds: 0,
+              submittedAt: "2026-11-27T08:20:00.000Z",
+            },
+          ],
+          answers: { q1: 0, q2: 0 },
+        },
+      },
+    ],
+  );
+  expect(appliedCompleted).toBe(true);
+  expect(await db.examAttempts.get(uuidC)).toBeUndefined();
+  expect(await db.examAttempts.get(uuidDone)).toMatchObject({
+    id: uuidDone,
+    status: "completed",
+  });
+  expect(await db.examAttempts.get(uuidD)).toMatchObject({
+    id: uuidD,
+    status: "in_progress",
+    attemptNumber: 2,
+  });
+  expect(
+    await examStore.loadDraft(account.owner, "n4", "n4-2024-12"),
+  ).toBeNull();
+});

@@ -405,11 +405,37 @@ export const progressStore = {
               ? mergeExamAttempts(existing, incoming)
               : incoming;
             await db.examAttempts.put(merged);
-            const draft = await db.activeExamDrafts.get([
+            let draft = await db.activeExamDrafts.get([
               merged.owner,
               merged.level,
               merged.examId,
             ]);
+            const inProgressSameExam = await db.examAttempts
+              .where("[owner+level+examId+status]")
+              .equals([
+                merged.owner,
+                merged.level,
+                merged.examId,
+                "in_progress",
+              ])
+              .toArray();
+            for (const stale of inProgressSameExam) {
+              if (stale.id === merged.id) continue;
+              if (
+                merged.status === "in_progress" ||
+                stale.attemptNumber <= merged.attemptNumber
+              ) {
+                await db.examAttempts.delete(stale.id);
+                if (draft && draft.attemptId === stale.id) {
+                  await db.activeExamDrafts.delete([
+                    merged.owner,
+                    merged.level,
+                    merged.examId,
+                  ]);
+                  draft = undefined;
+                }
+              }
+            }
             if (draft && shouldClearDraftAfterPull(draft, existing, merged)) {
               await db.activeExamDrafts.delete([
                 merged.owner,

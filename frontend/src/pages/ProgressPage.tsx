@@ -352,7 +352,11 @@ function ProgressContent() {
                 Ưu tiên ôn lại
               </span>
             </div>
-            <Button asChild size="sm" className="min-h-11 rounded-md">
+            <Button
+              asChild
+              size="sm"
+              className="min-h-11 rounded-md sm:min-h-11"
+            >
               <Link
                 to="/kanji"
                 search={{

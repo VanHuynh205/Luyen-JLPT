@@ -514,7 +514,7 @@ export default function VocabularyPage() {
               type="button"
               variant={currentStatus === "unknown" ? "secondary" : "outline"}
               data-ocid="vocabulary.mark_unknown_button"
-              className="min-h-11"
+              className="min-h-[45px]"
               disabled={setStatus.isPending}
               onClick={() => mark(false)}
             >
@@ -527,7 +527,7 @@ export default function VocabularyPage() {
               type="button"
               variant={currentStatus === "known" ? "default" : "outline"}
               data-ocid="vocabulary.mark_known_button"
-              className="min-h-11"
+              className="min-h-[45px]"
               disabled={setStatus.isPending}
               onClick={() => mark(true)}
             >
@@ -543,7 +543,7 @@ export default function VocabularyPage() {
               type="button"
               variant="outline"
               data-ocid="vocabulary.pagination_prev"
-              className="min-h-11"
+              className="min-h-[45px]"
               disabled={safeIndex === 0}
               onClick={() => go(safeIndex - 1)}
             >
@@ -577,7 +577,7 @@ export default function VocabularyPage() {
               type="button"
               variant="outline"
               data-ocid="vocabulary.pagination_next"
-              className="min-h-11"
+              className="min-h-[45px]"
               disabled={safeIndex >= deck.length - 1}
               onClick={() => go(safeIndex + 1)}
             >

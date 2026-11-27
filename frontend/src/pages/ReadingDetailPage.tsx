@@ -143,7 +143,7 @@ function ReadingDetailContent({
                   />
                   <Label
                     htmlFor="reading-furigana-switch"
-                    className="min-h-11 cursor-pointer text-sm"
+                    className="min-h-12 cursor-pointer text-sm"
                   >
                     Hiện Furigana
                   </Label>

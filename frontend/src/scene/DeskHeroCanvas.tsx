@@ -301,7 +301,7 @@ function DeskScene({
   }, [kanjiResources]);
 
   const isDark = theme === "dark";
-  const tokens = getSceneTokens(theme);
+  const tokens = useMemo(() => getSceneTokens(theme), [theme]);
 
   // Sync material colors and shadow opacity cleanly whenever theme or plaque changes.
   useEffect(() => {
@@ -712,11 +712,17 @@ export default function DeskHeroCanvas({
           state.gl.setClearColor(0x000000, 0);
           state.gl.toneMapping = THREE.ACESFilmicToneMapping;
           state.gl.toneMappingExposure = 1.0;
+          let lastWidth = container.clientWidth;
+          let lastHeight = container.clientHeight;
           observer = new ResizeObserver(() => {
-            state.setSize(container.clientWidth, container.clientHeight);
+            const nextWidth = container.clientWidth;
+            const nextHeight = container.clientHeight;
+            if (nextWidth === lastWidth && nextHeight === lastHeight) return;
+            lastWidth = nextWidth;
+            lastHeight = nextHeight;
+            state.setSize(nextWidth, nextHeight);
           });
           observer.observe(container);
-          state.invalidate();
         },
       })
       .then(() => {

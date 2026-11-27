@@ -201,8 +201,13 @@ class ApkInstallerPlugin(private val activity: Activity) : Plugin(activity) {
     }
 
     private fun isAllowedDownloadHost(host: String): Boolean {
-        val normalized = host.lowercase()
-        return normalized == "github.com" || normalized.endsWith(".githubusercontent.com")
+        return when (host.lowercase()) {
+            "github.com",
+            "objects.githubusercontent.com",
+            "release-assets.githubusercontent.com",
+            "github-releases.githubusercontent.com" -> true
+            else -> false
+        }
     }
 
     private fun downloadHttpsApk(
@@ -218,6 +223,9 @@ class ApkInstallerPlugin(private val activity: Activity) : Plugin(activity) {
             while (true) {
                 if (!currentUrl.protocol.equals("https", ignoreCase = true)) {
                     throw SecurityException("Từ chối chuyển hướng không dùng HTTPS.")
+                }
+                if (!currentUrl.userInfo.isNullOrEmpty()) {
+                    throw SecurityException("Từ chối URL tải APK chứa thông tin xác thực.")
                 }
                 if (!isAllowedDownloadHost(currentUrl.host)) {
                     throw SecurityException("Tên miền tải APK không nằm trong danh sách cho phép.")
