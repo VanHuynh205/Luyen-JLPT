@@ -1,7 +1,10 @@
+import { RubyText } from "@/components/exam/RubyText";
 import { DetailSection } from "@/components/grammar/DetailSection";
 import { GrammarQuiz } from "@/components/grammar/GrammarQuiz";
 import { LearnedToggle } from "@/components/grammar/LearnedToggle";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import {
   Table,
   TableBody,
@@ -13,9 +16,16 @@ import {
 import { buildComparisonLinks } from "@/core/content/comparisonLinks";
 import type { GrammarPattern } from "@/core/content/types";
 import { useReadyPack } from "@/hooks/useContent";
+import { useFuriganaPreference } from "@/hooks/useFuriganaPreference";
 import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ChevronRight, SearchX } from "lucide-react";
 import { useMemo } from "react";
+
+const RUBY_TOKEN_RE = /\{[^|{}]+\|[^|{}]+\}/;
+
+function hasRubyMarkup(value?: string): value is string {
+  return typeof value === "string" && RUBY_TOKEN_RE.test(value);
+}
 
 const CONNECTION_LABELS = [
   { key: "v", label: "Động từ" },
@@ -82,6 +92,9 @@ function BackLink() {
 
 export default function GrammarDetailPage() {
   const { grammar: grammarPatterns, comparisons, manifest } = useReadyPack();
+  const { showFurigana, setShowFurigana } = useFuriganaPreference(
+    manifest.level,
+  );
   const { patternId } = useParams({ from: "/ngu-phap/$patternId" });
   const index = grammarPatterns.findIndex((p) => p.id === patternId);
   const pattern = index >= 0 ? grammarPatterns[index] : undefined;
@@ -104,6 +117,9 @@ export default function GrammarDetailPage() {
       })
     : [];
   const hasQuiz = (pattern?.quiz?.length ?? 0) > 0;
+  const hasRubyExamples =
+    pattern?.examples.some((example) => hasRubyMarkup(example.reading)) ??
+    false;
 
   if (!pattern) {
     return (
@@ -213,35 +229,66 @@ export default function GrammarDetailPage() {
         </DetailSection>
 
         <DetailSection id="vi-du" label="Ví dụ" jpLabel="例文">
+          {hasRubyExamples && (
+            <div className="mb-3 flex items-center justify-end">
+              <div className="flex min-h-11 items-center gap-2.5">
+                <Switch
+                  id="grammar-furigana-switch"
+                  data-ocid="grammar_detail.furigana.switch"
+                  checked={showFurigana}
+                  onCheckedChange={setShowFurigana}
+                />
+                <Label
+                  htmlFor="grammar-furigana-switch"
+                  className="min-h-11 cursor-pointer text-sm"
+                >
+                  Hiện Furigana
+                </Label>
+              </div>
+            </div>
+          )}
           <ol className="space-y-3" data-ocid="grammar_detail.examples.list">
-            {pattern.examples.map((example, i) => (
-              <li
-                key={example.japanese}
-                data-ocid={`grammar_detail.example.item.${i + 1}`}
-                className="flex gap-4 rounded-lg border bg-card p-5 shadow-subtle"
-              >
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-secondary-foreground">
-                  {i + 1}
-                </span>
-                <div className="min-w-0 space-y-1">
-                  <p
-                    lang="ja"
-                    className="break-words text-lg font-medium text-foreground md:text-xl"
-                  >
-                    {example.japanese}
-                  </p>
-                  {example.reading && (
-                    <p
-                      lang="ja"
-                      className="break-words text-sm text-muted-foreground"
-                    >
-                      {example.reading}
-                    </p>
-                  )}
-                  <p className="text-foreground">{example.meaning}</p>
-                </div>
-              </li>
-            ))}
+            {pattern.examples.map((example, i) => {
+              const rubyReading = hasRubyMarkup(example.reading)
+                ? example.reading
+                : undefined;
+              return (
+                <li
+                  key={example.japanese}
+                  data-ocid={`grammar_detail.example.item.${i + 1}`}
+                  className="flex gap-4 rounded-lg border bg-card p-5 shadow-subtle"
+                >
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-secondary-foreground">
+                    {i + 1}
+                  </span>
+                  <div className="min-w-0 space-y-1">
+                    {showFurigana && rubyReading ? (
+                      <RubyText
+                        text={rubyReading}
+                        as="p"
+                        className="break-words text-lg font-medium leading-loose text-foreground md:text-xl"
+                      />
+                    ) : (
+                      <p
+                        lang="ja"
+                        className="break-words text-lg font-medium text-foreground md:text-xl"
+                      >
+                        {example.japanese}
+                      </p>
+                    )}
+                    {example.reading && !rubyReading && (
+                      <p
+                        lang="ja"
+                        className="break-words text-sm text-muted-foreground"
+                      >
+                        {example.reading}
+                      </p>
+                    )}
+                    <p className="text-foreground">{example.meaning}</p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </DetailSection>
 

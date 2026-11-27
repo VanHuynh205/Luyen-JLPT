@@ -14,6 +14,7 @@
   "examples": [
    {
     "japanese": "財布をなくしたんですか。",
+    "reading": "{財布|さいふ}をなくしたんですか。",
     "meaning": "Bạn làm mất ví à?"
    }
   ]
@@ -33,6 +34,7 @@
   "examples": [
    {
     "japanese": "どこに行くんですか。",
+    "reading": "どこに{行|い}くんですか。",
     "meaning": "Bạn sẽ đi đâu vậy?"
    }
   ]
@@ -52,6 +54,7 @@
   "examples": [
    {
     "japanese": "どうして会社を辞めたんですか。仕事が面白くないんです。",
+    "reading": "どうして{会社|かいしゃ}を{辞|や}めたんですか。{仕事|しごと}が{面白|おもしろ}くないんです。",
     "meaning": "Tại sao bạn nghỉ việc ở công ty vậy? Vì công việc không thú vị."
    }
   ]
@@ -68,6 +71,7 @@
   "examples": [
    {
     "japanese": "どうしたんですか。傘を忘れたんです。",
+    "reading": "どうしたんですか。{傘|かさ}を{忘|わす}れたんです。",
     "meaning": "Bạn sao vậy? Mình quên ô."
    }
   ]
@@ -87,6 +91,7 @@
   "examples": [
    {
     "japanese": "すみません。ちょっと用事があるんです。",
+    "reading": "すみません。ちょっと{用事|ようじ}があるんです。",
     "meaning": "Xin lỗi. Mình có chút việc."
    }
   ]
@@ -106,6 +111,7 @@
   "examples": [
    {
     "japanese": "時間がないんですが、あとで電話してもいいですか。",
+    "reading": "{時間|じかん}がないんですが、あとで{電話|でんわ}してもいいですか。",
     "meaning": "Tôi đang bận, lát nữa gọi lại được không?"
    }
   ]
@@ -125,6 +131,7 @@
   "examples": [
    {
     "japanese": "生け花を習いたいんですが、いい先生を紹介していただけませんか。",
+    "reading": "{生|い}け{花|ばな}を{習|なら}いたいんですが、いい{先生|せんせい}を{紹介|しょうかい}していただけませんか。",
     "meaning": "Tôi muốn học cắm hoa. Anh/chị có thể giới thiệu một giáo viên giỏi cho tôi được không?"
    }
   ]
@@ -144,6 +151,7 @@
   "examples": [
    {
     "japanese": "日本でおいしい料理を食べたいんですが、何を食べたらいいですか。",
+    "reading": "{日本|にほん}でおいしい{料理|りょうり}を{食|た}べたいんですが、{何|なに}を{食|た}べたらいいですか。",
     "meaning": "Tôi muốn ăn món ngon ở Nhật. Tôi nên ăn món gì?"
    }
   ]
@@ -160,6 +168,7 @@
   "examples": [
    {
     "japanese": "この漢字の読み方を教えてもらえませんか。",
+    "reading": "この{漢字|かんじ}の{読|よ}み{方|かた}を{教|おし}えてもらえませんか。",
     "meaning": "Bạn chỉ giúp mình cách đọc chữ kanji này được không?"
    }
   ]
@@ -176,6 +185,7 @@
   "examples": [
    {
     "japanese": "このコンビニで水が買えます。",
+    "reading": "このコンビニで{水|みず}が{買|か}えます。",
     "meaning": "Có thể mua nước ở cửa hàng tiện lợi này."
    }
   ]
@@ -193,6 +203,7 @@
   "examples": [
    {
     "japanese": "先生の声が聞こえます。",
+    "reading": "{先生|せんせい}の{声|こえ}が{聞|き}こえます。",
     "meaning": "Tôi nghe thấy tiếng của thầy/cô."
    }
   ]
@@ -209,6 +220,7 @@
   "examples": [
    {
     "japanese": "この漢字を読むことができます。",
+    "reading": "この{漢字|かんじ}を{読|よ}むことができます。",
     "meaning": "Tôi có thể đọc chữ kanji này."
    }
   ]
@@ -226,6 +238,7 @@
   "examples": [
    {
     "japanese": "駅の近くに新しい店ができました。",
+    "reading": "{駅|えき}の{近|ちか}くに{新|あたら}しい{店|みせ}ができました。",
     "meaning": "Một cửa hàng mới đã mở gần ga."
    }
   ]
@@ -243,6 +256,7 @@
   "examples": [
    {
     "japanese": "トムさんは一年に二回しか映画を見ません。",
+    "reading": "トムさんは{一年|いちねん}に{二回|にかい}しか{映画|えいが}を{見|み}ません。",
     "meaning": "Anh Tom chỉ xem phim hai lần mỗi năm."
    }
   ]
@@ -260,6 +274,7 @@
   "examples": [
    {
     "japanese": "ピアノは弾けますが、ギターは弾けません。",
+    "reading": "ピアノは{弾|ひ}けますが、ギターは{弾|ひ}けません。",
     "meaning": "Tôi chơi piano được, còn guitar thì không."
    }
   ]
@@ -276,6 +291,7 @@
   "examples": [
    {
     "japanese": "音楽を聴きながら走ります。",
+    "reading": "{音楽|おんがく}を{聴|き}きながら{走|はし}ります。",
     "meaning": "Tôi vừa chạy vừa nghe nhạc."
    }
   ]
@@ -292,6 +308,7 @@
   "examples": [
    {
     "japanese": "アルバイトをしながら学校に通っています。",
+    "reading": "アルバイトをしながら{学校|がっこう}に{通|かよ}っています。",
     "meaning": "Tôi vừa làm thêm vừa đi học."
    }
   ]
@@ -308,6 +325,7 @@
   "examples": [
    {
     "japanese": "いつもバスで会社へ行っています。",
+    "reading": "いつもバスで{会社|かいしゃ}へ{行|い}っています。",
     "meaning": "Tôi thường xuyên đi làm bằng xe buýt."
    }
   ]
@@ -327,6 +345,7 @@
   "examples": [
    {
     "japanese": "このアパートは広いし、駅から近いし、それに安いです。",
+    "reading": "このアパートは{広|ひろ}いし、{駅|えき}から{近|ちか}いし、それに{安|やす}いです。",
     "meaning": "Căn hộ này rộng, gần ga, lại rẻ."
    }
   ]
@@ -343,6 +362,7 @@
   "examples": [
    {
     "japanese": "今、資料を読んでいます。",
+    "reading": "{今|いま}、{資料|しりょう}を{読|よ}んでいます。",
     "meaning": "Tôi đang đọc tài liệu."
    }
   ]
@@ -362,6 +382,7 @@
   "examples": [
    {
     "japanese": "週末は雨だし、寒いし、出かけません。",
+    "reading": "{週末|しゅうまつ}は{雨|あめ}だし、{寒|さむ}いし、{出|で}かけません。",
     "meaning": "Cuối tuần vừa mưa vừa lạnh nên tôi không ra ngoài."
    }
   ]
@@ -381,6 +402,7 @@
   "examples": [
    {
     "japanese": "どうしてここを選んだんですか。静かだし、家賃も安いからです。",
+    "reading": "どうしてここを{選|えら}んだんですか。{静|しず}かだし、{家賃|やちん}も{安|やす}いからです。",
     "meaning": "Vì sao bạn chọn chỗ này? Vì yên tĩnh, tiền thuê cũng rẻ."
    }
   ]
@@ -398,6 +420,7 @@
   "examples": [
    {
     "japanese": "電気をつけます。電気がつきます。",
+    "reading": "{電気|でんき}をつけます。{電気|でんき}がつきます。",
     "meaning": "Tôi bật đèn. Đèn bật sáng."
    }
   ]
@@ -415,6 +438,7 @@
   "examples": [
    {
     "japanese": "窓が割れています。テレビがついています。",
+    "reading": "{窓|まど}が{割|わ}れています。テレビがついています。",
     "meaning": "Cửa sổ bị vỡ. Ti vi đang bật."
    }
   ]
@@ -431,6 +455,7 @@
   "examples": [
    {
     "japanese": "一日で読んでしまいました。",
+    "reading": "{一日|いちにち}で{読|よ}んでしまいました。",
     "meaning": "Tôi đã đọc xong trong một ngày."
    }
   ]
@@ -447,6 +472,7 @@
   "examples": [
    {
     "japanese": "電車にかばんを忘れてしまいました。",
+    "reading": "{電車|でんしゃ}にかばんを{忘|わす}れてしまいました。",
     "meaning": "Tôi lỡ để quên túi trên tàu."
    }
   ]
@@ -464,6 +490,7 @@
   "examples": [
    {
     "japanese": "棚に花瓶が飾ってあります。",
+    "reading": "{棚|たな}に{花瓶|かびん}が{飾|かざ}ってあります。",
     "meaning": "Trên kệ có bình hoa đã được bày sẵn."
    }
   ]
@@ -480,6 +507,7 @@
   "examples": [
    {
     "japanese": "外はまだ雨が降っています。",
+    "reading": "{外|そと}はまだ{雨|あめ}が{降|ふ}っています。",
     "meaning": "Ngoài trời vẫn đang mưa."
    }
   ]
@@ -496,6 +524,7 @@
   "examples": [
    {
     "japanese": "次の授業までに、このページを読んでおきます。",
+    "reading": "{次|つぎ}の{授業|じゅぎょう}までに、このページを{読|よ}んでおきます。",
     "meaning": "Tôi sẽ đọc sẵn trang này trước buổi học tới."
    }
   ]
@@ -512,6 +541,7 @@
   "examples": [
    {
     "japanese": "遊んだら、元の所にしまっておきます。",
+    "reading": "{遊|あそ}んだら、{元|もと}の{所|ところ}にしまっておきます。",
     "meaning": "Chơi xong thì cất lại chỗ cũ."
    }
   ]
@@ -528,6 +558,7 @@
   "examples": [
    {
     "japanese": "エアコンがついていますから、窓を閉めておいてください。",
+    "reading": "エアコンがついていますから、{窓|まど}を{閉|し}めておいてください。",
     "meaning": "Máy lạnh đang bật nên vui lòng cứ để cửa sổ đóng."
    }
   ]
@@ -544,6 +575,7 @@
   "examples": [
    {
     "japanese": "先生に聞こう。",
+    "reading": "{先生|せんせい}に{聞|き}こう。",
     "meaning": "Cùng hỏi thầy/cô nhé."
    }
   ]
@@ -560,6 +592,7 @@
   "examples": [
    {
     "japanese": "国に帰ったら、友達に会おうと思っています。",
+    "reading": "{国|くに}に{帰|かえ}ったら、{友達|ともだち}に{会|あ}おうと{思|おも}っています。",
     "meaning": "Tôi định gặp bạn bè khi về nước."
    }
   ]
@@ -576,6 +609,7 @@
   "examples": [
    {
     "japanese": "明日早く起きようと思います。",
+    "reading": "{明日|あした}{早|はや}く{起|お}きようと{思|おも}います。",
     "meaning": "Tôi định dậy sớm ngày mai."
    }
   ]
@@ -592,6 +626,7 @@
   "examples": [
    {
     "japanese": "六十歳になっても、仕事を辞めないつもりです。",
+    "reading": "{六十歳|ろくじゅうさい}になっても、{仕事|しごと}を{辞|や}めないつもりです。",
     "meaning": "Dù đến 60 tuổi, tôi vẫn định không nghỉ việc."
    }
   ]
@@ -609,6 +644,7 @@
   "examples": [
    {
     "japanese": "会議は三時に終わる予定です。",
+    "reading": "{会議|かいぎ}は{三時|さんじ}に{終|お}わる{予定|よてい}です。",
     "meaning": "Theo lịch, cuộc họp sẽ kết thúc lúc ba giờ."
    }
   ]
@@ -625,6 +661,7 @@
   "examples": [
    {
     "japanese": "まだ国へ帰るチケットを買っていません。",
+    "reading": "まだ{国|くに}へ{帰|かえ}るチケットを{買|か}っていません。",
     "meaning": "Tôi vẫn chưa mua vé về nước."
    }
   ]
@@ -642,6 +679,7 @@
   "examples": [
    {
     "japanese": "友達にこの写真を見てほしいです。",
+    "reading": "{友達|ともだち}にこの{写真|しゃしん}を{見|み}てほしいです。",
     "meaning": "Tôi muốn bạn mình xem bức ảnh này."
    }
   ]
@@ -658,6 +696,7 @@
   "examples": [
    {
     "japanese": "明日は試験ですから、勉強したほうがいいです。",
+    "reading": "{明日|あした}は{試験|しけん}ですから、{勉強|べんきょう}したほうがいいです。",
     "meaning": "Ngày mai thi nên bạn nên học bài."
    }
   ]
@@ -677,6 +716,7 @@
   "examples": [
    {
     "japanese": "明日は雨が降るでしょう。",
+    "reading": "{明日|あした}は{雨|あめ}が{降|ふ}るでしょう。",
     "meaning": "Ngày mai có lẽ sẽ mưa."
    }
   ]
@@ -696,6 +736,7 @@
   "examples": [
    {
     "japanese": "飛行機の時間に間に合わないかもしれません。",
+    "reading": "{飛行機|ひこうき}の{時間|じかん}に{間|ま}に{合|あ}わないかもしれません。",
     "meaning": "Có thể tôi sẽ không kịp chuyến bay."
    }
   ]
@@ -712,6 +753,7 @@
   "examples": [
    {
     "japanese": "道を案内しましょうか。",
+    "reading": "{道|みち}を{案内|あんない}しましょうか。",
     "meaning": "Để tôi chỉ đường cho bạn nhé?"
    }
   ]
@@ -728,6 +770,7 @@
   "examples": [
    {
     "japanese": "三十分でうちへ帰れます。",
+    "reading": "{三十分|さんじゅっぷん}でうちへ{帰|かえ}れます。",
     "meaning": "Tôi có thể về nhà trong 30 phút."
    }
   ]
@@ -744,6 +787,7 @@
   "examples": [
    {
     "japanese": "早く逃げろ。",
+    "reading": "{早|はや}く{逃|に}げろ。",
     "meaning": "Chạy mau!"
    }
   ]
@@ -760,6 +804,7 @@
   "examples": [
    {
     "japanese": "ここで泳ぐな。",
+    "reading": "ここで{泳|およ}ぐな。",
     "meaning": "Cấm bơi ở đây."
    }
   ]
@@ -776,6 +821,7 @@
   "examples": [
    {
     "japanese": "名前を書きなさい。",
+    "reading": "{名前|なまえ}を{書|か}きなさい。",
     "meaning": "Hãy viết tên."
    }
   ]
@@ -795,6 +841,7 @@
   "examples": [
    {
     "japanese": "「ここで泳ぐな」と書いてあります。",
+    "reading": "「ここで{泳|およ}ぐな」と{書|か}いてあります。",
     "meaning": "Có ghi “Cấm bơi ở đây”."
    }
   ]
@@ -814,6 +861,7 @@
   "examples": [
    {
     "japanese": "「徐行」は何と読みますか。「じょこう」と読みます。",
+    "reading": "「{徐行|じょこう}」は{何|なん}と{読|よ}みますか。「じょこう」と{読|よ}みます。",
     "meaning": "Chữ 徐行 đọc thế nào? Đọc là じょこう."
    }
   ]
@@ -833,6 +881,7 @@
   "examples": [
    {
     "japanese": "「ゆっくり行け」という意味です。",
+    "reading": "「ゆっくり{行|い}け」という{意味|いみ}です。",
     "meaning": "Có nghĩa là “Hãy đi chậm”."
    }
   ]
@@ -852,6 +901,7 @@
   "examples": [
    {
     "japanese": "皆さんに今晩のパーティーに行けないと伝えていただけませんか。",
+    "reading": "{皆|みな}さんに{今晩|こんばん}のパーティーに{行|い}けないと{伝|つた}えていただけませんか。",
     "meaning": "Anh/chị nhắn với mọi người giúp tôi rằng tôi không dự tiệc tối nay được không?"
    }
   ]
@@ -871,6 +921,7 @@
   "examples": [
    {
     "japanese": "マリアさんは明日生け花を習うと言っていました。",
+    "reading": "マリアさんは{明日|あした}{生|い}け{花|ばな}を{習|なら}うと{言|い}っていました。",
     "meaning": "Maria nói rằng ngày mai cô ấy sẽ học cắm hoa."
    }
   ]
@@ -888,6 +939,7 @@
   "examples": [
    {
     "japanese": "先生が言ったとおりに言います。",
+    "reading": "{先生|せんせい}が{言|い}ったとおりに{言|い}います。",
     "meaning": "Tôi nói theo đúng những gì thầy/cô đã nói."
    }
   ]
@@ -905,6 +957,7 @@
   "examples": [
    {
     "japanese": "仕事が終わったあとで、食事します。",
+    "reading": "{仕事|しごと}が{終|お}わったあとで、{食事|しょくじ}します。",
     "meaning": "Tôi sẽ ăn sau khi xong việc."
    }
   ]
@@ -921,6 +974,7 @@
   "examples": [
    {
     "japanese": "住所を確認してから、手紙を出します。",
+    "reading": "{住所|じゅうしょ}を{確認|かくにん}してから、{手紙|てがみ}を{出|だ}します。",
     "meaning": "Tôi kiểm tra địa chỉ rồi mới gửi thư."
    }
   ]
@@ -937,6 +991,7 @@
   "examples": [
    {
     "japanese": "一時間後に寝ます。",
+    "reading": "{一時間後|いちじかんご}に{寝|ね}ます。",
     "meaning": "Một giờ nữa tôi đi ngủ."
    }
   ]
@@ -953,6 +1008,7 @@
   "examples": [
    {
     "japanese": "切手を貼らないで手紙を出しました。",
+    "reading": "{切手|きって}を{貼|は}らないで{手紙|てがみ}を{出|だ}しました。",
     "meaning": "Tôi gửi thư mà không dán tem."
    }
   ]
@@ -969,6 +1025,7 @@
   "examples": [
    {
     "japanese": "ゲームをしないで、日本語を勉強します。",
+    "reading": "ゲームをしないで、{日本語|にほんご}を{勉強|べんきょう}します。",
     "meaning": "Tôi học tiếng Nhật thay vì chơi game."
    }
   ]
@@ -988,6 +1045,7 @@
   "examples": [
    {
     "japanese": "車があれば、海に行きます。",
+    "reading": "{車|くるま}があれば、{海|うみ}に{行|い}きます。",
     "meaning": "Nếu có xe thì tôi đi biển."
    }
   ]
@@ -1004,6 +1062,7 @@
   "examples": [
    {
     "japanese": "新しい車を買いたいんですが、どんな車を買えばいいですか。",
+    "reading": "{新|あたら}しい{車|くるま}を{買|か}いたいんですが、どんな{車|くるま}を{買|か}えばいいですか。",
     "meaning": "Tôi muốn mua xe mới. Tôi nên mua loại xe nào?"
    }
   ]
@@ -1023,6 +1082,7 @@
   "examples": [
    {
     "japanese": "きれいな海なら、ニャチャンがいいですよ。",
+    "reading": "きれいな{海|うみ}なら、ニャチャンがいいですよ。",
     "meaning": "Nếu muốn biển đẹp thì Nha Trang hợp đấy."
    }
   ]
@@ -1039,6 +1099,7 @@
   "examples": [
    {
     "japanese": "窓の近くの席はありませんか。",
+    "reading": "{窓|まど}の{近|ちか}くの{席|せき}はありませんか。",
     "meaning": "Có ghế nào gần cửa sổ không ạ?"
    }
   ]
@@ -1058,6 +1119,7 @@
   "examples": [
    {
     "japanese": "駅に着いたら、電話してください。",
+    "reading": "{駅|えき}に{着|つ}いたら、{電話|でんわ}してください。",
     "meaning": "Khi đến ga, hãy gọi cho tôi."
    }
   ]
@@ -1077,6 +1139,7 @@
   "examples": [
    {
     "japanese": "このボタンを押すと、画面が開きます。",
+    "reading": "このボタンを{押|お}すと、{画面|がめん}が{開|あ}きます。",
     "meaning": "Nhấn nút này thì màn hình mở."
    }
   ]
@@ -1093,6 +1156,7 @@
   "examples": [
    {
     "japanese": "元気になるように、たくさん寝ます。",
+    "reading": "{元気|げんき}になるように、たくさん{寝|ね}ます。",
     "meaning": "Tôi ngủ nhiều để khỏe lại."
    }
   ]
@@ -1110,6 +1174,7 @@
   "examples": [
    {
     "japanese": "早く食べます。",
+    "reading": "{早|はや}く{食|た}べます。",
     "meaning": "Tôi ăn nhanh."
    }
   ]
@@ -1126,6 +1191,7 @@
   "examples": [
    {
     "japanese": "メールが使えるようになりました。",
+    "reading": "メールが{使|つか}えるようになりました。",
     "meaning": "Tôi đã biết dùng email."
    }
   ]
@@ -1142,6 +1208,7 @@
   "examples": [
    {
     "japanese": "今はゲームをしなくなりました。",
+    "reading": "{今|いま}はゲームをしなくなりました。",
     "meaning": "Giờ tôi không còn chơi game nữa."
    }
   ]
@@ -1158,6 +1225,7 @@
   "examples": [
    {
     "japanese": "体に悪いですから、お酒を飲まないようにしています。",
+    "reading": "{体|からだ}に{悪|わる}いですから、お{酒|さけ}を{飲|の}まないようにしています。",
     "meaning": "Vì có hại cho sức khỏe, tôi cố tránh uống rượu."
    }
   ]
@@ -1174,6 +1242,7 @@
   "examples": [
    {
     "japanese": "試験で辞書を見ないようにしてください。",
+    "reading": "{試験|しけん}で{辞書|じしょ}を{見|み}ないようにしてください。",
     "meaning": "Khi thi, vui lòng lưu ý không tra từ điển."
    }
   ]
@@ -1192,6 +1261,7 @@
   "examples": [
    {
     "japanese": "だんだん寒くなりました。",
+    "reading": "だんだん{寒|さむ}くなりました。",
     "meaning": "Trời đã dần trở lạnh."
    }
   ]
@@ -1208,6 +1278,7 @@
   "examples": [
    {
     "japanese": "先生は学生に呼ばれました。",
+    "reading": "{先生|せんせい}は{学生|がくせい}に{呼|よ}ばれました。",
     "meaning": "Thầy/cô được học sinh gọi."
    }
   ]
@@ -1225,6 +1296,7 @@
   "examples": [
    {
     "japanese": "知らない人に写真を撮られました。",
+    "reading": "{知|し}らない{人|ひと}に{写真|しゃしん}を{撮|と}られました。",
     "meaning": "Tôi bị người lạ chụp ảnh."
    }
   ]
@@ -1242,6 +1314,7 @@
   "examples": [
    {
     "japanese": "東京タワーは一九五八年に建てられました。",
+    "reading": "{東京|とうきょう}タワーは{一九五八年|いちきゅうごはちねん}に{建|た}てられました。",
     "meaning": "Tháp Tokyo được xây vào năm 1958."
    }
   ]
@@ -1259,6 +1332,7 @@
   "examples": [
    {
     "japanese": "飛行機はライト兄弟によって発明されました。",
+    "reading": "{飛行機|ひこうき}はライト{兄弟|きょうだい}によって{発明|はつめい}されました。",
     "meaning": "Máy bay do anh em nhà Wright phát minh."
    }
   ]
@@ -1276,6 +1350,7 @@
   "examples": [
    {
     "japanese": "この机は木で作られています。お酒は米から作られます。",
+    "reading": "この{机|つくえ}は{木|き}で{作|つく}られています。お{酒|さけ}は{米|こめ}から{作|つく}られます。",
     "meaning": "Chiếc bàn này làm bằng gỗ. Rượu được làm từ gạo."
    }
   ]
@@ -1294,6 +1369,7 @@
   "examples": [
    {
     "japanese": "映画を見るのは楽しいです。",
+    "reading": "{映画|えいが}を{見|み}るのは{楽|たの}しいです。",
     "meaning": "Xem phim rất vui."
    }
   ]
@@ -1312,6 +1388,7 @@
   "examples": [
    {
     "japanese": "歩くのが速いです。",
+    "reading": "{歩|ある}くのが{速|はや}いです。",
     "meaning": "Người đó đi bộ nhanh."
    }
   ]
@@ -1328,6 +1405,7 @@
   "examples": [
    {
     "japanese": "薬を飲むのを忘れました。",
+    "reading": "{薬|くすり}を{飲|の}むのを{忘|わす}れました。",
     "meaning": "Tôi quên uống thuốc."
    }
   ]
@@ -1344,6 +1422,7 @@
   "examples": [
    {
     "japanese": "四年前に会ったのを覚えています。",
+    "reading": "{四年前|よねんまえ}に{会|あ}ったのを{覚|おぼ}えています。",
     "meaning": "Tôi vẫn nhớ lần gặp bốn năm trước."
    }
   ]
@@ -1360,6 +1439,7 @@
   "examples": [
    {
     "japanese": "来月ここで祭りがあるのを知っていますか。",
+    "reading": "{来月|らいげつ}ここで{祭|まつ}りがあるのを{知|し}っていますか。",
     "meaning": "Bạn có biết tháng sau ở đây có lễ hội không?"
    }
   ]
@@ -1379,6 +1459,7 @@
   "examples": [
    {
     "japanese": "日本に来たのはどうしてですか。",
+    "reading": "{日本|にほん}に{来|き}たのはどうしてですか。",
     "meaning": "Tại sao bạn đến Nhật?"
    }
   ]
@@ -1397,6 +1478,7 @@
   "examples": [
    {
     "japanese": "練習すればするほど、上手になります。",
+    "reading": "{練習|れんしゅう}すればするほど、{上手|じょうず}になります。",
     "meaning": "Càng luyện tập càng tiến bộ."
    }
   ]
@@ -1413,6 +1495,7 @@
   "examples": [
    {
     "japanese": "姉に子どもが生まれて、うれしいです。",
+    "reading": "{姉|あね}に{子|こ}どもが{生|う}まれて、うれしいです。",
     "meaning": "Chị tôi sinh con nên tôi rất vui."
    }
   ]
@@ -1430,6 +1513,7 @@
   "examples": [
    {
     "japanese": "犬がうるさくて、本が読めません。",
+    "reading": "{犬|いぬ}がうるさくて、{本|ほん}が{読|よ}めません。",
     "meaning": "Con chó ồn quá nên tôi không đọc sách được."
    }
   ]
@@ -1446,6 +1530,7 @@
   "examples": [
    {
     "japanese": "台風で電車が止まりました。",
+    "reading": "{台風|たいふう}で{電車|でんしゃ}が{止|と}まりました。",
     "meaning": "Tàu điện ngừng chạy vì bão."
    }
   ]
@@ -1465,6 +1550,7 @@
   "examples": [
    {
     "japanese": "時間がないので、新聞が読めません。",
+    "reading": "{時間|じかん}がないので、{新聞|しんぶん}が{読|よ}めません。",
     "meaning": "Vì không có thời gian nên tôi không đọc báo được."
    }
   ]
@@ -1481,6 +1567,7 @@
   "examples": [
    {
     "japanese": "明日までに申し込まなくてはいけません。",
+    "reading": "{明日|あした}までに{申|もう}し{込|こ}まなくてはいけません。",
     "meaning": "Phải đăng ký trước hạn ngày mai."
    }
   ]
@@ -1500,6 +1587,7 @@
   "examples": [
    {
     "japanese": "危ないですから、入らないでください。",
+    "reading": "{危|あぶ}ないですから、{入|はい}らないでください。",
     "meaning": "Vì nguy hiểm nên vui lòng đừng vào."
    }
   ]
@@ -1516,6 +1604,7 @@
   "examples": [
    {
     "japanese": "印刷する必要はありません。",
+    "reading": "{印刷|いんさつ}する{必要|ひつよう}はありません。",
     "meaning": "Không cần in ra."
    }
   ]
@@ -1535,6 +1624,7 @@
   "examples": [
    {
     "japanese": "リンゴがいくつあるか、分かりません。",
+    "reading": "リンゴがいくつあるか、{分|わ}かりません。",
     "meaning": "Tôi không biết có bao nhiêu quả táo."
    }
   ]
@@ -1554,6 +1644,7 @@
   "examples": [
    {
     "japanese": "間違いがないかどうか、チェックします。",
+    "reading": "{間違|まちが}いがないかどうか、チェックします。",
     "meaning": "Tôi sẽ kiểm tra xem có sai sót hay không."
    }
   ]
@@ -1570,6 +1661,7 @@
   "examples": [
    {
     "japanese": "新しいレストランに行ってみます。",
+    "reading": "{新|あたら}しいレストランに{行|い}ってみます。",
     "meaning": "Tôi sẽ thử đến nhà hàng mới."
    }
   ]
@@ -1587,6 +1679,7 @@
   "examples": [
    {
     "japanese": "この机の高さを測ります。",
+    "reading": "この{机|つくえ}の{高|たか}さを{測|はか}ります。",
     "meaning": "Tôi đo chiều cao của chiếc bàn này."
    }
   ]
@@ -1603,6 +1696,7 @@
   "examples": [
    {
     "japanese": "木に水をやります。",
+    "reading": "{木|き}に{水|みず}をやります。",
     "meaning": "Tôi tưới nước cho cây."
    }
   ]
@@ -1619,6 +1713,7 @@
   "examples": [
    {
     "japanese": "私は部長に帽子をいただきました。",
+    "reading": "{私|わたし}は{部長|ぶちょう}に{帽子|ぼうし}をいただきました。",
     "meaning": "Tôi được trưởng phòng tặng một chiếc mũ."
    }
   ]
@@ -1635,6 +1730,7 @@
   "examples": [
    {
     "japanese": "部長が帽子をくださいました。",
+    "reading": "{部長|ぶちょう}が{帽子|ぼうし}をくださいました。",
     "meaning": "Trưởng phòng đã tặng tôi một chiếc mũ."
    }
   ]
@@ -1651,6 +1747,7 @@
   "examples": [
    {
     "japanese": "犬を散歩に連れて行ってやります。",
+    "reading": "{犬|いぬ}を{散歩|さんぽ}に{連|つ}れて{行|い}ってやります。",
     "meaning": "Tôi dắt chó đi dạo."
    }
   ]
@@ -1668,6 +1765,7 @@
   "examples": [
    {
     "japanese": "先生に作文を直していただきました。",
+    "reading": "{先生|せんせい}に{作文|さくぶん}を{直|なお}していただきました。",
     "meaning": "Tôi được thầy/cô sửa giúp bài văn."
    }
   ]
@@ -1685,6 +1783,7 @@
   "examples": [
    {
     "japanese": "先生が英語を教えてくださいました。",
+    "reading": "{先生|せんせい}が{英語|えいご}を{教|おし}えてくださいました。",
     "meaning": "Thầy/cô đã dạy tiếng Anh cho tôi."
    }
   ]
@@ -1701,6 +1800,7 @@
   "examples": [
    {
     "japanese": "申込書の書き方を教えてくださいませんか。",
+    "reading": "{申込書|もうしこみしょ}の{書|か}き{方|かた}を{教|おし}えてくださいませんか。",
     "meaning": "Anh/chị chỉ giúp tôi cách điền đơn được không?"
    }
   ]
@@ -1717,6 +1817,7 @@
   "examples": [
    {
     "japanese": "お祝いにプレゼントをあげます。",
+    "reading": "お{祝|いわ}いにプレゼントをあげます。",
     "meaning": "Tôi tặng quà để chúc mừng."
    }
   ]
@@ -1734,6 +1835,7 @@
   "examples": [
    {
     "japanese": "留学するために、お金を貯めています。",
+    "reading": "{留学|りゅうがく}するために、お{金|かね}を{貯|た}めています。",
     "meaning": "Tôi đang tiết kiệm tiền để đi du học."
    }
   ]
@@ -1751,6 +1853,7 @@
   "examples": [
    {
     "japanese": "これはお皿を洗うのに使います。",
+    "reading": "これはお{皿|さら}を{洗|あら}うのに{使|つか}います。",
     "meaning": "Cái này dùng để rửa bát."
    }
   ]
@@ -1767,6 +1870,7 @@
   "examples": [
    {
     "japanese": "結婚式をするのに三百万円もかかります。",
+    "reading": "{結婚式|けっこんしき}をするのに{三百万円|さんびゃくまんえん}もかかります。",
     "meaning": "Tổ chức lễ cưới tốn tới ba triệu yên."
    }
   ]
@@ -1783,6 +1887,7 @@
   "examples": [
    {
     "japanese": "雨が降りそうです。",
+    "reading": "{雨|あめ}が{降|ふ}りそうです。",
     "meaning": "Trông như trời sắp mưa."
    }
   ]
@@ -1800,6 +1905,7 @@
   "examples": [
    {
     "japanese": "辛そうです。",
+    "reading": "{辛|から}そうです。",
     "meaning": "Trông có vẻ cay."
    }
   ]
@@ -1816,6 +1922,7 @@
   "examples": [
    {
     "japanese": "ビールを買って来ます。",
+    "reading": "ビールを{買|か}って{来|き}ます。",
     "meaning": "Tôi đi mua bia rồi quay lại."
    }
   ]
@@ -1832,6 +1939,7 @@
   "examples": [
    {
     "japanese": "お金を貸してくれませんか。",
+    "reading": "お{金|かね}を{貸|か}してくれませんか。",
     "meaning": "Bạn có thể cho mình mượn tiền không?"
    }
   ]
@@ -1850,6 +1958,7 @@
   "examples": [
    {
     "japanese": "お酒を飲みすぎました。",
+    "reading": "お{酒|さけ}を{飲|の}みすぎました。",
     "meaning": "Tôi đã uống quá nhiều rượu."
    }
   ]
@@ -1866,6 +1975,7 @@
   "examples": [
    {
     "japanese": "晴れた日は洗濯物が乾きやすいです。",
+    "reading": "{晴|は}れた{日|ひ}は{洗濯物|せんたくもの}が{乾|かわ}きやすいです。",
     "meaning": "Ngày nắng thì đồ giặt dễ khô."
    }
   ]
@@ -1884,6 +1994,7 @@
   "examples": [
    {
     "japanese": "音を小さくします。",
+    "reading": "{音|おと}を{小|ちい}さくします。",
     "meaning": "Tôi vặn nhỏ âm thanh."
    }
   ]
@@ -1900,6 +2011,7 @@
   "examples": [
    {
     "japanese": "牛丼にします。",
+    "reading": "{牛丼|ぎゅうどん}にします。",
     "meaning": "Tôi chọn cơm bò."
    }
   ]
@@ -1916,6 +2028,7 @@
   "examples": [
    {
     "japanese": "雨がやんでほしいです。",
+    "reading": "{雨|あめ}がやんでほしいです。",
     "meaning": "Tôi mong trời tạnh."
    }
   ]
@@ -1932,6 +2045,7 @@
   "examples": [
    {
     "japanese": "会議に出ます。結果が出ます。部屋を出ます。",
+    "reading": "{会議|かいぎ}に{出|で}ます。{結果|けっか}が{出|で}ます。{部屋|へや}を{出|で}ます。",
     "meaning": "Tôi dự họp. Có kết quả. Tôi rời phòng."
    }
   ]
@@ -1951,6 +2065,7 @@
   "examples": [
    {
     "japanese": "雨の場合は、中止です。",
+    "reading": "{雨|あめ}の{場合|ばあい}は、{中止|ちゅうし}です。",
     "meaning": "Trường hợp trời mưa thì hủy."
    }
   ]
@@ -1970,6 +2085,7 @@
   "examples": [
    {
     "japanese": "薬を飲んだのに、治りませんでした。",
+    "reading": "{薬|くすり}を{飲|の}んだのに、{治|なお}りませんでした。",
     "meaning": "Dù đã uống thuốc nhưng tôi vẫn không khỏi."
    }
   ]
@@ -1986,6 +2102,7 @@
   "examples": [
    {
     "japanese": "ちょうど今からご飯を食べるところです。",
+    "reading": "ちょうど{今|いま}からご{飯|はん}を{食|た}べるところです。",
     "meaning": "Tôi vừa chuẩn bị ăn cơm."
    }
   ]
@@ -2002,6 +2119,7 @@
   "examples": [
    {
     "japanese": "今、書いているところです。",
+    "reading": "{今|いま}、{書|か}いているところです。",
     "meaning": "Bây giờ tôi đang viết."
    }
   ]
@@ -2018,6 +2136,7 @@
   "examples": [
    {
     "japanese": "たった今、来たところです。",
+    "reading": "たった{今|いま}、{来|き}たところです。",
     "meaning": "Tôi vừa tới đây xong."
    }
   ]
@@ -2034,6 +2153,7 @@
   "examples": [
    {
     "japanese": "先月、日本に来たばかりです。",
+    "reading": "{先月|せんげつ}、{日本|にほん}に{来|き}たばかりです。",
     "meaning": "Tôi mới đến Nhật tháng trước."
    }
   ]
@@ -2050,6 +2170,7 @@
   "examples": [
    {
     "japanese": "三日前に買ったばかりなのに、もう壊れました。",
+    "reading": "{三日前|みっかまえ}に{買|か}ったばかりなのに、もう{壊|こわ}れました。",
     "meaning": "Mới mua ba ngày trước mà đã hỏng rồi."
    }
   ]
@@ -2069,6 +2190,7 @@
   "examples": [
    {
     "japanese": "四年アメリカに留学していましたから、英語が話せるはずです。",
+    "reading": "{四年|よねん}アメリカに{留学|りゅうがく}していましたから、{英語|えいご}が{話|はな}せるはずです。",
     "meaning": "Vì đã du học Mỹ bốn năm nên chắc hẳn người đó nói được tiếng Anh."
    }
   ]
@@ -2088,6 +2210,7 @@
   "examples": [
    {
     "japanese": "天気情報によると、今日は雨だそうです。",
+    "reading": "{天気情報|てんきじょうほう}によると、{今日|きょう}は{雨|あめ}だそうです。",
     "meaning": "Theo thông tin thời tiết, nghe nói hôm nay trời mưa."
    }
   ]
@@ -2107,6 +2230,7 @@
   "examples": [
    {
     "japanese": "電気が消えています。もう寝たようです。",
+    "reading": "{電気|でんき}が{消|き}えています。もう{寝|ね}たようです。",
     "meaning": "Đèn tắt rồi. Hình như họ đã ngủ."
    }
   ]
@@ -2123,6 +2247,7 @@
   "examples": [
    {
     "japanese": "この花はいい匂いがします。",
+    "reading": "この{花|はな}はいい{匂|にお}いがします。",
     "meaning": "Hoa này có mùi thơm."
    }
   ]
@@ -2142,6 +2267,7 @@
   "examples": [
    {
     "japanese": "来月、新しい駅が開くらしいです。",
+    "reading": "{来月|らいげつ}、{新|あたら}しい{駅|えき}が{開|あ}くらしいです。",
     "meaning": "Nghe đâu tháng sau ga mới sẽ mở."
    }
   ]
@@ -2158,6 +2284,7 @@
   "examples": [
    {
     "japanese": "部長はAさんを銀行に行かせました。",
+    "reading": "{部長|ぶちょう}はAさんを{銀行|ぎんこう}に{行|い}かせました。",
     "meaning": "Trưởng phòng bảo anh/chị A đi ngân hàng."
    }
   ]
@@ -2175,6 +2302,7 @@
   "examples": [
    {
     "japanese": "子どもにラーメンを食べさせました。",
+    "reading": "{子|こ}どもにラーメンを{食|た}べさせました。",
     "meaning": "Tôi cho con ăn ramen."
    }
   ]
@@ -2192,6 +2320,7 @@
   "examples": [
    {
     "japanese": "大きな声で呼んで、彼をびっくりさせました。",
+    "reading": "{大|おお}きな{声|こえ}で{呼|よ}んで、{彼|かれ}をびっくりさせました。",
     "meaning": "Tôi gọi to làm anh ấy giật mình."
    }
   ]
@@ -2224,6 +2353,7 @@
   "examples": [
    {
     "japanese": "ここで写真を撮ってはいけません。",
+    "reading": "ここで{写真|しゃしん}を{撮|と}ってはいけません。",
     "meaning": "Không được chụp ảnh ở đây."
    }
   ]
@@ -2240,6 +2370,7 @@
   "examples": [
    {
     "japanese": "子どものころ、毎日野菜を食べさせられました。",
+    "reading": "{子|こ}どものころ、{毎日|まいにち}{野菜|やさい}を{食|た}べさせられました。",
     "meaning": "Khi còn nhỏ, tôi bị bắt ăn rau mỗi ngày."
    }
   ]
@@ -2256,6 +2387,7 @@
   "examples": [
    {
     "japanese": "今日は早く帰らせてください。",
+    "reading": "{今日|きょう}は{早|はや}く{帰|かえ}らせてください。",
     "meaning": "Hôm nay xin cho tôi về sớm."
    }
   ]
@@ -2272,6 +2404,7 @@
   "examples": [
    {
     "japanese": "先生は何時に帰られますか。",
+    "reading": "{先生|せんせい}は{何時|なんじ}に{帰|かえ}られますか。",
     "meaning": "Thầy/cô sẽ về lúc mấy giờ ạ?"
    }
   ]
@@ -2288,6 +2421,7 @@
   "examples": [
    {
     "japanese": "部長はたばこをお吸いになります。",
+    "reading": "{部長|ぶちょう}はたばこをお{吸|す}いになります。",
     "meaning": "Trưởng phòng hút thuốc."
    }
   ]
@@ -2304,6 +2438,7 @@
   "examples": [
    {
     "japanese": "社長は何をなさっていますか。",
+    "reading": "{社長|しゃちょう}は{何|なに}をなさっていますか。",
     "meaning": "Giám đốc đang làm gì ạ?"
    }
   ]
@@ -2322,6 +2457,7 @@
   "examples": [
    {
     "japanese": "ご住所を教えてください。",
+    "reading": "ご{住所|じゅうしょ}を{教|おし}えてください。",
     "meaning": "Xin cho tôi biết địa chỉ của anh/chị."
    }
   ]
@@ -2339,6 +2475,7 @@
   "examples": [
    {
     "japanese": "どうぞお掛けください。",
+    "reading": "どうぞお{掛|か}けください。",
     "meaning": "Xin mời ngồi."
    }
   ]
@@ -2355,6 +2492,7 @@
   "examples": [
    {
     "japanese": "時間がありませんので、新聞が読めません。",
+    "reading": "{時間|じかん}がありませんので、{新聞|しんぶん}が{読|よ}めません。",
     "meaning": "Vì không có thời gian nên tôi không đọc báo được."
    }
   ]
@@ -2371,6 +2509,7 @@
   "examples": [
    {
     "japanese": "道が分かりませんでした。そこで、駅員に聞きました。",
+    "reading": "{道|みち}が{分|わ}かりませんでした。そこで、{駅員|えきいん}に{聞|き}きました。",
     "meaning": "Tôi không biết đường nên hỏi nhân viên nhà ga."
    }
   ]
@@ -2387,6 +2526,7 @@
   "examples": [
    {
     "japanese": "もう行かなきゃ。",
+    "reading": "もう{行|い}かなきゃ。",
     "meaning": "Mình phải đi rồi."
    }
   ]
@@ -2404,6 +2544,7 @@
   "examples": [
    {
     "japanese": "山田様はロビーでお待ちです。",
+    "reading": "{山田様|やまださま}はロビーでお{待|ま}ちです。",
     "meaning": "Ông/bà Yamada đang đợi ở sảnh."
    }
   ]
@@ -2421,6 +2562,7 @@
   "examples": [
    {
     "japanese": "駅まで車でお送りします。",
+    "reading": "{駅|えき}まで{車|くるま}でお{送|おく}りします。",
     "meaning": "Tôi xin đưa anh/chị đến ga bằng ô tô."
    }
   ]
@@ -2437,6 +2579,7 @@
   "examples": [
    {
     "japanese": "昨日、美術館で先生の絵を拝見しました。",
+    "reading": "{昨日|きのう}、{美術館|びじゅつかん}で{先生|せんせい}の{絵|え}を{拝見|はいけん}しました。",
     "meaning": "Hôm qua tôi đã xem tranh của thầy/cô ở bảo tàng mỹ thuật."
    }
   ]
@@ -2453,6 +2596,7 @@
   "examples": [
    {
     "japanese": "私はヴァンと申します。",
+    "reading": "{私|わたし}はヴァンと{申|もう}します。",
     "meaning": "Tôi tên là Văn."
    }
   ]
@@ -2469,6 +2613,7 @@
   "examples": [
    {
     "japanese": "こちらに座ってもよろしいでしょうか。",
+    "reading": "こちらに{座|すわ}ってもよろしいでしょうか。",
     "meaning": "Tôi ngồi đây được không ạ?"
    }
   ]
@@ -2485,6 +2630,7 @@
   "examples": [
    {
     "japanese": "少しずつ寒くなってきました。これからもっと寒くなっていきます。",
+    "reading": "{少|すこ}しずつ{寒|さむ}くなってきました。これからもっと{寒|さむ}くなっていきます。",
     "meaning": "Trời đã lạnh dần lên. Từ giờ trời sẽ còn lạnh hơn."
    }
   ]
@@ -2501,6 +2647,7 @@
   "examples": [
    {
     "japanese": "受付までお越しください。",
+    "reading": "{受付|うけつけ}までお{越|こ}しください。",
     "meaning": "Xin mời đến quầy tiếp tân."
    }
   ]

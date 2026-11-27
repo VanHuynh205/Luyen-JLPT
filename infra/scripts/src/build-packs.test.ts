@@ -228,8 +228,14 @@ describe("formatComparisonLinkReport", () => {
       ].join("\n");
       expect(output).toContain("comparison-SS001");
       expect(output).toContain("～ですか・ますか");
+      const n4Version = readFileSync(
+        join(contentDir, "VERSION"),
+        "utf8",
+      ).trim();
       expect(
-        readFileSync(join(root, "infra/packs/n4/1.0.0/comparisons.json")),
+        readFileSync(
+          join(root, `infra/packs/n4/${n4Version}/comparisons.json`),
+        ),
       ).toEqual(readFileSync(join(contentDir, "comparisons.json")));
     } finally {
       logSpy.mockRestore();

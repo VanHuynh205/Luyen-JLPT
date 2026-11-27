@@ -15,6 +15,10 @@ import { buildPack } from "./build-packs";
 import { buildPacks, verifyPacks } from "./packs";
 
 const infra = fileURLToPath(new URL("../../", import.meta.url));
+const n4Version = readFileSync(
+  join(infra, "content/n4/VERSION"),
+  "utf8",
+).trim();
 const published = "frontend/public/packs";
 let root: string;
 
@@ -68,13 +72,13 @@ it("reports a removed reading ID from the supplied previous release", () => {
 
 it("rejects a changed public file and an index that points outside the release", () => {
   buildPacks(root, false);
-  appendFileSync(join(root, published, "n4/1.0.0/grammar.json"), " ");
+  appendFileSync(join(root, published, `n4/${n4Version}/grammar.json`), " ");
   expect(() => verifyPacks(root)).toThrow(/grammar/);
   buildPacks(root, false);
   writeFileSync(
     join(root, "infra/packs/index.json"),
     JSON.stringify({
-      levels: [{ level: "n4", version: "1.0.0", path: "../../content/n4" }],
+      levels: [{ level: "n4", version: n4Version, path: "../../content/n4" }],
     }),
   );
   expect(() => verifyPacks(root)).toThrow(/index/);
@@ -92,7 +96,9 @@ it("rejects a stale pack after a source field changes without changing IDs", () 
 it("detects same-version content changes against a supplied release on a clean build", () => {
   buildPacks(root, false);
   const previous = join(root, "prior-release");
-  cpSync(join(root, "infra/packs/n4/1.0.0"), previous, { recursive: true });
+  cpSync(join(root, `infra/packs/n4/${n4Version}`), previous, {
+    recursive: true,
+  });
   for (const dir of ["infra/packs", published])
     rmSync(join(root, dir), { recursive: true });
   appendFileSync(join(root, "infra/content/n4/grammar.json"), " ");
@@ -102,13 +108,13 @@ it("detects same-version content changes against a supplied release on a clean b
 
 it("protects the published version even if the intermediate output is missing", () => {
   buildPacks(root, false);
-  const file = join(root, published, "n4/1.0.0/grammar.json");
+  const file = join(root, published, `n4/${n4Version}/grammar.json`);
   const before = readFileSync(file);
   rmSync(join(root, "infra/packs"), { recursive: true });
   appendFileSync(join(root, "infra/content/n4/grammar.json"), " ");
   expect(() => buildPacks(root, false)).toThrow(/version/i);
   expect(readFileSync(file)).toEqual(before);
-  expect(existsSync(join(root, "infra/packs/n4/1.0.0/manifest.json"))).toBe(
-    false,
-  );
+  expect(
+    existsSync(join(root, `infra/packs/n4/${n4Version}/manifest.json`)),
+  ).toBe(false);
 });

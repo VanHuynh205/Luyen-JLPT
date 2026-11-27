@@ -68,7 +68,7 @@ export interface CompoundEntry {
 
 export interface GrammarExample {
   japanese: string;
-  /** Cách đọc (furigana). Dataset không có nên để trống, không tự suy diễn. */
+  /** Chuỗi `{base|reading}` đã qua kiểm duyệt (không tự suy diễn lúc runtime). */
   reading?: string;
   meaning: string;
 }
@@ -121,6 +121,8 @@ export interface ReadingPassage {
   title: string;
   length: "short" | "medium";
   text: string;
+  /** Chuỗi `{base|reading}` đã qua kiểm duyệt (không tự suy diễn lúc runtime). */
+  textRuby?: string;
   translation: string;
   vocabulary: ReadingVocab[];
   questions: ReadingQuestion[];

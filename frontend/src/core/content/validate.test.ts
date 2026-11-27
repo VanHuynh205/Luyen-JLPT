@@ -140,4 +140,29 @@ describe("validatePack", () => {
       error: { code: "schema" },
     });
   });
+
+  it("accepts optional textRuby string on reading passages and rejects non-string textRuby", () => {
+    const validReading = [
+      {
+        ...miniPack.reading[0],
+        textRuby: "{本|ほん}を{読|よ}みます。",
+      },
+    ];
+    expect(validatePack({ ...miniPack, reading: validReading })).toMatchObject({
+      ok: true,
+    });
+
+    const invalidReading = [
+      {
+        ...miniPack.reading[0],
+        textRuby: 123,
+      },
+    ];
+    expect(
+      validatePack({ ...miniPack, reading: invalidReading }),
+    ).toMatchObject({
+      ok: false,
+      error: { code: "schema", detail: "reading[0]" },
+    });
+  });
 });

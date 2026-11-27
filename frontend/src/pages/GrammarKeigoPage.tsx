@@ -224,7 +224,7 @@ export default function GrammarKeigoPage() {
                         Khiêm nhường ngữ I
                       </TableCell>
                       <TableCell className="align-top whitespace-normal break-words">
-                        {renderValueOrDash(entry.kenjogoI)}
+                        {renderValueOrDash(entry.kenjogoI, true)}
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -232,7 +232,7 @@ export default function GrammarKeigoPage() {
                         Khiêm nhường ngữ II
                       </TableCell>
                       <TableCell className="align-top whitespace-normal break-words">
-                        {renderValueOrDash(entry.kenjogoII)}
+                        {renderValueOrDash(entry.kenjogoII, true)}
                       </TableCell>
                     </TableRow>
                     <TableRow>

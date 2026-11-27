@@ -7,6 +7,7 @@ import {
   type GrammarComparison,
   type GrammarPattern,
   PACK_TABLES,
+  type ReadingPassage,
 } from "../../../frontend/src/core/content/types";
 import { isVersion } from "../../../frontend/src/core/content/validate";
 import {
@@ -15,6 +16,11 @@ import {
   writeIndex,
 } from "./build-packs";
 import { buildExams, verifyExams } from "./exams";
+import {
+  auditFuriganaString,
+  findUnannotatedKanji,
+  hasKanji,
+} from "./verify-furigana";
 import { removedIds, verifyN4AgainstDataset, verifyPack } from "./verify-packs";
 import { tableFilename } from "./write-table";
 
@@ -109,6 +115,76 @@ export function verifyPacks(root: string, previousN4?: string): void {
       )
     ) {
       errors.push(`Published manifest differs: ${manifest}`);
+    }
+    const readingRows = JSON.parse(
+      readFileSync(
+        join(output, release.path, tableFilename("reading")),
+        "utf8",
+      ),
+    ) as ReadingPassage[];
+    for (const passage of readingRows) {
+      if (release.level === "n4" && typeof passage.textRuby !== "string") {
+        errors.push(`${release.path}/reading[${passage.id}]: missing textRuby`);
+        continue;
+      }
+      if (typeof passage.textRuby === "string") {
+        for (const err of auditFuriganaString(passage.text, passage.textRuby)) {
+          errors.push(
+            `${release.path}/reading[${passage.id}].textRuby: ${err}`,
+          );
+        }
+        if (release.level === "n4") {
+          const unannotated = findUnannotatedKanji(passage.textRuby);
+          if (unannotated.length > 0) {
+            errors.push(
+              `${release.path}/reading[${passage.id}].textRuby: unannotated Kanji ${unannotated.join("")}`,
+            );
+          }
+        }
+      }
+    }
+    const grammarRows = JSON.parse(
+      readFileSync(
+        join(output, release.path, tableFilename("grammar")),
+        "utf8",
+      ),
+    ) as GrammarPattern[];
+    for (const pattern of grammarRows) {
+      for (let i = 0; i < pattern.examples.length; i++) {
+        const example = pattern.examples[i];
+        if (!example) continue;
+        const needsFurigana =
+          release.level === "n4" && hasKanji(example.japanese);
+        if (needsFurigana && typeof example.reading !== "string") {
+          errors.push(
+            `${release.path}/grammar[${pattern.id}].examples[${i}]: missing reading for Kanji example`,
+          );
+          continue;
+        }
+        if (
+          typeof example.reading === "string" &&
+          (needsFurigana ||
+            example.reading.includes("{") ||
+            example.reading.includes("}"))
+        ) {
+          for (const err of auditFuriganaString(
+            example.japanese,
+            example.reading,
+          )) {
+            errors.push(
+              `${release.path}/grammar[${pattern.id}].examples[${i}].reading: ${err}`,
+            );
+          }
+          if (release.level === "n4") {
+            const unannotated = findUnannotatedKanji(example.reading);
+            if (unannotated.length > 0) {
+              errors.push(
+                `${release.path}/grammar[${pattern.id}].examples[${i}].reading: unannotated Kanji ${unannotated.join("")}`,
+              );
+            }
+          }
+        }
+      }
     }
   }
   const pack = join(output, n4.path);

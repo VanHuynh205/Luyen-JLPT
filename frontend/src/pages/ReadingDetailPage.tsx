@@ -1,9 +1,13 @@
+import { RubyText } from "@/components/exam/RubyText";
 import { HankoStamp } from "@/components/motion/HankoStamp";
 import { QuestionCard } from "@/components/reading/QuestionCard";
 import { StudyAids } from "@/components/reading/StudyAids";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import type { Level, ReadingPassage } from "@/core/content/types";
 import { useReadyPack } from "@/hooks/useContent";
+import { useFuriganaPreference } from "@/hooks/useFuriganaPreference";
 import { useMotionPreference } from "@/hooks/useMotionPreference";
 import { useRecordReadingResult } from "@/hooks/useProgress";
 import { Link, useParams } from "@tanstack/react-router";
@@ -31,6 +35,7 @@ function ReadingDetailContent({
   level: Level;
 }) {
   const { mode } = useMotionPreference();
+  const { showFurigana, setShowFurigana } = useFuriganaPreference(level);
   const recordResult = useRecordReadingResult();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -127,12 +132,39 @@ function ReadingDetailContent({
             data-ocid="reading_detail.passage.panel"
             className="rounded-xl border bg-card p-6 shadow-subtle md:p-8"
           >
-            <p
-              lang="ja"
-              className="whitespace-pre-line font-jp text-lg leading-loose text-foreground"
-            >
-              {passage.text}
-            </p>
+            {passage.textRuby && (
+              <div className="mb-4 flex items-center justify-end border-b pb-3">
+                <div className="flex min-h-11 items-center gap-2.5">
+                  <Switch
+                    id="reading-furigana-switch"
+                    data-ocid="reading_detail.furigana.switch"
+                    checked={showFurigana}
+                    onCheckedChange={setShowFurigana}
+                  />
+                  <Label
+                    htmlFor="reading-furigana-switch"
+                    className="min-h-11 cursor-pointer text-sm"
+                  >
+                    Hiện Furigana
+                  </Label>
+                </div>
+              </div>
+            )}
+            {showFurigana && passage.textRuby ? (
+              <RubyText
+                text={passage.textRuby}
+                font="serif"
+                as="p"
+                className="whitespace-pre-line text-lg leading-loose text-foreground"
+              />
+            ) : (
+              <p
+                lang="ja"
+                className="whitespace-pre-line font-jp text-lg leading-loose text-foreground"
+              >
+                {passage.text}
+              </p>
+            )}
           </article>
           {(submitted || total === 0) && <StudyAids passage={passage} />}
         </div>

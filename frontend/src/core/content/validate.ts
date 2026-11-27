@@ -151,6 +151,7 @@ const rowChecks: Record<PackTable, (row: Row) => boolean> = {
     ),
   reading: (row) =>
     hasStrings(row, "title", "text", "translation") &&
+    hasOptionalStrings(row, "textRuby") &&
     (row.length === "short" || row.length === "medium") &&
     allItems(
       row.vocabulary,
