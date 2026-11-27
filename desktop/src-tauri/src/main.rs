@@ -18,7 +18,8 @@ fn main() {
             tauri_plugin_opener::Builder::new()
                 .open_js_links_on_click(false)
                 .build(),
-        );
+        )
+        .plugin(tauri_plugin_process::init());
 
     if updater_configured {
         app = app.plugin(tauri_plugin_updater::Builder::new().build());

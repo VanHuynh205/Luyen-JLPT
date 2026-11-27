@@ -59,7 +59,7 @@ jobs:
 
   windows:
     needs: prepare
-    runs-on: windows-latest
+    runs-on: windows-2025
     timeout-minutes: 55
     environment: ${{ inputs.publish && 'native-signing' || 'native-checks' }}
     steps:
@@ -194,6 +194,7 @@ jobs:
         run: |
           pnpm tauri:mobile android init --ci --skip-targets-install
           pnpm tauri:mobile icon app-icon.svg
+          node mobile/scripts/patch-android-manifest.mjs
       - name: Build debug APK for pull request smoke
         if: ${{ !inputs.publish }}
         run: pnpm tauri:mobile android build --ci --apk --debug --target x86_64 -- --locked
@@ -220,6 +221,12 @@ jobs:
           if [[ "$PUBLISH" == true ]]; then
             test -s "$output/Luyen-JLPT-android.apk"
             test -s "$output/android-latest.json"
+            node -e '
+              const fs = require("node:fs");
+              const m = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+              if (!/^[a-f0-9]{64}$/.test(m.sha256 ?? "")) throw new Error("Missing valid 64-hex sha256 in android-latest.json");
+              if (!Number.isSafeInteger(m.sizeBytes) || m.sizeBytes < 1 || m.sizeBytes > 62_914_560) throw new Error("Invalid sizeBytes in android-latest.json");
+            ' "$output/android-latest.json"
           else
             mapfile -t apks < <(find mobile/src-tauri/gen/android/app/build/outputs/apk -name '*-debug.apk')
             test "${#apks[@]}" -eq 1

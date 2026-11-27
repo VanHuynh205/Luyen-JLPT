@@ -10,6 +10,7 @@ import {
 import { getAuthRedirectUrl } from "@/adapters/auth/nativeAuth";
 import { useAuth } from "@/adapters/auth/session";
 import { progressStore } from "@/adapters/local-store/progress";
+import { checkForNativeUpdate } from "@/components/NativeUpdates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,9 +20,10 @@ import {
   type ThemePreference,
   useThemePreference,
 } from "@/hooks/useThemePreference";
+import { getVersion } from "@tauri-apps/api/app";
 import { isTauri } from "@tauri-apps/api/core";
-import { Monitor, Moon, Sun } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { Monitor, Moon, RefreshCw, Sun } from "lucide-react";
+import { type FormEvent, useEffect, useState } from "react";
 
 type Mode = "login" | "signup" | "reset";
 const modes: Record<Mode, string> = {
@@ -430,6 +432,97 @@ export default function AccountPage() {
       )}
 
       <MotionSettingsCard />
+      {isTauri() && <AppVersionCard />}
+    </section>
+  );
+}
+
+function AppVersionCard() {
+  const [version, setVersion] = useState<string>("");
+  const [checking, setChecking] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    void getVersion()
+      .then((value) => {
+        if (active) setVersion(value);
+      })
+      .catch(() => {
+        if (active) setVersion("");
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  async function handleCheckUpdate() {
+    if (checking) return;
+    setChecking(true);
+    setStatusMessage("");
+    try {
+      const status = await checkForNativeUpdate();
+      if (status === "available") {
+        setStatusMessage(
+          "Đã tìm thấy bản cập nhật mới. Chọn nút trong thông báo phía trên để cài đặt.",
+        );
+      } else if (status === "up-to-date") {
+        setStatusMessage("Ứng dụng đang ở phiên bản mới nhất.");
+      } else if (status === "offline") {
+        setStatusMessage("Cần kết nối mạng để kiểm tra cập nhật.");
+      } else if (status === "unsupported") {
+        setStatusMessage(
+          "Nền tảng hiện tại không hỗ trợ kiểm tra cập nhật trong ứng dụng.",
+        );
+      } else {
+        setStatusMessage(
+          "Không kiểm tra được cập nhật lúc này. Hãy thử lại sau.",
+        );
+      }
+    } finally {
+      setChecking(false);
+    }
+  }
+
+  return (
+    <section
+      aria-labelledby="account-version-title"
+      data-ocid="account.version.card"
+      className="rounded-xl border bg-card p-5 shadow-subtle"
+    >
+      <h2
+        id="account-version-title"
+        className="font-display text-xl font-semibold"
+      >
+        Phiên bản &amp; Cập nhật
+      </h2>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-muted-foreground">
+          Phiên bản hiện tại:{" "}
+          <strong className="font-mono text-foreground">
+            {version ? `v${version}` : "..."}
+          </strong>
+        </p>
+        <Button
+          type="button"
+          variant="outline"
+          disabled={checking}
+          data-ocid="account.version.check_button"
+          className="min-h-11"
+          onClick={() => void handleCheckUpdate()}
+        >
+          <RefreshCw
+            className={`size-4 ${checking ? "animate-spin" : ""}`}
+            aria-hidden="true"
+          />
+          {checking ? "Đang kiểm tra..." : "Kiểm tra cập nhật"}
+        </Button>
+      </div>
+      {statusMessage && (
+        <output className="mt-3 block text-xs text-muted-foreground">
+          {statusMessage}
+        </output>
+      )}
     </section>
   );
 }

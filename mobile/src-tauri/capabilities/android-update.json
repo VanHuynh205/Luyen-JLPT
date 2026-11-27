@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/android-schema.json",
   "identifier": "android-update",
-  "description": "Read Android release metadata and open tagged APK downloads.",
+  "description": "Read Android release metadata for verified in-app APK updates.",
   "platforms": ["android"],
   "local": true,
   "windows": ["main"],
@@ -10,14 +10,7 @@
       "identifier": "http:default",
       "allow": [
         { "url": "https://github.com/VanHuynh205/Luyen-JLPT/releases/latest/download/android-latest.json" },
-        { "url": "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v*/android-latest.json" },
-        { "url": "https://release-assets.githubusercontent.com/github-production-release-asset/*" }
-      ]
-    },
-    {
-      "identifier": "opener:allow-open-url",
-      "allow": [
-        { "url": "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v[0-9]*/Luyen-JLPT-android.apk" }
+        { "url": "https://github.com/VanHuynh205/Luyen-JLPT/releases/download/v*/android-latest.json" }
       ]
     }
   ]

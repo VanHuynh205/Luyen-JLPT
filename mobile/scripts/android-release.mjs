@@ -1,9 +1,11 @@
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const releaseBase = "https://github.com/VanHuynh205/Luyen-JLPT/releases/download";
+export const MAX_ANDROID_APK_BYTES = 62_914_560; // 60 MiB hard ceiling (SEC-E7-06)
 
 export function readConfig() {
   return JSON.parse(readFileSync(new URL("../src-tauri/tauri.conf.json", import.meta.url), "utf8"));
@@ -19,18 +21,52 @@ export function versionToCode(version) {
   return versionCode;
 }
 
-export function createMetadata(config) {
+export function readApkIntegrity(apkPath) {
+  const resolved = resolve(apkPath);
+  const { size } = statSync(resolved);
+  if (!Number.isSafeInteger(size) || size < 1 || size > MAX_ANDROID_APK_BYTES) {
+    throw new Error(`APK size must be between 1 and ${MAX_ANDROID_APK_BYTES} bytes (got ${size})`);
+  }
+  const bytes = readFileSync(resolved);
+  const sha256 = createHash("sha256").update(bytes).digest("hex");
+  return { sha256, sizeBytes: size };
+}
+
+export function createMetadata(config, apkInfo) {
   const android = config.bundle?.android;
   if (!android || "versionCode" in android || "autoIncrementVersionCode" in android)
     throw new Error("Leave bundle.android.versionCode and autoIncrementVersionCode unset");
   const { version } = config;
-  return { version, versionCode: versionToCode(version), url: `${releaseBase}/v${version}/Luyen-JLPT-android.apk` };
+  const base = {
+    version,
+    versionCode: versionToCode(version),
+    url: `${releaseBase}/v${version}/Luyen-JLPT-android.apk`,
+  };
+  if (apkInfo === undefined) return base;
+  if (!apkInfo || typeof apkInfo !== "object") {
+    throw new Error("APK integrity metadata must be an object with sha256 and sizeBytes");
+  }
+  const sha256 = typeof apkInfo.sha256 === "string" ? apkInfo.sha256.trim().toLowerCase() : "";
+  const { sizeBytes } = apkInfo;
+  if (!/^[a-f0-9]{64}$/.test(sha256)) {
+    throw new Error("APK sha256 must be a 64-character hex string");
+  }
+  if (!Number.isSafeInteger(sizeBytes) || sizeBytes < 1 || sizeBytes > MAX_ANDROID_APK_BYTES) {
+    throw new Error(`APK sizeBytes must be an integer between 1 and ${MAX_ANDROID_APK_BYTES}`);
+  }
+  return { ...base, sha256, sizeBytes };
 }
 
 export function assertApkBadging(badging, config) {
   const { version, versionCode } = createMetadata(config);
   if (/^application-debuggable\b/m.test(badging))
     throw new Error("APK must not be debuggable for release");
+  if (
+    /\busesCleartextTraffic\s*=\s*(?:"true"|'true'|true\b)/i.test(badging) ||
+    /^application-uses-cleartext-traffic\b/m.test(badging)
+  ) {
+    throw new Error("APK must not allow cleartext traffic for release");
+  }
   const packageLine = /^package: .*$/m.exec(badging)?.[0] ?? "";
   const sdkVersion =
     /^sdkVersion:'(\d+)'\r?$/m.exec(badging)?.[1] ??
@@ -105,9 +141,12 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     if (rest.length || !(command === "version" && !apk || ["check", "metadata"].includes(command) && apk))
       throw new Error("Usage: android-release.mjs version | check <release.apk> | metadata <signed-release.apk>");
     const config = readConfig();
-    const metadata = createMetadata(config);
+    let metadata = createMetadata(config);
     if (apk) checkApk(apk, config);
-    if (command === "metadata") verifyReleaseSigner(apk);
+    if (command === "metadata") {
+      verifyReleaseSigner(apk);
+      metadata = createMetadata(config, readApkIntegrity(apk));
+    }
     process.stdout.write(`${JSON.stringify(metadata)}\n`);
   } catch (error) {
     console.error(`android-release: ${error.message}`);
