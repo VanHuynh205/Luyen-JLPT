@@ -47,6 +47,12 @@ function ExamAttemptsSection({
   const titleById = new Map(
     (examIndexQuery.data?.exams ?? []).map((exam) => [exam.id, exam.title]),
   );
+  const inProgressAttempts = attempts.filter(
+    (attempt) => attempt.status === "in_progress",
+  );
+  const completedAttempts = attempts.filter(
+    (attempt) => attempt.status === "completed",
+  );
 
   return (
     <section
@@ -57,49 +63,87 @@ function ExamAttemptsSection({
       <h2 id="progress-exam-attempts-title" className="mb-4 text-2xl">
         Lịch sử luyện đề
       </h2>
-      <ul
-        data-ocid="progress.exam_attempts.list"
-        className="divide-y divide-border"
-      >
-        {attempts.map((attempt, i) => {
-          const pct = percentOf(attempt.totalScore, attempt.totalQuestions);
-          return (
+      {inProgressAttempts.length > 0 && (
+        <ul
+          data-ocid="progress.exam_attempts.in_progress_list"
+          className="mb-3 space-y-2"
+        >
+          {inProgressAttempts.map((attempt, i) => (
             <li
               key={attempt.id}
-              data-ocid={`progress.exam_attempts.item.${i + 1}`}
-              className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+              data-ocid={`progress.exam_attempts.in_progress.${i + 1}`}
+              className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-border bg-muted/40 px-3.5 py-2.5 text-sm"
             >
-              <div className="min-w-0">
-                <p className="truncate font-medium text-foreground">
-                  {titleById.get(attempt.examId) ?? attempt.examId}
-                </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {formatExamCompletedAt(
-                    attempt.completedAt ?? attempt.updatedAt,
-                  )}
-                </p>
-              </div>
-              <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
-                <span className="font-semibold tabular-nums text-foreground">
-                  {attempt.totalScore}/{attempt.totalQuestions}
-                  <span className="ml-2 text-sm font-normal text-muted-foreground">
-                    ({pct}%)
-                  </span>
-                </span>
-                <Link
-                  to="/luyen-de/$examId"
-                  params={{ examId: attempt.examId }}
-                  data-ocid={`progress.exam_attempts.link.${i + 1}`}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm font-medium text-primary transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  Làm lại
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
-                </Link>
-              </div>
+              <span className="truncate font-medium text-foreground">
+                {titleById.get(attempt.examId) ?? attempt.examId}
+              </span>
+              <Link
+                to="/luyen-de/$examId"
+                params={{ examId: attempt.examId }}
+                className="inline-flex min-h-11 items-center gap-1.5 font-medium text-primary transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Badge variant="secondary" className="rounded-full">
+                  Đang làm dở · Tiếp tục
+                </Badge>
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
             </li>
-          );
-        })}
-      </ul>
+          ))}
+        </ul>
+      )}
+      {completedAttempts.length > 0 && (
+        <ul
+          data-ocid="progress.exam_attempts.list"
+          className="divide-y divide-border"
+        >
+          {completedAttempts.map((attempt, i) => {
+            const pct = percentOf(attempt.totalScore, attempt.totalQuestions);
+            return (
+              <li
+                key={attempt.id}
+                data-ocid={`progress.exam_attempts.item.${i + 1}`}
+                className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+              >
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="truncate font-medium text-foreground">
+                      {titleById.get(attempt.examId) ?? attempt.examId}
+                    </p>
+                    <Badge
+                      variant="outline"
+                      className="shrink-0 rounded-full tabular-nums"
+                    >
+                      Lần #{attempt.attemptNumber}
+                    </Badge>
+                  </div>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    {formatExamCompletedAt(
+                      attempt.completedAt ?? attempt.updatedAt,
+                    )}
+                  </p>
+                </div>
+                <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
+                  <span className="font-semibold tabular-nums text-foreground">
+                    {attempt.totalScore}/{attempt.totalQuestions}
+                    <span className="ml-2 text-sm font-normal text-muted-foreground">
+                      ({pct}%)
+                    </span>
+                  </span>
+                  <Link
+                    to="/luyen-de/$examId"
+                    params={{ examId: attempt.examId }}
+                    data-ocid={`progress.exam_attempts.link.${i + 1}`}
+                    className="inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm font-medium text-primary transition-smooth hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    Làm lại
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </section>
   );
 }

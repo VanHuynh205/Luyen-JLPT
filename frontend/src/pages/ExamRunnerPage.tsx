@@ -1,30 +1,45 @@
+import { useAuth } from "@/adapters/auth/session";
+import type { ActiveExamDraft } from "@/adapters/local-store/db";
+import { examStore } from "@/adapters/local-store/exams";
 import { ExamQuestionCard } from "@/components/exam/ExamQuestionCard";
 import { ExamTimerBar } from "@/components/exam/ExamTimerBar";
+import { JlptScoreBreakdown } from "@/components/exam/JlptScoreBreakdown";
+import { QuickRemediationModal } from "@/components/exam/QuickRemediationModal";
 import { RubyText } from "@/components/exam/RubyText";
 import { HankoStamp } from "@/components/motion/HankoStamp";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import type { ContentPack } from "@/core/content/types";
 import {
+  type ExamSectionMetaInput,
+  buildExamAttemptSnapshot,
   canAccessSection,
   computeRemainingSeconds,
   countSectionQuestions,
   formatCountdown,
   gradeSection,
   isSectionLocked,
-  summarizeExamAttempt,
 } from "@/core/exam/engine";
+import { buildRemediationSession } from "@/core/exam/remediation";
+import { computeJlptScore } from "@/core/exam/scoring";
 import type {
+  ExamAttemptRecord,
   ExamDocument,
   ExamSection,
   ExamSectionAttemptSummary,
   ExamSectionKey,
   ExamSectionStatus,
 } from "@/core/exam/types";
+import { GUEST_OWNER } from "@/core/progress";
+import { useContent } from "@/hooks/useContent";
 import {
+  useActiveExamAttempt,
+  useExamAttempts,
   useExamDocument,
+  useExamDraft,
   useExamIndex,
-  useRecordExamAttempt,
+  useSaveExamProgress,
 } from "@/hooks/useExams";
 import { useMotionPreference } from "@/hooks/useMotionPreference";
 import { cn } from "@/lib/utils";
@@ -38,6 +53,7 @@ import {
   Clock,
   FileQuestion,
   Headphones,
+  Layers,
   Lock,
   Play,
   RefreshCw,
@@ -51,6 +67,8 @@ type FinalSectionStatus = Exclude<
   ExamSectionAttemptSummary["status"],
   "pending"
 >;
+
+const DRAFT_DEBOUNCE_MS = 150;
 
 const STATUS_BADGE_LABEL: Record<ExamSectionAttemptSummary["status"], string> =
   {
@@ -67,13 +85,160 @@ function createRunId(): string {
   ) {
     return crypto.randomUUID();
   }
-  return `exam-run-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0"));
+  return [
+    hex.slice(0, 4),
+    hex.slice(4, 6),
+    hex.slice(6, 8),
+    hex.slice(8, 10),
+    hex.slice(10),
+  ]
+    .map((part) => part.join(""))
+    .join("-");
 }
 
 function initialStatuses(sectionCount: number): ExamSectionStatus[] {
   return Array.from({ length: sectionCount }, (_, i) =>
     i === 0 ? "ready" : "locked",
   );
+}
+
+interface HydratedSessionState {
+  attemptId: string;
+  attemptNumber: number;
+  attemptStartedAt: string;
+  statuses: ExamSectionStatus[];
+  activeIndex: number;
+  viewingSummary: boolean;
+  answers: Record<string, number>;
+  startedAtMs: Partial<Record<ExamSectionKey, number>>;
+  deadlineMs: Partial<Record<ExamSectionKey, number>>;
+  elapsedBySection: Partial<Record<ExamSectionKey, number>>;
+  submittedAtBySection: Partial<Record<ExamSectionKey, string>>;
+  remainingSeconds: number;
+  listeningScriptMode: boolean;
+  finalizedKeys: ExamSectionKey[];
+  staleDraftDetected: boolean;
+}
+
+function hydrateSessionState(
+  exam: ExamDocument,
+  initialActiveAttempt: ExamAttemptRecord | null,
+  initialDraft: ActiveExamDraft | null,
+  attempts: readonly ExamAttemptRecord[],
+): HydratedSessionState {
+  const completedIds = new Set(
+    attempts.filter((a) => a.status === "completed").map((a) => a.id),
+  );
+  let maxAttemptNumber = 0;
+  for (const attempt of attempts) {
+    if (attempt.attemptNumber > maxAttemptNumber) {
+      maxAttemptNumber = attempt.attemptNumber;
+    }
+  }
+
+  const draftValid =
+    initialDraft !== null &&
+    !completedIds.has(initialDraft.attemptId) &&
+    (!initialActiveAttempt ||
+      initialDraft.attemptId === initialActiveAttempt.id);
+  const draft = draftValid ? initialDraft : null;
+  const staleDraftDetected = initialDraft !== null && !draftValid;
+
+  const attemptId =
+    initialActiveAttempt?.id ?? draft?.attemptId ?? createRunId();
+  const attemptNumber =
+    initialActiveAttempt?.attemptNumber ?? maxAttemptNumber + 1;
+  const attemptStartedAt =
+    initialActiveAttempt?.startedAt ??
+    draft?.savedAt ??
+    new Date().toISOString();
+
+  const statuses = initialStatuses(exam.sections.length);
+  const elapsedBySection: Partial<Record<ExamSectionKey, number>> = {};
+  const submittedAtBySection: Partial<Record<ExamSectionKey, string>> = {};
+  const finalizedKeys: ExamSectionKey[] = [];
+
+  if (initialActiveAttempt) {
+    const byKey = new Map(
+      initialActiveAttempt.sections.map((section) => [section.key, section]),
+    );
+    exam.sections.forEach((sec, idx) => {
+      const summary = byKey.get(sec.key);
+      if (summary && summary.status !== "pending") {
+        statuses[idx] = summary.status;
+        elapsedBySection[sec.key] = summary.elapsedSeconds;
+        submittedAtBySection[sec.key] =
+          summary.submittedAt ?? initialActiveAttempt.updatedAt;
+        finalizedKeys.push(sec.key);
+      }
+    });
+    for (let idx = 0; idx < exam.sections.length - 1; idx++) {
+      if (isSectionLocked(statuses[idx]) && statuses[idx + 1] === "locked") {
+        statuses[idx + 1] = "ready";
+      }
+    }
+  }
+
+  const answers: Record<string, number> = {
+    ...(initialActiveAttempt?.answers ?? {}),
+    ...(draft?.answers ?? {}),
+  };
+  const startedAtMs: Partial<Record<ExamSectionKey, number>> = {
+    ...(draft?.startedAtMs ?? {}),
+  };
+  const deadlineMs: Partial<Record<ExamSectionKey, number>> = {
+    ...(draft?.deadlineMs ?? {}),
+  };
+  const listeningScriptMode = draft?.listeningScriptMode ?? false;
+
+  const draftSection = draft ? exam.sections[draft.activeIndex] : undefined;
+  const draftCanResume =
+    Boolean(draft && draftSection) &&
+    !isSectionLocked(statuses[draft!.activeIndex] ?? "locked") &&
+    deadlineMs[draftSection!.key] !== undefined;
+
+  let activeIndex = 0;
+  let remainingSeconds = exam.sections[0]?.durationSeconds ?? 0;
+
+  if (draft && draftSection && draftCanResume) {
+    statuses[draft.activeIndex] = "in_progress";
+    activeIndex = draft.activeIndex;
+    remainingSeconds = computeRemainingSeconds(
+      deadlineMs[draftSection.key]!,
+      Date.now(),
+    );
+  } else {
+    const firstUnlocked = statuses.findIndex(
+      (status) => !isSectionLocked(status),
+    );
+    activeIndex = firstUnlocked >= 0 ? firstUnlocked : 0;
+    remainingSeconds = exam.sections[activeIndex]?.durationSeconds ?? 0;
+  }
+
+  const allLocked =
+    statuses.length > 0 && statuses.every((status) => isSectionLocked(status));
+
+  return {
+    attemptId,
+    attemptNumber,
+    attemptStartedAt,
+    statuses,
+    activeIndex,
+    viewingSummary: allLocked,
+    answers,
+    startedAtMs,
+    deadlineMs,
+    elapsedBySection,
+    submittedAtBySection,
+    remainingSeconds,
+    listeningScriptMode,
+    finalizedKeys,
+    staleDraftDetected,
+  };
 }
 
 function BackToListLink() {
@@ -239,34 +404,180 @@ function SectionIntro({
   );
 }
 
-function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
+function ExamRunnerSession({
+  exam,
+  owner,
+  pack,
+  initialActiveAttempt,
+  initialDraft,
+  attempts,
+}: {
+  exam: ExamDocument;
+  owner: string;
+  pack: ContentPack | null;
+  initialActiveAttempt: ExamAttemptRecord | null;
+  initialDraft: ActiveExamDraft | null;
+  attempts: readonly ExamAttemptRecord[];
+}) {
   const { mode } = useMotionPreference();
-  const recordAttempt = useRecordExamAttempt();
+  const saveProgress = useSaveExamProgress();
 
-  const [attemptId, setAttemptId] = useState<string>(() => createRunId());
-  const [statuses, setStatuses] = useState<ExamSectionStatus[]>(() =>
-    initialStatuses(exam.sections.length),
+  const [initialState] = useState<HydratedSessionState>(() =>
+    hydrateSessionState(exam, initialActiveAttempt, initialDraft, attempts),
   );
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [viewingSummary, setViewingSummary] = useState(false);
-  const [answers, setAnswers] = useState<Record<string, number>>({});
+
+  const [attemptId, setAttemptId] = useState<string>(initialState.attemptId);
+  const [attemptNumber, setAttemptNumber] = useState<number>(
+    initialState.attemptNumber,
+  );
+  const [attemptStartedAt, setAttemptStartedAt] = useState<string>(
+    initialState.attemptStartedAt,
+  );
+  const [statuses, setStatuses] = useState<ExamSectionStatus[]>(
+    initialState.statuses,
+  );
+  const [activeIndex, setActiveIndex] = useState<number>(
+    initialState.activeIndex,
+  );
+  const [viewingSummary, setViewingSummary] = useState<boolean>(
+    initialState.viewingSummary,
+  );
+  const [answers, setAnswers] = useState<Record<string, number>>(
+    initialState.answers,
+  );
   const [startedAtMs, setStartedAtMs] = useState<
     Partial<Record<ExamSectionKey, number>>
-  >({});
+  >(initialState.startedAtMs);
   const [deadlineMs, setDeadlineMs] = useState<
     Partial<Record<ExamSectionKey, number>>
-  >({});
+  >(initialState.deadlineMs);
   const [elapsedBySection, setElapsedBySection] = useState<
     Partial<Record<ExamSectionKey, number>>
-  >({});
+  >(initialState.elapsedBySection);
+  const [submittedAtBySection, setSubmittedAtBySection] = useState<
+    Partial<Record<ExamSectionKey, string>>
+  >(initialState.submittedAtBySection);
   const [remainingSeconds, setRemainingSeconds] = useState<number>(
-    exam.sections[0]?.durationSeconds ?? 0,
+    initialState.remainingSeconds,
   );
-  const [listeningScriptMode, setListeningScriptMode] = useState(false);
+  const [listeningScriptMode, setListeningScriptMode] = useState<boolean>(
+    initialState.listeningScriptMode,
+  );
+  const [lastCompletedSnapshot, setLastCompletedSnapshot] =
+    useState<ExamAttemptRecord | null>(null);
+  const [selectedHistoryAttemptId, setSelectedHistoryAttemptId] = useState<
+    string | null
+  >(null);
+  const [remediationOpen, setRemediationOpen] = useState(false);
+  const [draftState, setDraftState] = useState<"idle" | "dirty" | "saved">(
+    "idle",
+  );
 
-  const savedAttemptIdRef = useRef<string | null>(null);
+  const attemptIdRef = useRef(attemptId);
+  attemptIdRef.current = attemptId;
+  const attemptNumberRef = useRef(attemptNumber);
+  attemptNumberRef.current = attemptNumber;
+  const attemptStartedAtRef = useRef(attemptStartedAt);
+  attemptStartedAtRef.current = attemptStartedAt;
+  const statusesRef = useRef(statuses);
+  statusesRef.current = statuses;
+  const activeIndexRef = useRef(activeIndex);
+  activeIndexRef.current = activeIndex;
+  const answersRef = useRef(answers);
+  answersRef.current = answers;
   const startedAtRef = useRef(startedAtMs);
   startedAtRef.current = startedAtMs;
+  const deadlineRef = useRef(deadlineMs);
+  deadlineRef.current = deadlineMs;
+  const elapsedRef = useRef(elapsedBySection);
+  elapsedRef.current = elapsedBySection;
+  const submittedAtRef = useRef(submittedAtBySection);
+  submittedAtRef.current = submittedAtBySection;
+  const listeningScriptModeRef = useRef(listeningScriptMode);
+  listeningScriptModeRef.current = listeningScriptMode;
+  const finalizedSectionsRef = useRef<Set<ExamSectionKey>>(
+    new Set(initialState.finalizedKeys),
+  );
+  const draftDebounceRef = useRef<number | null>(null);
+  const draftEpochRef = useRef(0);
+
+  useEffect(() => {
+    if (initialState.staleDraftDetected) {
+      void examStore.clearDraft(owner, exam.level, exam.id).catch(() => {});
+    }
+  }, [exam.id, exam.level, initialState.staleDraftDetected, owner]);
+
+  const cancelPendingDraftSave = useCallback(() => {
+    draftEpochRef.current += 1;
+    if (draftDebounceRef.current !== null) {
+      window.clearTimeout(draftDebounceRef.current);
+      draftDebounceRef.current = null;
+    }
+  }, []);
+
+  const persistDraftNow = useCallback(
+    async (overrides?: {
+      activeIndex?: number;
+      answers?: Record<string, number>;
+      startedAtMs?: Partial<Record<ExamSectionKey, number>>;
+      deadlineMs?: Partial<Record<ExamSectionKey, number>>;
+      listeningScriptMode?: boolean;
+      allowIndex?: number;
+    }) => {
+      const targetIdx = overrides?.activeIndex ?? activeIndexRef.current;
+      const status =
+        overrides?.allowIndex === targetIdx
+          ? "in_progress"
+          : statusesRef.current[targetIdx];
+      if (status !== "in_progress") return;
+
+      const epoch = draftEpochRef.current;
+      const draft: ActiveExamDraft = {
+        owner,
+        level: exam.level,
+        examId: exam.id,
+        attemptId: attemptIdRef.current,
+        activeIndex: targetIdx,
+        answers: overrides?.answers ?? answersRef.current,
+        startedAtMs: overrides?.startedAtMs ?? startedAtRef.current,
+        deadlineMs: overrides?.deadlineMs ?? deadlineRef.current,
+        listeningScriptMode:
+          overrides?.listeningScriptMode ?? listeningScriptModeRef.current,
+        savedAt: new Date().toISOString(),
+      };
+      try {
+        await examStore.saveDraft(draft);
+        if (epoch !== draftEpochRef.current) {
+          await examStore.clearDraft(owner, exam.level, exam.id);
+        } else {
+          setDraftState("saved");
+        }
+      } catch {
+        // Keep in-memory progress intact even if IndexedDB is temporarily unavailable.
+      }
+    },
+    [exam.id, exam.level, owner],
+  );
+
+  useEffect(() => {
+    const flushIfPending = () => {
+      if (draftDebounceRef.current !== null) {
+        window.clearTimeout(draftDebounceRef.current);
+        draftDebounceRef.current = null;
+        void persistDraftNow();
+      }
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") flushIfPending();
+    };
+    window.addEventListener("pagehide", flushIfPending);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      flushIfPending();
+      window.removeEventListener("pagehide", flushIfPending);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [persistDraftNow]);
 
   const allDone = useMemo(
     () => statuses.length > 0 && statuses.every((s) => isSectionLocked(s)),
@@ -289,18 +600,14 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
     ) => {
       const section = exam.sections[sectionIdx];
       if (!section) return;
+      const currentStatus = statusesRef.current[sectionIdx];
+      if (!currentStatus || isSectionLocked(currentStatus)) return;
+      if (finalizedSectionsRef.current.has(section.key)) return;
+      finalizedSectionsRef.current.add(section.key);
 
-      setStatuses((prev) => {
-        const current = prev[sectionIdx];
-        if (!current || isSectionLocked(current)) return prev;
-        const next = [...prev];
-        next[sectionIdx] = finalStatus;
-        if (sectionIdx + 1 < next.length && next[sectionIdx + 1] === "locked") {
-          next[sectionIdx + 1] = "ready";
-        }
-        return next;
-      });
+      cancelPendingDraftSave();
 
+      const submittedIso = new Date(nowMs).toISOString();
       const started = startedAtRef.current[section.key];
       const elapsed =
         finalStatus === "skipped"
@@ -314,20 +621,72 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
                 )
               : 0;
 
-      setElapsedBySection((prev) =>
-        prev[section.key] !== undefined
-          ? prev
-          : { ...prev, [section.key]: elapsed },
-      );
+      const nextStatuses = [...statusesRef.current];
+      nextStatuses[sectionIdx] = finalStatus;
+      if (
+        sectionIdx + 1 < nextStatuses.length &&
+        nextStatuses[sectionIdx + 1] === "locked"
+      ) {
+        nextStatuses[sectionIdx + 1] = "ready";
+      }
+      const nextElapsed = {
+        ...elapsedRef.current,
+        [section.key]: elapsed,
+      };
+      const nextSubmittedAt = {
+        ...submittedAtRef.current,
+        [section.key]: submittedIso,
+      };
 
+      statusesRef.current = nextStatuses;
+      elapsedRef.current = nextElapsed;
+      submittedAtRef.current = nextSubmittedAt;
+
+      setStatuses(nextStatuses);
+      setElapsedBySection(nextElapsed);
+      setSubmittedAtBySection(nextSubmittedAt);
       if (finalStatus === "timed_out") {
         setRemainingSeconds(0);
       }
       if (openSummaryAfter) {
         setViewingSummary(true);
       }
+
+      const sectionMeta: Partial<Record<ExamSectionKey, ExamSectionMetaInput>> =
+        {};
+      exam.sections.forEach((sec, idx) => {
+        const st = nextStatuses[idx];
+        if (st === "submitted" || st === "timed_out" || st === "skipped") {
+          sectionMeta[sec.key] = {
+            status: st,
+            elapsedSeconds: nextElapsed[sec.key] ?? 0,
+            submittedAt: nextSubmittedAt[sec.key] ?? submittedIso,
+          };
+        }
+      });
+
+      const allLocked = nextStatuses.every((st) => isSectionLocked(st));
+      const snapshot = buildExamAttemptSnapshot({
+        id: attemptIdRef.current,
+        owner,
+        exam,
+        answers: answersRef.current,
+        sectionMeta,
+        attemptNumber: attemptNumberRef.current,
+        startedAt: attemptStartedAtRef.current,
+        updatedAt: submittedIso,
+        completedAt: allLocked ? submittedIso : null,
+      });
+
+      if (allLocked) {
+        setLastCompletedSnapshot(snapshot);
+      }
+
+      setDraftState("idle");
+      void examStore.clearDraft(owner, exam.level, exam.id).catch(() => {});
+      saveProgress.mutate(snapshot);
     },
-    [exam.sections],
+    [cancelPendingDraftSave, exam, owner, saveProgress],
   );
 
   // Live deadline-based countdown so real time & Playwright clock fast-forward stay exact.
@@ -357,14 +716,11 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
     return () => window.clearInterval(timer);
   }, [runningIndex, runningSection, runningDeadline, finalizeSection]);
 
-  const attemptSummary = useMemo(() => {
+  const currentRunSnapshot = useMemo(() => {
     if (!allDone) return null;
-    const sectionMeta: Partial<
-      Record<
-        ExamSectionKey,
-        { status: FinalSectionStatus; elapsedSeconds: number }
-      >
-    > = {};
+    if (lastCompletedSnapshot) return lastCompletedSnapshot;
+    const sectionMeta: Partial<Record<ExamSectionKey, ExamSectionMetaInput>> =
+      {};
     exam.sections.forEach((section, idx) => {
       const st = statuses[idx];
       const finalSt: FinalSectionStatus =
@@ -374,48 +730,149 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
       sectionMeta[section.key] = {
         status: finalSt,
         elapsedSeconds: elapsedBySection[section.key] ?? 0,
+        submittedAt: submittedAtBySection[section.key] ?? attemptStartedAt,
       };
     });
-    return summarizeExamAttempt({
+    return buildExamAttemptSnapshot({
       id: attemptId,
-      owner: "pending",
+      owner,
       exam,
       answers,
       sectionMeta,
+      attemptNumber,
+      startedAt: attemptStartedAt,
     });
-  }, [allDone, answers, attemptId, elapsedBySection, exam, statuses]);
+  }, [
+    allDone,
+    answers,
+    attemptId,
+    attemptNumber,
+    attemptStartedAt,
+    elapsedBySection,
+    exam,
+    lastCompletedSnapshot,
+    owner,
+    statuses,
+    submittedAtBySection,
+  ]);
 
-  // Auto-save once per completed exam run.
-  useEffect(() => {
-    if (!attemptSummary) return;
-    if (savedAttemptIdRef.current === attemptSummary.id) return;
-    savedAttemptIdRef.current = attemptSummary.id;
-    const { owner: _ignoredOwner, ...payload } = attemptSummary;
-    recordAttempt.mutate(payload);
-  }, [attemptSummary, recordAttempt]);
+  const completedAttempts = useMemo(() => {
+    const byId = new Map<string, ExamAttemptRecord>();
+    for (const attempt of attempts) {
+      if (attempt.status === "completed") {
+        byId.set(attempt.id, attempt);
+      }
+    }
+    if (currentRunSnapshot?.status === "completed") {
+      byId.set(currentRunSnapshot.id, currentRunSnapshot);
+    }
+    return Array.from(byId.values()).sort(
+      (left, right) => left.attemptNumber - right.attemptNumber,
+    );
+  }, [attempts, currentRunSnapshot]);
+
+  const displayedSummaryAttempt = useMemo(() => {
+    if (selectedHistoryAttemptId) {
+      const matched = completedAttempts.find(
+        (item) => item.id === selectedHistoryAttemptId,
+      );
+      if (matched) return matched;
+    }
+    return currentRunSnapshot ?? completedAttempts.at(-1) ?? null;
+  }, [completedAttempts, currentRunSnapshot, selectedHistoryAttemptId]);
+
+  const reviewingHistory =
+    selectedHistoryAttemptId !== null && displayedSummaryAttempt !== null;
+
+  const displayedStatuses: ExamSectionStatus[] = useMemo(() => {
+    if (reviewingHistory && displayedSummaryAttempt) {
+      return exam.sections.map((section) => {
+        const summary = displayedSummaryAttempt.sections.find(
+          (item) => item.key === section.key,
+        );
+        return summary && summary.status !== "pending"
+          ? summary.status
+          : "skipped";
+      });
+    }
+    return statuses;
+  }, [displayedSummaryAttempt, exam.sections, reviewingHistory, statuses]);
+
+  const displayedAnswers =
+    reviewingHistory && displayedSummaryAttempt
+      ? displayedSummaryAttempt.answers
+      : answers;
+
+  const displayedAllDone = reviewingHistory ? true : allDone;
+
+  const jlptReport = useMemo(
+    () =>
+      displayedSummaryAttempt
+        ? computeJlptScore(displayedSummaryAttempt, exam)
+        : null,
+    [displayedSummaryAttempt, exam],
+  );
+
+  const remediationItems = useMemo(
+    () =>
+      displayedSummaryAttempt && pack
+        ? buildRemediationSession(displayedSummaryAttempt, exam, pack)
+        : [],
+    [displayedSummaryAttempt, exam, pack],
+  );
 
   const activeSection = exam.sections[activeIndex];
-  const activeStatus = statuses[activeIndex] ?? "locked";
+  const activeStatus = displayedStatuses[activeIndex] ?? "locked";
   const activeLocked = isSectionLocked(activeStatus);
+
+  const hasStartedCurrentRun =
+    runningIndex >= 0 ||
+    statuses.some((status) => isSectionLocked(status)) ||
+    Object.keys(answers).length > 0;
 
   const handleStartSection = (scriptAssisted = false) => {
     if (!activeSection || activeStatus !== "ready") return;
     const now = Date.now();
     const deadline = now + activeSection.durationSeconds * 1000;
-    if (scriptAssisted) setListeningScriptMode(true);
-    setStartedAtMs((prev) => ({ ...prev, [activeSection.key]: now }));
-    setDeadlineMs((prev) => ({ ...prev, [activeSection.key]: deadline }));
+    const nextStartedAtMs = {
+      ...startedAtRef.current,
+      [activeSection.key]: now,
+    };
+    const nextDeadlineMs = {
+      ...deadlineRef.current,
+      [activeSection.key]: deadline,
+    };
+    const nextScriptMode = scriptAssisted || listeningScriptModeRef.current;
+
+    if (scriptAssisted) {
+      listeningScriptModeRef.current = true;
+      setListeningScriptMode(true);
+    }
+    startedAtRef.current = nextStartedAtMs;
+    deadlineRef.current = nextDeadlineMs;
+
+    const nextStatuses = [...statusesRef.current];
+    nextStatuses[activeIndex] = "in_progress";
+    statusesRef.current = nextStatuses;
+
+    setStartedAtMs(nextStartedAtMs);
+    setDeadlineMs(nextDeadlineMs);
     setRemainingSeconds(activeSection.durationSeconds);
-    setStatuses((prev) => {
-      const next = [...prev];
-      next[activeIndex] = "in_progress";
-      return next;
+    setStatuses(nextStatuses);
+
+    void persistDraftNow({
+      activeIndex,
+      answers: answersRef.current,
+      startedAtMs: nextStartedAtMs,
+      deadlineMs: nextDeadlineMs,
+      listeningScriptMode: nextScriptMode,
+      allowIndex: activeIndex,
     });
     scrollToTop();
   };
 
   const handleSkipListening = () => {
-    if (!activeSection) return;
+    if (!activeSection || reviewingHistory) return;
     const isLast = activeIndex === exam.sections.length - 1;
     finalizeSection(activeIndex, "skipped", Date.now(), isLast);
     if (!isLast) {
@@ -425,12 +882,22 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
   };
 
   const handleSelectChoice = (questionId: string, choiceIndex: number) => {
-    if (activeStatus !== "in_progress") return;
-    setAnswers((prev) => ({ ...prev, [questionId]: choiceIndex }));
+    if (activeStatus !== "in_progress" || reviewingHistory) return;
+    const nextAnswers = { ...answersRef.current, [questionId]: choiceIndex };
+    answersRef.current = nextAnswers;
+    setAnswers(nextAnswers);
+    setDraftState("dirty");
+    if (draftDebounceRef.current !== null) {
+      window.clearTimeout(draftDebounceRef.current);
+    }
+    draftDebounceRef.current = window.setTimeout(() => {
+      draftDebounceRef.current = null;
+      void persistDraftNow({ answers: nextAnswers });
+    }, DRAFT_DEBOUNCE_MS);
   };
 
   const handleSubmitSection = () => {
-    if (activeStatus !== "in_progress") return;
+    if (activeStatus !== "in_progress" || reviewingHistory) return;
     finalizeSection(activeIndex, "submitted", Date.now());
     scrollToTop();
   };
@@ -446,23 +913,56 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
   };
 
   const handleRetryExam = () => {
-    savedAttemptIdRef.current = null;
-    recordAttempt.reset();
-    setAttemptId(createRunId());
-    setStatuses(initialStatuses(exam.sections.length));
+    cancelPendingDraftSave();
+    finalizedSectionsRef.current.clear();
+    saveProgress.reset();
+
+    let maxNum = attemptNumberRef.current;
+    for (const attempt of completedAttempts) {
+      if (attempt.attemptNumber > maxNum) maxNum = attempt.attemptNumber;
+    }
+    const nextNum =
+      allDone || lastCompletedSnapshot !== null ? maxNum + 1 : attemptNumber;
+    const nextRunId = createRunId();
+    const nowIso = new Date().toISOString();
+    const freshStatuses = initialStatuses(exam.sections.length);
+
+    attemptIdRef.current = nextRunId;
+    attemptNumberRef.current = nextNum;
+    attemptStartedAtRef.current = nowIso;
+    statusesRef.current = freshStatuses;
+    activeIndexRef.current = 0;
+    answersRef.current = {};
+    startedAtRef.current = {};
+    deadlineRef.current = {};
+    elapsedRef.current = {};
+    submittedAtRef.current = {};
+    listeningScriptModeRef.current = false;
+
+    setAttemptId(nextRunId);
+    setAttemptNumber(nextNum);
+    setAttemptStartedAt(nowIso);
+    setStatuses(freshStatuses);
     setActiveIndex(0);
     setViewingSummary(false);
+    setSelectedHistoryAttemptId(null);
+    setLastCompletedSnapshot(null);
+    setRemediationOpen(false);
     setAnswers({});
     setStartedAtMs({});
     setDeadlineMs({});
     setElapsedBySection({});
+    setSubmittedAtBySection({});
     setRemainingSeconds(exam.sections[0]?.durationSeconds ?? 0);
     setListeningScriptMode(false);
+    setDraftState("idle");
+
+    void examStore.clearDraft(owner, exam.level, exam.id).catch(() => {});
     scrollToTop();
   };
 
   const activeGraded = activeSection
-    ? gradeSection(activeSection, answers)
+    ? gradeSection(activeSection, displayedAnswers)
     : { score: 0, total: 0, answered: 0 };
 
   const activeRemaining =
@@ -475,6 +975,7 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
   return (
     <section
       data-ocid="exam_runner.page"
+      data-draft-state={draftState}
       className="mx-auto max-w-6xl px-4 py-6 md:px-6 md:py-10"
     >
       <BackToListLink />
@@ -485,10 +986,46 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
             {exam.title}
           </h1>
           <span className="font-mono text-xs text-muted-foreground">
-            Mã đề: {exam.code}
+            Mã đề: {exam.code} · Lần{" "}
+            {reviewingHistory && displayedSummaryAttempt
+              ? displayedSummaryAttempt.attemptNumber
+              : attemptNumber}
           </span>
         </div>
       </header>
+
+      {!viewingSummary &&
+        !hasStartedCurrentRun &&
+        !reviewingHistory &&
+        completedAttempts.length > 0 && (
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-muted/40 px-4 py-3 text-sm">
+            <span className="text-muted-foreground">
+              Bạn đã hoàn thành đề này{" "}
+              <strong className="font-semibold text-foreground">
+                {completedAttempts.length} lần
+              </strong>
+              . Lượt hiện tại là{" "}
+              <strong className="font-semibold text-foreground">
+                Lần {attemptNumber}
+              </strong>
+              .
+            </span>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              data-ocid="exam_runner.view_history_button"
+              className="min-h-11 rounded-md"
+              onClick={() => {
+                const latest = completedAttempts.at(-1);
+                if (latest) setSelectedHistoryAttemptId(latest.id);
+                setViewingSummary(true);
+              }}
+            >
+              Xem kết quả các lần trước
+            </Button>
+          </div>
+        )}
 
       <nav
         aria-label="Các phần của đề thi"
@@ -496,8 +1033,8 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
         className="mb-6 grid gap-2 sm:grid-cols-3"
       >
         {exam.sections.map((section, idx) => {
-          const st = statuses[idx] ?? "locked";
-          const accessible = canAccessSection(statuses, idx);
+          const st = displayedStatuses[idx] ?? "locked";
+          const accessible = canAccessSection(displayedStatuses, idx);
           const isCurrent = !viewingSummary && activeIndex === idx;
           const locked = isSectionLocked(st);
           const minutes = Math.round(section.durationSeconds / 60);
@@ -507,7 +1044,8 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
               key={section.key}
               type="button"
               disabled={
-                !accessible || (runningIndex >= 0 && runningIndex !== idx)
+                !accessible ||
+                (!reviewingHistory && runningIndex >= 0 && runningIndex !== idx)
               }
               aria-current={isCurrent ? "step" : undefined}
               data-ocid={`exam_runner.step.${idx + 1}`}
@@ -536,15 +1074,15 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
                     aria-hidden="true"
                   />
                 ) : st === "submitted" ? (
-                  <CheckCircle2
-                    className="size-3.5 text-success"
-                    aria-hidden="true"
-                  />
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-success">
+                    <CheckCircle2 className="size-3.5" aria-hidden="true" />
+                    Đã nộp
+                  </span>
                 ) : st === "timed_out" ? (
-                  <AlertTriangle
-                    className="size-3.5 text-destructive"
-                    aria-hidden="true"
-                  />
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-destructive">
+                    <AlertTriangle className="size-3.5" aria-hidden="true" />
+                    Hết giờ
+                  </span>
                 ) : st === "skipped" ? (
                   <span className="text-[11px] text-muted-foreground">
                     Bỏ qua
@@ -563,7 +1101,7 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
         })}
       </nav>
 
-      {allDone && !viewingSummary && (
+      {displayedAllDone && !viewingSummary && (
         <div className="mb-5 flex justify-end">
           <Button
             type="button"
@@ -581,41 +1119,80 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
         </div>
       )}
 
-      {viewingSummary && attemptSummary ? (
+      {viewingSummary && displayedSummaryAttempt ? (
         <div
           data-ocid="exam_runner.summary"
           className="space-y-6 rounded-xl border border-border bg-card p-5 sm:p-6 md:p-8"
         >
+          {completedAttempts.length > 1 && (
+            <fieldset
+              data-ocid="exam_runner.attempt_selector"
+              className="flex flex-wrap items-center gap-2 border-0 border-b border-border p-0 pb-4"
+            >
+              <legend className="sr-only">Chọn lần làm bài để xem lại</legend>
+              <span className="mr-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Lịch sử các lần:
+              </span>
+              {completedAttempts.map((item) => {
+                const isSelected = displayedSummaryAttempt.id === item.id;
+                return (
+                  <Button
+                    key={item.id}
+                    type="button"
+                    size="sm"
+                    variant={isSelected ? "default" : "outline"}
+                    aria-pressed={isSelected}
+                    data-ocid={`exam_runner.attempt.${item.attemptNumber}`}
+                    className="min-h-11 rounded-md tabular-nums"
+                    onClick={() => setSelectedHistoryAttemptId(item.id)}
+                  >
+                    Lần {item.attemptNumber} · {item.totalScore}/
+                    {item.totalQuestions}
+                  </Button>
+                );
+              })}
+            </fieldset>
+          )}
+
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4 sm:gap-5">
               <HankoStamp
-                label={`${attemptSummary.totalQuestions > 0 ? Math.round((attemptSummary.totalScore / attemptSummary.totalQuestions) * 100) : 0}%`}
-                sublabel={`${attemptSummary.totalScore}/${attemptSummary.totalQuestions}`}
+                label={`${displayedSummaryAttempt.totalQuestions > 0 ? Math.round((displayedSummaryAttempt.totalScore / displayedSummaryAttempt.totalQuestions) * 100) : 0}%`}
+                sublabel={`${displayedSummaryAttempt.totalScore}/${displayedSummaryAttempt.totalQuestions}`}
                 size="lg"
                 className="shrink-0"
               />
               <div className="min-w-0">
-                <h2 className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
-                  Tổng kết bài làm
-                </h2>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
+                    Tổng kết bài làm
+                  </h2>
+                  <Badge
+                    variant="outline"
+                    className="rounded-full tabular-nums"
+                  >
+                    Lần {displayedSummaryAttempt.attemptNumber}
+                  </Badge>
+                </div>
                 <p className="mt-1 text-base text-muted-foreground tabular-nums">
                   Đúng{" "}
                   <strong className="font-semibold text-foreground">
-                    {attemptSummary.totalScore}/{attemptSummary.totalQuestions}
+                    {displayedSummaryAttempt.totalScore}/
+                    {displayedSummaryAttempt.totalQuestions}
                   </strong>{" "}
                   câu trên toàn đề
                 </p>
-                {recordAttempt.isSuccess && (
+                {!reviewingHistory && saveProgress.isSuccess && (
                   <p className="mt-1 text-sm text-success">
                     Đã lưu kết quả làm đề trên máy.
                   </p>
                 )}
-                {recordAttempt.isPending && (
+                {!reviewingHistory && saveProgress.isPending && (
                   <p className="mt-1 text-sm text-muted-foreground">
                     Đang lưu kết quả…
                   </p>
                 )}
-                {recordAttempt.isError && (
+                {!reviewingHistory && saveProgress.isError && (
                   <p role="alert" className="mt-1 text-sm text-destructive">
                     Chưa lưu được kết quả trên máy.
                   </p>
@@ -623,7 +1200,19 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2.5 sm:flex-row">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+              <Button
+                type="button"
+                variant="secondary"
+                data-ocid="exam_runner.remediation_button"
+                disabled={!pack}
+                className="min-h-11 rounded-md"
+                onClick={() => setRemediationOpen(true)}
+              >
+                <Layers className="size-4" aria-hidden="true" />
+                Ôn cấp tốc 10 phút từ đề này
+                {remediationItems.length > 0 && ` (${remediationItems.length})`}
+              </Button>
               <Button
                 type="button"
                 variant="outline"
@@ -642,8 +1231,10 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
             </div>
           </div>
 
+          {jlptReport && <JlptScoreBreakdown report={jlptReport} />}
+
           <div className="grid gap-3 border-t border-border pt-6 md:grid-cols-3">
-            {attemptSummary.sections.map((secSummary, idx) => {
+            {displayedSummaryAttempt.sections.map((secSummary, idx) => {
               const secDef = exam.sections[idx];
               if (!secDef) return null;
               const canReview =
@@ -711,6 +1302,13 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
               );
             })}
           </div>
+
+          <QuickRemediationModal
+            open={remediationOpen}
+            onOpenChange={setRemediationOpen}
+            items={remediationItems}
+            examTitle={exam.title}
+          />
         </div>
       ) : activeSection ? (
         activeStatus === "ready" ? (
@@ -889,7 +1487,7 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
                             <ExamQuestionCard
                               key={question.id}
                               question={question}
-                              selected={answers[question.id]}
+                              selected={displayedAnswers[question.id]}
                               locked={activeLocked}
                               showScriptControl={
                                 activeSection.key === "listening" &&
@@ -908,7 +1506,7 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
                           <ExamQuestionCard
                             key={question.id}
                             question={question}
-                            selected={answers[question.id]}
+                            selected={displayedAnswers[question.id]}
                             locked={activeLocked}
                             showScriptControl={
                               activeSection.key === "listening" &&
@@ -979,11 +1577,27 @@ function ExamRunnerSession({ exam }: { exam: ExamDocument }) {
 
 export default function ExamRunnerPage() {
   const { examId } = useParams({ from: "/luyen-de/$examId" });
+  const { session } = useAuth();
+  const { pack } = useContent();
+  const owner = session?.user.id ?? GUEST_OWNER;
+
   const indexQuery = useExamIndex();
   const entry = indexQuery.data?.exams.find((item) => item.id === examId);
   const docQuery = useExamDocument(examId);
+  const activeAttemptQuery = useActiveExamAttempt(examId);
+  const draftQuery = useExamDraft(examId);
+  const attemptsQuery = useExamAttempts(examId);
 
-  if (indexQuery.isPending || (Boolean(entry) && docQuery.isPending)) {
+  if (
+    indexQuery.isPending ||
+    (Boolean(entry) && docQuery.isPending) ||
+    activeAttemptQuery.isPending ||
+    draftQuery.isPending ||
+    attemptsQuery.isPending ||
+    !activeAttemptQuery.isFetchedAfterMount ||
+    !draftQuery.isFetchedAfterMount ||
+    !attemptsQuery.isFetchedAfterMount
+  ) {
     return (
       <section
         data-ocid="exam_runner.page"
@@ -1075,5 +1689,15 @@ export default function ExamRunnerPage() {
     );
   }
 
-  return <ExamRunnerSession key={docQuery.data.id} exam={docQuery.data} />;
+  return (
+    <ExamRunnerSession
+      key={`${owner}:${docQuery.data.id}`}
+      exam={docQuery.data}
+      owner={owner}
+      pack={pack}
+      initialActiveAttempt={activeAttemptQuery.data ?? null}
+      initialDraft={draftQuery.data ?? null}
+      attempts={attemptsQuery.data ?? []}
+    />
+  );
 }

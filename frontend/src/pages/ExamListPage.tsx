@@ -1,7 +1,12 @@
+import { ExamSourceHttpError } from "@/adapters/content-pack/examSource";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { ExamAnswerSummary, ExamAttemptRecord } from "@/core/exam/types";
+import type {
+  ExamAnswerSummary,
+  ExamAttemptRecord,
+  ExamIndexEntry,
+} from "@/core/exam/types";
 import { useContent } from "@/hooks/useContent";
 import { useExamAttempts, useExamIndex } from "@/hooks/useExams";
 import { Link } from "@tanstack/react-router";
@@ -23,11 +28,19 @@ const ANSWER_SOURCE_LABEL: Record<ExamAnswerSummary, string> = {
 };
 
 function isMissingExamIndexError(error: unknown): boolean {
-  if (!(error instanceof Error)) return false;
-  return error.message.includes(": 404");
+  return error instanceof ExamSourceHttpError && error.code === "not-found";
 }
 
-function summarizeAttempts(
+function describeExamDurations(exams: readonly ExamIndexEntry[]): string {
+  if (exams.length === 0) return "";
+  const durations = Array.from(
+    new Set(exams.map((exam) => Math.round(exam.totalDurationSeconds / 60))),
+  ).sort((left, right) => left - right);
+  if (durations.length === 1) return ` (${durations[0]} phút)`;
+  return ` (${durations.join(" / ")} phút)`;
+}
+
+function summarizeCompletedAttempts(
   attempts: readonly ExamAttemptRecord[],
 ): { count: number; bestScore: number; bestTotal: number } | null {
   if (attempts.length === 0) return null;
@@ -60,6 +73,7 @@ export default function ExamListPage() {
   const isMissingForLevel =
     indexQuery.isError && isMissingExamIndexError(indexQuery.error);
   const exams = indexQuery.data?.exams ?? [];
+  const durationSummary = describeExamDurations(exams);
 
   return (
     <section
@@ -71,10 +85,9 @@ export default function ExamListPage() {
           Luyện đề JLPT {levelLabel}
         </h1>
         <p className="mt-3 text-base text-muted-foreground">
-          Bộ đề thi mô phỏng 3 phần theo cấu trúc chuẩn JLPT N4, gồm chuẩn hiện
-          hành (25/55/35 phút — 115 phút) và trước 2020 (30/60/35 phút — 125
-          phút), tự động khóa đáp án khi hết giờ kèm furigana và lời giải chi
-          tiết.
+          Bộ đề thi mô phỏng 3 phần theo cấu trúc chuẩn JLPT {levelLabel}
+          {durationSummary}, tự động khóa đáp án khi hết giờ kèm furigana và lời
+          giải chi tiết.
         </p>
       </header>
 
@@ -157,9 +170,21 @@ export default function ExamListPage() {
         <ul data-ocid="exam_list.list" className="grid gap-4 md:grid-cols-2">
           {exams.map((exam, index) => {
             const totalMinutes = Math.round(exam.totalDurationSeconds / 60);
-            const attemptSummary = summarizeAttempts(
-              attemptsByExam.get(exam.id) ?? [],
+            const examAttempts = attemptsByExam.get(exam.id) ?? [];
+            const inProgressAttempt = examAttempts.find(
+              (attempt) => attempt.status === "in_progress",
             );
+            const completedAttempts = examAttempts.filter(
+              (attempt) => attempt.status === "completed",
+            );
+            const completedSummary =
+              summarizeCompletedAttempts(completedAttempts);
+            const completedSectionsCount = inProgressAttempt
+              ? inProgressAttempt.sections.filter(
+                  (section) => section.status !== "pending",
+                ).length
+              : 0;
+            const totalSectionsCount = inProgressAttempt?.sections.length || 3;
 
             return (
               <li
@@ -205,39 +230,60 @@ export default function ExamListPage() {
                 </div>
 
                 <div className="mt-auto flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0 text-sm">
+                  <div className="min-w-0 space-y-1 text-sm">
                     {attemptsQuery.isPending ? (
                       <Skeleton className="h-5 w-36" />
-                    ) : attemptSummary ? (
-                      <span className="inline-flex flex-wrap items-center gap-1.5 font-medium text-primary tabular-nums">
-                        <CheckCircle2
-                          className="size-4 shrink-0"
-                          aria-hidden="true"
-                        />
-                        Đã làm {attemptSummary.count} lần · Cao nhất{" "}
-                        {attemptSummary.bestScore}/{attemptSummary.bestTotal}
-                      </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 text-muted-foreground">
-                        <CircleDashed
-                          className="size-4 shrink-0"
-                          aria-hidden="true"
-                        />
-                        Chưa làm
-                      </span>
+                      <>
+                        {inProgressAttempt && (
+                          <div>
+                            <Badge
+                              variant="secondary"
+                              data-ocid={`exam_list.in_progress.${index + 1}`}
+                              className="rounded-full text-primary tabular-nums"
+                            >
+                              Đang làm dở ({completedSectionsCount}/
+                              {totalSectionsCount} phần)
+                            </Badge>
+                          </div>
+                        )}
+                        {completedSummary ? (
+                          <span className="inline-flex flex-wrap items-center gap-1.5 font-medium text-primary tabular-nums">
+                            <CheckCircle2
+                              className="size-4 shrink-0"
+                              aria-hidden="true"
+                            />
+                            Đã làm {completedSummary.count} lần · Cao nhất{" "}
+                            {completedSummary.bestScore}/
+                            {completedSummary.bestTotal}
+                          </span>
+                        ) : !inProgressAttempt ? (
+                          <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                            <CircleDashed
+                              className="size-4 shrink-0"
+                              aria-hidden="true"
+                            />
+                            Chưa làm
+                          </span>
+                        ) : null}
+                      </>
                     )}
                   </div>
 
                   <Button
                     asChild
-                    className="min-h-11 w-full rounded-md sm:w-auto"
+                    className="min-h-12 w-full rounded-md sm:min-h-11 sm:w-auto"
                   >
                     <Link
                       to="/luyen-de/$examId"
                       params={{ examId: exam.id }}
                       data-ocid={`exam_list.start.${index + 1}`}
                     >
-                      {attemptSummary ? "Làm lại đề" : "Vào làm đề"}
+                      {inProgressAttempt
+                        ? "Làm tiếp đề"
+                        : completedSummary
+                          ? "Làm lại đề"
+                          : "Vào làm đề"}
                       <ArrowRight className="size-4" aria-hidden="true" />
                     </Link>
                   </Button>

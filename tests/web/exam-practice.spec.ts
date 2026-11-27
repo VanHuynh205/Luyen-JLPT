@@ -341,3 +341,189 @@ test("retake flow resets exam runner and updates attempt count on exam list", as
     "Làm lại đề",
   );
 });
+
+test("submitting section 1 saves progress immediately, shows instant explanations, and resumes at section 2 after reload", async ({
+  page,
+}) => {
+  await page.goto("/luyen-de/n4-2023-07");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-01.1"]')
+    .click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-02.3"]')
+    .click();
+
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await expect(
+    page.locator('[data-ocid="exam_runner.section_result"]'),
+  ).toContainText("Đã nộp Phần 1 · Đúng 2/28 câu");
+  const explanation1 = page.locator(
+    '[data-ocid="exam_runner.explanation.n4-2023-07-v-01"]',
+  );
+  await expect(explanation1).toBeVisible();
+  await expect(
+    page
+      .locator('[data-ocid="exam_runner.question.n4-2023-07-v-01"] ruby rt')
+      .first(),
+  ).toBeVisible();
+
+  await page.reload();
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  const step1 = page.locator('[data-ocid="exam_runner.step.1"]');
+  const step2 = page.locator('[data-ocid="exam_runner.step.2"]');
+  const step3 = page.locator('[data-ocid="exam_runner.step.3"]');
+  await expect(step1).toBeEnabled();
+  await expect(step1).toContainText("Đã nộp");
+  await expect(step2).toBeEnabled();
+  await expect(step3).toBeDisabled();
+  await expect(
+    page.locator('[data-ocid="exam_runner.section_intro"]'),
+  ).toContainText("Phần 2: Ngữ pháp & Đọc hiểu");
+
+  await step1.click();
+  await expect(
+    page.locator('[data-ocid="exam_runner.section_result"]'),
+  ).toContainText("Đã nộp Phần 1 · Đúng 2/28 câu");
+  await expect(explanation1).toBeVisible();
+
+  await page.goto("/luyen-de");
+  const card = page.locator('[data-ocid="exam_list.item.4"]');
+  await expect(card).toContainText("Đang làm dở (1/3 phần)");
+  await expect(page.locator('[data-ocid="exam_list.start.4"]')).toContainText(
+    "Làm tiếp đề",
+  );
+
+  await page.goto("/tien-do");
+  const examSection = page.locator(
+    '[data-ocid="progress.exam_attempts.section"]',
+  );
+  await expect(examSection).toContainText("Đang làm dở · Tiếp tục");
+});
+
+test("reloading mid-section restores selected answers and remaining countdown (Review Focus #2)", async ({
+  page,
+}) => {
+  await page.goto("/luyen-de/n4-2023-07");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  const choice1 = page.locator(
+    '[data-ocid="exam_runner.choice.n4-2023-07-v-01.1"]',
+  );
+  const choice2 = page.locator(
+    '[data-ocid="exam_runner.choice.n4-2023-07-v-02.3"]',
+  );
+  await choice1.click();
+  await choice2.click();
+
+  await expect(
+    page.locator('[data-ocid="exam_runner.timer_bar"]'),
+  ).toContainText("Đã trả lời 2 / 28 câu");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toHaveAttribute(
+    "data-draft-state",
+    "saved",
+  );
+
+  await page.reload();
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+  await expect(
+    page.locator('[data-ocid="exam_runner.timer_bar"]'),
+  ).toContainText("Đã trả lời 2 / 28 câu");
+  await expect(choice1).toHaveAttribute("aria-pressed", "true");
+  await expect(choice2).toHaveAttribute("aria-pressed", "true");
+  await expect(
+    page.locator('[data-ocid="exam_runner.timer_value"]'),
+  ).toHaveText(/^(25:00|24:\d{2})$/);
+});
+
+test("retrying a completed exam creates Attempt #2 without overwriting Attempt #1 score and opens JLPT breakdown + remediation", async ({
+  page,
+}) => {
+  await page.goto("/luyen-de/n4-2023-07");
+  await expect(page.locator('[data-ocid="exam_runner.page"]')).toBeVisible();
+
+  // Attempt #1: 1 correct answer -> 1/57
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-01.1"]')
+    .click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.skip_listening_button"]').click();
+
+  const summary = page.locator('[data-ocid="exam_runner.summary"]');
+  await expect(summary).toBeVisible();
+  await expect(summary).toContainText("1/57");
+  await expect(
+    page.locator('[data-ocid="exam_runner.jlpt_breakdown"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-ocid="exam_runner.jlpt_verdict"]'),
+  ).toContainText("Chưa làm phần Nghe hiểu");
+
+  // Open 10-min quick remediation deck
+  const remediationBtn = page.locator(
+    '[data-ocid="exam_runner.remediation_button"]',
+  );
+  await expect(remediationBtn).toBeVisible();
+  await remediationBtn.click();
+  const dialog = page.locator('[data-ocid="remediation.dialog"]');
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("Thẻ 1 / 15");
+  await page.locator('[data-ocid="remediation.flip_button"]').click();
+  await page.locator('[data-ocid="remediation.next_button"]').click();
+  await expect(dialog).toContainText("Thẻ 2 / 15");
+  await page.locator('[data-ocid="remediation.close_button"]').click();
+  await expect(dialog).toBeHidden();
+
+  // Attempt #2: 3 correct answers -> 3/57
+  await page.locator('[data-ocid="exam_runner.retry_button"]').click();
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-01.1"]')
+    .click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-02.3"]')
+    .click();
+  await page
+    .locator('[data-ocid="exam_runner.choice.n4-2023-07-v-03.1"]')
+    .click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.start_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.submit_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.next_section_button"]').click();
+  await page.locator('[data-ocid="exam_runner.skip_listening_button"]').click();
+
+  await expect(summary).toContainText("3/57");
+  const attemptSelector = page.locator(
+    '[data-ocid="exam_runner.attempt_selector"]',
+  );
+  await expect(attemptSelector).toContainText("Lần 1 · 1/57");
+  await expect(attemptSelector).toContainText("Lần 2 · 3/57");
+
+  await page.locator('[data-ocid="exam_runner.attempt.1"]').click();
+  await expect(summary).toContainText("1/57");
+  await page.locator('[data-ocid="exam_runner.attempt.2"]').click();
+  await expect(summary).toContainText("3/57");
+
+  await page.goto("/luyen-de");
+  const card = page.locator('[data-ocid="exam_list.item.4"]');
+  await expect(card).toContainText("Đã làm 2 lần · Cao nhất 3/57");
+
+  await page.goto("/tien-do");
+  const examSection = page.locator(
+    '[data-ocid="progress.exam_attempts.section"]',
+  );
+  await expect(examSection).toContainText("Lần #1");
+  await expect(examSection).toContainText("1/57");
+  await expect(examSection).toContainText("Lần #2");
+  await expect(examSection).toContainText("3/57");
+});
