@@ -4,8 +4,12 @@ import type { CompoundEntry, KanjiEntry } from "@/core/content/types";
 import { KanjiQuizMode } from "@/core/progress/types";
 import { describe, expect, it, vi } from "vitest";
 import {
+  ALL_QUIZ_LESSONS,
   clampQuestionCount,
+  filterQuizSourceByLesson,
   generateQuiz,
+  generateTargetedQuiz,
+  listQuizLessons,
   questionCountRange,
   quizPoolSize,
 } from "./quizEngine";
@@ -202,5 +206,56 @@ describe("question count", () => {
       questions.length,
     );
     for (const q of questions) expect(new Set(q.choices).size).toBe(4);
+  });
+});
+
+describe("lesson filtering and targeted quiz", () => {
+  it("lists Minna lessons sorted numerically and filters pack by lesson", () => {
+    const lessons = listQuizLessons(n4);
+    expect(lessons[0]).toBe("26");
+    expect(lessons[lessons.length - 1]).toBe("49-50");
+    expect(lessons).toHaveLength(13);
+
+    expect(filterQuizSourceByLesson(n4, ALL_QUIZ_LESSONS)).toEqual(n4);
+
+    const lesson26 = filterQuizSourceByLesson(n4, "26");
+    expect(lesson26.kanji.length).toBe(10);
+    expect(lesson26.compounds.length).toBe(28);
+    expect(lesson26.kanji.every((k) => k.lessons.includes("26"))).toBe(true);
+    expect(lesson26.compounds.every((c) => c.lessons.includes("26"))).toBe(
+      true,
+    );
+
+    const missing = filterQuizSourceByLesson(n4, "99");
+    expect(missing).toEqual({ kanji: [], compounds: [] });
+  });
+
+  it("builds targeted quiz strictly from deduplicated valid IDs capped at 50", () => {
+    const single = generateTargetedQuiz(
+      ["kanji-K-60AA", "kanji-K-60AA", "non-existent-id"],
+      n4,
+    );
+    expect(single.map((q) => q.item.id)).toEqual(["kanji-K-60AA"]);
+    expect(single[0]?.choices).toHaveLength(4);
+    expect(new Set(single[0]?.choices).size).toBe(4);
+
+    const mixed = generateTargetedQuiz(
+      ["kanji-K-60AA", "compound-KC001", "bad-id"],
+      n4,
+    );
+    expect(mixed.map((q) => q.item.id)).toEqual([
+      "kanji-K-60AA",
+      "compound-KC001",
+    ]);
+
+    const overCapIds = [
+      ...n4.kanji.slice(0, 30).map((k) => k.id),
+      ...n4.compounds.slice(0, 35).map((c) => c.id),
+    ];
+    const capped = generateTargetedQuiz(overCapIds, n4);
+    expect(capped).toHaveLength(50);
+    expect(new Set(capped.map((q) => q.item.id)).size).toBe(50);
+
+    expect(generateTargetedQuiz(["kanji-1"], miniPack)).toEqual([]);
   });
 });

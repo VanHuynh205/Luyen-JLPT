@@ -1,4 +1,7 @@
+import { db } from "@/adapters/local-store/db";
+import { normalize } from "@/components/kanji-library/search";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -22,11 +25,12 @@ import {
   ChevronLeft,
   ChevronRight,
   PartyPopper,
+  Search,
   SearchX,
   Shuffle,
   X,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const ALL = "all";
 const sections: VocabSection[] = ["từ chính", "hội thoại", "đọc", "ghi tay"];
@@ -56,9 +60,12 @@ export default function VocabularyPage() {
   const [lesson, setLesson] = useState(ALL);
   const [section, setSection] = useState(ALL);
   const [onlyUnknown, setOnlyUnknown] = useState(false);
+  const [query, setQuery] = useState("");
   const [order, setOrder] = useState<string[] | null>(null);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const filterKey = `vocabFilter:${manifest.level}`;
+  const userChangedFilterRef = useRef(false);
 
   const statusMap = useMemo(() => {
     const map = new Map<string, boolean>();
@@ -72,6 +79,69 @@ export default function VocabularyPage() {
       counts.set(word.lesson, (counts.get(word.lesson) ?? 0) + 1);
     }
     return [...counts].sort(([left], [right]) => left - right);
+  }, [vocabulary]);
+
+  const validLessonSet = useMemo(
+    () => new Set(lessons.map(([number]) => String(number))),
+    [lessons],
+  );
+
+  useEffect(() => {
+    let active = true;
+    userChangedFilterRef.current = false;
+    void db.settings
+      .get(filterKey)
+      .then((row) => {
+        if (!active || userChangedFilterRef.current) return;
+        const raw = row?.value;
+        if (typeof raw !== "object" || raw === null) return;
+        const saved = raw as Record<string, unknown>;
+        const nextLesson =
+          typeof saved.lesson === "string" &&
+          (saved.lesson === ALL || validLessonSet.has(saved.lesson))
+            ? saved.lesson
+            : ALL;
+        const nextSection =
+          typeof saved.section === "string" &&
+          (saved.section === ALL ||
+            (sections as readonly string[]).includes(saved.section))
+            ? saved.section
+            : ALL;
+        const nextOnlyUnknown =
+          typeof saved.onlyUnknown === "boolean" ? saved.onlyUnknown : false;
+        setLesson(nextLesson);
+        setSection(nextSection);
+        setOnlyUnknown(nextOnlyUnknown);
+        setOrder(null);
+        setIndex(0);
+        setFlipped(false);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, [filterKey, validLessonSet]);
+
+  const persistFilter = (next: {
+    lesson: string;
+    section: string;
+    onlyUnknown: boolean;
+  }) => {
+    userChangedFilterRef.current = true;
+    void db.settings
+      .put({ key: filterKey, value: next })
+      .catch(() => undefined);
+  };
+
+  const searchIndex = useMemo(() => {
+    const map = new Map<string, string[]>();
+    for (const w of vocabulary) {
+      map.set(
+        w.id,
+        [w.word, w.reading, w.hanViet ?? "", w.meaning].map(normalize),
+      );
+    }
+    return map;
   }, [vocabulary]);
 
   const lessonWords = useMemo(
@@ -98,18 +168,28 @@ export default function VocabularyPage() {
     [lessonWords, section],
   );
 
+  const normalizedQuery = normalize(query);
+  const matchedWords = useMemo(() => {
+    if (!normalizedQuery) return topicWords;
+    return topicWords.filter((w) =>
+      (searchIndex.get(w.id) ?? []).some((field) =>
+        field.includes(normalizedQuery),
+      ),
+    );
+  }, [topicWords, searchIndex, normalizedQuery]);
+
   const deck = useMemo(() => {
-    let words = topicWords;
+    let words = matchedWords;
     if (order) {
       const byId = new Map(words.map((w) => [w.id, w]));
       words = order.flatMap((id) => byId.get(id) ?? []);
     }
     return onlyUnknown ? words.filter((w) => !statusMap.get(w.id)) : words;
-  }, [topicWords, order, onlyUnknown, statusMap]);
+  }, [matchedWords, order, onlyUnknown, statusMap]);
 
   const safeIndex = Math.min(index, Math.max(deck.length - 1, 0));
   const current = deck[safeIndex];
-  const knownCount = topicWords.filter((w) => statusMap.get(w.id)).length;
+  const knownCount = matchedWords.filter((w) => statusMap.get(w.id)).length;
 
   const resetPosition = () => {
     setIndex(0);
@@ -192,99 +272,143 @@ export default function VocabularyPage() {
         </p>
       </header>
 
-      <div className="mb-3 flex flex-col gap-2.5 rounded-xl border bg-card p-3 shadow-subtle sm:mb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:p-4">
-        <div className="grid min-w-0 flex-1 grid-cols-2 gap-2 sm:max-w-xl sm:gap-4">
-          <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
-            <Label htmlFor="vocab-lesson" className="text-xs sm:text-sm">
-              Bài học
-            </Label>
-            <Select
-              value={lesson}
-              onValueChange={(v) => {
-                setLesson(v);
+      <div className="mb-3 flex flex-col gap-3 rounded-xl border bg-card p-3 shadow-subtle sm:mb-6 sm:p-4">
+        <div className="relative">
+          <Label htmlFor="vocab-search" className="sr-only">
+            Tìm kiếm từ vựng
+          </Label>
+          <Search
+            className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            aria-hidden="true"
+          />
+          <Input
+            id="vocab-search"
+            type="search"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setOrder(null);
+              resetPosition();
+            }}
+            placeholder="Tìm từ, cách đọc, Hán Việt hoặc nghĩa… (vd: 探す, さがす, tham, tìm)"
+            className="h-11 bg-background pl-10 pr-11 text-sm sm:text-base"
+            data-ocid="vocabulary.search_input"
+            autoComplete="off"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
                 setOrder(null);
                 resetPosition();
               }}
+              aria-label="Xóa tìm kiếm"
+              data-ocid="vocabulary.search_clear_button"
+              className="absolute right-0.5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground transition-smooth hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <SelectTrigger
-                id="vocab-lesson"
-                data-ocid="vocabulary.lesson.select"
-                className="min-h-11 min-w-0 w-full"
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="max-h-72">
-                <SelectItem value={ALL}>
-                  Tất cả bài ({vocabulary.length})
-                </SelectItem>
-                {lessons.map(([number, count]) => (
-                  <SelectItem key={number} value={String(number)}>
-                    Bài {number} ({count})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
-            <Label htmlFor="vocab-section" className="text-xs sm:text-sm">
-              Mục
-            </Label>
-            <Select
-              value={section}
-              onValueChange={(v) => {
-                setSection(v);
-                setOrder(null);
-                resetPosition();
-              }}
-            >
-              <SelectTrigger
-                id="vocab-section"
-                data-ocid="vocabulary.section.select"
-                className="min-h-11 min-w-0 w-full"
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value={ALL}>
-                  Tất cả mục ({lessonWords.length})
-                </SelectItem>
-                {sections.map((s) => (
-                  <SelectItem key={s} value={s}>
-                    {s.charAt(0).toUpperCase() + s.slice(1)} (
-                    {sectionCounts.get(s) ?? 0})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-between gap-2 sm:justify-end sm:gap-3">
-          <div className="flex items-center gap-2.5">
-            <Switch
-              id="vocab-only-unknown"
-              data-ocid="vocabulary.only_unknown.switch"
-              checked={onlyUnknown}
-              onCheckedChange={(checked) => {
-                setOnlyUnknown(checked);
-                resetPosition();
-              }}
-            />
-            <Label
-              htmlFor="vocab-only-unknown"
-              className="cursor-pointer text-xs sm:text-sm"
-            >
-              Chỉ ôn thẻ chưa thuộc
-            </Label>
-          </div>
-          {statusesQuery.isSuccess && (
-            <p className="text-xs text-muted-foreground sm:text-sm">
-              Đã thuộc{" "}
-              <span className="font-semibold tabular-nums text-foreground">
-                {knownCount}/{topicWords.length}
-              </span>
-              <span className="hidden sm:inline"> từ trong lựa chọn này</span>
-            </p>
+              <X className="size-4" aria-hidden="true" />
+            </button>
           )}
+        </div>
+
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-2 sm:max-w-xl sm:gap-4">
+            <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
+              <Label htmlFor="vocab-lesson" className="text-xs sm:text-sm">
+                Bài học
+              </Label>
+              <Select
+                value={lesson}
+                onValueChange={(v) => {
+                  setLesson(v);
+                  setOrder(null);
+                  resetPosition();
+                  persistFilter({ lesson: v, section, onlyUnknown });
+                }}
+              >
+                <SelectTrigger
+                  id="vocab-lesson"
+                  data-ocid="vocabulary.lesson.select"
+                  className="min-h-11 min-w-0 w-full"
+                >
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="max-h-72">
+                  <SelectItem value={ALL}>
+                    Tất cả bài ({vocabulary.length})
+                  </SelectItem>
+                  {lessons.map(([number, count]) => (
+                    <SelectItem key={number} value={String(number)}>
+                      Bài {number} ({count})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="flex min-w-0 flex-col gap-1 sm:gap-1.5">
+              <Label htmlFor="vocab-section" className="text-xs sm:text-sm">
+                Mục
+              </Label>
+              <Select
+                value={section}
+                onValueChange={(v) => {
+                  setSection(v);
+                  setOrder(null);
+                  resetPosition();
+                  persistFilter({ lesson, section: v, onlyUnknown });
+                }}
+              >
+                <SelectTrigger
+                  id="vocab-section"
+                  data-ocid="vocabulary.section.select"
+                  className="min-h-11 min-w-0 w-full"
+                >
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={ALL}>
+                    Tất cả mục ({lessonWords.length})
+                  </SelectItem>
+                  {sections.map((s) => (
+                    <SelectItem key={s} value={s}>
+                      {s.charAt(0).toUpperCase() + s.slice(1)} (
+                      {sectionCounts.get(s) ?? 0})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-2 sm:justify-end sm:gap-3">
+            <div className="flex items-center gap-2.5">
+              <Switch
+                id="vocab-only-unknown"
+                data-ocid="vocabulary.only_unknown.switch"
+                checked={onlyUnknown}
+                onCheckedChange={(checked) => {
+                  setOnlyUnknown(checked);
+                  resetPosition();
+                  persistFilter({ lesson, section, onlyUnknown: checked });
+                }}
+              />
+              <Label
+                htmlFor="vocab-only-unknown"
+                className="cursor-pointer text-xs sm:text-sm"
+              >
+                Chỉ ôn thẻ chưa thuộc
+              </Label>
+            </div>
+            {statusesQuery.isSuccess && (
+              <p className="text-xs text-muted-foreground sm:text-sm">
+                Đã thuộc{" "}
+                <span className="font-semibold tabular-nums text-foreground">
+                  {knownCount}/{matchedWords.length}
+                </span>
+                <span className="hidden sm:inline"> từ trong lựa chọn này</span>
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -315,7 +439,7 @@ export default function VocabularyPage() {
             Thử lại
           </Button>
         </div>
-      ) : topicWords.length === 0 ? (
+      ) : matchedWords.length === 0 ? (
         <div
           data-ocid="vocabulary.no_match.empty_state"
           className="flex flex-col items-center gap-3 rounded-xl border bg-card p-10 text-center shadow-subtle"
@@ -328,7 +452,7 @@ export default function VocabularyPage() {
             Không có từ nào khớp bộ lọc
           </h2>
           <p className="max-w-md text-sm text-muted-foreground">
-            Hãy thử chọn bài hoặc mục khác để xem thêm từ vựng.
+            Hãy thử chọn bài, mục khác hoặc thay đổi từ khóa tìm kiếm.
           </p>
           <Button
             type="button"
@@ -337,8 +461,10 @@ export default function VocabularyPage() {
             onClick={() => {
               setLesson(ALL);
               setSection(ALL);
+              setQuery("");
               setOrder(null);
               resetPosition();
+              persistFilter({ lesson: ALL, section: ALL, onlyUnknown });
             }}
           >
             Xóa bộ lọc
@@ -363,6 +489,7 @@ export default function VocabularyPage() {
             onClick={() => {
               setOnlyUnknown(false);
               resetPosition();
+              persistFilter({ lesson, section, onlyUnknown: false });
             }}
           >
             Xem tất cả thẻ
@@ -438,7 +565,7 @@ export default function VocabularyPage() {
                 data-ocid="vocabulary.shuffle_button"
                 className="min-h-11 sm:min-h-9"
                 onClick={() => {
-                  setOrder(shuffled(topicWords.map((w) => w.id)));
+                  setOrder(shuffled(matchedWords.map((w) => w.id)));
                   resetPosition();
                 }}
               >

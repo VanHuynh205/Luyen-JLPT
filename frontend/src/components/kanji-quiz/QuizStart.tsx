@@ -1,11 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import type { KanjiQuizMode } from "@/core/progress/types";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 import { BookOpen, Play } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import {
+  ALL_QUIZ_LESSONS,
   clampQuestionCount,
   modeLabel,
   modeOptions,
@@ -93,15 +102,21 @@ export function QuizStart({
   mode,
   count,
   poolSize,
+  lessons,
+  lesson,
   onModeChange,
   onCountChange,
+  onLessonChange,
   onStart,
 }: {
   mode: KanjiQuizMode;
   count: number;
   poolSize: number;
+  lessons: readonly string[];
+  lesson: string;
   onModeChange: (mode: KanjiQuizMode) => void;
   onCountChange: (count: number) => void;
+  onLessonChange: (lesson: string) => void;
   onStart: () => void;
 }) {
   return (
@@ -150,6 +165,34 @@ export function QuizStart({
         </div>
       </fieldset>
 
+      {lessons.length > 0 && (
+        <div className="max-w-xs space-y-2">
+          <Label
+            htmlFor="kanji-quiz-lesson"
+            className="text-sm font-semibold text-foreground"
+          >
+            Bài Minna
+          </Label>
+          <Select value={lesson} onValueChange={onLessonChange}>
+            <SelectTrigger
+              id="kanji-quiz-lesson"
+              data-ocid="kanji_quiz.lesson.select"
+              className="min-h-11 w-full bg-card"
+            >
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className="max-h-72">
+              <SelectItem value={ALL_QUIZ_LESSONS}>Tất cả bài</SelectItem>
+              {lessons.map((item) => (
+                <SelectItem key={item} value={item}>
+                  Bài {item}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      )}
+
       <CountPicker
         mode={mode}
         count={count}
@@ -177,6 +220,7 @@ export function QuizStart({
           <Button
             type="button"
             size="lg"
+            disabled={poolSize === 0}
             onClick={onStart}
             className="rounded-md transition-smooth"
             data-ocid="kanji_quiz.start.primary_button"

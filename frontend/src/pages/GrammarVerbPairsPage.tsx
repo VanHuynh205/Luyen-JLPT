@@ -1,12 +1,14 @@
 import { GrammarSubNav } from "@/components/grammar/GrammarSubNav";
+import { MiniDrillPanel } from "@/components/grammar/MiniDrillPanel";
 import { normalize } from "@/components/kanji-library/search";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { VerbPair } from "@/core/content/types";
+import { buildVerbPairDrill } from "@/core/grammar/miniDrill";
 import { useReadyPack } from "@/hooks/useContent";
 import { Search, SearchX, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 function buildSearchText(pair: VerbPair): string {
   return normalize(
@@ -41,6 +43,11 @@ export default function GrammarVerbPairsPage() {
       .map((item) => item.pair);
   }, [query, searchIndex, verbPairs]);
 
+  const buildQuestions = useCallback(
+    () => buildVerbPairDrill(verbPairs, 5),
+    [verbPairs],
+  );
+
   const trimmed = query.trim();
 
   return (
@@ -65,6 +72,12 @@ export default function GrammarVerbPairsPage() {
       </header>
 
       <GrammarSubNav />
+
+      <MiniDrillPanel
+        className="mt-5"
+        description="Chọn nhanh tự động từ (が) và tha động từ (を) tương ứng."
+        buildQuestions={buildQuestions}
+      />
 
       <div
         aria-label="Phân biệt tự động từ và tha động từ"

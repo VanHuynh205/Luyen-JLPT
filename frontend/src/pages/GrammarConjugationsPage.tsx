@@ -1,4 +1,5 @@
 import { GrammarSubNav } from "@/components/grammar/GrammarSubNav";
+import { MiniDrillPanel } from "@/components/grammar/MiniDrillPanel";
 import { normalize } from "@/components/kanji-library/search";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,9 +13,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { ConjugationRule } from "@/core/content/types";
+import { buildConjugationDrill } from "@/core/grammar/miniDrill";
 import { useReadyPack } from "@/hooks/useContent";
 import { Search, SearchX, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 function buildSearchText(rule: ConjugationRule): string {
   return normalize(
@@ -73,6 +75,11 @@ export default function GrammarConjugationsPage() {
       .map((entry) => entry.rule);
   }, [conjugations, query, searchIndex]);
 
+  const buildQuestions = useCallback(
+    () => buildConjugationDrill(conjugations, 5),
+    [conjugations],
+  );
+
   const trimmed = query.trim();
 
   return (
@@ -95,6 +102,12 @@ export default function GrammarConjugationsPage() {
       </header>
 
       <GrammarSubNav />
+
+      <MiniDrillPanel
+        className="mt-5"
+        description="Ôn nhanh nhận diện thể và cách chia động từ theo nhóm."
+        buildQuestions={buildQuestions}
+      />
 
       <div className="relative mt-6 md:mt-8">
         <label htmlFor="conjugations-search" className="sr-only">

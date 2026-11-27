@@ -339,12 +339,31 @@ function ProgressContent() {
         <ExamAttemptsSection attempts={examAttempts} />
       )}
       {mostMissed.length > 0 && (
-        <section className="rounded-xl border bg-card p-5 shadow-subtle md:p-6">
-          <div className="mb-4 flex items-baseline justify-between gap-2">
-            <h2 className="text-xl font-semibold">Kanji và từ ghép hay sai</h2>
-            <span className="text-xs text-muted-foreground">
-              Ưu tiên ôn lại
-            </span>
+        <section
+          data-ocid="progress.most_missed.section"
+          className="rounded-xl border bg-card p-5 shadow-subtle md:p-6"
+        >
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-semibold">
+                Kanji và từ ghép hay sai
+              </h2>
+              <span className="text-xs text-muted-foreground">
+                Ưu tiên ôn lại
+              </span>
+            </div>
+            <Button asChild size="sm" className="min-h-11 rounded-md">
+              <Link
+                to="/kanji"
+                search={{
+                  retryIds: mostMissed.map((item) => item.id).join(","),
+                }}
+                data-ocid="progress.most_missed.practice_button"
+              >
+                Luyện lại {mostMissed.length} chữ hay sai
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
           <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {mostMissed.map((item) => (

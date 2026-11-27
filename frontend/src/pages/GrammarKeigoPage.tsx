@@ -1,4 +1,5 @@
 import { GrammarSubNav } from "@/components/grammar/GrammarSubNav";
+import { MiniDrillPanel } from "@/components/grammar/MiniDrillPanel";
 import { normalize } from "@/components/kanji-library/search";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,9 +12,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { KeigoEntry } from "@/core/content/types";
+import { buildKeigoDrill } from "@/core/grammar/miniDrill";
 import { useReadyPack } from "@/hooks/useContent";
 import { Search, SearchX, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 function buildSearchText(entry: KeigoEntry): string {
   return normalize(
@@ -86,6 +88,8 @@ export default function GrammarKeigoPage() {
       .map((item) => item.entry);
   }, [keigo, query, searchIndex]);
 
+  const buildQuestions = useCallback(() => buildKeigoDrill(keigo, 5), [keigo]);
+
   const trimmed = query.trim();
 
   return (
@@ -108,6 +112,12 @@ export default function GrammarKeigoPage() {
       </header>
 
       <GrammarSubNav />
+
+      <MiniDrillPanel
+        className="mt-5"
+        description="Phân biệt nhanh tôn kính ngữ và khiêm nhường ngữ I / II."
+        buildQuestions={buildQuestions}
+      />
 
       <div className="relative mt-6 md:mt-8">
         <label htmlFor="keigo-search" className="sr-only">

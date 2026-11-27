@@ -18,6 +18,8 @@ import { useMemo, useState } from "react";
 const ALL_LESSONS = "all";
 const KANJI_PAGE = 24;
 const COMPOUND_PAGE = 36;
+const SUBNAV_BASE =
+  "inline-flex min-h-11 items-center rounded-full border px-4 py-2 text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 function LoadMore({
   shown,
@@ -146,6 +148,37 @@ function KanjiLibrary({ pack }: { pack: ContentPack }) {
           </Link>
         </Button>
       </header>
+
+      <nav
+        aria-label="Phân mục Kanji"
+        data-ocid="kanji_subnav.nav"
+        className="mt-6 flex flex-wrap items-center gap-2"
+      >
+        <Link
+          to="/kanji"
+          activeOptions={{ exact: true }}
+          data-ocid="kanji_subnav.quiz.link"
+          className={`${SUBNAV_BASE} border-border bg-card text-muted-foreground hover:border-primary/40 hover:bg-secondary/60 hover:text-foreground`}
+          activeProps={{
+            className: `${SUBNAV_BASE} border-primary bg-primary text-primary-foreground shadow-subtle`,
+            "aria-current": "page",
+          }}
+        >
+          Trắc nghiệm
+        </Link>
+        <Link
+          to="/kanji/tra-cuu"
+          activeOptions={{ exact: false }}
+          data-ocid="kanji_subnav.library.link"
+          className={`${SUBNAV_BASE} border-border bg-card text-muted-foreground hover:border-primary/40 hover:bg-secondary/60 hover:text-foreground`}
+          activeProps={{
+            className: `${SUBNAV_BASE} border-primary bg-primary text-primary-foreground shadow-subtle`,
+            "aria-current": "page",
+          }}
+        >
+          Tra cứu Kanji
+        </Link>
+      </nav>
 
       <div className="relative mt-6 md:mt-8">
         <label htmlFor="kanji-search" className="sr-only">

@@ -28,9 +28,32 @@ export interface QuizQuestion {
 export const QUESTION_COUNT = 10;
 /** Khớp giới hạn `total` trong bảng `kanji_quiz_attempts` của Supabase. */
 export const MAX_QUESTION_COUNT = 1000;
+export const ALL_QUIZ_LESSONS = "all";
+export const MAX_TARGETED_IDS = 50;
 const CHOICE_COUNT = 4;
 
-type QuizSource = Pick<ContentPack, "kanji" | "compounds">;
+export type QuizSource = Pick<ContentPack, "kanji" | "compounds">;
+
+export function listQuizLessons(pack: QuizSource): string[] {
+  return Array.from(
+    new Set(
+      [...pack.kanji, ...pack.compounds].flatMap((entry) => entry.lessons),
+    ),
+  ).sort((a, b) => Number.parseInt(a, 10) - Number.parseInt(b, 10));
+}
+
+export function filterQuizSourceByLesson(
+  pack: QuizSource,
+  lesson: string,
+): QuizSource {
+  if (!lesson || lesson === ALL_QUIZ_LESSONS) {
+    return { kanji: pack.kanji, compounds: pack.compounds };
+  }
+  return {
+    kanji: pack.kanji.filter((entry) => entry.lessons.includes(lesson)),
+    compounds: pack.compounds.filter((entry) => entry.lessons.includes(lesson)),
+  };
+}
 
 export function quizPoolSize(mode: KanjiQuizMode, pack: QuizSource): number {
   if (mode === KanjiQuizMode.single) return pack.kanji.length;
@@ -266,6 +289,21 @@ function compoundQuestion(
 
 const TYPES: QuestionType[] = ["reading", "meaning", "writing"];
 
+function buildItemQuestion(
+  item: QuizItem,
+  index: number,
+  pack: QuizSource,
+): QuizQuestion | null {
+  for (const type of shuffle(TYPES)) {
+    const q =
+      item.kind === "kanji"
+        ? kanjiQuestion(item, type, index, pack.kanji)
+        : compoundQuestion(item, type, index, pack.compounds);
+    if (q) return q;
+  }
+  return null;
+}
+
 export function generateQuiz(
   mode: KanjiQuizMode,
   pack: QuizSource,
@@ -291,17 +329,60 @@ export function generateQuiz(
   const questions: QuizQuestion[] = [];
   for (const item of shuffle(pool)) {
     if (questions.length === target) break;
-    const index = questions.length;
-    for (const type of shuffle(TYPES)) {
-      const q =
-        item.kind === "kanji"
-          ? kanjiQuestion(item, type, index, pack.kanji)
-          : compoundQuestion(item, type, index, pack.compounds);
-      if (q) {
-        questions.push(q);
-        break;
+    const q = buildItemQuestion(item, questions.length, pack);
+    if (q) questions.push(q);
+  }
+  return questions;
+}
+
+/** Parse comma-separated retryIds query string into unique trimmed IDs (bounded against huge URLs). */
+export function parseRetryIds(searchStr: string): string[] {
+  const raw = new URLSearchParams(searchStr).get("retryIds");
+  if (!raw) return [];
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const part of raw.split(",", 200)) {
+    const id = part.trim();
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    result.push(id);
+  }
+  return result;
+}
+
+/** Build a targeted drill from valid, deduplicated kanji/compound IDs (capped at 50), drawing distractors from the full pack. */
+export function generateTargetedQuiz(
+  itemIds: readonly string[],
+  pack: QuizSource,
+): QuizQuestion[] {
+  const kanjiById = new Map(pack.kanji.map((entry) => [entry.id, entry]));
+  const compoundById = new Map(
+    pack.compounds.map((entry) => [entry.id, entry]),
+  );
+  const seen = new Set<string>();
+  const targets: QuizItem[] = [];
+
+  for (const rawId of itemIds) {
+    const id = rawId.trim();
+    if (!id || seen.has(id)) continue;
+    const kanji = kanjiById.get(id);
+    if (kanji) {
+      seen.add(id);
+      targets.push({ kind: "kanji", id, entry: kanji });
+    } else {
+      const compound = compoundById.get(id);
+      if (compound) {
+        seen.add(id);
+        targets.push({ kind: "compound", id, entry: compound });
       }
     }
+    if (targets.length >= MAX_TARGETED_IDS) break;
+  }
+
+  const questions: QuizQuestion[] = [];
+  for (const item of targets) {
+    const q = buildItemQuestion(item, questions.length, pack);
+    if (q) questions.push(q);
   }
   return questions;
 }
